@@ -22,7 +22,7 @@ interface SubscriberData {
 }
 
 export default function RevenueDashboard() {
-  const [revenue, setRevenue] = useState<RevenueData>({
+  const [revenue, setRevenue] = useState<SubscriberData>({
     currentMRR: 9786,
     targetMRR: 65000,
     clientCount: 11,

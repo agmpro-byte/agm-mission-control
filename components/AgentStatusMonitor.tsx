@@ -35,7 +35,7 @@ export default function AgentStatusMonitor() {
         name: 'Claude Opus 4'
       },
       lastActivity: new Date().toISOString(),
-      currentTask: 'Monitoring operations',
+      currentTask: 'Morning briefings, task routing, flywheel cadence enforcement, EOD rundowns',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,
@@ -47,12 +47,13 @@ export default function AgentStatusMonitor() {
       id: 'harlan',
       name: 'Harlan',
       role: 'Lead Engineer',
-      status: 'idle',
+      status: 'active',
       model: {
         provider: 'Anthropic',
-        name: 'Claude Code'
+        name: 'Claude Code (Opus 4.6)'
       },
-      lastActivity: new Date(Date.now() - 3600000).toISOString(),
+      lastActivity: new Date().toISOString(),
+      currentTask: 'Dashboard audit + deploy, email triage cron, integration builds, credentialed ops',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,
@@ -70,6 +71,7 @@ export default function AgentStatusMonitor() {
         name: 'Sonar Large'
       },
       lastActivity: new Date(Date.now() - 86400000).toISOString(),
+      currentTask: 'Awaiting deployment — will scan Facebook, X, Reddit for contractor pain signals',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,
@@ -87,6 +89,7 @@ export default function AgentStatusMonitor() {
         name: 'Gemini Ultra'
       },
       lastActivity: new Date(Date.now() - 86400000).toISOString(),
+      currentTask: 'Awaiting first assignment — AGM Friday Episode 1 script, newsletter copy, blog posts',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,
@@ -104,6 +107,7 @@ export default function AgentStatusMonitor() {
         name: 'GPT-4o'
       },
       lastActivity: new Date(Date.now() - 86400000).toISOString(),
+      currentTask: 'Awaiting first assignment — YouTube thumbnails, social graphics, slide decks',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,
@@ -121,6 +125,7 @@ export default function AgentStatusMonitor() {
         name: 'ChatGPT'
       },
       lastActivity: new Date(Date.now() - 86400000).toISOString(),
+      currentTask: 'Awaiting first assignment — LinkedIn posts, X threads, content distribution',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,

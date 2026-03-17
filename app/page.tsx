@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
 import { Home, Calendar as CalendarIcon, Brain, Zap, Activity, Settings, Users, DollarSign, GitBranch, ArrowRightLeft, FileText } from 'lucide-react'
+import ErrorBoundary from '@/components/ErrorBoundary'
 
 // Dynamically import components to avoid SSR issues
 const TaskBoard = dynamic(() => import('@/components/TaskBoard'), { ssr: false })
@@ -151,7 +152,9 @@ export default function MissionControl() {
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {renderContent()}
+        <ErrorBoundary>
+          {renderContent()}
+        </ErrorBoundary>
       </main>
     </div>
   )

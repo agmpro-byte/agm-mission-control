@@ -32,12 +32,11 @@ export default function MemoryViewer() {
   const loadMemoryFiles = async () => {
     setLoading(true)
     try {
-      const response = await fetch('/api/memory')
-      const data = await response.json()
-      setFiles(data.files)
-      if (data.files.length > 0 && !selectedFile) {
-        setSelectedFile(data.files[0])
-      }
+      // Static deployment — no API available. Show placeholder.
+      setFiles([
+        { name: 'SOUL.md', path: '/SOUL.md', type: 'soul', lastModified: new Date().toISOString(), size: 0, preview: 'Briggs identity and operating instructions' },
+        { name: 'MEMORY.md', path: '/MEMORY.md', type: 'custom', lastModified: new Date().toISOString(), size: 0, preview: 'Long-term memory index' },
+      ])
     } catch (error) {
       console.error('Failed to load memory files:', error)
     } finally {
@@ -46,14 +45,7 @@ export default function MemoryViewer() {
   }
 
   const loadFileContent = async (filePath: string) => {
-    try {
-      const response = await fetch(`/api/memory?path=${encodeURIComponent(filePath)}`)
-      const data = await response.json()
-      setFileContent(data.content)
-    } catch (error) {
-      console.error('Failed to load file content:', error)
-      setFileContent('Failed to load file content')
-    }
+    setFileContent('Memory viewer requires a running server (localhost:3001). This static deployment shows structure only.')
   }
 
   const getFileIcon = (type: string) => {

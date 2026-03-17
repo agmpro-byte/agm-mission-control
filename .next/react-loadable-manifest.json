@@ -2,7 +2,7 @@
   "app/page.tsx -> @/components/AgentStatusMonitor": {
     "id": 4703,
     "files": [
-      "static/chunks/703.c6bec54e5a829d26.js"
+      "static/chunks/703.3c7e0574b04d9426.js"
     ]
   },
   "app/page.tsx -> @/components/Calendar": {
@@ -56,7 +56,7 @@
   "app/page.tsx -> @/components/MemoryViewer": {
     "id": 3022,
     "files": [
-      "static/chunks/22.f3d89b706c4ebeee.js"
+      "static/chunks/22.b4e4371e340c72df.js"
     ]
   },
   "app/page.tsx -> @/components/PublishingPipeline": {

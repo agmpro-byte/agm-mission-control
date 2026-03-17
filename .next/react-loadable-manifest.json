@@ -14,7 +14,7 @@
   "app/page.tsx -> @/components/ClientsDashboard": {
     "id": 9710,
     "files": [
-      "static/chunks/710.4a0af318a0e24346.js"
+      "static/chunks/710.a2cec4376f9746bb.js"
     ]
   },
   "app/page.tsx -> @/components/ContentPipeline": {
@@ -24,9 +24,9 @@
     ]
   },
   "app/page.tsx -> @/components/FlywheelStatus": {
-    "id": 3828,
+    "id": 2279,
     "files": [
-      "static/chunks/828.c9f94d7f9a5b53af.js"
+      "static/chunks/279.39024baab82762af.js"
     ]
   },
   "app/page.tsx -> @/components/HandoffMonitor": {
@@ -38,7 +38,7 @@
   "app/page.tsx -> @/components/IntegrationMonitor": {
     "id": 9095,
     "files": [
-      "static/chunks/95.dd063f568338a65b.js"
+      "static/chunks/95.4bf64c28fcd41ee9.js"
     ]
   },
   "app/page.tsx -> @/components/MeetTheTeamDetailed": {

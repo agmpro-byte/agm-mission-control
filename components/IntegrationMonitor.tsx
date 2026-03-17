@@ -1,218 +1,205 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Zap, CheckCircle, AlertCircle, XCircle, RefreshCw, Activity } from 'lucide-react'
+import { useState } from 'react'
+import { Zap, CheckCircle, AlertCircle, Clock, RefreshCw } from 'lucide-react'
 
 interface Integration {
   id: string
   name: string
-  platform: string
   client: string
-  status: 'operational' | 'degraded' | 'error' | 'pending'
-  lastSync: string
-  metrics: {
-    customersTotal: number
-    customersSynced: number
-    subscriptions: number
-    errorRate: number
-    uptime: number
-  }
-  durability?: number
-  features?: string[]
+  fsmPlatform: string
+  target: string
+  status: 'live' | 'building' | 'prospect'
+  proToolsTier: string
+  priceSignal: string
+  description: string
+  features: string[]
 }
 
 export default function IntegrationMonitor() {
-  const [integrations, setIntegrations] = useState<Integration[]>([
+  const [integrations] = useState<Integration[]>([
     {
       id: 'jobber-texas-turf',
-      name: 'Texas Turf',
-      platform: 'Jobber → AGM',
+      name: 'Texas Turf → AGM',
       client: 'Ivana',
-      status: 'operational',
-      lastSync: new Date(Date.now() - 300000).toISOString(), // 5 min ago
-      metrics: {
-        customersTotal: 0,
-        customersSynced: 0,
-        subscriptions: 0,
-        errorRate: 0,
-        uptime: 99.9
-      },
-      durability: 10,
-      features: ['4 workflows live', 'Self-healing Layers 1-4', 'Health endpoint', 'Event store', 'Quote lifecycle sync']
+      fsmPlatform: 'Jobber',
+      target: 'AGM',
+      status: 'live',
+      proToolsTier: 'Core',
+      priceSignal: '$297/mo',
+      description: 'Quote lifecycle sync — sent, approved, closed. Self-healing Layers 1-4.',
+      features: ['4 workflows live', 'Self-healing retry', 'Health endpoint', 'Event store']
+    },
+    {
+      id: 'centah-hg',
+      name: 'HG Costco → AGM + Salesforce',
+      client: 'Heavenly Greens',
+      fsmPlatform: 'CENTAH',
+      target: 'AGM + Salesforce',
+      status: 'live',
+      proToolsTier: 'Custom',
+      priceSignal: '$297/mo (confirm)',
+      description: 'Costco lead intake — email polling every 5 min, dual write to AGM and Salesforce.',
+      features: ['Costco lead polling', 'Dual CRM write', 'HG Polly (Voice AI) in dev']
+    },
+    {
+      id: 'building-connected-sunburst',
+      name: 'Sunburst → BuildingConnected',
+      client: 'Noelle',
+      fsmPlatform: 'BuildingConnected',
+      target: 'AGM',
+      status: 'prospect',
+      proToolsTier: 'Enterprise',
+      priceSignal: '$997/mo',
+      description: 'Commercial construction bid management. Webhooks confirmed, CRM sync pattern proven.',
+      features: ['API research done', 'Webhook support confirmed', 'CRM sync pattern documented']
+    },
+    {
+      id: 'arcsite-oasis',
+      name: 'Oasis Turf → Arc Site',
+      client: 'Oasis Turf',
+      fsmPlatform: 'Arc Site',
+      target: 'AGM',
+      status: 'prospect',
+      proToolsTier: 'TBD',
+      priceSignal: 'TBD',
+      description: 'AI SEO ($1,297/mo) coming. Arc Site integration candidate.',
+      features: ['AI SEO onboarding', 'Arc Site integration scoping']
     },
     {
       id: 'field-routes-valleywide',
-      name: 'Valleywide Pest',
-      platform: 'Field Routes → AGM',
+      name: 'Valleywide Pest → Field Routes',
       client: 'Valleywide Pest Control',
-      status: 'pending',
-      lastSync: new Date(Date.now() - 86400000).toISOString(),
-      metrics: {
-        customersTotal: 8373,
-        customersSynced: 0,
-        subscriptions: 4599,
-        errorRate: 0,
-        uptime: 0
-      },
-      features: ['APIs connected', 'Data audit complete', '49% phone-only (no email)', 'Sync engine building']
-    },
-    {
-      id: 'centah-salesforce',
-      name: 'HG Costco',
-      platform: 'CENTAH → Salesforce',
-      client: 'Heavenly Greens',
-      status: 'operational',
-      lastSync: new Date(Date.now() - 900000).toISOString(), // 15 min ago
-      metrics: {
-        customersTotal: 0,
-        customersSynced: 0,
-        subscriptions: 0,
-        errorRate: 0,
-        uptime: 99.5
-      },
-      features: ['Costco lead intake', 'Email polling every 5 min', 'AGM + Salesforce dual write', 'HG Polly (Voice AI) in dev']
+      fsmPlatform: 'Field Routes',
+      target: 'AGM (via SERTBO)',
+      status: 'building',
+      proToolsTier: 'Pro',
+      priceSignal: '$597/mo',
+      description: 'Enterprise-scale pest control. Via Andrew/SERTBO channel. Validates standalone Pro Tools.',
+      features: ['APIs connected', 'Data audit complete', '49% phone-only contacts', 'Sync engine building']
     }
   ])
 
   const getStatusIcon = (status: string) => {
     switch (status) {
-      case 'operational': return <CheckCircle className="w-5 h-5 text-green-400" />
-      case 'degraded': return <AlertCircle className="w-5 h-5 text-yellow-400" />
-      case 'error': return <XCircle className="w-5 h-5 text-red-400" />
-      case 'pending': return <RefreshCw className="w-5 h-5 text-gray-400" />
-      default: return <Activity className="w-5 h-5 text-gray-400" />
+      case 'live': return <CheckCircle className="w-5 h-5 text-green-400" />
+      case 'building': return <RefreshCw className="w-5 h-5 text-yellow-400" />
+      case 'prospect': return <Clock className="w-5 h-5 text-blue-400" />
+      default: return <AlertCircle className="w-5 h-5 text-gray-400" />
     }
   }
 
-  const getStatusColor = (status: string) => {
+  const getStatusLabel = (status: string) => {
     switch (status) {
-      case 'operational': return 'bg-green-500'
-      case 'degraded': return 'bg-yellow-500'
-      case 'error': return 'bg-red-500'
-      case 'pending': return 'bg-gray-500'
-      default: return 'bg-gray-500'
+      case 'live': return { text: 'Live', classes: 'bg-green-900 text-green-300' }
+      case 'building': return { text: 'Building', classes: 'bg-yellow-900 text-yellow-300' }
+      case 'prospect': return { text: 'Prospect', classes: 'bg-blue-900 text-blue-300' }
+      default: return { text: status, classes: 'bg-gray-800 text-gray-400' }
     }
   }
 
-  const formatLastSync = (timestamp: string) => {
-    const date = new Date(timestamp)
-    const now = new Date()
-    const diff = now.getTime() - date.getTime()
-    const minutes = Math.floor(diff / 60000)
-    
-    if (minutes < 1) return 'Just now'
-    if (minutes < 60) return `${minutes}m ago`
-    if (minutes < 1440) return `${Math.floor(minutes / 60)}h ago`
-    return `${Math.floor(minutes / 1440)}d ago`
-  }
-
-  const operationalCount = integrations.filter(i => i.status === 'operational').length
-  const totalCustomers = integrations.reduce((acc, i) => acc + i.metrics.customersTotal, 0)
-  const syncedCustomers = integrations.reduce((acc, i) => acc + i.metrics.customersSynced, 0)
+  const liveCount = integrations.filter(i => i.status === 'live').length
+  const buildingCount = integrations.filter(i => i.status === 'building').length
+  const prospectCount = integrations.filter(i => i.status === 'prospect').length
 
   return (
     <div className="bg-gray-900 rounded-lg shadow-xl p-6 border border-gray-800">
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center space-x-3">
           <Zap className="w-6 h-6 text-yellow-400" />
-          <h2 className="text-xl font-semibold text-white">Integration Health</h2>
+          <h2 className="text-xl font-semibold text-white">Pro Tools Integrations</h2>
         </div>
-        <div className="flex items-center space-x-2">
-          <span className="text-sm text-gray-400">
-            {operationalCount}/{integrations.length} Operational
-          </span>
-          <div className={`w-3 h-3 rounded-full ${getStatusColor('operational')} animate-pulse`} />
+        <div className="flex items-center space-x-3 text-sm">
+          <span className="text-green-400">{liveCount} Live</span>
+          <span className="text-gray-600">|</span>
+          <span className="text-yellow-400">{buildingCount} Building</span>
+          <span className="text-gray-600">|</span>
+          <span className="text-blue-400">{prospectCount} Prospect</span>
         </div>
       </div>
 
-      {/* Summary Stats */}
+      {/* Pipeline Summary */}
       <div className="grid grid-cols-3 gap-4 mb-6">
-        <div className="bg-black rounded-lg p-3 border border-gray-800">
-          <p className="text-2xl font-semibold text-white">{totalCustomers.toLocaleString()}</p>
-          <p className="text-sm text-gray-400">Total Customers</p>
+        <div className="bg-black rounded-lg p-3 border border-green-800 text-center">
+          <p className="text-2xl font-semibold text-green-400">{liveCount}</p>
+          <p className="text-sm text-gray-400">Live Integrations</p>
         </div>
-        <div className="bg-black rounded-lg p-3 border border-gray-800">
-          <p className="text-2xl font-semibold text-white">{syncedCustomers.toLocaleString()}</p>
-          <p className="text-sm text-gray-400">Synced</p>
+        <div className="bg-black rounded-lg p-3 border border-yellow-800 text-center">
+          <p className="text-2xl font-semibold text-yellow-400">{buildingCount}</p>
+          <p className="text-sm text-gray-400">In Development</p>
         </div>
-        <div className="bg-black rounded-lg p-3 border border-gray-800">
-          <p className="text-2xl font-semibold text-white">
-            {((syncedCustomers / totalCustomers) * 100).toFixed(1)}%
-          </p>
-          <p className="text-sm text-gray-400">Sync Rate</p>
+        <div className="bg-black rounded-lg p-3 border border-blue-800 text-center">
+          <p className="text-2xl font-semibold text-blue-400">{prospectCount}</p>
+          <p className="text-sm text-gray-400">Prospects</p>
         </div>
       </div>
 
       {/* Integration Cards */}
       <div className="space-y-4">
-        {integrations.map(integration => (
-          <div 
-            key={integration.id} 
-            className={`bg-black rounded-lg p-4 border transition-all ${
-              integration.status === 'error' ? 'border-red-500' : 'border-gray-800'
-            }`}
-          >
-            <div className="flex items-center justify-between mb-3">
-              <div className="flex items-center space-x-3">
-                {getStatusIcon(integration.status)}
-                <div>
-                  <h3 className="font-medium text-white">{integration.name}</h3>
-                  <p className="text-sm text-gray-400">{integration.platform}</p>
+        {integrations.map(integration => {
+          const statusLabel = getStatusLabel(integration.status)
+          return (
+            <div
+              key={integration.id}
+              className={`bg-black rounded-lg p-4 border transition-all ${
+                integration.status === 'live' ? 'border-green-800' :
+                integration.status === 'building' ? 'border-yellow-800' :
+                'border-gray-800'
+              }`}
+            >
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center space-x-3">
+                  {getStatusIcon(integration.status)}
+                  <div>
+                    <h3 className="font-medium text-white">{integration.name}</h3>
+                    <p className="text-sm text-gray-400">Contact: {integration.client}</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <span className={`text-xs px-2 py-1 rounded ${statusLabel.classes}`}>
+                    {statusLabel.text}
+                  </span>
+                  <span className="text-xs px-2 py-1 bg-gray-700 text-gray-300 rounded">
+                    {integration.proToolsTier} — {integration.priceSignal}
+                  </span>
                 </div>
               </div>
-              <div className="text-right">
-                <p className="text-sm font-medium text-gray-300 capitalize">{integration.status}</p>
-                <p className="text-xs text-gray-500">Last sync: {formatLastSync(integration.lastSync)}</p>
-              </div>
-            </div>
 
-            {/* Metrics */}
-            <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 mb-3">
-              <div>
-                <p className="text-xs text-gray-500">Customers</p>
-                <p className="text-sm font-medium text-white">
-                  {integration.metrics.customersSynced}/{integration.metrics.customersTotal}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-500">Subscriptions</p>
-                <p className="text-sm font-medium text-white">{integration.metrics.subscriptions}</p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-500">Error Rate</p>
-                <p className={`text-sm font-medium ${
-                  integration.metrics.errorRate > 1 ? 'text-red-400' : 'text-white'
-                }`}>
-                  {integration.metrics.errorRate}%
-                </p>
-              </div>
-              <div>
-                <p className="text-xs text-gray-500">Uptime</p>
-                <p className="text-sm font-medium text-white">{integration.metrics.uptime}%</p>
-              </div>
-              {integration.durability && (
-                <div>
-                  <p className="text-xs text-gray-500">Durability</p>
-                  <p className="text-sm font-medium text-white">{integration.durability}/10</p>
-                </div>
-              )}
-            </div>
+              <p className="text-sm text-gray-400 mb-3">{integration.description}</p>
 
-            {/* Features */}
-            {integration.features && (
+              {/* Features */}
               <div className="flex flex-wrap gap-2">
                 {integration.features.map((feature, idx) => (
-                  <span 
-                    key={idx} 
+                  <span
+                    key={idx}
                     className="text-xs px-2 py-1 bg-gray-800 text-gray-300 rounded"
                   >
                     {feature}
                   </span>
                 ))}
               </div>
-            )}
+            </div>
+          )
+        })}
+      </div>
+
+      {/* FSM Platform Coverage */}
+      <div className="mt-6 p-4 bg-gray-800/50 rounded-lg border border-gray-700">
+        <h4 className="text-sm font-medium text-gray-300 mb-2">Pro Tools Tier Model</h4>
+        <div className="grid grid-cols-3 gap-3 text-xs">
+          <div className="bg-black rounded p-2 border border-gray-700">
+            <p className="text-white font-medium">Core — $297/mo</p>
+            <p className="text-gray-400">Jobber, Housecall Pro</p>
           </div>
-        ))}
+          <div className="bg-black rounded p-2 border border-gray-700">
+            <p className="text-white font-medium">Pro — $597/mo</p>
+            <p className="text-gray-400">Field Routes, Service Fusion</p>
+          </div>
+          <div className="bg-black rounded p-2 border border-gray-700">
+            <p className="text-white font-medium">Enterprise — $997/mo</p>
+            <p className="text-gray-400">ServiceTitan, BuildingConnected</p>
+          </div>
+        </div>
       </div>
     </div>
   )

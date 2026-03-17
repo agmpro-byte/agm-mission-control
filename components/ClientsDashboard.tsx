@@ -21,7 +21,7 @@ interface Client {
 interface ProToolsClient {
   name: string
   fsmPlatform: string
-  status: 'live' | 'in_progress'
+  status: 'live' | 'in_progress' | 'prospect'
   monthlyValue: number
   notes: string
 }
@@ -45,7 +45,9 @@ export default function ClientsDashboard() {
     { name: 'Heavenly Greens', fsmPlatform: 'CENTAH / Salesforce', status: 'live', monthlyValue: 297, notes: 'Costco lead intake. Confirm payment status.' },
     { name: 'Artificial Turf Express', fsmPlatform: 'Jobber', status: 'live', monthlyValue: 0, notes: 'Confirm payment status.' },
     { name: 'Texas Turf (Ivana)', fsmPlatform: 'Jobber', status: 'live', monthlyValue: 0, notes: '4 workflows live. Free integration as founding partner.' },
-    { name: 'Valleywide Pest', fsmPlatform: 'Field Routes', status: 'in_progress', monthlyValue: 0, notes: '8,373 customers. Building sync engine.' },
+    { name: 'Sunburst Landscaping', fsmPlatform: 'BuildingConnected', status: 'prospect', monthlyValue: 0, notes: 'Contact: Noelle. Already on BuildingConnected. Commercial construction bid integration.' },
+    { name: 'Oasis Turf', fsmPlatform: 'Arc Site', status: 'prospect', monthlyValue: 0, notes: 'AI SEO ($1,297/mo) coming soon. Arc Site integration candidate.' },
+    { name: 'Valleywide Pest', fsmPlatform: 'Field Routes', status: 'prospect', monthlyValue: 0, notes: 'Via Andrew/SERTBO. 8,373 customers. Building sync engine. Not yet paying.' },
   ])
 
   const totalMRR = clients.reduce((sum, c) => sum + c.totalMonthly, 0)

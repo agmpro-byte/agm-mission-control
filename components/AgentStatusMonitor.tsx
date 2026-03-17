@@ -35,11 +35,11 @@ export default function AgentStatusMonitor() {
         name: 'Claude Opus 4'
       },
       lastActivity: new Date().toISOString(),
-      currentTask: 'Building dashboard improvements',
+      currentTask: 'Monitoring operations',
       metrics: {
-        tasksCompleted: 47,
-        avgResponseTime: 2.3,
-        successRate: 98.5
+        tasksCompleted: 0,
+        avgResponseTime: 0,
+        successRate: 0
       },
       flywheelStage: 'Orchestration (All Stages)'
     },
@@ -54,9 +54,9 @@ export default function AgentStatusMonitor() {
       },
       lastActivity: new Date(Date.now() - 3600000).toISOString(),
       metrics: {
-        tasksCompleted: 156,
-        avgResponseTime: 4.7,
-        successRate: 99.2
+        tasksCompleted: 0,
+        avgResponseTime: 0,
+        successRate: 0
       },
       flywheelStage: 'Infrastructure (Meta)'
     },
@@ -101,7 +101,7 @@ export default function AgentStatusMonitor() {
       status: 'pending',
       model: {
         provider: 'OpenAI',
-        name: 'GPT-5 Vision'
+        name: 'GPT-4o'
       },
       lastActivity: new Date(Date.now() - 86400000).toISOString(),
       metrics: {

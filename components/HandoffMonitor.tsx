@@ -19,21 +19,21 @@ export default function HandoffMonitor() {
       name: 'Email Triage',
       path: 'latest.json',
       description: 'ACTION/REVIEW/FYI/INTEL categorization',
-      schedule: '6:30 AM Daily',
+      schedule: '5:30 AM Daily',
       status: 'pending'
     },
     {
       name: 'Command Center',
       path: 'latest_command_center.json',
       description: 'Google Sheets data (all tabs)',
-      schedule: '6:35 AM Daily',
+      schedule: '5:35 AM Daily',
       status: 'pending'
     },
     {
       name: 'Full Briefing',
       path: 'latest_full_briefing.json',
       description: 'System health, webhooks, cron status',
-      schedule: '6:40 AM Daily',
+      schedule: '5:40 AM Daily',
       status: 'pending'
     }
   ])
@@ -184,7 +184,7 @@ export default function HandoffMonitor() {
             Waiting for First Cron Run
           </h4>
           <p className="text-sm text-blue-400">
-            Harlan's morning cron jobs will begin at 6:30 AM PT tomorrow. 
+            Harlan's morning cron jobs will begin at 5:30 AM PT tomorrow. 
             The pipeline will populate automatically during the briefing sequence.
           </p>
         </div>

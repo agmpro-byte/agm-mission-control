@@ -1,141 +1,78 @@
 'use client'
 
 import { useState } from 'react'
-import { Building2, Users, TrendingUp, DollarSign, CheckCircle, Clock, Zap, Globe, Search } from 'lucide-react'
+import { Building2, Users, TrendingUp, DollarSign, CheckCircle, Clock, Zap, Globe, AlertTriangle } from 'lucide-react'
 
 interface Client {
   name: string
-  type: 'Manufacturer' | 'Dealer' | 'Retailer'
-  services: {
-    agmBuild?: number
-    agmGrow?: number
-    agmScale?: number
+  type: 'Operator' | 'External' | 'Pipeline'
+  fsmPlatform: string
+  integrationStatus: 'live' | 'in_progress' | 'planned'
+  products: {
+    integration?: number
+    platform?: number
     aiSEO?: number
-    hosting?: number
   }
   totalMonthly: number
-  status: 'active' | 'onboarding' | 'paused'
+  notes: string
 }
 
 interface ClientData {
   activeClients: number
+  pipelineClients: number
   targetClients: number
   totalMRR: number
   avgClientValue: number
-  serviceBreakdown: {
-    agmBuild: number
-    agmGrow: number
-    agmScale: number
-    aiSEO: number
-    hosting: number
-  }
   clients: Client[]
 }
 
 export default function ClientsDashboard() {
   const [data] = useState<ClientData>({
-    activeClients: 11,
-    targetClients: 75,
-    totalMRR: 9186, // Calculated from actual client data
-    avgClientValue: 835,
-    serviceBreakdown: {
-      agmBuild: 3,
-      agmGrow: 5,
-      agmScale: 1,
-      aiSEO: 4,
-      hosting: 8
-    },
+    activeClients: 2,
+    pipelineClients: 1,
+    targetClients: 220,
+    totalMRR: 1094,
+    avgClientValue: 547,
     clients: [
-      { 
-        name: 'Realturf', 
-        type: 'Manufacturer', 
-        services: { agmGrow: 697 }, 
-        totalMonthly: 697, 
-        status: 'active' 
+      {
+        name: 'Texas Turf (Ivana)',
+        type: 'External',
+        fsmPlatform: 'Jobber',
+        integrationStatus: 'live',
+        products: { platform: 797 },
+        totalMonthly: 797,
+        notes: 'First external customer. 4 workflows live, self-healing Layers 1-4. Founding partner — free integration as proof of concept.'
       },
-      { 
-        name: 'Amazing Turf & Lawn', 
-        type: 'Dealer', 
-        services: { agmBuild: 497, aiSEO: 997, hosting: 25 }, 
-        totalMonthly: 1519, 
-        status: 'active' 
+      {
+        name: 'Heavenly Greens',
+        type: 'Operator',
+        fsmPlatform: 'CENTAH / Salesforce',
+        integrationStatus: 'live',
+        products: { integration: 297 },
+        totalMonthly: 297,
+        notes: 'Troy\'s company. Costco lead intake → AGM + Salesforce. Polling every 5 min. HG Polly (Voice AI) in development.'
       },
-      { 
-        name: 'Texas Turf USA', 
-        type: 'Dealer', 
-        services: { agmGrow: 797, hosting: 25 }, 
-        totalMonthly: 822, 
-        status: 'active' 
-      },
-      { 
-        name: 'Alpha Turf', 
-        type: 'Dealer', 
-        services: { agmGrow: 697 }, 
-        totalMonthly: 697, 
-        status: 'active' 
-      },
-      { 
-        name: 'Sunburst Landscaping', 
-        type: 'Dealer', 
-        services: { agmGrow: 797, aiSEO: 997, hosting: 25 }, 
-        totalMonthly: 1819, 
-        status: 'active' 
-      },
-      { 
-        name: 'Turf Prep', 
-        type: 'Dealer', 
-        services: { agmBuild: 497 }, 
-        totalMonthly: 497, 
-        status: 'active' 
-      },
-      { 
-        name: 'East Coast Turf Pros', 
-        type: 'Dealer', 
-        services: { hosting: 25 }, 
-        totalMonthly: 25, 
-        status: 'active' 
-      },
-      { 
-        name: 'Oasis Turf', 
-        type: 'Dealer', 
-        services: { agmScale: 997, hosting: 75 }, 
-        totalMonthly: 1072, 
-        status: 'active' 
-      },
-      { 
-        name: 'DFW', 
-        type: 'Dealer', 
-        services: { agmBuild: 497, aiSEO: 997, hosting: 25 }, 
-        totalMonthly: 1519, 
-        status: 'active' 
-      },
-      { 
-        name: 'JNR Home Improvement', 
-        type: 'Dealer', 
-        services: { agmGrow: 797 }, 
-        totalMonthly: 797, 
-        status: 'active' 
-      },
-      { 
-        name: 'Turf Casa', 
-        type: 'Retailer', 
-        services: { hosting: 25 }, 
-        totalMonthly: 25, 
-        status: 'active' 
+      {
+        name: 'Valleywide Pest',
+        type: 'Pipeline',
+        fsmPlatform: 'Field Routes',
+        integrationStatus: 'in_progress',
+        products: {},
+        totalMonthly: 0,
+        notes: '8,373 customers, 4,599 subscriptions. 49% phone-only (no email). APIs connected, data audit complete. Building sync engine.'
       }
     ]
   })
 
-  const progressPercentage = (data.activeClients / data.targetClients) * 100
+  const liveClients = data.clients.filter(c => c.integrationStatus === 'live')
+  const progressPercentage = Math.max((data.activeClients / data.targetClients) * 100, 1)
 
-  const getServiceIcon = (service: string) => {
-    switch (service) {
-      case 'agmBuild': return '🏗️'
-      case 'agmGrow': return '📈'
-      case 'agmScale': return '🚀'
-      case 'aiSEO': return '🔍'
-      case 'hosting': return '🌐'
-      default: return '📊'
+  const getStatusBadge = (status: string) => {
+    switch (status) {
+      case 'live': return { bg: 'bg-green-900', text: 'text-green-300', label: 'Live' }
+      case 'in_progress': return { bg: 'bg-yellow-900', text: 'text-yellow-300', label: 'In Progress' }
+      case 'planned': return { bg: 'bg-gray-700', text: 'text-gray-300', label: 'Planned' }
+      default: return { bg: 'bg-gray-700', text: 'text-gray-300', label: status }
     }
   }
 
@@ -144,139 +81,108 @@ export default function ClientsDashboard() {
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center space-x-3">
           <Building2 className="w-6 h-6 text-indigo-400" />
-          <h2 className="text-xl font-semibold text-white">AGM Clients</h2>
+          <h2 className="text-xl font-semibold text-white">AGM Pro Tools — Customers</h2>
         </div>
         <span className="text-sm text-gray-400">${data.totalMRR.toLocaleString()} MRR</span>
       </div>
 
-      {/* Client Progress */}
-      <div className="mb-8">
-        <div className="flex justify-between items-end mb-2">
-          <div>
-            <p className="text-3xl font-bold text-white">
-              {data.activeClients}<span className="text-lg text-gray-400"> clients</span>
-            </p>
-            <p className="text-sm text-gray-400">Active AGM accounts</p>
-          </div>
-          <div className="text-right">
-            <p className="text-2xl font-semibold text-gray-300">{data.targetClients}</p>
-            <p className="text-sm text-gray-400">Year 1 target</p>
-          </div>
+      {/* Key Metrics */}
+      <div className="grid grid-cols-4 gap-3 mb-6">
+        <div className="bg-black rounded-lg p-3 border border-gray-800 text-center">
+          <p className="text-xs text-gray-500">Paying Customers</p>
+          <p className="text-2xl font-semibold text-white">{data.activeClients}</p>
         </div>
-
-        <div className="relative h-8 bg-gray-800 rounded-full overflow-hidden">
-          <div 
-            className="absolute h-full bg-gradient-to-r from-indigo-500 to-indigo-400 transition-all duration-1000"
-            style={{ width: `${progressPercentage}%` }}
-          />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-sm font-medium text-white">
-              {progressPercentage.toFixed(0)}% of target
-            </span>
-          </div>
+        <div className="bg-black rounded-lg p-3 border border-gray-800 text-center">
+          <p className="text-xs text-gray-500">Pipeline</p>
+          <p className="text-2xl font-semibold text-yellow-400">{data.pipelineClients}</p>
         </div>
-
-        <div className="mt-3 text-center text-sm text-gray-400">
-          {data.targetClients - data.activeClients} more clients to hit Year 1 goal
+        <div className="bg-black rounded-lg p-3 border border-gray-800 text-center">
+          <p className="text-xs text-gray-500">Live MRR</p>
+          <p className="text-2xl font-semibold text-green-400">${data.totalMRR.toLocaleString()}</p>
+        </div>
+        <div className="bg-black rounded-lg p-3 border border-gray-800 text-center">
+          <p className="text-xs text-gray-500">ARR (Projected)</p>
+          <p className="text-2xl font-semibold text-white">${(data.totalMRR * 12).toLocaleString()}</p>
         </div>
       </div>
 
-      {/* Service Breakdown */}
-      <div className="grid grid-cols-5 gap-3 mb-6">
-        <div className="bg-black rounded-lg p-3 border border-gray-800 text-center">
-          <p className="text-lg mb-1">🏗️</p>
-          <p className="text-xs text-gray-500">AGM Build</p>
-          <p className="text-xl font-semibold text-white">{data.serviceBreakdown.agmBuild}</p>
+      {/* Year 1 Target */}
+      <div className="mb-6">
+        <div className="flex justify-between items-end mb-2">
+          <p className="text-sm text-gray-400">Year 1 Target: ~220 subscribers @ $297/mo = ~$65K MRR</p>
+          <p className="text-sm text-gray-400">{progressPercentage.toFixed(1)}%</p>
         </div>
-        <div className="bg-black rounded-lg p-3 border border-gray-800 text-center">
-          <p className="text-lg mb-1">📈</p>
-          <p className="text-xs text-gray-500">AGM Grow</p>
-          <p className="text-xl font-semibold text-white">{data.serviceBreakdown.agmGrow}</p>
+        <div className="relative h-6 bg-gray-800 rounded-full overflow-hidden">
+          <div
+            className="absolute h-full bg-gradient-to-r from-indigo-600 to-indigo-400 transition-all duration-1000"
+            style={{ width: `${progressPercentage}%` }}
+          />
         </div>
-        <div className="bg-black rounded-lg p-3 border border-gray-800 text-center">
-          <p className="text-lg mb-1">🚀</p>
-          <p className="text-xs text-gray-500">AGM Scale</p>
-          <p className="text-xl font-semibold text-white">{data.serviceBreakdown.agmScale}</p>
-        </div>
-        <div className="bg-black rounded-lg p-3 border border-gray-800 text-center">
-          <p className="text-lg mb-1">🔍</p>
-          <p className="text-xs text-gray-500">AI SEO</p>
-          <p className="text-xl font-semibold text-white">{data.serviceBreakdown.aiSEO}</p>
-        </div>
-        <div className="bg-black rounded-lg p-3 border border-gray-800 text-center">
-          <p className="text-lg mb-1">🌐</p>
-          <p className="text-xs text-gray-500">Hosting</p>
-          <p className="text-xl font-semibold text-white">{data.serviceBreakdown.hosting}</p>
+        <p className="mt-2 text-xs text-gray-500 text-center">
+          Early stage — product is built, activation is the gap. Flywheel + Jobber Marketplace are the growth engines.
+        </p>
+      </div>
+
+      {/* FSM Platform Coverage */}
+      <div className="mb-6">
+        <h3 className="font-medium text-white mb-3">FSM Platform Coverage</h3>
+        <div className="grid grid-cols-3 gap-3">
+          <div className="bg-black rounded-lg p-3 border border-green-800">
+            <p className="text-sm font-medium text-green-400">Jobber</p>
+            <p className="text-xs text-gray-400">~200K service businesses</p>
+            <p className="text-xs text-green-300 mt-1">Live — Texas Turf</p>
+          </div>
+          <div className="bg-black rounded-lg p-3 border border-green-800">
+            <p className="text-sm font-medium text-green-400">CENTAH / Salesforce</p>
+            <p className="text-xs text-gray-400">Enterprise / Franchise</p>
+            <p className="text-xs text-green-300 mt-1">Live — Heavenly Greens</p>
+          </div>
+          <div className="bg-black rounded-lg p-3 border border-yellow-800">
+            <p className="text-sm font-medium text-yellow-400">Field Routes</p>
+            <p className="text-xs text-gray-400">Pest control vertical</p>
+            <p className="text-xs text-yellow-300 mt-1">Building — Valleywide</p>
+          </div>
         </div>
       </div>
 
       {/* Client List */}
       <div>
-        <h3 className="font-medium text-white mb-3 flex items-center justify-between">
-          <span>All Clients</span>
-          <span className="text-xs text-gray-400">Sorted by monthly value</span>
-        </h3>
-        <div className="space-y-2 max-h-[400px] overflow-y-auto pr-2">
-          {data.clients.sort((a, b) => b.totalMonthly - a.totalMonthly).map((client, index) => (
-            <div key={index} className="bg-black rounded-lg p-3 border border-gray-800 hover:border-gray-700 transition-colors">
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <div className="flex items-center justify-between">
+        <h3 className="font-medium text-white mb-3">Customer Detail</h3>
+        <div className="space-y-3">
+          {data.clients.map((client, index) => {
+            const badge = getStatusBadge(client.integrationStatus)
+            return (
+              <div key={index} className="bg-black rounded-lg p-4 border border-gray-800 hover:border-gray-700 transition-colors">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center space-x-3">
                     <p className="font-medium text-white">{client.name}</p>
-                    <div className="text-right">
-                      <p className="font-semibold text-white">${client.totalMonthly.toLocaleString()}</p>
-                      <p className="text-xs text-gray-400">/month</p>
-                    </div>
+                    <span className={`text-xs px-2 py-1 ${badge.bg} ${badge.text} rounded`}>
+                      {badge.label}
+                    </span>
+                    <span className="text-xs px-2 py-1 bg-gray-700 text-gray-300 rounded">
+                      {client.fsmPlatform}
+                    </span>
                   </div>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-xs text-gray-400">{client.type}</span>
-                    <div className="flex items-center space-x-2">
-                      {client.services.agmBuild && (
-                        <span className="text-xs px-2 py-1 bg-blue-900 text-blue-300 rounded">
-                          Build ${client.services.agmBuild}
-                        </span>
-                      )}
-                      {client.services.agmGrow && (
-                        <span className="text-xs px-2 py-1 bg-green-900 text-green-300 rounded">
-                          Grow ${client.services.agmGrow}
-                        </span>
-                      )}
-                      {client.services.agmScale && (
-                        <span className="text-xs px-2 py-1 bg-purple-900 text-purple-300 rounded">
-                          Scale ${client.services.agmScale}
-                        </span>
-                      )}
-                      {client.services.aiSEO && (
-                        <span className="text-xs px-2 py-1 bg-orange-900 text-orange-300 rounded">
-                          SEO ${client.services.aiSEO}
-                        </span>
-                      )}
-                      {client.services.hosting && (
-                        <span className="text-xs px-2 py-1 bg-gray-700 text-gray-300 rounded">
-                          Host ${client.services.hosting}
-                        </span>
-                      )}
-                    </div>
+                  <div className="text-right">
+                    {client.totalMonthly > 0 ? (
+                      <p className="font-semibold text-white">${client.totalMonthly.toLocaleString()}/mo</p>
+                    ) : (
+                      <p className="font-semibold text-yellow-400">TBD</p>
+                    )}
                   </div>
                 </div>
+                <p className="text-xs text-gray-400">{client.notes}</p>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
 
-      {/* Growth Insights */}
-      <div className="mt-6 grid grid-cols-2 gap-4">
-        <div className="p-4 bg-green-900/20 rounded-lg border border-green-800">
-          <p className="text-sm text-green-300">
-            <strong>Bundle Opportunity:</strong> Sunburst & DFW show the power of bundles at $1,819/mo each
-          </p>
-        </div>
-        <div className="p-4 bg-indigo-900/20 rounded-lg border border-indigo-800">
-          <p className="text-sm text-indigo-300">
-            <strong>Upsell Path:</strong> 5 clients on Build ($497) could upgrade to Grow ($797) = +$1,500 MRR
-          </p>
-        </div>
+      {/* Strategic Insight */}
+      <div className="mt-6 p-4 bg-indigo-900/20 rounded-lg border border-indigo-800">
+        <p className="text-sm text-indigo-300">
+          <strong>3 customers, 3 FSM platforms</strong> — each integration proves multi-FSM architecture works. Not a &ldquo;Jobber tool&rdquo; — the automation layer between ANY FSM and AGM. Valleywide (8,373 customers) is the enterprise scale test.
+        </p>
       </div>
     </div>
   )

@@ -19,48 +19,14 @@ interface ContentItem {
 const mockContent: ContentItem[] = [
   {
     id: '1',
-    title: 'Why 30% of Your Quotes Die in Silence',
-    type: 'blog',
-    platform: 'Website',
-    status: 'draft',
-    assignedAgent: 'Quill',
-    dueDate: '2026-03-18',
-    priority: 'high',
-    wordCount: 1200,
-    notes: 'Based on Scout\'s HVAC pain signals'
-  },
-  {
-    id: '2',
-    title: 'Quote Follow-Up Reality Check',
-    type: 'social',
-    platform: 'LinkedIn',
-    status: 'draft',
-    assignedAgent: 'Quill',
-    dueDate: '2026-03-17',
-    priority: 'high',
-    wordCount: 250
-  },
-  {
-    id: '3',
-    title: 'March Trends: PFAS Regulations Impact',
-    type: 'report',
-    platform: 'Email',
-    status: 'review',
-    assignedAgent: 'Quill',
-    dueDate: '2026-03-20',
-    priority: 'medium',
-    notes: 'Awaiting Troy approval'
-  },
-  {
-    id: '4',
-    title: 'AGM Friday: ServiceTitan Integration Deep Dive',
+    title: 'AGM Friday — Episode 1 (Topic TBD)',
     type: 'video',
     platform: 'YouTube',
-    status: 'approved',
-    assignedAgent: 'Pixel',
-    dueDate: '2026-03-22',
+    status: 'draft',
+    assignedAgent: 'Quill',
+    dueDate: '2026-03-21',
     priority: 'high',
-    notes: 'Thumbnail ready, script approved'
+    notes: 'First episode through the full pipeline. Target: publish Friday 3/21.'
   }
 ]
 

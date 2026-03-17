@@ -17,37 +17,12 @@ interface ContentItem {
 const mockContent: ContentItem[] = [
   {
     id: '1',
-    title: 'How PFAS Regulations Will Change Turf Industry',
+    title: 'AGM Friday — Episode 1 (Topic TBD)',
     platform: 'youtube',
-    stage: 'scripting',
-    assignee: 'Quill',
-    createdAt: new Date(Date.now() - 86400000).toISOString(),
-    notes: 'AGM Friday episode - focus on compliance solutions'
-  },
-  {
-    id: '2',
-    title: 'Contractor Automation Score Launch',
-    platform: 'newsletter',
     stage: 'ideas',
-    assignee: 'Scout',
+    assignee: 'Troy + Quill',
     createdAt: new Date().toISOString(),
-    notes: 'Free diagnostic tool as lead magnet'
-  },
-  {
-    id: '3',
-    title: 'ServiceTitan vs Jobber Integration Comparison',
-    platform: 'shorts',
-    stage: 'thumbnail',
-    assignee: 'Pixel',
-    createdAt: new Date(Date.now() - 2 * 86400000).toISOString(),
-  },
-  {
-    id: '4',
-    title: '5 Costly Mistakes Contractors Make with Quote Follow-ups',
-    platform: 'linkedin',
-    stage: 'editing',
-    assignee: 'Quill',
-    createdAt: new Date(Date.now() - 5 * 86400000).toISOString(),
+    notes: 'First episode through the full pipeline. Target publish: Friday 3/21.'
   },
 ]
 

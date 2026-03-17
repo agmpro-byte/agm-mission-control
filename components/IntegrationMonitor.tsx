@@ -31,22 +31,22 @@ export default function IntegrationMonitor() {
       status: 'operational',
       lastSync: new Date(Date.now() - 300000).toISOString(), // 5 min ago
       metrics: {
-        customersTotal: 1247,
-        customersSynced: 1247,
-        subscriptions: 892,
+        customersTotal: 0,
+        customersSynced: 0,
+        subscriptions: 0,
         errorRate: 0,
-        uptime: 99.99
+        uptime: 99.9
       },
       durability: 10,
-      features: ['4 workflows live', 'Self-healing Layers 1-4', 'Health endpoint', 'Event store']
+      features: ['4 workflows live', 'Self-healing Layers 1-4', 'Health endpoint', 'Event store', 'Quote lifecycle sync']
     },
     {
       id: 'field-routes-valleywide',
       name: 'Valleywide Pest',
-      platform: 'Field Routes → SERTBO',
+      platform: 'Field Routes → AGM',
       client: 'Valleywide Pest Control',
       status: 'pending',
-      lastSync: new Date(Date.now() - 86400000).toISOString(), // 1 day ago
+      lastSync: new Date(Date.now() - 86400000).toISOString(),
       metrics: {
         customersTotal: 8373,
         customersSynced: 0,
@@ -54,7 +54,7 @@ export default function IntegrationMonitor() {
         errorRate: 0,
         uptime: 0
       },
-      features: ['APIs connected', 'Data audit complete', 'Sync engine building']
+      features: ['APIs connected', 'Data audit complete', '49% phone-only (no email)', 'Sync engine building']
     },
     {
       id: 'centah-salesforce',
@@ -64,13 +64,13 @@ export default function IntegrationMonitor() {
       status: 'operational',
       lastSync: new Date(Date.now() - 900000).toISOString(), // 15 min ago
       metrics: {
-        customersTotal: 523,
-        customersSynced: 520,
-        subscriptions: 412,
-        errorRate: 0.2,
+        customersTotal: 0,
+        customersSynced: 0,
+        subscriptions: 0,
+        errorRate: 0,
         uptime: 99.5
       },
-      features: ['Enterprise CRM bridge', 'Costco program tracking']
+      features: ['Costco lead intake', 'Email polling every 5 min', 'AGM + Salesforce dual write', 'HG Polly (Voice AI) in dev']
     }
   ])
 

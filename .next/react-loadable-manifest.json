@@ -2,7 +2,7 @@
   "app/page.tsx -> @/components/AgentStatusMonitor": {
     "id": 7236,
     "files": [
-      "static/chunks/236.cb57e5931794c8cc.js"
+      "static/chunks/236.e782d4c3ad9d9a01.js"
     ]
   },
   "app/page.tsx -> @/components/Calendar": {
@@ -26,7 +26,7 @@
   "app/page.tsx -> @/components/FlywheelStatus": {
     "id": 3828,
     "files": [
-      "static/chunks/828.c9f94d7f9a5b53af.js"
+      "static/chunks/828.906943b5605e1eda.js"
     ]
   },
   "app/page.tsx -> @/components/HandoffMonitor": {

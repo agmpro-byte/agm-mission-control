@@ -33,16 +33,16 @@ const realStages: FlywheelStage[] = [
     status: 'green',
     lastActivity: 'Monthly cadence',
     metrics: { current: 280, target: 500, unit: 'subscribers' },
-    message: 'AGM Intelligence Report — ~280 subs, 97% non-customers. Monthly send via GHL.'
+    message: 'AGM Intelligence Report — ~280 subs, 97% non-customers. Monthly send via AGM.'
   },
   {
     id: 'agm-friday',
     name: 'AGM Friday',
     status: 'yellow',
-    lastActivity: 'Not yet launched',
+    lastActivity: 'Pre-launch',
     metrics: { current: 0, target: 1, unit: 'episode/week' },
-    message: 'Content pipeline starting this week. First publish target: Friday.',
-    actionNeeded: 'Get first episode through the pipeline this week'
+    message: 'Content pipeline designed. First episode pending. HeyGen render pipeline built.',
+    actionNeeded: 'Produce and publish Episode 1'
   },
   {
     id: 'demo',
@@ -57,9 +57,9 @@ const realStages: FlywheelStage[] = [
     id: 'adoption',
     name: 'Customer Adoption',
     status: 'yellow',
-    lastActivity: '2 paying, 1 building',
-    metrics: { current: 2, target: 5, unit: 'customers/month' },
-    message: 'HG ($297) + Texas Turf ($797) live. Valleywide in progress. Case studies not yet written.',
+    lastActivity: '3 paying, 1 building',
+    metrics: { current: 3, target: 5, unit: 'customers/month' },
+    message: 'HG ($297) + ATE ($297) + Valleywide ($297) live. Texas Turf free (use case). Golden Mailer building.',
     actionNeeded: 'Write Texas Turf case study for content pipeline'
   }
 ]

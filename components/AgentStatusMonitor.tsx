@@ -86,7 +86,7 @@ export default function AgentStatusMonitor() {
       status: 'pending',
       model: {
         provider: 'Google',
-        name: 'Gemini Ultra'
+        name: 'Gemini 2.5 Pro'
       },
       lastActivity: new Date(Date.now() - 86400000).toISOString(),
       currentTask: 'Awaiting first assignment — AGM Friday Episode 1 script, newsletter copy, blog posts',

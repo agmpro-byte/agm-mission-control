@@ -77,12 +77,29 @@ function timeAgo(isoStr?: string): string {
   return days + 'd ' + (hrs % 24) + 'h ago'
 }
 
-// Metric card — boxed, monospace, bordered (matches reference dashboard style)
-function MetricCard({ label, value, color = 'text-white' }: { label: string; value: string | number; color?: string }) {
+// Metric card — boxed, monospace, bordered with optional status history bar
+function MetricCard({ label, value, color = 'text-white', subtitle, history }: {
+  label: string; value: string | number; color?: string; subtitle?: string; history?: UptimeEntry[]
+}) {
   return (
     <div className="border border-gray-700 rounded p-3 text-center">
       <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-1 font-mono">{label}</p>
       <p className={`text-2xl font-bold font-mono ${color}`}>{value}</p>
+      {subtitle && <p className="text-[9px] text-gray-600 mt-0.5">{subtitle}</p>}
+      {history && history.length > 0 && (
+        <div className="flex gap-px h-4 mt-2 items-end">
+          {history.map((h, i) => (
+            <div
+              key={i}
+              className={`flex-1 rounded-sm min-w-[2px] ${
+                h.status === 'green' ? 'bg-green-500 h-full' :
+                h.status === 'yellow' ? 'bg-yellow-500 h-3/4' : 'bg-red-500 h-full'
+              }`}
+              title={`${new Date(h.ts).toLocaleString()} — ${h.status}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -217,8 +234,8 @@ export default function SystemHealth() {
 
       {/* ── Top-Level Metrics ── */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-        <MetricCard label="Uptime" value={uptimePct === '--' ? '--' : `${uptimePct}%`} color={uptimeColor} />
-        <MetricCard label="Clients" value={`${operationalClients}/${clientEntries.length}`} color={operationalClients === clientEntries.length ? 'text-green-400' : 'text-yellow-400'} />
+        <MetricCard label="Uptime" value={uptimePct === '--' ? '--' : `${uptimePct}%`} color={uptimeColor} history={history} />
+        <MetricCard label="Clients" value={`${operationalClients}/${clientEntries.length}`} color={operationalClients === clientEntries.length ? 'text-green-400' : 'text-yellow-400'} history={history} />
         <MetricCard label="Today" value={totalToday} color="text-cyan-400" />
         <MetricCard label="This Week" value={totalWeek} color="text-cyan-400" />
         <MetricCard label="This Month" value={totalMonth} color="text-cyan-400" />

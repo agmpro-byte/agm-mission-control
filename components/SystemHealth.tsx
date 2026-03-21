@@ -1,14 +1,16 @@
 'use client'
 
 import { useState, useEffect, useCallback } from 'react'
-import { Heart, RefreshCw, CheckCircle, AlertCircle, XCircle, Clock, Activity } from 'lucide-react'
+import { RefreshCw } from 'lucide-react'
 
 interface ClientHealth {
   status: string
   token_valid: boolean
   token_expires_in_minutes?: number
   processed_events_count?: number
-  injections?: number
+  injections_today?: number
+  injections_this_week?: number
+  injections_this_month?: number
   pending_retries?: number
   dead_retries?: number
   last_event_at?: string
@@ -30,11 +32,19 @@ interface UptimeEntry {
   status: 'green' | 'yellow' | 'red'
 }
 
+interface RecoveryAction {
+  action: string
+  client: string
+  detail: string
+  ts: string
+}
+
 interface HealthData {
   status: string
   clients: Record<string, ClientHealth>
   heartbeats: Record<string, Heartbeat>
   uptime_history?: UptimeEntry[]
+  recovery_log?: RecoveryAction[]
 }
 
 const HEALTH_URL = 'https://agm-pro--claude-orchestrator-health.modal.run'
@@ -65,6 +75,28 @@ function timeAgo(isoStr?: string): string {
   if (hrs < 24) return hrs + 'h ' + (mins % 60) + 'm ago'
   const days = Math.floor(hrs / 24)
   return days + 'd ' + (hrs % 24) + 'h ago'
+}
+
+// Metric card — boxed, monospace, bordered (matches reference dashboard style)
+function MetricCard({ label, value, color = 'text-white' }: { label: string; value: string | number; color?: string }) {
+  return (
+    <div className="border border-gray-700 rounded p-3 text-center">
+      <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-1 font-mono">{label}</p>
+      <p className={`text-2xl font-bold font-mono ${color}`}>{value}</p>
+    </div>
+  )
+}
+
+// Status badge — pill style
+function StatusBadge({ status }: { status: string }) {
+  const s = status?.toLowerCase()
+  if (s === 'healthy' || s === 'ok' || s === 'green') {
+    return <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded border border-green-700 bg-green-900/40 text-green-400">healthy</span>
+  }
+  if (s === 'degraded' || s === 'yellow') {
+    return <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded border border-yellow-700 bg-yellow-900/40 text-yellow-400">degraded</span>
+  }
+  return <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded border border-red-700 bg-red-900/40 text-red-400">unhealthy</span>
 }
 
 
@@ -98,26 +130,12 @@ export default function SystemHealth() {
     return () => clearInterval(interval)
   }, [fetchHealth])
 
-  const getStatusIcon = (status: string) => {
-    const s = status?.toLowerCase()
-    if (s === 'healthy' || s === 'ok' || s === 'green') return <CheckCircle className="w-5 h-5 text-green-400" />
-    if (s === 'degraded' || s === 'yellow') return <AlertCircle className="w-5 h-5 text-yellow-400" />
-    return <XCircle className="w-5 h-5 text-red-400" />
-  }
-
-  const getStatusBadge = (status: string) => {
-    const s = status?.toLowerCase()
-    if (s === 'healthy' || s === 'ok' || s === 'green') return { text: 'Healthy', classes: 'bg-green-900 text-green-300' }
-    if (s === 'degraded' || s === 'yellow') return { text: 'Degraded', classes: 'bg-yellow-900 text-yellow-300' }
-    return { text: 'Unhealthy', classes: 'bg-red-900 text-red-300' }
-  }
-
   if (loading) {
     return (
-      <div className="bg-gray-900 rounded-lg shadow-xl p-8 border border-gray-800">
-        <div className="flex items-center justify-center space-x-3 text-gray-400">
-          <RefreshCw className="w-5 h-5 animate-spin" />
-          <span>Connecting to Modal health endpoint...</span>
+      <div className="border border-gray-800 rounded-lg p-8 bg-[#0d1117]">
+        <div className="flex items-center justify-center space-x-3 text-gray-500 font-mono text-sm">
+          <RefreshCw className="w-4 h-4 animate-spin" />
+          <span>Connecting to health endpoint...</span>
         </div>
       </div>
     )
@@ -125,14 +143,9 @@ export default function SystemHealth() {
 
   if (error && !data) {
     return (
-      <div className="bg-gray-900 rounded-lg shadow-xl p-6 border border-gray-800">
-        <div className="flex items-center space-x-3 mb-4">
-          <Heart className="w-6 h-6 text-red-400" />
-          <h2 className="text-xl font-semibold text-white">System Health</h2>
-        </div>
-        <div className="bg-red-900/20 border border-red-800 rounded-lg p-4 text-red-300">
-          Failed to reach Modal health endpoint: {error}
-        </div>
+      <div className="border border-red-900 rounded-lg p-6 bg-[#0d1117]">
+        <p className="text-[10px] uppercase tracking-widest text-gray-500 font-mono mb-2">System Health</p>
+        <p className="font-mono text-sm text-red-400">Failed to reach Modal health endpoint: {error}</p>
       </div>
     )
   }
@@ -141,150 +154,180 @@ export default function SystemHealth() {
 
   const clients = data.clients || {}
   const heartbeats = data.heartbeats || {}
-  const overallBadge = getStatusBadge(data.status)
+
+  // Compute aggregate stats
+  const clientEntries = Object.entries(clients)
+  const totalEvents = clientEntries.reduce((sum, [, c]) => sum + (c.processed_events_count || 0), 0)
+  const totalToday = clientEntries.reduce((sum, [, c]) => sum + (c.injections_today || 0), 0)
+  const totalWeek = clientEntries.reduce((sum, [, c]) => sum + (c.injections_this_week || 0), 0)
+  const totalMonth = clientEntries.reduce((sum, [, c]) => sum + (c.injections_this_month || 0), 0)
+  const totalDead = clientEntries.reduce((sum, [, c]) => sum + (c.dead_retries || 0), 0)
+  const totalPending = clientEntries.reduce((sum, [, c]) => sum + (c.pending_retries || 0), 0)
 
   const cronEntries = Object.entries(heartbeats).sort((a, b) => {
     if (a[1].status !== b[1].status) return a[1].status === 'error' ? -1 : 1
     return (b[1].epoch || 0) - (a[1].epoch || 0)
   })
 
+  const healthyClients = clientEntries.filter(([, c]) => c.status?.toLowerCase() === 'healthy').length
+
+  // Uptime calculation
+  const history = data.uptime_history || []
+  const upCount = history.filter(h => h.status === 'green').length
+  const uptimePct = history.length > 0 ? ((upCount / history.length) * 100).toFixed(1) : '--'
+  const uptimeColor = history.length === 0 ? 'text-gray-500' :
+    parseFloat(String(uptimePct)) >= 99.5 ? 'text-green-400' :
+    parseFloat(String(uptimePct)) >= 95 ? 'text-yellow-400' : 'text-red-400'
+
   return (
-    <div className="space-y-6">
-      {/* Overall Status Banner */}
-      <div className={`rounded-lg border p-5 flex items-center justify-between ${
-        data.status?.toLowerCase() === 'healthy' ? 'bg-green-900/10 border-green-800' :
-        data.status?.toLowerCase() === 'degraded' ? 'bg-yellow-900/10 border-yellow-800' :
-        'bg-red-900/10 border-red-800'
+    <div className="space-y-4 font-mono">
+
+      {/* ── Header Bar ── */}
+      <div className={`rounded-lg border p-4 flex items-center justify-between bg-[#0d1117] ${
+        data.status?.toLowerCase() === 'healthy' ? 'border-green-800' :
+        data.status?.toLowerCase() === 'degraded' ? 'border-yellow-800' : 'border-red-800'
       }`}>
         <div className="flex items-center space-x-4">
-          {getStatusIcon(data.status)}
-          <div>
-            <h2 className="text-lg font-semibold text-white">System {overallBadge.text}</h2>
-            <p className="text-sm text-gray-400">
-              {Object.keys(clients).length} active client{Object.keys(clients).length !== 1 ? 's' : ''} &middot; {cronEntries.length} crons tracked
-            </p>
-          </div>
+          <StatusBadge status={data.status} />
+          <span className="text-sm text-gray-400">
+            {clientEntries.length} active client{clientEntries.length !== 1 ? 's' : ''} &middot; {cronEntries.length} crons tracked
+          </span>
         </div>
         <div className="flex items-center space-x-3">
           {lastUpdated && (
-            <span className="text-xs text-gray-500">
+            <span className="text-[10px] text-gray-600">
               Updated {lastUpdated.toLocaleTimeString()}
             </span>
           )}
           <button
+            type="button"
             onClick={() => fetchHealth(true)}
             disabled={refreshing}
-            className="px-3 py-1.5 bg-gray-800 border border-gray-700 rounded text-xs text-gray-300 hover:bg-gray-700 transition-colors disabled:opacity-50"
+            className="px-2.5 py-1 border border-gray-700 rounded text-[10px] text-gray-400 hover:border-gray-500 hover:text-gray-300 transition-colors disabled:opacity-50 uppercase tracking-wider"
           >
-            <RefreshCw className={`w-3.5 h-3.5 inline mr-1 ${refreshing ? 'animate-spin' : ''}`} />
+            <RefreshCw className={`w-3 h-3 inline mr-1 ${refreshing ? 'animate-spin' : ''}`} />
             Refresh
           </button>
         </div>
       </div>
 
-      {/* Uptime Bar — server-side data */}
-      {data?.uptime_history && data.uptime_history.length >= 2 && (() => {
-        const history = data.uptime_history
-        const upCount = history.filter((h: UptimeEntry) => h.status === 'green').length
-        const pct = ((upCount / history.length) * 100).toFixed(1)
-        const pctNum = parseFloat(pct)
-        const pctColor = pctNum >= 99.5 ? 'text-green-400' : pctNum >= 95 ? 'text-yellow-400' : 'text-red-400'
-        const oldest = new Date(history[0].ts).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })
+      {/* ── Top-Level Metrics ── */}
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+        <MetricCard label="Uptime" value={uptimePct === '--' ? '--' : `${uptimePct}%`} color={uptimeColor} />
+        <MetricCard label="Clients" value={`${healthyClients}/${clientEntries.length}`} color={healthyClients === clientEntries.length ? 'text-green-400' : 'text-yellow-400'} />
+        <MetricCard label="Today" value={totalToday} color="text-cyan-400" />
+        <MetricCard label="This Week" value={totalWeek} color="text-cyan-400" />
+        <MetricCard label="This Month" value={totalMonth} color="text-cyan-400" />
+        <MetricCard label="Total Events" value={totalEvents.toLocaleString()} color="text-white" />
+      </div>
 
-        return (
-          <div className="bg-gray-900 rounded-lg shadow-xl p-6 border border-gray-800">
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-semibold text-white">Uptime</h3>
-              <span className="text-xs text-gray-500">{history.length} checks</span>
-            </div>
-            <p className={`text-3xl font-bold mb-2 ${pctColor}`}>{pct}%</p>
-            <div className="flex gap-px h-8 mb-2">
-              {history.map((h: UptimeEntry, i: number) => (
-                <div
-                  key={i}
-                  className={`flex-1 rounded-sm cursor-default transition-opacity hover:opacity-80 ${
-                    h.status === 'green' ? 'bg-green-500' :
-                    h.status === 'yellow' ? 'bg-yellow-500' : 'bg-red-500'
-                  }`}
-                  title={`${new Date(h.ts).toLocaleString()} — ${h.status}`}
-                />
-              ))}
-            </div>
-            <div className="flex justify-between text-xs text-gray-500">
-              <span>{oldest}</span>
-              <span>Now</span>
-            </div>
+      {/* ── Uptime History Bar ── */}
+      {history.length >= 2 && (
+        <div className="border border-gray-800 rounded-lg p-4 bg-[#0d1117]">
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-[10px] uppercase tracking-widest text-gray-500">Uptime History</p>
+            <p className="text-[10px] text-gray-600">{history.length} checks</p>
           </div>
-        )
-      })()}
+          <div className="flex gap-px h-6">
+            {history.map((h, i) => (
+              <div
+                key={i}
+                className={`flex-1 rounded-sm cursor-default transition-opacity hover:opacity-70 ${
+                  h.status === 'green' ? 'bg-green-500' :
+                  h.status === 'yellow' ? 'bg-yellow-500' : 'bg-red-500'
+                }`}
+                title={`${new Date(h.ts).toLocaleString()} — ${h.status}`}
+              />
+            ))}
+          </div>
+          <div className="flex justify-between text-[10px] text-gray-600 mt-1">
+            <span>{new Date(history[0].ts).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</span>
+            <span>Now</span>
+          </div>
+        </div>
+      )}
 
-      {/* Client Health Cards */}
-      <div className="bg-gray-900 rounded-lg shadow-xl p-6 border border-gray-800">
-        <div className="flex items-center space-x-3 mb-4">
-          <Heart className="w-6 h-6 text-green-400" />
-          <h2 className="text-xl font-semibold text-white">Client Integrations</h2>
-          <span className="text-xs px-2 py-0.5 bg-gray-800 text-gray-400 rounded-full">{Object.keys(clients).length}</span>
+      {/* ── Client Integration Cards ── */}
+      <div className="border border-gray-800 rounded-lg bg-[#0d1117]">
+        <div className="px-4 py-3 border-b border-gray-800 flex items-center justify-between">
+          <p className="text-[10px] uppercase tracking-widest text-gray-500">Client Integrations</p>
+          <span className="text-[10px] text-gray-600">{clientEntries.length} active</span>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {Object.entries(clients).map(([slug, client]) => {
-            const badge = getStatusBadge(client.status)
-            const displayName = slug.split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+        <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-gray-800">
+          {clientEntries.map(([slug, client]) => {
+            const displayName = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
 
             return (
-              <div key={slug} className="bg-black rounded-lg p-4 border border-gray-800">
-                <div className="flex items-center justify-between mb-3">
-                  <div className="flex items-center space-x-2">
-                    {getStatusIcon(client.status)}
-                    <span className="font-medium text-white">{displayName}</span>
-                  </div>
-                  <span className={`text-xs px-2 py-1 rounded ${badge.classes}`}>{badge.text}</span>
+              <div key={slug} className="p-4 space-y-3">
+                {/* Client header */}
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-semibold text-white tracking-wide">{displayName}</span>
+                  <StatusBadge status={client.status} />
                 </div>
 
-                <div className="grid grid-cols-4 gap-3 text-sm">
-                  <div>
-                    <p className="text-xs text-gray-500">Token</p>
-                    <p className={`font-medium ${client.token_valid ? 'text-green-400' : 'text-red-400'}`}>
+                {/* Token + Last Event row */}
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="border border-gray-800 rounded p-2">
+                    <p className="text-[10px] uppercase tracking-widest text-gray-500">Token</p>
+                    <p className={`text-lg font-bold ${client.token_valid ? 'text-green-400' : 'text-red-400'}`}>
                       {client.token_valid
                         ? (client.token_expires_in_minutes && client.token_expires_in_minutes <= 30
-                          ? Math.round(client.token_expires_in_minutes) + 'm left'
+                          ? Math.round(client.token_expires_in_minutes) + 'm'
                           : 'Valid')
                         : 'Expired'}
                     </p>
                   </div>
-                  <div>
-                    <p className="text-xs text-gray-500">Injections</p>
-                    <p className="font-medium text-cyan-400">{(client.injections || 0).toLocaleString()}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-500">Events</p>
-                    <p className="font-medium text-white">{(client.processed_events_count || 0).toLocaleString()}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-500">Last Event</p>
-                    <p className="font-medium text-white">{timeAgo(client.last_event_at)}</p>
+                  <div className="border border-gray-800 rounded p-2">
+                    <p className="text-[10px] uppercase tracking-widest text-gray-500">Last Event</p>
+                    <p className="text-lg font-bold text-white">{timeAgo(client.last_event_at)}</p>
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-3 mt-2 text-sm">
-                  <div>
-                    <p className="text-xs text-gray-500">Pending Retries</p>
-                    <p className={`font-medium ${(client.pending_retries || 0) > 0 ? 'text-yellow-400' : 'text-green-400'}`}>
+                {/* Injection counts — Today / This Week / This Month */}
+                <div>
+                  <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-1.5">Injections</p>
+                  <div className="grid grid-cols-3 gap-2">
+                    <div className="border border-gray-800 rounded p-2 text-center">
+                      <p className="text-[9px] uppercase tracking-widest text-gray-600">Today</p>
+                      <p className="text-xl font-bold text-cyan-400">{(client.injections_today || 0).toLocaleString()}</p>
+                    </div>
+                    <div className="border border-gray-800 rounded p-2 text-center">
+                      <p className="text-[9px] uppercase tracking-widest text-gray-600">This Week</p>
+                      <p className="text-xl font-bold text-cyan-400">{(client.injections_this_week || 0).toLocaleString()}</p>
+                    </div>
+                    <div className="border border-gray-800 rounded p-2 text-center">
+                      <p className="text-[9px] uppercase tracking-widest text-gray-600">This Month</p>
+                      <p className="text-xl font-bold text-cyan-400">{(client.injections_this_month || 0).toLocaleString()}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Health indicators */}
+                <div className="grid grid-cols-3 gap-2">
+                  <div className="border border-gray-800 rounded p-2 text-center">
+                    <p className="text-[9px] uppercase tracking-widest text-gray-600">Total Events</p>
+                    <p className="text-lg font-bold text-white">{(client.processed_events_count || 0).toLocaleString()}</p>
+                  </div>
+                  <div className="border border-gray-800 rounded p-2 text-center">
+                    <p className="text-[9px] uppercase tracking-widest text-gray-600">Retries</p>
+                    <p className={`text-lg font-bold ${(client.pending_retries || 0) > 0 ? 'text-yellow-400' : 'text-green-400'}`}>
                       {client.pending_retries || 0}
                     </p>
                   </div>
-                  <div>
-                    <p className="text-xs text-gray-500">Dead Letters</p>
-                    <p className={`font-medium ${(client.dead_retries || 0) > 0 ? 'text-red-400' : 'text-green-400'}`}>
+                  <div className="border border-gray-800 rounded p-2 text-center">
+                    <p className="text-[9px] uppercase tracking-widest text-gray-600">Dead Letters</p>
+                    <p className={`text-lg font-bold ${(client.dead_retries || 0) > 0 ? 'text-red-400' : 'text-green-400'}`}>
                       {client.dead_retries || 0}
                     </p>
                   </div>
                 </div>
 
-                {client.issues && client.issues.length > 0 && (
-                  <div className="mt-3 pt-3 border-t border-gray-800">
-                    {client.issues.map((issue, i) => (
-                      <p key={i} className="text-xs text-yellow-400">! {issue.replace(/_/g, ' ')}</p>
+                {/* Issues */}
+                {client.issues && client.issues.filter(i => !i.includes('within_tolerance')).length > 0 && (
+                  <div className="border-t border-gray-800 pt-2">
+                    {client.issues.filter(i => !i.includes('within_tolerance')).map((issue, i) => (
+                      <p key={i} className="text-[10px] text-yellow-500">! {issue.replace(/_/g, ' ')}</p>
                     ))}
                   </div>
                 )}
@@ -294,49 +337,97 @@ export default function SystemHealth() {
         </div>
       </div>
 
-      {/* Cron Heartbeats */}
-      <div className="bg-gray-900 rounded-lg shadow-xl p-6 border border-gray-800">
-        <div className="flex items-center space-x-3 mb-4">
-          <Activity className="w-6 h-6 text-blue-400" />
-          <h2 className="text-xl font-semibold text-white">Cron Heartbeats</h2>
-          <span className="text-xs px-2 py-0.5 bg-gray-800 text-gray-400 rounded-full">{cronEntries.length}</span>
+      {/* ── Recovery Action Log ── */}
+      {data.recovery_log && data.recovery_log.length > 0 && (
+        <div className="border border-gray-800 rounded-lg bg-[#0d1117]">
+          <div className="px-4 py-3 border-b border-gray-800 flex items-center justify-between">
+            <p className="text-[10px] uppercase tracking-widest text-gray-500">Recovery Actions</p>
+            <span className="text-[10px] text-gray-600">last {data.recovery_log.length} actions</span>
+          </div>
+          <div className="divide-y divide-gray-800/40 max-h-48 overflow-y-auto">
+            {[...data.recovery_log].reverse().map((entry, i) => {
+              const isSuccess = entry.action.includes('replayed') && !entry.action.includes('failed')
+              const isLost = entry.action.includes('lost')
+              const isFailed = entry.action.includes('failed')
+              const isAlert = entry.action.includes('alert')
+              const dotColor = isLost ? 'bg-red-500' : isFailed ? 'bg-yellow-500' : isSuccess ? 'bg-green-500' : isAlert ? 'bg-blue-500' : 'bg-gray-500'
+
+              return (
+                <div key={i} className="px-4 py-2 flex items-start space-x-3 hover:bg-white/[0.02]">
+                  <span className={`w-1.5 h-1.5 rounded-full mt-1.5 flex-shrink-0 ${dotColor}`} />
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between">
+                      <span className={`text-[10px] uppercase tracking-wider ${
+                        isLost ? 'text-red-400' : isFailed ? 'text-yellow-400' : isSuccess ? 'text-green-400' : 'text-gray-400'
+                      }`}>
+                        {entry.action.replace(/_/g, ' ')}
+                      </span>
+                      <span className="text-[10px] text-gray-700 flex-shrink-0 ml-2">
+                        {new Date(entry.ts).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}
+                      </span>
+                    </div>
+                    <p className="text-[10px] text-gray-500 truncate">{entry.client}: {entry.detail}</p>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* ── Cron Heartbeats ── */}
+      <div className="border border-gray-800 rounded-lg bg-[#0d1117]">
+        <div className="px-4 py-3 border-b border-gray-800 flex items-center justify-between">
+          <p className="text-[10px] uppercase tracking-widest text-gray-500">Cron Heartbeats</p>
+          <div className="flex items-center space-x-3">
+            <span className="text-[10px] text-gray-600">{cronEntries.length} jobs</span>
+            {totalPending > 0 && (
+              <span className="text-[10px] text-yellow-500">{totalPending} pending retries</span>
+            )}
+            {totalDead > 0 && (
+              <span className="text-[10px] text-red-500">{totalDead} dead letters</span>
+            )}
+          </div>
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full text-xs">
             <thead>
-              <tr className="text-xs text-gray-500 uppercase tracking-wider border-b border-gray-800">
-                <th className="text-left py-2 px-3">Cron</th>
-                <th className="text-left py-2 px-3">Status</th>
-                <th className="text-left py-2 px-3">Schedule</th>
-                <th className="text-left py-2 px-3">Last Run</th>
-                <th className="text-left py-2 px-3">Age</th>
-                <th className="text-left py-2 px-3">Detail</th>
+              <tr className="text-[10px] text-gray-600 uppercase tracking-widest border-b border-gray-800">
+                <th className="text-left py-2 px-4">Cron</th>
+                <th className="text-left py-2 px-4">Status</th>
+                <th className="text-left py-2 px-4">Schedule</th>
+                <th className="text-left py-2 px-4">Last Run</th>
+                <th className="text-left py-2 px-4">Age</th>
+                <th className="text-left py-2 px-4">Detail</th>
               </tr>
             </thead>
             <tbody>
               {cronEntries.map(([name, hb]) => {
                 const info = CRON_LABELS[name] || { label: name, schedule: '-' }
                 const isStale = hb.stale === true || hb.status === 'stale'
+                const isOk = hb.status === 'ok'
 
                 return (
-                  <tr key={name} className="border-b border-gray-800/50 hover:bg-gray-800/30">
-                    <td className="py-2.5 px-3 font-medium text-white">{info.label}</td>
-                    <td className="py-2.5 px-3">
+                  <tr key={name} className="border-b border-gray-800/40 hover:bg-white/[0.02] transition-colors">
+                    <td className="py-2.5 px-4 text-white font-medium">{info.label}</td>
+                    <td className="py-2.5 px-4">
                       <span className="flex items-center space-x-2">
-                        <span className={`w-2 h-2 rounded-full ${
-                          isStale ? 'bg-yellow-400' : hb.status === 'ok' ? 'bg-green-400' : 'bg-red-400'
+                        <span className={`w-1.5 h-1.5 rounded-full ${
+                          isStale ? 'bg-yellow-400' : isOk ? 'bg-green-400' : 'bg-red-400'
                         }`} />
-                        <span className="text-gray-300">{isStale ? 'Stale' : hb.status === 'ok' ? 'OK' : 'Error'}</span>
+                        <span className={
+                          isStale ? 'text-yellow-400' : isOk ? 'text-green-400' : 'text-red-400'
+                        }>{isStale ? 'STALE' : isOk ? 'OK' : 'ERR'}</span>
                       </span>
                     </td>
-                    <td className="py-2.5 px-3 text-gray-500">{info.schedule}</td>
-                    <td className="py-2.5 px-3 text-gray-500">
+                    <td className="py-2.5 px-4 text-gray-500">{info.schedule}</td>
+                    <td className="py-2.5 px-4 text-gray-500">
                       {hb.timestamp ? new Date(hb.timestamp.endsWith('Z') ? hb.timestamp : hb.timestamp + 'Z').toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }) : '-'}
                     </td>
-                    <td className="py-2.5 px-3 text-gray-500">{timeAgo(hb.timestamp)}</td>
-                    <td className="py-2.5 px-3 text-gray-500 max-w-[200px] truncate">
-                      {hb.detail ? (hb.detail.length > 60 ? hb.detail.substring(0, 60) + '...' : hb.detail) : '-'}
+                    <td className="py-2.5 px-4 text-gray-500">{timeAgo(hb.timestamp)}</td>
+                    <td className="py-2.5 px-4 text-gray-600 max-w-[240px] truncate">
+                      {hb.detail ? (typeof hb.detail === 'string' ? hb.detail : JSON.stringify(hb.detail)) : '-'}
                     </td>
                   </tr>
                 )
@@ -346,10 +437,12 @@ export default function SystemHealth() {
         </div>
       </div>
 
-      {/* Health API Link */}
-      <div className="text-xs text-gray-600 flex items-center space-x-4">
+      {/* ── Footer ── */}
+      <div className="flex items-center justify-between text-[10px] text-gray-700 px-1">
         <span>Auto-refresh: 60s</span>
-        <a href={HEALTH_URL} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Health API</a>
+        <a href={HEALTH_URL} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-400 transition-colors">
+          Health API &rarr;
+        </a>
       </div>
     </div>
   )

@@ -24,9 +24,9 @@
     ]
   },
   "app/page.tsx -> @/components/FlywheelStatus": {
-    "id": 3828,
+    "id": 2279,
     "files": [
-      "static/chunks/828.906943b5605e1eda.js"
+      "static/chunks/279.80ec1fc879a13e33.js"
     ]
   },
   "app/page.tsx -> @/components/HandoffMonitor": {
@@ -56,7 +56,7 @@
   "app/page.tsx -> @/components/SystemHealth": {
     "id": 2917,
     "files": [
-      "static/chunks/917.fe5cb6bf44b57b6a.js"
+      "static/chunks/917.02ca4d222cf00171.js"
     ]
   },
   "app/page.tsx -> @/components/TaskBoard": {

@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
-  basePath: '/agm-mission-control',
+  basePath: '',
   images: {
     unoptimized: true,
   },

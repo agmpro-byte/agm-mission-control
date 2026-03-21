@@ -77,29 +77,15 @@ function timeAgo(isoStr?: string): string {
   return days + 'd ' + (hrs % 24) + 'h ago'
 }
 
-// Metric card — boxed, monospace, bordered with optional status history bar
-function MetricCard({ label, value, color = 'text-white', subtitle, history }: {
-  label: string; value: string | number; color?: string; subtitle?: string; history?: UptimeEntry[]
+// Metric card — boxed, monospace, bordered
+function MetricCard({ label, value, color = 'text-white', subtitle }: {
+  label: string; value: string | number; color?: string; subtitle?: string
 }) {
   return (
     <div className="border border-gray-700 rounded p-3 text-center">
       <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-1 font-mono">{label}</p>
       <p className={`text-2xl font-bold font-mono ${color}`}>{value}</p>
       {subtitle && <p className="text-[9px] text-gray-600 mt-0.5">{subtitle}</p>}
-      {history && history.length > 0 && (
-        <div className="flex gap-px h-4 mt-2 items-end">
-          {history.map((h, i) => (
-            <div
-              key={i}
-              className={`flex-1 rounded-sm min-w-[2px] ${
-                h.status === 'green' ? 'bg-green-500 h-full' :
-                h.status === 'yellow' ? 'bg-yellow-500 h-3/4' : 'bg-red-500 h-full'
-              }`}
-              title={`${new Date(h.ts).toLocaleString()} — ${h.status}`}
-            />
-          ))}
-        </div>
-      )}
     </div>
   )
 }
@@ -234,8 +220,8 @@ export default function SystemHealth() {
 
       {/* ── Top-Level Metrics ── */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-        <MetricCard label="Uptime" value={uptimePct === '--' ? '--' : `${uptimePct}%`} color={uptimeColor} history={history} />
-        <MetricCard label="Clients" value={`${operationalClients}/${clientEntries.length}`} color={operationalClients === clientEntries.length ? 'text-green-400' : 'text-yellow-400'} history={history} />
+        <MetricCard label="Uptime" value={uptimePct === '--' ? '--' : `${uptimePct}%`} color={uptimeColor} />
+        <MetricCard label="Clients" value={`${operationalClients}/${clientEntries.length}`} color={operationalClients === clientEntries.length ? 'text-green-400' : 'text-yellow-400'} />
         <MetricCard label="Today" value={totalToday} color="text-cyan-400" />
         <MetricCard label="This Week" value={totalWeek} color="text-cyan-400" />
         <MetricCard label="This Month" value={totalMonth} color="text-cyan-400" />
@@ -249,17 +235,25 @@ export default function SystemHealth() {
             <p className="text-[10px] uppercase tracking-widest text-gray-500">Uptime History</p>
             <p className="text-[10px] text-gray-600">{history.length} checks</p>
           </div>
-          <div className="flex gap-px h-6">
-            {history.map((h, i) => (
-              <div
-                key={i}
-                className={`flex-1 rounded-sm cursor-default transition-opacity hover:opacity-70 ${
-                  h.status === 'green' ? 'bg-green-500' :
-                  h.status === 'yellow' ? 'bg-yellow-500' : 'bg-red-500'
-                }`}
-                title={`${new Date(h.ts).toLocaleString()} — ${h.status}`}
-              />
-            ))}
+          <div className="flex items-end gap-[2px] h-12">
+            {history.map((h, i) => {
+              // Green bars vary height for organic texture; issues stand out as different color
+              const heights = ['h-8', 'h-9', 'h-10', 'h-11', 'h-12']
+              const heightClass = h.status === 'green'
+                ? heights[i % heights.length]
+                : h.status === 'yellow' ? 'h-7'
+                : 'h-12'
+              return (
+                <div
+                  key={i}
+                  className={`flex-1 min-w-[3px] rounded-t-sm cursor-default transition-opacity hover:opacity-70 ${heightClass} ${
+                    h.status === 'green' ? 'bg-green-500/70' :
+                    h.status === 'yellow' ? 'bg-yellow-500' : 'bg-red-500'
+                  }`}
+                  title={`${new Date(h.ts).toLocaleString()} — ${h.status}`}
+                />
+              )
+            })}
           </div>
           <div className="flex justify-between text-[10px] text-gray-600 mt-1">
             <span>{new Date(history[0].ts).toLocaleString('en-US', { month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit' })}</span>

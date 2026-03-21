@@ -235,21 +235,23 @@ export default function SystemHealth() {
             <p className="text-[10px] uppercase tracking-widest text-gray-500">Uptime History</p>
             <p className="text-[10px] text-gray-600">{history.length} checks</p>
           </div>
-          <div className="flex items-end gap-[2px] h-12">
+          <div className="flex items-end justify-between" style={{ height: '64px' }}>
             {history.map((h, i) => {
-              // Green bars vary height for organic texture; issues stand out as different color
-              const heights = ['h-8', 'h-9', 'h-10', 'h-11', 'h-12']
-              const heightClass = h.status === 'green'
-                ? heights[i % heights.length]
-                : h.status === 'yellow' ? 'h-7'
-                : 'h-12'
+              // Vary height for organic bar chart look — green varies 60-100%, yellow shorter, red full
+              const seed = ((i * 7 + 13) % 5)  // deterministic pseudo-random per index
+              const greenHeights = [38, 44, 50, 56, 64]
+              const px = h.status === 'green'
+                ? greenHeights[seed]
+                : h.status === 'yellow' ? 28
+                : 64
               return (
                 <div
                   key={i}
-                  className={`flex-1 min-w-[3px] rounded-t-sm cursor-default transition-opacity hover:opacity-70 ${heightClass} ${
+                  className={`rounded-t-sm cursor-default transition-opacity hover:opacity-60 ${
                     h.status === 'green' ? 'bg-green-500/70' :
                     h.status === 'yellow' ? 'bg-yellow-500' : 'bg-red-500'
                   }`}
+                  style={{ height: `${px}px`, width: `${Math.max(100 / history.length - 0.5, 2)}%` }}
                   title={`${new Date(h.ts).toLocaleString()} — ${h.status}`}
                 />
               )

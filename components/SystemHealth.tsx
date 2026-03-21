@@ -72,9 +72,11 @@ export default function SystemHealth() {
   const [data, setData] = useState<HealthData | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
+  const [refreshing, setRefreshing] = useState(false)
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null)
 
-  const fetchHealth = useCallback(async () => {
+  const fetchHealth = useCallback(async (manual = false) => {
+    if (manual) setRefreshing(true)
     try {
       const resp = await fetch(HEALTH_URL)
       if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
@@ -86,12 +88,13 @@ export default function SystemHealth() {
       setError(e instanceof Error ? e.message : 'Unknown error')
     } finally {
       setLoading(false)
+      setRefreshing(false)
     }
   }, [])
 
   useEffect(() => {
     fetchHealth()
-    const interval = setInterval(fetchHealth, REFRESH_INTERVAL)
+    const interval = setInterval(() => fetchHealth(), REFRESH_INTERVAL)
     return () => clearInterval(interval)
   }, [fetchHealth])
 
@@ -169,10 +172,11 @@ export default function SystemHealth() {
             </span>
           )}
           <button
-            onClick={fetchHealth}
-            className="px-3 py-1.5 bg-gray-800 border border-gray-700 rounded text-xs text-gray-300 hover:bg-gray-700 transition-colors"
+            onClick={() => fetchHealth(true)}
+            disabled={refreshing}
+            className="px-3 py-1.5 bg-gray-800 border border-gray-700 rounded text-xs text-gray-300 hover:bg-gray-700 transition-colors disabled:opacity-50"
           >
-            <RefreshCw className="w-3.5 h-3.5 inline mr-1" />
+            <RefreshCw className={`w-3.5 h-3.5 inline mr-1 ${refreshing ? 'animate-spin' : ''}`} />
             Refresh
           </button>
         </div>

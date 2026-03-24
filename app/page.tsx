@@ -151,6 +151,17 @@ export default function MissionControl() {
           })}
         </nav>
 
+        {/* True North Link */}
+        <div className="px-5 py-2 border-t border-gray-200 dark:border-gray-700">
+          <a
+            href="true-north.html"
+            className="flex items-center px-0 py-2 text-sm font-medium text-amber-500 hover:text-amber-400 transition-colors"
+          >
+            <Zap className="w-4 h-4 mr-3 flex-shrink-0" />
+            True North
+          </a>
+        </div>
+
         {/* Footer */}
         <div className="px-5 py-3 border-t border-gray-200 dark:border-gray-700 text-xs text-gray-400">
           <div>{new Date().toLocaleString('en-US', {

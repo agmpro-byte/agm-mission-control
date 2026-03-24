@@ -56,7 +56,7 @@
 
 <h1>North Star To-Do List</h1>
 <p class="subtitle">Everything we're working on across AGM Pro Tools, Heavenly Greens, and ATE</p>
-<p class="datestamp">Last updated: 2026-03-23</p>
+<p class="datestamp">Last updated: 2026-03-24</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
@@ -64,7 +64,7 @@
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
   <div class="stat"><div class="stat-value">7</div><div class="stat-label">Now / This Week</div></div>
   <div class="stat"><div class="stat-value">10</div><div class="stat-label">Next Up</div></div>
-  <div class="stat"><div class="stat-value">12</div><div class="stat-label">Queued</div></div>
+  <div class="stat"><div class="stat-value">11</div><div class="stat-label">Queued</div></div>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
@@ -342,13 +342,94 @@
     <div class="task-meta">Partnership</div>
   </div>
 
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<div class="category">
+  <div class="cat-header">
+    <span class="cat-title">AGM Pro Tools — Product & Funnel</span>
+    <span class="cat-count">9 items</span>
+  </div>
+
+  <div class="task">
+    <span class="priority next">Next</span>
+    <div>
+      <div class="task-name">Pre-Qualification Form</div>
+      <div class="task-desc">Spec done (PRE_QUAL_FORM_SPEC.md). 5-step survey in AGM survey builder, wire to calendar. No inbound funnel live yet — biggest product gap.</div>
+    </div>
+    <div class="task-meta">Andrew<br>Spec ready</div>
+  </div>
+
+  <div class="task">
+    <span class="priority soon">Soon</span>
+    <div>
+      <div class="task-name">Discovery Call — Confirmation Email + SMS</div>
+      <div class="task-desc">Write subject + body for booking confirmation. Part of 4-step appointment automation sequence.</div>
+    </div>
+    <div class="task-meta">Troy<br>Copy needed</div>
+  </div>
+
+  <div class="task">
+    <span class="priority soon">Soon</span>
+    <div>
+      <div class="task-name">Discovery Call — 24-Hour Reminder</div>
+      <div class="task-desc">Write subject + body for 24hr reminder email + SMS.</div>
+    </div>
+    <div class="task-meta">Troy<br>Copy needed</div>
+  </div>
+
+  <div class="task">
+    <span class="priority soon">Soon</span>
+    <div>
+      <div class="task-name">Discovery Call — 1-Hour Reminder</div>
+      <div class="task-desc">Write subject + body for 1hr reminder email + SMS.</div>
+    </div>
+    <div class="task-meta">Troy<br>Copy needed</div>
+  </div>
+
+  <div class="task">
+    <span class="priority soon">Soon</span>
+    <div>
+      <div class="task-name">Discovery Call — 10-Min Reminder SMS</div>
+      <div class="task-desc">Write final nudge SMS before call.</div>
+    </div>
+    <div class="task-meta">Troy<br>Copy needed</div>
+  </div>
+
+  <div class="task">
+    <span class="priority soon">Soon</span>
+    <div>
+      <div class="task-name">Bridge Video (Calendar Redirect)</div>
+      <div class="task-desc">Record or source intro video for the booking page. Button wired on site, no video content yet.</div>
+    </div>
+    <div class="task-meta">Troy<br>Not started</div>
+  </div>
+
+  <div class="task">
+    <span class="priority soon">Soon</span>
+    <div>
+      <div class="task-name">Product Overview Video</div>
+      <div class="task-desc">Create AGM Pro Tools product overview video. "Watch Overview" button on site has no content.</div>
+    </div>
+    <div class="task-meta">Troy<br>Not started</div>
+  </div>
+
   <div class="task">
     <span class="priority queued">Queued</span>
     <div>
-      <div class="task-name">GHL Dependency Analysis</div>
-      <div class="task-desc">Troy requested via Telegram. Full analysis of what AGM Pro Tools depends on from GHL — API surface, rate limits, feature gaps, risk assessment.</div>
+      <div class="task-name">Verify hello@agmprotools.com</div>
+      <div class="task-desc">Confirm email is receiving and sending correctly.</div>
     </div>
-    <div class="task-meta">Owed to Troy</div>
+    <div class="task-meta">Andrew<br>5 min</div>
+  </div>
+
+  <div class="task">
+    <span class="priority queued">Queued</span>
+    <div>
+      <div class="task-name">Search Atlas SEO Setup</div>
+      <div class="task-desc">Add tracking code, configure Atlas for agmprotools.com. Site is live but not discoverable via SEO tracking.</div>
+    </div>
+    <div class="task-meta">Troy<br>Not started</div>
   </div>
 </div>
 
@@ -444,7 +525,34 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">Recently Completed</span>
-    <span class="cat-count">8 items</span>
+    <span class="cat-count">11 items</span>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">GHL Dependency Analysis</div>
+      <div class="task-desc">Full audit of what breaks, degrades, and continues if GHL goes offline. Not yet fully agnostic — GHL is pipeline aggregator, not database. SF-first fallback recommended.</div>
+    </div>
+    <div class="task-meta">Mar 24</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Briggs Handoffs Processed (25 files)</div>
+      <div class="task-desc">All weekend + Monday morning handoffs read, processed, archived to completed/. Memory files updated.</div>
+    </div>
+    <div class="task-meta">Mar 24</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">GHL Key Canary Fix</div>
+      <div class="task-desc">Modal secret had stale GHL_API_KEY causing 403s. Synced + retry logic added to key_canary.py.</div>
+    </div>
+    <div class="task-meta">Mar 23</div>
   </div>
 
   <div class="task done-row">
@@ -521,8 +629,8 @@
 </div>
 
 <div class="footer">
-  North Star To-Do List — AGM Pro Tools — Generated 2026-03-23 by Harlan<br>
-  Source of truth for everything in flight. Updated each session.
+  North Star To-Do List — AGM Pro Tools — Updated 2026-03-24 by Harlan<br>
+  Single source of truth for everything in flight. Updated each session. Replaces AGM Command Center Google Sheet.
 </div>
 
 </body>

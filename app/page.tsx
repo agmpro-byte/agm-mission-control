@@ -155,6 +155,8 @@ export default function MissionControl() {
         <div className="px-5 py-2 border-t border-gray-200 dark:border-gray-700">
           <a
             href="true-north.html"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center px-0 py-2 text-sm font-medium text-amber-500 hover:text-amber-400 transition-colors"
           >
             <Zap className="w-4 h-4 mr-3 flex-shrink-0" />

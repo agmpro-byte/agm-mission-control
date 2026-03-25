@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
-import { Home, Users, GitBranch, ArrowRightLeft, FileText, Activity, Calendar as CalendarIcon, Zap, Heart } from 'lucide-react'
+import { Home, Users, GitBranch, ArrowRightLeft, FileText, Activity, Calendar as CalendarIcon, Zap, Heart, ShoppingCart } from 'lucide-react'
 import ErrorBoundary from '@/components/ErrorBoundary'
 
 // Dynamically import components to avoid SSR issues
@@ -17,6 +17,8 @@ const HandoffMonitor = dynamic(() => import('@/components/HandoffMonitor'), { ss
 const AgentStatusMonitor = dynamic(() => import('@/components/AgentStatusMonitor'), { ssr: false })
 const PublishingPipeline = dynamic(() => import('@/components/PublishingPipeline'), { ssr: false })
 const SystemHealth = dynamic(() => import('@/components/SystemHealth'), { ssr: false })
+const CostcoDashboard = dynamic(() => import('@/components/CostcoDashboard'), { ssr: false })
+const HGCalendar = dynamic(() => import('@/components/HGCalendar'), { ssr: false })
 
 const tabs = [
   { id: 'dashboard', label: 'Dashboard', icon: Home },
@@ -29,6 +31,8 @@ const tabs = [
   { id: 'tasks', label: 'Task Board', icon: Activity },
   { id: 'calendar', label: 'Calendar', icon: CalendarIcon },
   { id: 'pipeline', label: 'Content Pipeline', icon: Zap },
+  { id: 'costco', label: 'Costco', icon: ShoppingCart },
+  { id: 'hg-calendar', label: 'HG Calendar', icon: CalendarIcon },
 ]
 
 export default function MissionControl() {
@@ -115,6 +119,10 @@ export default function MissionControl() {
         return <Calendar />
       case 'pipeline':
         return <ContentPipeline />
+      case 'costco':
+        return <CostcoDashboard />
+      case 'hg-calendar':
+        return <HGCalendar />
       default:
         return (
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">

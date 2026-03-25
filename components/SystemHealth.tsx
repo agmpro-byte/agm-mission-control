@@ -179,9 +179,11 @@ export default function SystemHealth() {
     return s === 'healthy' || s === 'degraded' || s === 'green' || s === 'yellow'
   }).length
 
-  // Uptime calculation
+  // Uptime calculation — green AND yellow (degraded) count as operational.
+  // Only red (unhealthy) counts as downtime. Internal process errors like
+  // content_pipeline shouldn't tank client uptime.
   const history = data.uptime_history || []
-  const upCount = history.filter(h => h.status === 'green').length
+  const upCount = history.filter(h => h.status === 'green' || h.status === 'yellow').length
   const uptimePct = history.length > 0 ? ((upCount / history.length) * 100).toFixed(1) : '--'
   const uptimeColor = history.length === 0 ? 'text-gray-500' :
     parseFloat(String(uptimePct)) >= 99.5 ? 'text-green-400' :

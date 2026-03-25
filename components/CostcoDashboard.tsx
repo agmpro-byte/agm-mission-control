@@ -198,6 +198,8 @@ export default function CostcoDashboard() {
   const [statusFilter, setStatusFilter] = useState('all')
   const [turfFilter, setTurfFilter] = useState('all')
   const [view, setView] = useState<'store' | 'list'>('store')
+  const [sortCol, setSortCol] = useState('')
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
 
   useEffect(() => {
     fetch('costco-data.json?' + Date.now())
@@ -212,11 +214,45 @@ export default function CostcoDashboard() {
 
   const { summary: s, statusCounts, turfTypeCounts, storePerformance } = data
 
+  const handleSort = (col: string) => {
+    if (sortCol === col) {
+      setSortDir(sortDir === 'asc' ? 'desc' : 'asc')
+    } else {
+      setSortCol(col)
+      setSortDir('asc')
+    }
+  }
+
+  const sortFn = (a: CostcoLead, b: CostcoLead) => {
+    if (!sortCol) return 0
+    const keys: Record<string, (l: CostcoLead) => string | number> = {
+      name: l => (l.lastName || '').toLowerCase(),
+      status: l => (l.status || '').toLowerCase(),
+      store: l => (l.costcoStore || '').toLowerCase(),
+      turf: l => (l.turfType || '').toLowerCase(),
+      stage: l => (l.opportunityStage || '').toLowerCase(),
+      amount: l => l.totalPrice || 0,
+    }
+    const fn = keys[sortCol]
+    if (!fn) return 0
+    const va = fn(a), vb = fn(b)
+    if (typeof va === 'number' && typeof vb === 'number') return sortDir === 'asc' ? va - vb : vb - va
+    if (va < vb) return sortDir === 'asc' ? -1 : 1
+    if (va > vb) return sortDir === 'asc' ? 1 : -1
+    return 0
+  }
+
+  const SortHeader = ({ col, label, className }: { col: string; label: string; className?: string }) => (
+    <span className={`cursor-pointer hover:text-white ${className || ''}`} onClick={() => handleSort(col)}>
+      {label} {sortCol === col ? (sortDir === 'asc' ? '▲' : '▼') : ''}
+    </span>
+  )
+
   const filtered = data.leads.filter(l => {
     if (statusFilter !== 'all' && l.status !== statusFilter) return false
     if (turfFilter !== 'all' && l.turfType !== turfFilter) return false
     return true
-  })
+  }).sort(sortFn)
 
   const byStore = filtered.reduce((acc, l) => {
     const store = l.costcoStore || 'Unknown'
@@ -349,11 +385,11 @@ export default function CostcoDashboard() {
         ) : (
           <div className="border border-gray-800 rounded-lg overflow-hidden">
             <div className="flex items-center justify-between px-4 py-2 bg-gray-800/50 text-xs text-gray-500 font-medium">
-              <span className="flex-1">Lead</span>
-              <span className="w-24 text-center">Store</span>
-              <span className="w-28 text-center">Turf Type</span>
-              <span className="w-32 text-center">Stage</span>
-              <span className="w-20 text-right">Amount</span>
+              <SortHeader col="name" label="Lead" className="flex-1" />
+              <SortHeader col="store" label="Store" className="w-24 text-center" />
+              <SortHeader col="turf" label="Turf Type" className="w-28 text-center" />
+              <SortHeader col="stage" label="Stage" className="w-32 text-center" />
+              <SortHeader col="amount" label="Amount" className="w-20 text-right" />
               <span className="w-28 text-right">Links</span>
             </div>
             {filtered.map(lead => (

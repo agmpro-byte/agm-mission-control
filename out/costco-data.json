@@ -1,5 +1,5 @@
 {
-  "generated": "2026-03-25T20:04:55.324160+00:00",
+  "generated": "2026-03-25T22:03:23.899323+00:00",
   "summary": {
     "totalLeads": 119,
     "appointmentsBooked": 92,
@@ -52,25 +52,11 @@
     }
   },
   "storePerformance": {
-    "Concord": {
-      "leads": 12,
-      "sold": 1,
-      "revenue": 3961.0,
-      "sqft": 182.0,
-      "pipeline": 0
-    },
     "Danville": {
       "leads": 11,
       "sold": 0,
       "revenue": 0,
       "sqft": 0,
-      "pipeline": 0
-    },
-    "Great Oaks": {
-      "leads": 16,
-      "sold": 1,
-      "revenue": 8037.0,
-      "sqft": 426.0,
       "pipeline": 0
     },
     "Vallejo": {
@@ -80,16 +66,15 @@
       "sqft": 1288.0,
       "pipeline": 0
     },
-    "Tracy": {
-      "leads": 17,
-      "sold": 1,
-      "revenue": 12167.0,
-      "sqft": 728.0,
-      "pipeline": 0,
-      "cancelled": 11000
+    "Livermore": {
+      "leads": 4,
+      "sold": 0,
+      "revenue": 0,
+      "sqft": 0,
+      "pipeline": 0
     },
     "Foster City": {
-      "leads": 10,
+      "leads": 9,
       "sold": 2,
       "revenue": 11429.0,
       "sqft": 544.0,
@@ -102,22 +87,8 @@
       "sqft": 548.0,
       "pipeline": 0
     },
-    "Napa": {
-      "leads": 5,
-      "sold": 3,
-      "revenue": 33880.0,
-      "sqft": 1587.0,
-      "pipeline": 11000
-    },
-    "Livermore": {
-      "leads": 4,
-      "sold": 0,
-      "revenue": 0,
-      "sqft": 0,
-      "pipeline": 0
-    },
-    "Pleasanton": {
-      "leads": 9,
+    "S San Francisco": {
+      "leads": 1,
       "sold": 0,
       "revenue": 0,
       "sqft": 0,
@@ -130,18 +101,61 @@
       "sqft": 517.0,
       "pipeline": 0
     },
-    "Ne San Jose": {
-      "leads": 4,
+    "Tracy": {
+      "leads": 17,
       "sold": 1,
-      "revenue": 16705.0,
-      "sqft": 904.0,
+      "revenue": 12167.0,
+      "sqft": 728.0,
+      "pipeline": 0,
+      "cancelled": 11000
+    },
+    "Concord": {
+      "leads": 12,
+      "sold": 1,
+      "revenue": 3961.0,
+      "sqft": 182.0,
       "pipeline": 0
     },
-    "Unknown": {
-      "leads": 6,
+    "Fremont": {
+      "leads": 1,
+      "sold": 0,
+      "revenue": 0,
+      "sqft": 0,
+      "pipeline": 0
+    },
+    "NE San Jose": {
+      "leads": 4,
+      "sold": 2,
+      "revenue": 27081.0,
+      "sqft": 1502.0,
+      "pipeline": 0
+    },
+    "Great Oaks": {
+      "leads": 16,
+      "sold": 1,
+      "revenue": 8037.0,
+      "sqft": 426.0,
+      "pipeline": 0
+    },
+    "Pleasanton": {
+      "leads": 9,
+      "sold": 0,
+      "revenue": 0,
+      "sqft": 0,
+      "pipeline": 0
+    },
+    "Napa": {
+      "leads": 5,
       "sold": 3,
-      "revenue": 20180.0,
-      "sqft": 1114.0,
+      "revenue": 33880.0,
+      "sqft": 1587.0,
+      "pipeline": 11000
+    },
+    "Unknown": {
+      "leads": 5,
+      "sold": 2,
+      "revenue": 9804.0,
+      "sqft": 516.0,
       "pipeline": 0
     }
   },
@@ -242,9 +256,14 @@
       "createdDate": "2026-03-20",
       "sfUrl": "https://d37000000pbiqeac.my.salesforce.com/lightning/r/Lead/00QRb00000UmCs1MAF/view",
       "agmUrl": "https://app.agmpro.com/v2/location/tNwDUPgJ4GFjCD81OGVA/contacts/detail/FvyFNMk0xycfKmm6VBZn",
+      "opportunityStage": "1st Presentation Set",
+      "sqft": 0,
+      "pricePerSqft": 0,
+      "crewNumber": "",
+      "jobType": "",
+      "oppSfUrl": "https://d37000000pbiqeac.my.salesforce.com/lightning/r/Opportunity/006Rb00000XYo7XIAT/view",
       "totalPrice": 0,
-      "revenueSource": "",
-      "sqft": 0
+      "revenueSource": ""
     },
     {
       "sfId": "00QRb00000Um065MAB",
@@ -325,7 +344,7 @@
       "email": "",
       "city": "San Bruno",
       "state": "CA",
-      "costcoStore": "Foster City",
+      "costcoStore": "S San Francisco",
       "turfType": "Artificial Turf",
       "shawProducts": [],
       "status": "On Hold",
@@ -1536,7 +1555,7 @@
       "email": "kardanitin@gmail.com",
       "city": "Milpitas",
       "state": "CA",
-      "costcoStore": "Ne San Jose",
+      "costcoStore": "NE San Jose",
       "turfType": "Artificial Turf",
       "shawProducts": [],
       "status": "Appointment Booked",
@@ -1853,7 +1872,7 @@
       "email": "amr711@icloud.com",
       "city": "San Jose",
       "state": "CA",
-      "costcoStore": "Ne San Jose",
+      "costcoStore": "NE San Jose",
       "turfType": "Artificial Turf",
       "shawProducts": [],
       "status": "Paid in Full",
@@ -2295,7 +2314,7 @@
       "email": "kennyraybrown@gmail.com",
       "city": "Milpitas",
       "state": "CA",
-      "costcoStore": "Ne San Jose",
+      "costcoStore": "NE San Jose",
       "turfType": "Artificial Turf",
       "shawProducts": [],
       "status": "Follow Up",
@@ -2435,7 +2454,7 @@
       "email": "stevemnzs@gmail.com",
       "city": "Fremont",
       "state": "CA",
-      "costcoStore": "Ne San Jose",
+      "costcoStore": "Fremont",
       "turfType": "Artificial Turf",
       "shawProducts": [],
       "status": "Being Contacted",
@@ -2910,7 +2929,7 @@
       "email": "strovt@aol.com",
       "city": "Sunnyvale",
       "state": "CA",
-      "costcoStore": "",
+      "costcoStore": "NE San Jose",
       "turfType": "Artificial Turf",
       "shawProducts": [],
       "status": "Job Scheduled",

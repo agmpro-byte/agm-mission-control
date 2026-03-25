@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
-import { Home, Users, GitBranch, ArrowRightLeft, FileText, Activity, Calendar as CalendarIcon, Zap, Heart, ShoppingCart } from 'lucide-react'
+import { Home, Users, GitBranch, ArrowRightLeft, FileText, Activity, Calendar as CalendarIcon, Zap, Heart, ShoppingCart, ExternalLink } from 'lucide-react'
 import ErrorBoundary from '@/components/ErrorBoundary'
 
 // Dynamically import components to avoid SSR issues
@@ -172,6 +172,29 @@ export default function MissionControl() {
             )
           })}
         </nav>
+
+        {/* Client Dashboards */}
+        <div className="px-5 py-2 border-t border-gray-200 dark:border-gray-700">
+          <p className="text-[10px] uppercase tracking-widest text-gray-500 font-mono mb-1 mt-1">Client Dashboards</p>
+          <a
+            href="https://troy-byte.github.io/realturf-triage/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center px-0 py-1.5 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5 mr-3 flex-shrink-0" />
+            Real Turf
+          </a>
+          <a
+            href="https://troy-byte.github.io/oasis-dashboard/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center px-0 py-1.5 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5 mr-3 flex-shrink-0" />
+            Oasis Turf
+          </a>
+        </div>
 
         {/* True North Link */}
         <div className="px-5 py-2 border-t border-gray-200 dark:border-gray-700">

@@ -50,9 +50,37 @@
   .stat-label { font-size: 11px; color: #8a9bb5; }
 
   .footer { text-align: center; color: #475569; font-size: 12px; margin-top: 40px; padding-top: 20px; border-top: 1px solid #1e293b; }
+
+  /* Global Nav */
+  .global-nav { display: flex; align-items: center; gap: 6px; margin-bottom: 24px; padding: 10px 14px; background: #111827; border-radius: 8px; border: 1px solid #1e293b; flex-wrap: wrap; }
+  .global-nav a { font-size: 12px; font-weight: 600; color: #8a9bb5; text-decoration: none; padding: 4px 10px; border-radius: 4px; transition: background 0.15s, color 0.15s; white-space: nowrap; }
+  .global-nav a:hover { background: rgba(59,130,246,0.15); color: #60a5fa; }
+  .global-nav a.active { background: rgba(245,158,11,0.15); color: #fbbf24; }
+  .global-nav .nav-sep { color: #1e293b; font-size: 14px; user-select: none; }
+  .global-nav .nav-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: #475569; margin-right: 4px; }
 </style>
 </head>
 <body>
+
+<nav class="global-nav">
+  <span class="nav-label">AGM</span>
+  <a href="https://troy-byte.github.io/agm-mission-control/">Mission Control</a>
+  <span class="nav-sep">|</span>
+  <a href="https://troy-byte.github.io/agm-mission-control/true-north.html" class="active">True North</a>
+  <span class="nav-sep">|</span>
+  <a href="https://troy-byte.github.io/agm-automation-score/">Automation Score</a>
+  <span class="nav-sep">|</span>
+  <a href="https://troy-byte.github.io/agm-case-study/">Case Study</a>
+  <span class="nav-sep">|</span>
+  <span class="nav-label" style="margin-left:8px">Clients</span>
+  <a href="https://troy-byte.github.io/realturf-triage/">Real Turf</a>
+  <a href="https://troy-byte.github.io/oasis-dashboard/">Oasis Turf</a>
+  <span class="nav-sep">|</span>
+  <span class="nav-label" style="margin-left:8px">HG</span>
+  <a href="https://troy-byte.github.io/hg-calendar/">Calendar</a>
+  <a href="https://troy-byte.github.io/hg-costco-flow/">Costco Flow</a>
+  <a href="https://troy-byte.github.io/hg-projects/">Projects</a>
+</nav>
 
 <h1>North Star To-Do List</h1>
 <p class="subtitle">Everything we're working on across AGM Pro Tools, Heavenly Greens, and ATE</p>

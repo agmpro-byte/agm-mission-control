@@ -63,6 +63,16 @@ const CRON_LABELS: Record<string, { label: string; schedule: string }> = {
   'volume_backup': { label: 'Volume Backup', schedule: 'Daily 1 AM PT' },
 }
 
+// Internal process crons — shown separately from client integration crons.
+// These should NOT appear in the client health section.
+const INTERNAL_CRONS = new Set([
+  'content_pipeline',
+  'security_audit_self_report',
+  'morning_inbox_cleanup',
+  'morning_email_briefing',
+  'volume_backup',
+])
+
 function timeAgo(isoStr?: string): string {
   if (!isoStr) return 'Never'
   const d = new Date(isoStr)
@@ -168,10 +178,12 @@ export default function SystemHealth() {
   const totalDead = clientEntries.reduce((sum, [, c]) => sum + (c.dead_retries || 0), 0)
   const totalPending = clientEntries.reduce((sum, [, c]) => sum + (c.pending_retries || 0), 0)
 
-  const cronEntries = Object.entries(heartbeats).sort((a, b) => {
+  const allCronEntries = Object.entries(heartbeats).sort((a, b) => {
     if (a[1].status !== b[1].status) return a[1].status === 'error' ? -1 : 1
     return (b[1].epoch || 0) - (a[1].epoch || 0)
   })
+  const cronEntries = allCronEntries.filter(([name]) => !INTERNAL_CRONS.has(name))
+  const internalCronEntries = allCronEntries.filter(([name]) => INTERNAL_CRONS.has(name))
 
   // "Operational" = healthy or degraded (system is handling it). Only "unhealthy" counts against.
   const operationalClients = clientEntries.filter(([, c]) => {
@@ -243,13 +255,12 @@ export default function SystemHealth() {
               const hash = ((i * 17 + 31) % 11)
               const baseHeights = [42, 50, 58, 64, 72, 48, 56, 68, 44, 62, 76]
               const px = h.status === 'red' ? 80 : baseHeights[hash]
+              // Green + yellow both = operational. Only red = downtime.
+              const barColor = h.status === 'red' ? 'bg-red-500' : 'bg-green-500'
               return (
                 <div
                   key={i}
-                  className={`flex-1 rounded-t-sm cursor-default transition-opacity hover:opacity-60 ${
-                    h.status === 'green' ? 'bg-green-500' :
-                    h.status === 'yellow' ? 'bg-yellow-500' : 'bg-red-500'
-                  }`}
+                  className={`flex-1 rounded-t-sm cursor-default transition-opacity hover:opacity-60 ${barColor}`}
                   style={{ height: `${px}px` }}
                   title={`${new Date(h.ts).toLocaleString()} — ${h.status}`}
                 />
@@ -395,10 +406,10 @@ export default function SystemHealth() {
         </div>
       )}
 
-      {/* ── Cron Heartbeats ── */}
+      {/* ── Client Integration Crons ── */}
       <div className="border border-gray-800 rounded-lg bg-[#0d1117]">
         <div className="px-4 py-3 border-b border-gray-800 flex items-center justify-between">
-          <p className="text-[10px] uppercase tracking-widest text-gray-500">Cron Heartbeats</p>
+          <p className="text-[10px] uppercase tracking-widest text-gray-500">Client Integration Crons</p>
           <div className="flex items-center space-x-3">
             <span className="text-[10px] text-gray-600">{cronEntries.length} jobs</span>
             {totalPending > 0 && (
@@ -456,6 +467,62 @@ export default function SystemHealth() {
           </table>
         </div>
       </div>
+
+      {/* ── Internal Process Crons (separate from client health) ── */}
+      {internalCronEntries.length > 0 && (
+        <div className="border border-gray-800 rounded-lg bg-[#0d1117]">
+          <div className="px-4 py-3 border-b border-gray-800 flex items-center justify-between">
+            <p className="text-[10px] uppercase tracking-widest text-gray-500">Internal Process Crons</p>
+            <span className="text-[10px] text-gray-600">{internalCronEntries.length} jobs</span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-xs">
+              <thead>
+                <tr className="text-[10px] text-gray-600 uppercase tracking-widest border-b border-gray-800">
+                  <th className="text-left py-2 px-4">Cron</th>
+                  <th className="text-left py-2 px-4">Status</th>
+                  <th className="text-left py-2 px-4">Schedule</th>
+                  <th className="text-left py-2 px-4">Last Run</th>
+                  <th className="text-left py-2 px-4">Age</th>
+                  <th className="text-left py-2 px-4">Detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                {internalCronEntries.map(([name, hb]) => {
+                  const info = CRON_LABELS[name] || { label: name, schedule: '-' }
+                  const isStale = hb.stale === true || hb.status === 'stale'
+                  const isOk = hb.status === 'ok'
+
+                  return (
+                    <tr key={name} className="border-b border-gray-800/40 hover:bg-white/[0.02] transition-colors">
+                      <td className="py-2.5 px-4 text-white font-medium">{info.label}</td>
+                      <td className="py-2.5 px-4">
+                        <span className="flex items-center space-x-2">
+                          <span className={`w-1.5 h-1.5 rounded-full ${
+                            isStale ? 'bg-yellow-400' : isOk ? 'bg-green-400' : 'bg-red-400'
+                          }`} />
+                          <span className={
+                            isStale ? 'text-yellow-400' : isOk ? 'text-green-400' : 'text-red-400'
+                          }>{isStale ? 'STALE' : isOk ? 'OK' : 'ERR'}</span>
+                        </span>
+                      </td>
+                      <td className="py-2.5 px-4 text-gray-500">{info.schedule}</td>
+                      <td className="py-2.5 px-4 text-gray-500">
+                        {hb.timestamp ? new Date(hb.timestamp.endsWith('Z') ? hb.timestamp : hb.timestamp + 'Z').toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true }) : '-'}
+                      </td>
+                      <td className="py-2.5 px-4 text-gray-500">{timeAgo(hb.timestamp)}</td>
+                      <td className="py-2.5 px-4 text-gray-600 max-w-[240px] truncate">
+                        {hb.detail ? (typeof hb.detail === 'string' ? hb.detail : JSON.stringify(hb.detail)) : '-'}
+                      </td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      )}
 
       {/* ── Footer ── */}
       <div className="flex items-center justify-between text-[10px] text-gray-700 px-1">

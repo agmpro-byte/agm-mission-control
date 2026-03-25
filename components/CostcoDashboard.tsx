@@ -36,38 +36,54 @@ interface DashboardData {
   generated: string
   summary: {
     totalLeads: number
-    converted: number
-    conversionRate: number
+    sold: number
+    soldRate: number
     totalRevenue: number
     avgDealSize: number
     totalSqft: number
     avgPricePerSqft: number
     pipelineValue: number
+    cancelledValue: number
+    cancelledCount: number
   }
   statusCounts: Record<string, number>
   turfTypeCounts: Record<string, number>
-  storePerformance: Record<string, { leads: number; converted: number; revenue: number; sqft: number }>
+  storePerformance: Record<string, { leads: number; sold: number; revenue: number; sqft: number }>
   leads: CostcoLead[]
 }
 
 // ── Helpers ─────────────────────────────────────────────────────────────
 
 const STATUS_COLORS: Record<string, string> = {
-  'Converted': 'bg-green-900/40 text-green-300 border-green-700',
+  'Completed': 'bg-green-900/40 text-green-300 border-green-700',
+  'Completed - Unpaid': 'bg-orange-900/40 text-orange-300 border-orange-700',
+  'Sold': 'bg-emerald-900/40 text-emerald-300 border-emerald-700',
+  'Job Scheduled': 'bg-cyan-900/40 text-cyan-300 border-cyan-700',
+  'Follow Up': 'bg-yellow-900/40 text-yellow-300 border-yellow-700',
   'Appointment Set': 'bg-blue-900/40 text-blue-300 border-blue-700',
-  'Working': 'bg-yellow-900/40 text-yellow-300 border-yellow-700',
-  'Pre-Qualified Lead': 'bg-purple-900/40 text-purple-300 border-purple-700',
+  'In Pipeline': 'bg-indigo-900/40 text-indigo-300 border-indigo-700',
+  'Working': 'bg-purple-900/40 text-purple-300 border-purple-700',
   'On Hold': 'bg-orange-900/40 text-orange-300 border-orange-700',
+  'New Lead': 'bg-blue-900/40 text-blue-300 border-blue-700',
+  'Cancelled': 'bg-red-900/40 text-red-300 border-red-700',
+  'Lost': 'bg-red-900/40 text-red-300 border-red-700',
   'Not Interested': 'bg-red-900/40 text-red-300 border-red-700',
 }
 
 const STATUS_BAR_COLORS: Record<string, string> = {
-  'Converted': 'bg-green-600',
+  'Completed': 'bg-green-600',
+  'Completed - Unpaid': 'bg-orange-600',
+  'Sold': 'bg-emerald-600',
+  'Job Scheduled': 'bg-cyan-600',
+  'Follow Up': 'bg-yellow-600',
   'Appointment Set': 'bg-blue-600',
-  'Working': 'bg-yellow-600',
-  'Pre-Qualified Lead': 'bg-purple-600',
-  'On Hold': 'bg-orange-600',
-  'Not Interested': 'bg-red-600',
+  'In Pipeline': 'bg-indigo-600',
+  'Working': 'bg-purple-600',
+  'On Hold': 'bg-orange-500',
+  'New Lead': 'bg-blue-500',
+  'Cancelled': 'bg-red-600',
+  'Lost': 'bg-red-500',
+  'Not Interested': 'bg-red-500',
 }
 
 const STAGE_COLORS: Record<string, string> = {
@@ -211,8 +227,8 @@ export default function CostcoDashboard() {
       {/* KPI Row */}
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
         <MetricCard label="Total Leads" value={s.totalLeads} />
-        <MetricCard label="Converted" value={s.converted} color="text-green-400" />
-        <MetricCard label="Conversion" value={`${s.conversionRate}%`} color="text-cyan-400" />
+        <MetricCard label="Sold" value={s.sold} color="text-green-400" />
+        <MetricCard label="Close Rate" value={`${s.soldRate}%`} color="text-cyan-400" />
         <MetricCard label="Revenue" value={`$${s.totalRevenue.toLocaleString()}`} color="text-emerald-400" />
         <MetricCard label="Avg Deal" value={`$${s.avgDealSize.toLocaleString()}`} />
         <MetricCard label="Total Sqft" value={s.totalSqft.toLocaleString()} />
@@ -343,7 +359,7 @@ export default function CostcoDashboard() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {Object.entries(storePerformance).sort((a, b) => b[1].revenue - a[1].revenue).map(([store, st]) => {
-            const rate = st.leads > 0 ? Math.round((st.converted / st.leads) * 100) : 0
+            const rate = st.leads > 0 ? Math.round((st.sold / st.leads) * 100) : 0
             return (
               <div key={store} className="bg-black rounded-lg p-3 border border-gray-800">
                 <div className="flex items-center space-x-2 mb-2">

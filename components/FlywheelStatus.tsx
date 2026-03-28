@@ -23,7 +23,7 @@ interface FlywheelStage {
   dependencies: string[]
 }
 
-const HEALTH_URL = 'https://agm-pro--claude-orchestrator-health.modal.run'
+const HEALTH_URL = 'https://agm-pro--agm-health-health.modal.run'
 const REFRESH_INTERVAL = 60000
 
 const PIPELINE_STAGES: FlywheelStage[] = [

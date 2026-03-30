@@ -202,10 +202,17 @@ export default function CostcoDashboard() {
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc')
 
   useEffect(() => {
-    fetch('costco-data.json?' + Date.now())
-      .then(r => r.json())
+    const MODAL_URL = 'https://agm-pro--costco-lead-intake-costco-dashboard-data.modal.run'
+    fetch(MODAL_URL)
+      .then(r => { if (!r.ok) throw new Error(`${r.status}`); return r.json() })
       .then(d => { setData(d); setLoading(false) })
-      .catch(e => { setError(e.message); setLoading(false) })
+      .catch(() => {
+        // Fallback to static file if Modal endpoint is down
+        fetch('costco-data.json?' + Date.now())
+          .then(r => r.json())
+          .then(d => { setData(d); setLoading(false) })
+          .catch(e => { setError(e.message); setLoading(false) })
+      })
   }, [])
 
   if (loading) return <div className="text-center text-gray-500 py-20">Loading Costco data from Salesforce...</div>

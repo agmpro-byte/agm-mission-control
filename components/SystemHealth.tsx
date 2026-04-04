@@ -52,7 +52,7 @@ const HEALTH_URL = 'https://agm-pro--agm-health-health.modal.run'
 const REFRESH_INTERVAL = 60000
 
 const CRON_LABELS: Record<string, { label: string; schedule: string }> = {
-  'jobber_token_keepalive': { label: 'Jobber Token Keepalive', schedule: 'Every 30 min' },
+  'jobber_token_keepalive': { label: 'Jobber Token Keepalive', schedule: 'Every 15 min' },
   'ghl_token_keepalive': { label: 'AGM Token Keepalive', schedule: 'Every 12h' },
   'ghl_key_canary': { label: 'AGM Key Canary', schedule: 'Daily 6 AM PT' },
   'jobber_retry_cron': { label: 'Jobber Retry Queue', schedule: 'Every 15 min' },
@@ -61,6 +61,17 @@ const CRON_LABELS: Record<string, { label: string; schedule: string }> = {
   'morning_inbox_cleanup': { label: 'Morning Inbox Cleanup', schedule: '5:20 AM PT' },
   'morning_email_briefing': { label: 'Morning Email Briefing', schedule: '5:30 AM PT' },
   'volume_backup': { label: 'Volume Backup', schedule: 'Daily 1 AM PT' },
+  'security_audit_weekly': { label: 'Security Audit', schedule: 'Weekly Sunday' },
+  'security_audit_self_report': { label: 'Security Self-Report', schedule: 'Every 3 days' },
+  'refresh_calendar': { label: 'HG Calendar Refresh', schedule: 'Every 5 min' },
+  'costco_lead_intake': { label: 'Costco Lead Intake', schedule: 'Every 5 min' },
+  'sf_agm_stage_sync': { label: 'SF Stage Sync', schedule: 'Every 5 min' },
+  'costco_dashboard_refresh': { label: 'Costco Dashboard Refresh', schedule: 'Every 30 min' },
+  'hg_sales_dashboard_refresh': { label: 'HG Sales Dashboard', schedule: 'Every 30 min' },
+  'agm_to_sf_poller': { label: 'AGM to SF Poller', schedule: 'Every 5 min' },
+  'sf_job_sold_remove_lnc': { label: 'SF Job Sold Tag', schedule: 'Every 5 min' },
+  'fieldroutes_valleywide_sync': { label: 'Valleywide Sync', schedule: 'Every 5 min' },
+  'daily_briefings': { label: 'Daily Briefings', schedule: 'Daily 6 AM PT' },
 }
 
 // Internal process crons — shown separately from client integration crons.

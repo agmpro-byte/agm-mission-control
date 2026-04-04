@@ -19,21 +19,21 @@ export default function HandoffMonitor() {
       name: 'Email Triage',
       path: 'latest.json',
       description: 'ACTION/REVIEW/FYI/INTEL categorization',
-      schedule: '5:30 AM Daily',
+      schedule: '6:30 AM Daily',
       status: 'pending'
     },
     {
       name: 'Command Center',
       path: 'latest_command_center.json',
       description: 'Google Sheets data (all tabs)',
-      schedule: '5:35 AM Daily',
+      schedule: '6:30 AM Daily',
       status: 'pending'
     },
     {
       name: 'Full Briefing',
       path: 'latest_full_briefing.json',
       description: 'System health, webhooks, cron status',
-      schedule: '5:40 AM Daily',
+      schedule: '6:30 AM Daily',
       status: 'pending'
     }
   ])

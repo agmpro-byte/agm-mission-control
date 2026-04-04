@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Brain, Search, PenTool, Image, Megaphone, Crown, Activity, Circle } from 'lucide-react'
+import { Brain, Search, PenTool, Image, Megaphone, Crown, Activity, Circle, Cpu } from 'lucide-react'
 
 interface Agent {
   id: string
@@ -27,15 +27,15 @@ export default function AgentStatusMonitor() {
   const [agents, setAgents] = useState<Agent[]>([
     {
       id: 'briggs',
-      name: 'Sergeant Briggs',
+      name: 'Briggs',
       role: 'Chief of Staff',
       status: 'active',
       model: {
         provider: 'Anthropic',
-        name: 'Claude Opus 4'
+        name: 'Claude Opus 4.6'
       },
       lastActivity: new Date().toISOString(),
-      currentTask: 'Morning briefings, task routing, flywheel cadence enforcement, EOD rundowns',
+      currentTask: 'Morning briefings, task routing, handoff tracking, EOD rundowns, proactive execution',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,
@@ -53,7 +53,7 @@ export default function AgentStatusMonitor() {
         name: 'Claude Code (Opus 4.6)'
       },
       lastActivity: new Date().toISOString(),
-      currentTask: 'Dashboard audit + deploy, email triage cron, integration builds, credentialed ops',
+      currentTask: 'Infrastructure, integrations, credentialed ops, Modal deploys, security hardening',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,
@@ -62,16 +62,34 @@ export default function AgentStatusMonitor() {
       flywheelStage: 'Infrastructure (Meta)'
     },
     {
+      id: 'gemma',
+      name: 'Gemma',
+      role: 'Local Inference',
+      status: 'active',
+      model: {
+        provider: 'Google',
+        name: 'Gemma 3n E4B (Local)'
+      },
+      lastActivity: new Date().toISOString(),
+      currentTask: 'Zero-cost inference — content first-pass, code review, bulk text processing, API fallback',
+      metrics: {
+        tasksCompleted: 0,
+        avgResponseTime: 0,
+        successRate: 0
+      },
+      flywheelStage: 'Tier Zero (Local)'
+    },
+    {
       id: 'scout',
       name: 'Scout',
       role: 'Signal Detector',
-      status: 'pending',
+      status: 'idle',
       model: {
         provider: 'Perplexity',
         name: 'Sonar Large'
       },
       lastActivity: new Date(Date.now() - 86400000).toISOString(),
-      currentTask: 'Awaiting deployment — will scan Facebook, X, Reddit for contractor pain signals',
+      currentTask: 'Industry intelligence — Facebook, X, Reddit contractor pain signals, trend reports',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,
@@ -83,13 +101,13 @@ export default function AgentStatusMonitor() {
       id: 'quill',
       name: 'Quill',
       role: 'Content Writer',
-      status: 'pending',
+      status: 'idle',
       model: {
         provider: 'Google',
         name: 'Gemini 2.5 Pro'
       },
       lastActivity: new Date(Date.now() - 86400000).toISOString(),
-      currentTask: 'Awaiting first assignment — AGM Friday Episode 1 script, newsletter copy, blog posts',
+      currentTask: 'Scripts, newsletter copy, blog posts, franchise decks',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,
@@ -101,13 +119,13 @@ export default function AgentStatusMonitor() {
       id: 'pixel',
       name: 'Pixel',
       role: 'Thumbnail Designer',
-      status: 'pending',
+      status: 'idle',
       model: {
         provider: 'OpenAI',
         name: 'GPT-4o'
       },
       lastActivity: new Date(Date.now() - 86400000).toISOString(),
-      currentTask: 'Awaiting first assignment — YouTube thumbnails, social graphics, slide decks',
+      currentTask: 'YouTube thumbnails, social graphics, slide decks',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,
@@ -119,13 +137,13 @@ export default function AgentStatusMonitor() {
       id: 'echo',
       name: 'Echo',
       role: 'Social Media Manager',
-      status: 'pending',
+      status: 'idle',
       model: {
         provider: 'OpenAI',
         name: 'ChatGPT'
       },
       lastActivity: new Date(Date.now() - 86400000).toISOString(),
-      currentTask: 'Awaiting first assignment — LinkedIn posts, X threads, content distribution',
+      currentTask: 'LinkedIn posts, X threads, content distribution',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,
@@ -143,6 +161,7 @@ export default function AgentStatusMonitor() {
       case 'pixel': return <Image className="w-6 h-6 text-pink-400" />
       case 'echo': return <Megaphone className="w-6 h-6 text-orange-400" />
       case 'harlan': return <Brain className="w-6 h-6 text-indigo-400" />
+      case 'gemma': return <Cpu className="w-6 h-6 text-cyan-400" />
       default: return <Activity className="w-6 h-6 text-gray-400" />
     }
   }
@@ -283,22 +302,26 @@ export default function AgentStatusMonitor() {
       {/* System Overview */}
       <div className="mt-6 p-4 bg-black rounded-lg border border-gray-800">
         <h4 className="text-sm font-medium text-white mb-3">Multi-Model Architecture</h4>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
           <div className="text-center">
             <p className="text-xs text-gray-500">Anthropic</p>
             <p className="text-lg font-semibold text-purple-400">2</p>
+          </div>
+          <div className="text-center">
+            <p className="text-xs text-gray-500">Google</p>
+            <p className="text-lg font-semibold text-green-400">2</p>
           </div>
           <div className="text-center">
             <p className="text-xs text-gray-500">OpenAI</p>
             <p className="text-lg font-semibold text-orange-400">2</p>
           </div>
           <div className="text-center">
-            <p className="text-xs text-gray-500">Google</p>
-            <p className="text-lg font-semibold text-green-400">1</p>
-          </div>
-          <div className="text-center">
             <p className="text-xs text-gray-500">Perplexity</p>
             <p className="text-lg font-semibold text-blue-400">1</p>
+          </div>
+          <div className="text-center">
+            <p className="text-xs text-gray-500">Local (Mac Mini)</p>
+            <p className="text-lg font-semibold text-cyan-400">1</p>
           </div>
         </div>
       </div>

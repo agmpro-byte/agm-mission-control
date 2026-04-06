@@ -85,14 +85,14 @@
 
 <h1>North Star To-Do List</h1>
 <p class="subtitle">Everything we're working on across AGM Pro Tools, Heavenly Greens, and ATE</p>
-<p class="datestamp">Last updated: 2026-04-03</p>
+<p class="datestamp">Last updated: 2026-04-06</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Prospects</div></div>
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
   <div class="stat"><div class="stat-value">8</div><div class="stat-label">Now / This Week</div></div>
-  <div class="stat"><div class="stat-value">17</div><div class="stat-label">Next Up</div></div>
+  <div class="stat"><div class="stat-value">18</div><div class="stat-label">Next Up</div></div>
   <div class="stat"><div class="stat-value">15</div><div class="stat-label">Queued</div></div>
 </div>
 
@@ -100,16 +100,16 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">This Week &mdash; Priority</span>
-    <span class="cat-count">15 items</span>
+    <span class="cat-count">16 items</span>
   </div>
 
   <div class="task">
     <span class="priority now">Now</span>
     <div>
-      <div class="task-name">Contractor Automation Score &mdash; AGM Lead Creation Fix</div>
-      <div class="task-desc">Quiz live, scoring live, PDF report live, email delivery live (SMTP via harlan@agmprotools.com). AGM lead creation returning 422. Debug payload &mdash; likely API version or tags format issue. Last blocker before full funnel is operational.</div>
+      <div class="task-name">Contractor Automation Score &mdash; Funnel Wiring</div>
+      <div class="task-desc">Backend DEPLOYED and tested end-to-end (score + AGM lead + email/PDF + Slack + Sheet all confirmed Apr 5). Remaining: booking calendar URL, GitHub Pages push, avg_ticket_value persistence, follow-up sequence, report button handler. LinkedIn GTM post BLOCKED until funnel is wired.</div>
     </div>
-    <div class="task-meta"><a href="https://contractorautomationscore.com">Live</a><br>422 bug &mdash; fixing today</div>
+    <div class="task-meta"><a href="https://contractorautomationscore.com">Live</a><br>Backend done Apr 5<br>Funnel wiring remaining</div>
   </div>
 
   <div class="task">
@@ -178,10 +178,19 @@
   <div class="task">
     <span class="priority now">Now</span>
     <div>
-      <div class="task-name">Valleywide PestRoutes &mdash; Finish Infrastructure Onboarding</div>
-      <div class="task-desc">Complete SERTBO↔PestRoutes integration. Troy shared flow diagram Apr 2 (saved to memory). Same sync pattern as Jobber↔AGM &mdash; replicate the adapter. Field Routes sync code exists but onboarding and automation not finished. 4 decisions still pending from Andrew.</div>
+      <div class="task-name">Valleywide PestRoutes ↔ SERTBO &mdash; Go Live</div>
+      <div class="task-desc">Apr 6: Code-side wiring complete. Service Type custom field + 5 appointment fields created in SERTBO, sync writes them all, paused stage routing fixed, service_reactivated tag emission live. 6 workflow shells published in SERTBO. Email sent to Andrew with full messaging spec. Remaining: (1) tomorrow morning dry-run via Slack command (FR daily quota hit), (2) Andrew builds workflow messaging, (3) flip valleywide.json active=true, (4) build SERTBO&rarr;FR new customer webhook (only writeback needed).</div>
     </div>
-    <div class="task-meta">Flow diagram saved<br>Discuss Apr 3</div>
+    <div class="task-meta">Code: done<br>Waiting: Andrew + dry-run</div>
+  </div>
+
+  <div class="task">
+    <span class="priority next">Next</span>
+    <div>
+      <div class="task-name">Pest Routes Connector &mdash; Marketplace Template</div>
+      <div class="task-desc">Productize Valleywide build into a repeatable Pest Routes connector for AGM Pro Tools marketplace. Phase 1 = Valleywide validates the pattern. Phase 2 = config-driven adapter + provisioning script + GitHub Pages template dashboard. Pest control is dominant FSM vertical for Field Routes &mdash; moat play.</div>
+    </div>
+    <div class="task-meta">After Valleywide live<br>GitHub Pages dashboard at go-live</div>
   </div>
 
   <div class="task">
@@ -679,7 +688,61 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">Recently Completed</span>
-    <span class="cat-count">8 items</span>
+    <span class="cat-count">14 items</span>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Content Flywheel &mdash; 3 Platforms Live</div>
+      <div class="task-desc">Scout &rarr; Quill &rarr; Pixel &rarr; Echo pipeline operational. LinkedIn first automated post sent. YouTube both channels authorized (Turf + Pro Tools). 9 flywheel scripts built. Gemma Tier Zero wired in.</div>
+    </div>
+    <div class="task-meta">Apr 4-5</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Scout Intelligence Bridge &mdash; Operational</div>
+      <div class="task-desc">Upgraded from blind to operational: Claude web search, RSS feed ingestion (3 trade pubs), Reddit monitoring (9 subreddits, 12 terms). First real run: 12 sourced signals in ~3 minutes.</div>
+    </div>
+    <div class="task-meta">Apr 5</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Automation Score Backend &mdash; Deployed &amp; Tested</div>
+      <div class="task-desc">End-to-end pipeline verified: quiz &rarr; scoring &rarr; AGM lead &rarr; email/PDF &rarr; Slack &rarr; Sheet. Critical bugs fixed: inverted scoring, revenue preview math, PDF layout. Report copy rewritten with dynamic tier descriptions.</div>
+    </div>
+    <div class="task-meta"><a href="https://contractorautomationscore.com">Live</a><br>Apr 5</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Chapter Book Complete &mdash; 28 Chapters</div>
+      <div class="task-desc">All 28 chapters have audio (ElevenLabs), S3 links, and email delivered. Pipeline sends to both Telegram and email. Dual distribution live.</div>
+    </div>
+    <div class="task-meta">Apr 5</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Machine Identity Auto-Remediation</div>
+      <div class="task-desc">machine_identity_check.py upgraded from detection-only to auto-strip unauthorized credentials from Tier 3 .env. --fix flag now enforces, not just alerts.</div>
+    </div>
+    <div class="task-meta">Apr 5</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Content Pipeline Unblocked</div>
+      <div class="task-desc">YouTube token split to per-channel architecture (protools + turf). Pillow added to Modal image deps. Acknowledged issues cleared. Pipeline can run end-to-end.</div>
+    </div>
+    <div class="task-meta">Apr 5</div>
   </div>
 
   <div class="task done-row">
@@ -756,7 +819,7 @@
 </div>
 
 <div class="footer">
-  North Star To-Do List &mdash; AGM Pro Tools &mdash; Updated 2026-04-03 by Harlan<br>
+  North Star To-Do List &mdash; AGM Pro Tools &mdash; Updated 2026-04-06 by Harlan<br>
   Single source of truth for everything in flight. Updated each session. Replaces AGM Command Center Google Sheet.
 </div>
 

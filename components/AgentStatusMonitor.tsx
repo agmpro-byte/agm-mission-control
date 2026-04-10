@@ -107,7 +107,7 @@ export default function AgentStatusMonitor() {
         name: 'Gemini 2.5 Pro'
       },
       lastActivity: new Date(Date.now() - 86400000).toISOString(),
-      currentTask: 'Scripts, newsletter copy, blog posts, franchise decks',
+      currentTask: 'Scripts, newsletter copy, blog posts, Launchpad decks',
       metrics: {
         tasksCompleted: 0,
         avgResponseTime: 0,

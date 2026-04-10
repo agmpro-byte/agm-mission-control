@@ -75,22 +75,22 @@ export default function MissionControl() {
               <h3 className="text-xs uppercase tracking-widest text-gray-500 font-mono mb-3">Quick Links</h3>
               <div className="grid grid-cols-2 gap-3">
                 <a
-                  href="https://troy-byte.github.io/master-project-list/"
+                  href="true-north.html"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border border-gray-800 rounded p-3 hover:border-gray-600 transition-colors group"
                 >
-                  <p className="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors">AGM Master List</p>
-                  <p className="text-xs text-gray-500 mt-0.5">Project tracking &amp; to-do list</p>
+                  <p className="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors">True North</p>
+                  <p className="text-xs text-gray-500 mt-0.5">Everything in flight, prioritized</p>
                 </a>
                 <a
-                  href="https://troy-byte.github.io/hg-projects/"
+                  href="https://hgmissioncontrol.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="border border-gray-800 rounded p-3 hover:border-gray-600 transition-colors group"
                 >
-                  <p className="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors">HG &amp; ATE Master List</p>
-                  <p className="text-xs text-gray-500 mt-0.5">Heavenly Greens &amp; ATE projects</p>
+                  <p className="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors">HG Mission Control</p>
+                  <p className="text-xs text-gray-500 mt-0.5">Heavenly Greens operations</p>
                 </a>
               </div>
             </div>
@@ -193,15 +193,6 @@ export default function MissionControl() {
           >
             <ExternalLink className="w-3.5 h-3.5 mr-3 flex-shrink-0" />
             Oasis Turf
-          </a>
-          <a
-            href="https://troy-byte.github.io/agm-franchise-demo/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center px-0 py-1.5 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors"
-          >
-            <ExternalLink className="w-3.5 h-3.5 mr-3 flex-shrink-0" />
-            AGM Franchise Demo
           </a>
           <a
             href="https://troy-byte.github.io/agm-jobber-dashboard/dashboard.html"

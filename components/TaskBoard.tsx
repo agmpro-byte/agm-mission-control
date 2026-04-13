@@ -55,7 +55,7 @@ const realTasks: Task[] = [
   {
     id: 'infra-5',
     title: 'Deploy Mission Control dashboard',
-    description: 'Next.js dashboard on GitHub Pages with auto-deploy workflow. Live at troy-byte.github.io/agm-mission-control.',
+    description: 'Next.js dashboard on GitHub Pages with auto-deploy workflow. Live at agmpro-byte.github.io/agm-mission-control.',
     status: 'done',
     priority: 'high',
     assignee: 'Harlan',

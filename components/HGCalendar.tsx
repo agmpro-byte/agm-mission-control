@@ -2,7 +2,7 @@
 
 import { Calendar as CalendarIcon, ExternalLink } from 'lucide-react'
 
-const HG_CALENDAR_URL = 'https://troy-byte.github.io/hg-calendar/'
+const HG_CALENDAR_URL = 'https://agmpro-byte.github.io/hg-calendar/'
 
 export default function HGCalendar() {
   return (

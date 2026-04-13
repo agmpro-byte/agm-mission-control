@@ -177,7 +177,7 @@ export default function MissionControl() {
         <div className="px-5 py-2 border-t border-gray-200 dark:border-gray-700">
           <p className="text-[10px] uppercase tracking-widest text-gray-500 font-mono mb-1 mt-1">Client Dashboards</p>
           <a
-            href="https://troy-byte.github.io/realturf-triage/"
+            href="https://agmpro-byte.github.io/realturf-triage/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center px-0 py-1.5 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors"
@@ -186,7 +186,7 @@ export default function MissionControl() {
             Real Turf
           </a>
           <a
-            href="https://troy-byte.github.io/oasis-dashboard/"
+            href="https://agmpro-byte.github.io/oasis-dashboard/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center px-0 py-1.5 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors"
@@ -195,7 +195,7 @@ export default function MissionControl() {
             Oasis Turf
           </a>
           <a
-            href="https://troy-byte.github.io/agm-jobber-dashboard/dashboard.html"
+            href="https://agmpro-byte.github.io/agm-jobber-dashboard/dashboard.html"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center px-0 py-1.5 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors"
@@ -209,7 +209,7 @@ export default function MissionControl() {
         <div className="px-5 py-2 border-t border-gray-200 dark:border-gray-700">
           <p className="text-[10px] uppercase tracking-widest text-gray-500 font-mono mb-1 mt-1">Sales Guides</p>
           <a
-            href="https://troy-byte.github.io/hg-costco-guide/"
+            href="https://agmpro-byte.github.io/hg-costco-guide/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center px-0 py-1.5 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors"

@@ -83,13 +83,13 @@
 
 <h1>True North</h1>
 <p class="subtitle">AGM Pro Tools &mdash; everything in flight, prioritized</p>
-<p class="datestamp">Last updated: 2026-04-10</p>
+<p class="datestamp">Last updated: 2026-04-13</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Prospects</div></div>
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
-  <div class="stat"><div class="stat-value">10</div><div class="stat-label">Now / This Week</div></div>
+  <div class="stat"><div class="stat-value">16</div><div class="stat-label">Now / This Week</div></div>
   <div class="stat"><div class="stat-value">17</div><div class="stat-label">Next Up</div></div>
   <div class="stat"><div class="stat-value">17</div><div class="stat-label">Queued</div></div>
 </div>
@@ -196,7 +196,52 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">This Week &mdash; Priority</span>
-    <span class="cat-count">7 items</span>
+    <span class="cat-count">12 items</span>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">HG Costco Contract Workflow Optimization</div>
+      <div class="task-desc">Review and optimize the Costco contract workflow end-to-end. Ensure the opportunity creation, contract drafting, and signature flow are bulletproof for reps running live events at scale.</div>
+    </div>
+    <div class="task-meta">TOP PRIORITY #1<br>Workflow reliability<br>Tied to multi-rep readiness</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">HG Multi-Rep Capability &mdash; Costco Lead Coverage</div>
+      <div class="task-desc">Bring more reps online to run Costco in-home leads representing the Shaw product line. These are seasoned sales vets &mdash; they need training on the Costco system (proposals, contracts, workflow), not on selling. Training deck is the key deliverable that enables this.</div>
+    </div>
+    <div class="task-meta">TOP PRIORITY<br>Training + automation walkthrough</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">HG Costco Training Deck &mdash; Completion</div>
+      <div class="task-desc">Finalize the Costco system training deck. Covers how to use the system, write proposals, create and process contracts through the workflow. These are experienced sellers &mdash; the deck is about the system, not the sale. Backbone of multi-rep capability.</div>
+    </div>
+    <div class="task-meta">TOP PRIORITY<br>Tied to multi-rep training</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">HG Costco Staffing Plan</div>
+      <div class="task-desc">Logistics plan for Costco lead coverage: store locations, dates, times, personnel assignments, and materials required. Need a clear schedule so every store is covered with a trained rep and the right materials &mdash; no gaps, no scrambling.</div>
+    </div>
+    <div class="task-meta">TOP PRIORITY<br>Operational &mdash; Tim meeting</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">HG Call Center Transition &mdash; Team Meeting Agenda (Tue/Wed Apr 15-16)</div>
+      <div class="task-desc">Elizabeth Morton has left as HG call center manager. John Throne is the new call center manager. Troy needs to run a team meeting next week (Tuesday or Wednesday). Build and finalize agenda: introduce John, clarify roles/responsibilities, address team concerns, set expectations for transition period, review call center workflows and any handoff items from Liz. This is a people transition &mdash; the agenda needs to be tight so the team feels stable, not uncertain.</div>
+    </div>
+    <div class="task-meta">Tue or Wed Apr 15-16<br>Troy runs the meeting</div>
   </div>
 
   <div class="task">
@@ -268,7 +313,16 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">Next Up &mdash; This Week / Next Week</span>
-    <span class="cat-count">12 items</span>
+    <span class="cat-count">13 items</span>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Shared Library Refactor &mdash; Kill Utility Duplication</div>
+      <div class="task-desc">Extract duplicated utility functions into execution/lib/ package. slack_alert (18 files), get_credentials (31 files), SMTP email (20 files), sf_login/sf_query (9 files), _agm_headers (multiple). Estimated 4,000-5,000 lines of pure duplication. Build lib/slack.py, lib/email.py, lib/salesforce.py, lib/google_auth.py, lib/agm.py. Update all imports. Contract engine already follows this pattern &mdash; extend it codebase-wide.</div>
+    </div>
+    <div class="task-meta">~4-5K lines of duplication<br>Harlan solo<br>~3 hours</div>
   </div>
 
   <div class="task">
@@ -907,7 +961,7 @@
 </div>
 
 <div class="footer">
-  True North &mdash; AGM Pro Tools &mdash; Updated 2026-04-10 by Harlan<br>
+  True North &mdash; AGM Pro Tools &mdash; Updated 2026-04-13 by Harlan<br>
   Single source of truth for everything in flight. Updated each session.
 </div>
 

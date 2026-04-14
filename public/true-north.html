@@ -203,9 +203,9 @@
     <span class="priority now">Now</span>
     <div>
       <div class="task-name">HG Costco Contract Workflow Optimization</div>
-      <div class="task-desc">Review and optimize the Costco contract workflow end-to-end. Contract engine (agm-contract-engine) deployed to Modal Apr 13 &mdash; PDF overlay engine renders pixel-perfect Rev 1-1-26 contracts from AGM form payloads, emails rep a draft-review link, writes signing session to DB. Next phase: build the review/sign FastAPI endpoints + HTML (PDF.js preview + signature pad) so the links in the emails actually resolve.</div>
+      <div class="task-desc">Contract engine (agm-contract-engine) live on Modal. PDF overlay (PyMuPDF) renders pixel-perfect Rev 1-1-26 contracts. Signing UI wired Apr 13 &mdash; ASGI FastAPI app at agm-pro--contract-signing.modal.run serves /review/{id}, /sign/{id}, /pdf/{id} with token auth, typed-name signature, and replay protection. End-to-end tested draft_review &rarr; member_pending &rarr; dealer_pending &rarr; completed. Remaining polish: (a) re-render PDF with embedded signatures + Signature Certificate on completion, (b) S3 archive of signed PDF, (c) AGM contact custom-field writeback with signed URL, (d) optional upgrade to freehand signature pad using existing signing.js/css assets.</div>
     </div>
-    <div class="task-meta">TOP PRIORITY #1<br>Engine live on Modal (6 endpoints + 10m cron)<br>Signing UI pages still unbuilt<br>Tied to multi-rep readiness</div>
+    <div class="task-meta">TOP PRIORITY #1<br>Engine + signing UI live<br>End-to-end tested Apr 13<br>Post-sign PDF finalization pending</div>
   </div>
 
   <div class="task">

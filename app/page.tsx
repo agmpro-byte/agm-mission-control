@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import dynamic from 'next/dynamic'
-import { Home, Users, GitBranch, ArrowRightLeft, FileText, Activity, Calendar as CalendarIcon, Zap, Heart, ShoppingCart, ExternalLink } from 'lucide-react'
+import { Home, Users, GitBranch, ArrowRightLeft, FileText, Activity, Calendar as CalendarIcon, Zap, Heart, ShoppingCart, ExternalLink, BarChart3 } from 'lucide-react'
 import ErrorBoundary from '@/components/ErrorBoundary'
 
 // Dynamically import components to avoid SSR issues
@@ -216,6 +216,29 @@ export default function MissionControl() {
           >
             <FileText className="w-3.5 h-3.5 mr-3 flex-shrink-0" />
             Costco Contract Guide
+          </a>
+        </div>
+
+        {/* Pitch Assets */}
+        <div className="px-5 py-2 border-t border-gray-200 dark:border-gray-700">
+          <p className="text-[10px] uppercase tracking-widest text-gray-500 font-mono mb-1 mt-1">Pitch Assets</p>
+          <a
+            href="https://agmpro-byte.github.io/agm-multi-location-intel/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center px-0 py-1.5 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors"
+          >
+            <BarChart3 className="w-3.5 h-3.5 mr-3 flex-shrink-0" />
+            Multi-Location Intel
+          </a>
+          <a
+            href="https://contractorautomationscore.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center px-0 py-1.5 text-sm font-medium text-gray-400 hover:text-cyan-400 transition-colors"
+          >
+            <ExternalLink className="w-3.5 h-3.5 mr-3 flex-shrink-0" />
+            Automation Score
           </a>
         </div>
 

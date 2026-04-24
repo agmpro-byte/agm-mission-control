@@ -89,7 +89,7 @@
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Prospects</div></div>
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
-  <div class="stat"><div class="stat-value">21</div><div class="stat-label">Now / This Week</div></div>
+  <div class="stat"><div class="stat-value">20</div><div class="stat-label">Now / This Week</div></div>
   <div class="stat"><div class="stat-value">18</div><div class="stat-label">Next Up</div></div>
   <div class="stat"><div class="stat-value">17</div><div class="stat-label">Queued</div></div>
 </div>
@@ -168,18 +168,18 @@
     <span class="priority now">Now</span>
     <div>
       <div class="task-name">Automation Score Funnel: Quiz &rarr; Nurture &rarr; Launchpad &rarr; Closed Won</div>
-      <div class="task-desc">CORRECTED Apr 24: Was marked done &mdash; pieces exist but chain is NOT connected end-to-end. Quiz does not pass contact ID to Launchpad intake. Contact lookup at payment time is email-based, not a true handoff. Missing: (1) Launchpad CTA in quiz report with pre-filled URL params, (2) openFullReport() needs &#x27;Get Started&#x27; button linking to intake with agm_contact_id, (3) verify intake form pre-population works. Individual systems deployed (score backend, nurture sequence, Stripe checkout, pipeline, close_the_loop) but the HANDOFF between them is not wired.</div>
+      <div class="task-desc">CORRECTED Apr 24, then WIRED Apr 24. Backend /score endpoint now returns contact_id to frontend. Quiz results page has &#x27;Get Started with AGM Pro Tools&#x27; CTA that links to Launchpad intake with pre-filled name/email/phone/company/agm_contact_id. Full report (page 6) also has &#x27;Get Started Now&#x27; CTA with same pre-fill. Remaining: deploy modal_automation_score.py to Modal (contact_id in response), push agm-automation-score to GitHub Pages (frontend CTAs).</div>
     </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1bl4sAjSCIxPcCW5grL40r_ysrx8WPoHA4DyzFYsa04I/edit">Push-Button Client Plan (Google Doc)</a><br>CORRECTED Apr 24<br>Handoff wiring needed<br>~30 min Harlan solo</div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1bl4sAjSCIxPcCW5grL40r_ysrx8WPoHA4DyzFYsa04I/edit">Push-Button Client Plan (Google Doc)</a><br>WIRED Apr 24<br>Needs Modal deploy + GitHub Pages push</div>
   </div>
 
-  <div class="task">
-    <span class="priority now">Now</span>
+  <div class="task done-row">
+    <span class="priority done">Done</span>
     <div>
       <div class="task-name">Custom Fields Bootstrap &mdash; Run Setup Script</div>
-      <div class="task-desc">launchpad_setup_custom_fields.py exists (331 lines, 7 AGM Pro fields defined: agmpro_active, agmpro_plan, agmpro_mrr, agmpro_signed_up_at, agmpro_last_payment_at, agmpro_subscription_state, agmpro_signup_source) but has NEVER been run. Field IDs not in production config. Must run --create before golden template build or E2E test.</div>
+      <div class="task-desc">DONE Apr 24. All 7 AGM Pro custom fields created in production (agmpro_active, agmpro_plan, agmpro_mrr, agmpro_signed_up_at, agmpro_last_payment_at, agmpro_subscription_state, agmpro_signup_source). Field IDs written to execution/launchpad_custom_fields.json. Verified via --verify.</div>
     </div>
-    <div class="task-meta">Harlan solo<br>~10 min<br>Blocks golden template + E2E</div>
+    <div class="task-meta">Apr 24<br>All 7 fields live</div>
   </div>
 
   <div class="task">

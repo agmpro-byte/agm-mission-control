@@ -180,8 +180,8 @@ export default function SystemHealth() {
   const clients = data.clients || {}
   const heartbeats = data.heartbeats || {}
 
-  // Compute aggregate stats
-  const clientEntries = Object.entries(clients)
+  // Filter out non-production clients (test-sandbox is an internal dev environment)
+  const clientEntries = Object.entries(clients).filter(([slug]) => slug !== 'test-sandbox')
   const totalEvents = clientEntries.reduce((sum, [, c]) => sum + (c.processed_events_count || 0), 0)
   const totalToday = clientEntries.reduce((sum, [, c]) => sum + (c.injections_today || 0), 0)
   const totalWeek = clientEntries.reduce((sum, [, c]) => sum + (c.injections_this_week || 0), 0)

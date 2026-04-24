@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>North Star To-Do List &mdash; AGM Pro Tools</title>
+<title>True North &mdash; AGM Pro Tools</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0a0f1a; color: #e0e0e0; padding: 24px; max-width: 1100px; margin: 0 auto; }
@@ -64,36 +64,142 @@
 
 <nav class="global-nav">
   <span class="nav-label">AGM</span>
-  <a href="https://agmpro-byte.github.io/agm-mission-control/">Mission Control</a>
+  <a href="https://agmmissioncontrol.com/">Mission Control</a>
   <span class="nav-sep">|</span>
-  <a href="https://agmpro-byte.github.io/agm-mission-control/true-north.html" class="active">True North</a>
+  <a href="https://agmmissioncontrol.com/true-north.html" class="active">True North</a>
   <span class="nav-sep">|</span>
   <a href="https://contractorautomationscore.com">Automation Score</a>
   <span class="nav-sep">|</span>
   <a href="https://agmpro-byte.github.io/agm-case-study/">Case Study</a>
   <span class="nav-sep">|</span>
   <span class="nav-label" style="margin-left:8px">Clients</span>
-  <a href="https://agmpro-byte.github.io/agm-jobber-dashboard/client-dashboard.html">Texas Turf</a>
+  <a href="https://agmpro-byte.github.io/agm-jobber-dashboard/dashboard.html">Texas Turf</a>
   <a href="https://agmpro-byte.github.io/realturf-triage/">Real Turf</a>
   <a href="https://agmpro-byte.github.io/oasis-dashboard/">Oasis Turf</a>
   <span class="nav-sep">|</span>
   <span class="nav-label" style="margin-left:8px">HG</span>
-  <a href="https://agmpro-byte.github.io/hg-calendar/">Calendar</a>
-  <a href="https://agmpro-byte.github.io/hg-costco-flow/">Costco Flow</a>
-  <a href="https://agmpro-byte.github.io/hg-projects/">Projects</a>
+  <a href="https://hgmissioncontrol.com">HG Mission Control</a>
 </nav>
 
-<h1>North Star To-Do List</h1>
-<p class="subtitle">Everything we're working on across AGM Pro Tools, Heavenly Greens, and ATE</p>
-<p class="datestamp">Last updated: 2026-04-03</p>
+<h1>True North</h1>
+<p class="subtitle">AGM Pro Tools &mdash; everything in flight, prioritized</p>
+<p class="datestamp">Last updated: 2026-04-24</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Prospects</div></div>
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
-  <div class="stat"><div class="stat-value">8</div><div class="stat-label">Now / This Week</div></div>
-  <div class="stat"><div class="stat-value">17</div><div class="stat-label">Next Up</div></div>
-  <div class="stat"><div class="stat-value">15</div><div class="stat-label">Queued</div></div>
+  <div class="stat"><div class="stat-value">21</div><div class="stat-label">Now / This Week</div></div>
+  <div class="stat"><div class="stat-value">18</div><div class="stat-label">Next Up</div></div>
+  <div class="stat"><div class="stat-value">17</div><div class="stat-label">Queued</div></div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<div class="category">
+  <div class="cat-header">
+    <span class="cat-title">Launchpad &mdash; Push-Button Client Onboarding</span>
+    <span class="cat-count">11 items</span>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Launchpad Build &mdash; Phase 1: Rename Complete</div>
+      <div class="task-desc">Full franchise-to-Launchpad rename across 12 files. INDUSTRY_TEMPLATES dict replaces FRANCHISE_NETWORKS (turf/pest/general/waterloo). All docs, directives, registry, pipeline, webhook, and dashboard updated. Backward-compat fallbacks in place.</div>
+    </div>
+    <div class="task-meta">Apr 10<br>12 files updated</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Launchpad Build &mdash; Phase 2: Intake Form + Checkout Endpoint</div>
+      <div class="task-desc">Customer-facing intake form (index.html) with industry dropdown, US state selector, all required fields, dark theme. /launchpad-checkout endpoint in modal_webhook.py creates Stripe Checkout Sessions with metadata from form. Both built and committed.</div>
+    </div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1h3Fgk1c1wRl3jDY-ZpoD9deJ19JAetZl8Mf-yVu_vPo/edit">Build Workbook</a><br>Apr 10<br>Both committed</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Stripe Credentials + Modal Secrets</div>
+      <div class="task-desc">Stripe test keys added to .env and Modal (agm-stripe secret). Checkout endpoint tested &mdash; returns valid Stripe session.</div>
+    </div>
+    <div class="task-meta">Apr 10<br>Test mode verified</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Post-Payment Success Page</div>
+      <div class="task-desc">Built success.html with 4-step progress tracker, session_id polling, OAuth button on step 5, dashboard link on completion. Live on GitHub Pages.</div>
+    </div>
+    <div class="task-meta"><a href="https://agmpro-byte.github.io/agm-launchpad/success.html">Live</a><br>Apr 10</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Golden Template &mdash; Turf (First Industry)</div>
+      <div class="task-desc">Builder script exists (launchpad_build_template.py, 732 lines). Turf messaging pack complete (turf.json &mdash; 5 workflows, custom fields, 6 pipeline stages). But NO template has been built yet. All snapshot_id = null in registry. Custom fields bootstrap DONE (Apr 24). Steps: (1) run --build --industry turf, (2) configure 5 workflows in AGM UI using copy from Golden Template Google Doc, (3) review pipeline + custom fields, (4) take snapshot in AGM UI, (5) run --register --industry turf --snapshot-id &lt;ID&gt;.</div>
+    </div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/12mqb2Lzc8ti2-lw-Z7koJao8ya0mqBqApTD8GGyovk8/edit">Golden Template Build Spec + Copy (Google Doc)</a><br>
+      <a href="https://docs.google.com/document/d/1bl4sAjSCIxPcCW5grL40r_ysrx8WPoHA4DyzFYsa04I/edit">Push-Button Client Plan (Google Doc)</a><br>Troy + Harlan<br>~1 hour together<br>Custom fields: DONE</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Deploy Intake Form to GitHub Pages</div>
+      <div class="task-desc">agm-launchpad repo created, intake + success pages deployed, GitHub Pages live. Form pre-fills from URL params for unified funnel.</div>
+    </div>
+    <div class="task-meta"><a href="https://agmpro-byte.github.io/agm-launchpad/">Intake Form</a><br>Apr 10</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Modal Deploy with Launchpad + Stripe</div>
+      <div class="task-desc">agm-stripe Modal secret wired into launchpad_checkout + stripe_franchise_webhook. stripe pip package added. All 3 endpoints live and tested.</div>
+    </div>
+    <div class="task-meta">Apr 10<br>3 endpoints live</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Automation Score Funnel: Quiz &rarr; Nurture &rarr; Launchpad &rarr; Closed Won</div>
+      <div class="task-desc">CORRECTED Apr 24, then WIRED Apr 24. Backend /score endpoint now returns contact_id to frontend. Quiz results page has &#x27;Get Started with AGM Pro Tools&#x27; CTA that links to Launchpad intake with pre-filled name/email/phone/company/agm_contact_id. Full report (page 6) also has &#x27;Get Started Now&#x27; CTA with same pre-fill. Remaining: deploy modal_automation_score.py to Modal (contact_id in response), push agm-automation-score to GitHub Pages (frontend CTAs).</div>
+    </div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1bl4sAjSCIxPcCW5grL40r_ysrx8WPoHA4DyzFYsa04I/edit">Push-Button Client Plan (Google Doc)</a><br>WIRED Apr 24<br>Needs Modal deploy + GitHub Pages push</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Custom Fields Bootstrap &mdash; Run Setup Script</div>
+      <div class="task-desc">DONE Apr 24. All 7 AGM Pro custom fields created in production (agmpro_active, agmpro_plan, agmpro_mrr, agmpro_signed_up_at, agmpro_last_payment_at, agmpro_subscription_state, agmpro_signup_source). Field IDs written to execution/launchpad_custom_fields.json. Verified via --verify.</div>
+    </div>
+    <div class="task-meta">Apr 24<br>All 7 fields live</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">End-to-End Test &mdash; Form to Dashboard</div>
+      <div class="task-desc">Full Stripe test mode walkthrough: fill intake form, pay with test card, verify webhook fires, pipeline runs, close-the-loop fires, AGM sub-account created from golden template (not interim), OAuth URL appears, dashboard deployed, lifecycle email fires Day 1. Never tested. Target: under 10 min.</div>
+    </div>
+    <div class="task-meta">Troy + Harlan<br>~1 hour<br>Blocked by golden template + custom fields</div>
+  </div>
+
+  <div class="task">
+    <span class="priority next">Next</span>
+    <div>
+      <div class="task-name">Industry Templates &mdash; Pest + General</div>
+      <div class="task-desc">Follow turf template pattern for pest control and general FSM. Different messaging copy, same pipeline/tags/fields structure. Build after turf validates.</div>
+    </div>
+    <div class="task-meta">Harlan<br>~1 hour each<br>After turf template</div>
+  </div>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
@@ -106,28 +212,119 @@
   <div class="task">
     <span class="priority now">Now</span>
     <div>
-      <div class="task-name">Contractor Automation Score &mdash; AGM Lead Creation Fix</div>
-      <div class="task-desc">Quiz live, scoring live, PDF report live, email delivery live (SMTP via harlan@agmprotools.com). AGM lead creation returning 422. Debug payload &mdash; likely API version or tags format issue. Last blocker before full funnel is operational.</div>
+      <div class="task-name">Newsletter-as-a-Service &mdash; Spec DELIVERED, awaiting Troy review</div>
+      <div class="task-desc">Managed monthly newsletter addon for AGM subscribers. $197/mo Pro Tools addon ($497 weekly). SPEC DELIVERED 2026-04-23 &mdash; Draft v0.1 Google Doc live: https://docs.google.com/document/d/1Q-4YZScmet1499k5tb1w0bzAHlOBU-LlS4qk8ve6P_k/edit (13 sections: scope, 10-beat architecture, intake/assembly/send pipeline detail, template system, packaging, pilot roadmap, risks, success criteria). ORIGINAL SPRINT (Apr 15-17) MISSED &mdash; HG Costco/change-order build owned the window. REPLANNED ship date in spec: Fri 2026-05-01 for AGM dogfood issue #1. SIX OPEN DECISIONS in §9 awaiting Troy: (1) ship date confirmation, (2) SMS number strategy (shared vs per-customer), (3) Quill voice calibration &mdash; add Andrew for pilot QA?, (4) pricing sanity check $197 vs $297, (5) Apple Shortcut v1 vs v1.1, (6) unsubscribe plumbing SES-managed vs custom AGM-writeback. GREEN-LIGHT PATH: Troy reviews &rarr; Harlan starts MJML template + SES identity for agmpro.com subdomain &rarr; build through pilot roadmap Phase 1. RED-FLAG PATH: inline edits in doc &rarr; Harlan revises v0.2. Andrew&#x27;s role remains DNS-only for Chad rollout, NOT editorial. Chad&#x27;s intake trigger is AGM workflow engine, NOT Jobber. Jobber stacks on later for HG/ATE.</div>
     </div>
-    <div class="task-meta"><a href="https://contractorautomationscore.com">Live</a><br>422 bug &mdash; fixing today</div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1Q-4YZScmet1499k5tb1w0bzAHlOBU-LlS4qk8ve6P_k/edit">Spec Doc (Draft v0.1)</a><br>SPEC DELIVERED Apr 23<br>Awaiting Troy review + §9 decisions<br>Proposed ship: Fri May 1 (AGM dogfood)<br>Parallel to HG Costco Layer 2/3</div>
   </div>
 
   <div class="task">
     <span class="priority now">Now</span>
     <div>
-      <div class="task-name">Golden Template Roadmap &mdash; Full Launchpad Build Plan</div>
-      <div class="task-desc">Complete 3-layer, 4-phase roadmap for automated Jobber onboarding. Integration engine PROVEN (Apr 2 live test). Waiting on Andrew: golden snapshot, nurture copy, Stripe product, funnel page. Dashboard is the headline deliverable.</div>
+      <div class="task-name">HG Costco Contract Workflow Optimization</div>
+      <div class="task-desc">Contract engine (agm-contract-engine) live on Modal. PDF overlay (PyMuPDF) renders pixel-perfect Rev 1-1-26 contracts. Signing UI wired Apr 13 &mdash; ASGI FastAPI app at agm-pro--contract-signing.modal.run serves /review/{id}, /sign/{id}, /pdf/{id} with token auth, typed-name signature, and replay protection. End-to-end tested draft_review &rarr; member_pending &rarr; dealer_pending &rarr; completed. POST-SIGN FINALIZATION WIRED Apr 13 (evening): finalizer.py produces 16-page finalized PDF (14-page draft + ratification page with ESIGN/UETA attestation + multi-page Signature Certificate with full event log). _finalize_and_deliver() in modal_app.py writes to /state/signed/{doc_ref}.pdf, updates signed_pdf_url, and runs delivery.deliver_signed_contract for S3 archive + member email + office email + AGM contact custom-field writeback. Verified in Modal against a real completed session (16 pages, text extracts cleanly). Remaining: (a) custom domain signature.heavenlygreens.com (waiting on Andrew/DNS tomorrow), (b) optional upgrade to freehand signature pad using existing signing.js/css assets, (c) flesh out HG Work Order pages 13-14 properly (still placeholder). Apr 13 eve: field-map audit pass &mdash; closed every blank on pages 3/6/7/8/9/10/11 (Shop Card $ + %, NoC widgets + cancel deadline + 65+ checkbox, member initials footers, disclosure signing block, completion verification signing block). Committed, not yet deployed.</div>
     </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1MYiq_fb609MU-j1CWAdqDKFLOq4fFaHgZQI1ytcLXvk/edit">Roadmap</a><br>Doc delivered Apr 2</div>
+    <div class="task-meta">TOP PRIORITY #1<br>Engine + signing UI + finalizer live Apr 13<br>Verified end-to-end in Modal<br>Awaiting DNS for branded domain</div>
   </div>
 
-  <div class="task done-row">
-    <span class="priority done">Done</span>
+  <div class="task">
+    <span class="priority now">Now</span>
     <div>
-      <div class="task-name">Deactivate Broadly Workflow Rule in SF</div>
-      <div class="task-desc">Broadly workflow rule was already deactivated in SF. Confirmed Apr 2 via SF Setup. Zapier contamination path fully dead.</div>
+      <div class="task-name">HG Multi-Rep Capability &mdash; Costco Lead Coverage</div>
+      <div class="task-desc">Bring more reps online to run Costco in-home leads representing the Shaw product line. These are seasoned sales vets &mdash; they need training on the Costco system (proposals, contracts, workflow), not on selling. Training deck is the key deliverable that enables this.</div>
     </div>
-    <div class="task-meta">Apr 2<br>Already off</div>
+    <div class="task-meta">TOP PRIORITY<br>Training + automation walkthrough</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">HG Costco Training Deck &mdash; Completion</div>
+      <div class="task-desc">Finalize the Costco system training deck. Covers how to use the system, write proposals, create and process contracts through the workflow. These are experienced sellers &mdash; the deck is about the system, not the sale. Backbone of multi-rep capability.</div>
+    </div>
+    <div class="task-meta">TOP PRIORITY<br>Tied to multi-rep training</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">HG Costco Staffing Plan</div>
+      <div class="task-desc">Logistics plan for Costco lead coverage: store locations, dates, times, personnel assignments, and materials required. Need a clear schedule so every store is covered with a trained rep and the right materials &mdash; no gaps, no scrambling.</div>
+    </div>
+    <div class="task-meta">TOP PRIORITY<br>Operational &mdash; Tim meeting</div>
+  </div>
+
+  <div class="task">
+    <span class="priority next">Next</span>
+    <div>
+      <div class="task-name">HG Costco Retroactive Contract Re-Generation (Path 1 &mdash; Signature Porting)</div>
+      <div class="task-desc">Older Costco contracts were built in AGM&#x27;s native format. Costco won&#x27;t accept that format. Solution (approved Apr 23): extract signature images from the old signed PDFs via PyMuPDF, feed the original contract data through the current engine with all historical dates overridden (contract date, signing date, cancellation deadline, start/completion dates), stamp extracted signatures onto the new format at correct coordinates, produce finalized PDFs, upload to S3. No customer action required. Build items: (1) signature extraction utility (PyMuPDF image/annotation pull), (2) batch re-generation pipeline accepting historical date overrides + pre-captured signatures, (3) coordinate mapping from old format signature locations to new format fields, (4) QA pass &mdash; verify dates, signatures, and content match originals.</div>
+    </div>
+    <div class="task-meta">Approved Apr 23<br>Path 1 (signature porting)<br>No customer re-sign needed</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">HG Call Center Transition &mdash; Team Meeting Agenda (Tue/Wed Apr 15-16)</div>
+      <div class="task-desc">Elizabeth Morton has left as HG call center manager. John Throne is the new call center manager. Troy needs to run a team meeting next week (Tuesday or Wednesday). Build and finalize agenda: introduce John, clarify roles/responsibilities, address team concerns, set expectations for transition period, review call center workflows and any handoff items from Liz. This is a people transition &mdash; the agenda needs to be tight so the team feels stable, not uncertain.</div>
+    </div>
+    <div class="task-meta">Tue or Wed Apr 15-16<br>Troy runs the meeting</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">HG Content Flywheel &mdash; First Live Run (Monday Apr 13)</div>
+      <div class="task-desc">Dedicated HG content pipeline built Apr 10 at /Users/troyscott/agm-content-flywheel/. Layers 1-3 built + committed (5 commits, no remote yet). Troy elevated to key future-casting revenue pillar. Monday goal: first end-to-end 9x16 install_showcase post through ingest &rarr; Claude Vision classify &rarr; Claude script generation grounded in Layer 2 metadata &rarr; Troy&#x27;s cloned voice via ElevenLabs &rarr; ffmpeg assemble. Blocker is 100% credentials + content setup: HG Drive folder, Google OAuth, .env, seed footage. Full punch list in docs/NEXT_SESSION.md (Troy-side + Harlan-side). CapCut rejected, ElevenLabs char-timestamps + ASS burn-in pinned as next Layer 3 enhancement after first live run.</div>
+    </div>
+    <div class="task-meta"><a href="file:///Users/troyscott/agm-content-flywheel/">Repo (local)</a><br>Monday Apr 13<br>Credentials block everything<br>Layers 1-3 built</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Content Flywheel &mdash; Weekend Sprint (Apr 10-11)</div>
+      <div class="task-desc">End-to-end flywheel test this weekend. Scout ran successfully (41KB April intelligence). Checklist: verify Echo, Quill, Pixel on Modal. Test full Mon-Thu cycle. Draft first &#x27;This Week at AGM&#x27; Wednesday emails + first 3-5 LinkedIn origin story posts. Confirm all send times at 5 AM PT.</div>
+    </div>
+    <div class="task-meta">Weekend sprint<br>Scout data ready</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Contractor Automation Score &mdash; Funnel Wiring + LinkedIn GTM</div>
+      <div class="task-desc">Backend DEPLOYED and tested. Follow-up sequence (17 emails + 12 SMS) operational. Booking calendar link EXISTS (strategy call booking). Report button EXISTS (openFullReport). STILL REMAINING: avg_ticket_value persistence, WeasyPrint font hardening, sheet column-pad for 58-col schema, Launchpad CTA in quiz report (score&rarr;intake handoff). LinkedIn GTM post BLOCKED until funnel wired &mdash; post drafted + approved.</div>
+    </div>
+    <div class="task-meta"><a href="https://contractorautomationscore.com">Live</a><br>
+      <a href="https://docs.google.com/document/d/1tgOKf6nLOHS5EGUrEp96u3xl4YfTZdx8Ux3bE3eO71I/edit">Comms Catalog</a><br>Backend done Apr 5<br>Handoff wiring + polish remaining</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Monthly Customer 3-Point Email &mdash; V2 Ready</div>
+      <div class="task-desc">Built end-to-end Apr 6. V2 is AGM-centric per Troy&#x27;s feedback (&#x27;pretty dang good&#x27;). Open question: Automation Score URL referenced but funnel not live &mdash; decide whether to cut paragraph, hold email, or swap content. Once approved, send to Texas Turf/Andrew first.</div>
+    </div>
+    <div class="task-meta">Troy reviewing<br>V2 ready to send</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Chapter Audio Link Sweep &mdash; Chapters 1-29</div>
+      <div class="task-desc">Format drift between record_chapter.py and create_chapter_book_doc.py caused dead links in Google Doc. Fixed for Chapter 30+. Chapters 1-29 need: sweep script to verify S3 URLs, backfill missing objects, update chapter entries, re-run doc generator.</div>
+    </div>
+    <div class="task-meta">Script needed<br>Dead links in Google Doc</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">J. Chris Update &mdash; Gift Card Delivery Workflow</div>
+      <div class="task-desc">Add J. Chris to the update loop and get the live gift card delivery workflow operational.</div>
+    </div>
+    <div class="task-meta">Action item<br>Added Apr 17</div>
   </div>
 
   <div class="task">
@@ -139,103 +336,13 @@
     <div class="task-meta">Script needed</div>
   </div>
 
-  <div class="task done-row">
-    <span class="priority done">Done</span>
-    <div>
-      <div class="task-name">Project Ironclad &mdash; Tailscale Install</div>
-      <div class="task-desc">Tailscale installed and running on all 3 machines (Office iMac, Home iMac, Mac Mini). Cross-session persistence DONE. Remaining: Telegram archive and machine state API still queued.</div>
-    </div>
-    <div class="task-meta">Apr 2<br>All 3 machines connected</div>
-  </div>
-
   <div class="task">
     <span class="priority now">Now</span>
     <div>
-      <div class="task-name">Enable Search Atlas on agmprotools.com</div>
-      <div class="task-desc">Activate Search Atlas SEO integration in AGM (native GHL partnership). Enable OTTO SEO agent for automated on-page fixes. Install OTTO pixel on GitHub Pages assets. Connect Google Search Console + GA4. $79/mo per sub-account.</div>
+      <div class="task-name">Valleywide PestRoutes &mdash; Go Live</div>
+      <div class="task-desc">Code-side wiring complete. Service Type custom field + 5 appointment fields created in SERTBO, sync writes them all. 6 workflow shells published. PAUSED: 50 reads/day PestRoutes quota blocker. Awaiting Andrew&#x27;s PestRoutes call + premium key unlock + client conversation.</div>
     </div>
-    <div class="task-meta">Search Atlas<br>Native GHL integration</div>
-  </div>
-
-  <div class="task">
-    <span class="priority now">Now</span>
-    <div>
-      <div class="task-name">Franchise Signup Pipeline &mdash; Deploy to Modal</div>
-      <div class="task-desc">10-step automated onboarding built (884 lines). Stripe webhook + status endpoints in code but NOT deployed to Modal. Andrew needs: golden Jobber snapshot, Stripe product ($397/mo), GHL funnel page. Waterloo meeting was positive &mdash; pipeline may activate soon.</div>
-    </div>
-    <div class="task-meta">Built Mar 30<br>Modal deploy pending</div>
-  </div>
-
-  <div class="task">
-    <span class="priority now">Now</span>
-    <div>
-      <div class="task-name">Real Turf &mdash; Dashboard Scoping Call with Kendra</div>
-      <div class="task-desc">Kendra (Real Turf marketing/strategy) confirmed she wants centralized dashboard across Dallas, Las Vegas, and West Palm Beach. Proof of concept before expanding to ADs/installers. Troy proposed 30-min scoping call week of Apr 6 &mdash; bring starting framework (leads, pipeline, conversion, response times). V wants to pilot with one customer (any FSM). This is franchise intelligence entering real buyer engagement.</div>
-    </div>
-    <div class="task-meta"><a href="https://agmpro-byte.github.io/realturf-triage/">Triage Dashboard</a><br>Emails sent Apr 3<br>Scoping call target: week of Apr 6</div>
-  </div>
-
-  <div class="task">
-    <span class="priority now">Now</span>
-    <div>
-      <div class="task-name">Valleywide PestRoutes &mdash; Finish Infrastructure Onboarding</div>
-      <div class="task-desc">Complete SERTBO↔PestRoutes integration. Troy shared flow diagram Apr 2 (saved to memory). Same sync pattern as Jobber↔AGM &mdash; replicate the adapter. Field Routes sync code exists but onboarding and automation not finished. 4 decisions still pending from Andrew.</div>
-    </div>
-    <div class="task-meta">Flow diagram saved<br>Discuss Apr 3</div>
-  </div>
-
-  <div class="task">
-    <span class="priority next">Next</span>
-    <div>
-      <div class="task-name">Jobber Token Refresh &mdash; Distributed Lock Before Scaling</div>
-      <div class="task-desc">Jobber refresh tokens are single-use. Race condition possible when multiple Modal containers refresh simultaneously. Fallback deployed (use access token if refresh fails). Root cause: need distributed lock (modal.Queue or Redis) before onboarding client #2. Monitor Texas Turf for 1 week first.</div>
-    </div>
-    <div class="task-meta">Fine at 1 client<br>Risk at 3+</div>
-  </div>
-
-  <div class="task">
-    <span class="priority next">Next</span>
-    <div>
-      <div class="task-name">Jobber Ghost Webhook &mdash; Clean Up via Support</div>
-      <div class="task-desc">Old QUOTE_SENT webhook registered at base URL (no ?client= param). Can&#x27;t delete via API. Draft support email in Troy&#x27;s inbox. Not blocking &mdash; just log noise. Send email to Jobber support when convenient.</div>
-    </div>
-    <div class="task-meta">Low priority<br>Cosmetic</div>
-  </div>
-
-  <div class="task">
-    <span class="priority next">Next</span>
-    <div>
-      <div class="task-name">Andrew MacBook Air &mdash; Clone AGM Instance</div>
-      <div class="task-desc">Turn Andrew&#x27;s MacBook Air into 4th Tailscale mesh node with full AGM dev environment. 5 layers: mesh setup, agent identity (.andrew marker), scoped credentials, memory bootstrap, handoff integration. Open decisions: credential tier, Modal access, voice. Guide doc complete.</div>
-    </div>
-    <div class="task-meta"><a href="https://github.com/agmpro-byte/agm-pro-tools/blob/main/docs/ANDREW_MACBOOK_CLONE_GUIDE.md">Clone Guide</a><br>Guide ready<br>Needs Troy decisions</div>
-  </div>
-
-  <div class="task">
-    <span class="priority next">Next</span>
-    <div>
-      <div class="task-name">S3 Backup &mdash; All 3 Machines</div>
-      <div class="task-desc">S3 encrypted backup currently only runs from Office iMac (2 AM daily cron). Home iMac and Mac Mini are NOT backing up independently. Set up daily S3 backup cron on all 3 machines so each backs up its local state.</div>
-    </div>
-    <div class="task-meta">Office iMac only<br>Home + Mini needed</div>
-  </div>
-
-  <div class="task">
-    <span class="priority next">Next</span>
-    <div>
-      <div class="task-name">Blog Content &mdash; Clusters 2-7</div>
-      <div class="task-desc">18 posts remaining across 6 topic clusters: Quote Follow-Up, Missed Call Recovery, Review Generation, FSM-Specific Bridges, Franchise Intelligence, ROI &amp; Proof. All posts must follow AI Overview SEO structure with external authority links.</div>
-    </div>
-    <div class="task-meta">10/28 published<br>Content strategy saved</div>
-  </div>
-
-  <div class="task">
-    <span class="priority next">Next</span>
-    <div>
-      <div class="task-name">April Intelligence Report Pipeline</div>
-      <div class="task-desc">Monthly report pipeline rolling. Scout 30-day scan due Apr 3, Quill draft Apr 5, Pixel graphics Apr 7, Echo distribution Apr 10 to ~280 subscribers.</div>
-    </div>
-    <div class="task-meta">In progress<br>Target Apr 10</div>
+    <div class="task-meta">Code: done<br>BLOCKED: API quota</div>
   </div>
 </div>
 
@@ -243,16 +350,88 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">Next Up &mdash; This Week / Next Week</span>
-    <span class="cat-count">11 items</span>
+    <span class="cat-count">13 items</span>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Shared Library Refactor &mdash; Kill Utility Duplication</div>
+      <div class="task-desc">Extract duplicated utility functions into execution/lib/ package. slack_alert (18 files), get_credentials (31 files), SMTP email (20 files), sf_login/sf_query (9 files), _agm_headers (multiple). Estimated 4,000-5,000 lines of pure duplication. Build lib/slack.py, lib/email.py, lib/salesforce.py, lib/google_auth.py, lib/agm.py. Update all imports. Contract engine already follows this pattern &mdash; extend it codebase-wide.</div>
+    </div>
+    <div class="task-meta">~4-5K lines of duplication<br>Harlan solo<br>~3 hours</div>
   </div>
 
   <div class="task">
     <span class="priority next">Next</span>
     <div>
-      <div class="task-name">Franchise Intelligence &mdash; Wire Live Infrastructure</div>
-      <div class="task-desc">Architecture doc, market research, aggregation engine, franchise registry, demo dashboard, and 3 Gamma decks all built. NOT deployment-ready. Needs: deploy franchise_sync Modal cron, multi-location OAuth onboarding flow, live Jobber data connection (currently mock), franchise tab on Mission Control, permission model, franchise health endpoint. Waterloo Turf is reference customer.</div>
+      <div class="task-name">Jobber Marketplace Listing &mdash; Submit for Review</div>
+      <div class="task-desc">Engineering ALL GREEN (8 bugs fixed, live drill passed Apr 7). Partnership channel now active: Garrett passed deck to Jobber partners dept Apr 10, developer platform application submitted, awaiting approval. Remaining paperwork: support@agmprotools.com inbox, 5 screenshots, Loom demo video, privacy policy URL, ToS URL, app icon 512x512.</div>
     </div>
-    <div class="task-meta"><a href="https://agmpro-byte.github.io/agm-franchise-demo/">Demo</a></div>
+    <div class="task-meta">Engineering done<br>Partnership channel active Apr 10<br>Awaiting dev platform approval</div>
+  </div>
+
+  <div class="task">
+    <span class="priority next">Next</span>
+    <div>
+      <div class="task-name">Pest Routes Connector &mdash; Marketplace Template</div>
+      <div class="task-desc">Productize Valleywide build into a repeatable Pest Routes connector for AGM Pro Tools marketplace. PAUSED: 50 reads/day PestRoutes quota. Phase 1 = Valleywide validates the pattern. Phase 2 = config-driven adapter + provisioning script + dashboard template. Pest control is dominant FSM vertical for Field Routes.</div>
+    </div>
+    <div class="task-meta">PAUSED: API quota blocker<br>After Valleywide live</div>
+  </div>
+
+  <div class="task">
+    <span class="priority next">Next</span>
+    <div>
+      <div class="task-name">Launchpad Intelligence &mdash; Wire Live Infrastructure</div>
+      <div class="task-desc">Architecture doc, market research, aggregation engine, registry, demo dashboard, and 3 Gamma decks all built. NOT deployment-ready. Needs: deploy launchpad_sync Modal cron, multi-location OAuth onboarding flow, live Jobber data connection (currently mock), Launchpad tab on Mission Control, permission model, health endpoint. Waterloo Turf is reference customer.</div>
+    </div>
+    <div class="task-meta"></div>
+  </div>
+
+  <div class="task">
+    <span class="priority next">Next</span>
+    <div>
+      <div class="task-name">Real Turf &mdash; Dashboard Scoping Call with Kendra</div>
+      <div class="task-desc">Kendra (Real Turf marketing/strategy) confirmed she wants centralized dashboard across Dallas, Las Vegas, and West Palm Beach. Proof of concept before expanding. Troy proposed 30-min scoping call &mdash; NEEDS SCHEDULING. V wants to pilot with one customer (any FSM).</div>
+    </div>
+    <div class="task-meta"><a href="https://agmpro-byte.github.io/realturf-triage/">Triage Dashboard</a><br>Not yet scheduled<br>Follow up needed</div>
+  </div>
+
+  <div class="task">
+    <span class="priority next">Next</span>
+    <div>
+      <div class="task-name">Enable Search Atlas SEO on agmprotools.com</div>
+      <div class="task-desc">Activate Search Atlas (native AGM partnership). Enable OTTO SEO agent for automated on-page fixes. Install OTTO pixel on GitHub Pages assets. Connect Google Search Console + GA4. Add tracking code + configure. $79/mo per sub-account.</div>
+    </div>
+    <div class="task-meta">Troy<br>Search Atlas + OTTO</div>
+  </div>
+
+  <div class="task">
+    <span class="priority next">Next</span>
+    <div>
+      <div class="task-name">Jobber Token Refresh &mdash; Distributed Lock</div>
+      <div class="task-desc">Jobber refresh tokens are single-use. Race condition possible when multiple Modal containers refresh simultaneously. Fallback deployed. Root cause: need distributed lock (modal.Queue or Redis) before onboarding client #2. Monitor Texas Turf for 1 week first.</div>
+    </div>
+    <div class="task-meta">Fine at 1 client<br>Risk at 3+</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">HG BarCloud Integration &mdash; Inventory Automation</div>
+      <div class="task-desc">TOP PRIORITY. AGM-driven workflow: on install stage, fire webhook to Modal worker, write BarCloud Stock Issue with turf type + dye lot, push draw record back to AGM + SF. Exec memo sent to Tim + Troy Apr 9 &mdash; significant scope. First step: BOM schema + dye lot data model in AGM. No canonical bill of materials exists at HG today &mdash; this build forces a canonical turf-type &rarr; materials map to exist for the first time. BarCloud API has no webhooks (pull-only). Eliminates manual BarCloud entry by office staff.</div>
+    </div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/10tyXtR-3YMY3xeZnc6YLm-TXr_W3lG5BGkaqZvtBMLE/edit">Exec Memo (Google Doc)</a><br>Top priority<br>Exec memo sent Apr 9</div>
+  </div>
+
+  <div class="task">
+    <span class="priority next">Next</span>
+    <div>
+      <div class="task-name">Golden Mailer &mdash; Housecall Pro Integration</div>
+      <div class="task-desc">Client #5 building. Awaiting API creds and AGM target instance from client.</div>
+    </div>
+    <div class="task-meta">Blocked<br>Awaiting creds</div>
   </div>
 
   <div class="task">
@@ -267,82 +446,180 @@
   <div class="task">
     <span class="priority next">Next</span>
     <div>
-      <div class="task-name">Client-Facing Health Dashboard</div>
-      <div class="task-desc">Clients see nothing about their integration health. Build GitHub Pages dashboard &mdash; one row per client, auto-updated from /health endpoints.</div>
+      <div class="task-name">Reddit Platform Integration &mdash; Mission Control</div>
+      <div class="task-desc">Integrate Reddit as a monitored platform in Mission Control. Scout already monitors 9 subreddits with 12 search terms. Wire data into the Mission Control dashboard alongside LinkedIn, YouTube, and other channels.</div>
     </div>
-    <div class="task-meta">Mac Mini crons live<br>Dashboard not built</div>
+    <div class="task-meta">Scout already active<br>Dashboard integration needed</div>
   </div>
 
   <div class="task">
     <span class="priority next">Next</span>
     <div>
-      <div class="task-name">Document Signature Watch Dog</div>
-      <div class="task-desc">Automated reminder loop for unsigned documents (sales contract, start of work, completion of work). Three independent loops, timed escalation.</div>
+      <div class="task-name">Blog Content &mdash; Clusters 2-7</div>
+      <div class="task-desc">18 posts remaining across 6 topic clusters: Quote Follow-Up, Missed Call Recovery, Review Generation, FSM-Specific Bridges, Franchise Intelligence, ROI &amp; Proof. All posts must follow AI Overview SEO structure.</div>
     </div>
-    <div class="task-meta">Designed<br>Not built</div>
+    <div class="task-meta">10/28 published<br>Content strategy saved</div>
   </div>
 
   <div class="task">
     <span class="priority next">Next</span>
     <div>
-      <div class="task-name">HG Calendar Dashboard &mdash; Modal Live Refresh</div>
-      <div class="task-desc">Calendar is live but static JSON. Needs Modal endpoint for auto-refresh and date navigation via API.</div>
+      <div class="task-name">April Intelligence Report Pipeline</div>
+      <div class="task-desc">Folded into Content Flywheel. Tuesday 5AM = Intelligence Report (Monthly Trends replaces on 1st Tue). Scout ran successfully Apr 9 (41KB). Pipeline: Scout, Quill, Pixel, Echo.</div>
     </div>
-    <div class="task-meta"><a href="https://agmpro-byte.github.io/hg-calendar/">Live</a><br>Static data</div>
+    <div class="task-meta">Part of flywheel<br>~280 subscribers</div>
   </div>
+</div>
 
-  <div class="task">
-    <span class="priority next">Next</span>
-    <div>
-      <div class="task-name">AGM Friday Live &mdash; Episode 1</div>
-      <div class="task-desc">Troy brings industry context (3-5 min), Andrew demos AGM live (8-12 min). One 15-20 min session multiplied into 6-7 content pieces.</div>
-    </div>
-    <div class="task-meta">Not scheduled</div>
-  </div>
-
-  <div class="task">
-    <span class="priority next">Next</span>
-    <div>
-      <div class="task-name">Golden Mailer &mdash; Housecall Pro Integration</div>
-      <div class="task-desc">Client #5 building. Awaiting API creds and AGM target instance from client.</div>
-    </div>
-    <div class="task-meta">Blocked<br>Awaiting creds</div>
+<!-- ═══════════════════════════════════════════ -->
+<div class="category">
+  <div class="cat-header">
+    <span class="cat-title">AGM Pro Tools &mdash; Product &amp; Funnel</span>
+    <span class="cat-count">6 items</span>
   </div>
 
   <div class="task">
     <span class="priority now">Now</span>
     <div>
-      <div class="task-name">HG Call Center Automation &mdash; Full Department Replacement</div>
-      <div class="task-desc">Call center manager walked. Framework to replace entire department with AI + AGM workflows. 4 buckets: inbound (AI voice), outbound (AGM sequences), customer service (conversational AI), internal coordination (pipeline). Saves $85-125K/yr. Google Doc shared with Troy, Tim, Andrew for review. 4 decisions pending.</div>
+      <div class="task-name">Speaking Opportunities &mdash; Conferences, Podcasts, Events</div>
+      <div class="task-desc">Curated dossier of 30+ speaking opportunities for Troy to position AGM Pro Tools. Covers industry conferences (Lawn &amp; Landscape Tech Conference, Service World Expo, Equip Exposition, PestWorld), SaaS events (SaaStr, SaaS North), 20+ podcasts (Tommy Mello, Jobber, Owned and Operated, Landscape Disruptors), and local events (Phoenix/Austin expos). Three pitch angles by audience type. Several have OPEN speaker applications now &mdash; Lawn &amp; Landscape Tech Conference (Jul, Scottsdale) is the slam dunk.</div>
     </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1UcoTsp3csqmqHgyjiXfHxfyagQDAXi2D5Nu4_l_d4_0/edit">Google Doc</a><br>Framework sent Apr 3<br>4 decisions pending</div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1bDPSRwbIZF3m0SwQND45F-J4IMeeplqSG_Y_CHYQ6EY/edit">Full Dossier (Google Doc)</a><br>Apr 24<br>Multiple open deadlines<br>SaaS North: Jun 30</div>
   </div>
 
   <div class="task">
     <span class="priority next">Next</span>
     <div>
-      <div class="task-name">Costco Lead Outreach Protocols (Pillar 5)</div>
-      <div class="task-desc">Speed-to-lead strategy, call scripts, business hours routing, lead qualification criteria. Now subsumed into HG Call Center Automation Bucket 1 + Bucket 2 Sequence 1.</div>
+      <div class="task-name">Pre-Qualification Form</div>
+      <div class="task-desc">Spec done (PRE_QUAL_FORM_SPEC.md). 5-step survey in AGM survey builder, wire to calendar. No inbound funnel live yet &mdash; biggest product gap.</div>
     </div>
-    <div class="task-meta">Merged into Call Center directive</div>
+    <div class="task-meta">Andrew<br>Spec ready</div>
+  </div>
+
+  <div class="task">
+    <span class="priority soon">Soon</span>
+    <div>
+      <div class="task-name">Discovery Call Automation (4-step sequence)</div>
+      <div class="task-desc">Booking confirmation email + SMS, 24-hour reminder, 1-hour reminder, 10-min final nudge. Troy needs to write copy for all steps. One task, not four.</div>
+    </div>
+    <div class="task-meta">Troy<br>Copy needed for 4 messages</div>
+  </div>
+
+  <div class="task">
+    <span class="priority soon">Soon</span>
+    <div>
+      <div class="task-name">Bridge Video (Calendar Redirect)</div>
+      <div class="task-desc">Record or source intro video for the booking page. Button wired on site, no video content yet.</div>
+    </div>
+    <div class="task-meta">Troy<br>Not started</div>
+  </div>
+
+  <div class="task">
+    <span class="priority soon">Soon</span>
+    <div>
+      <div class="task-name">Product Overview Video</div>
+      <div class="task-desc">Create AGM Pro Tools product overview video. &#x27;Watch Overview&#x27; button on site has no content.</div>
+    </div>
+    <div class="task-meta">Troy<br>Not started</div>
+  </div>
+
+  <div class="task">
+    <span class="priority queued">Queued</span>
+    <div>
+      <div class="task-name">Verify hello@agmprotools.com</div>
+      <div class="task-desc">Confirm email is receiving and sending correctly.</div>
+    </div>
+    <div class="task-meta">Andrew<br>5 min</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<div class="category">
+  <div class="cat-header">
+    <span class="cat-title">Heavenly Greens &mdash; SF Automation Rebuild</span>
+    <span class="cat-count">9 items</span>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">SF Automation Dashboard &mdash; Complete Visibility</div>
+      <div class="task-desc">Full inventory dashboard: 48 workflow rules, 42 flows/process builders, 70 email templates, 40 Apex triggers, 7 validation rules, 4 scheduled jobs, 11 identified gaps. Filterable, searchable, customer journey mapped stage-by-stage. Built from Metadata + Tooling API pulls.</div>
+    </div>
+    <div class="task-meta"><a href="https://agmpro-byte.github.io/agm-mission-control/hg-sf-automation.html">Dashboard</a><br>
+      <a href="https://github.com/agmpro-byte/agm-automation/blob/main/.tmp/sf_workflow_audit.md">Audit MD</a><br>Apr 10<br>Live on GitHub Pages</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Customer Welcome Letter &mdash; Template Rewrite</div>
+      <div class="task-desc">Rebuilt the 2021 COVID/drought Customer Installation Letter as a modern HTML template. 10-step onboarding from scanned physical letter. Signed by Liz Vazquez (Installation Coordinator). Reply-to routes to Liz. Logo artifact fixed Apr 10. Sent to Tim for approval.</div>
+    </div>
+    <div class="task-meta"><a href="https://github.com/agmpro-byte/agm-automation/blob/main/templates/email/hg/customer_installation_letter.html">Template</a><br>Apr 10<br>Awaiting Tim&#x27;s approval</div>
   </div>
 
   <div class="task">
     <span class="priority next">Next</span>
     <div>
-      <div class="task-name">SMS/Email/Voice Follow-Up Sequences (Pillar 6)</div>
-      <div class="task-desc">Automated multi-channel follow-up for Costco leads in AGM. Now subsumed into HG Call Center Automation Bucket 2 (4 sequences defined). Synthflow vs AGM Voice AI decision pending.</div>
+      <div class="task-name">Gap #1 &mdash; Automated Welcome Email on Contract Approved</div>
+      <div class="task-desc">Build a Flow that fires on StageName = Sales Closed Won - Approved and sends the new Customer Welcome Letter to the customer. Currently the Welcome Letter PB only creates an internal task &mdash; customer hears nothing after deposit.</div>
     </div>
-    <div class="task-meta">Merged into Call Center directive</div>
+    <div class="task-meta">After Tim approves template</div>
   </div>
 
   <div class="task">
     <span class="priority next">Next</span>
     <div>
-      <div class="task-name">HubSpot Package Investigation</div>
-      <div class="task-desc">Legacy HubSpot package in SF org. Is it still needed? If not, remove to clean up the org.</div>
+      <div class="task-name">Gap #2 &mdash; Post-Deposit Nurture Sequence</div>
+      <div class="task-desc">Replace the inactive 2021 Customer Check In / 7 Week / 12 Week letters. New sequence: 2-week check-in, 4-week progress, day-before install reminder. The dead zone between deposit and install is currently unmanaged.</div>
     </div>
-    <div class="task-meta">Investigate</div>
+    <div class="task-meta">4 inactive templates to retire</div>
+  </div>
+
+  <div class="task">
+    <span class="priority next">Next</span>
+    <div>
+      <div class="task-name">Gap #3 &mdash; Post-Install Thank-You + Review Request</div>
+      <div class="task-desc">Post Sale Email template exists and is current but fires manually only. Broadly/Zapier review integration is inactive. Build automated fire on StageName = Completed - Paid.</div>
+    </div>
+    <div class="task-meta">Template ready</div>
+  </div>
+
+  <div class="task">
+    <span class="priority next">Next</span>
+    <div>
+      <div class="task-name">Gap #4 &mdash; Commercial Customer Automation</div>
+      <div class="task-desc">Every customer-facing rule is gated on Inquiry_Division__c = Residential. Commercial customers currently get ZERO automated emails across the entire lifecycle. Build parallel Commercial path.</div>
+    </div>
+    <div class="task-meta">High impact</div>
+  </div>
+
+  <div class="task">
+    <span class="priority queue">Queue</span>
+    <div>
+      <div class="task-name">Gap #5 &mdash; Delay Notification to Customer</div>
+      <div class="task-desc">Delayed Job workflow currently only alerts the Opportunity Owner. Customer hears nothing when their install is delayed. Build customer-facing alert.</div>
+    </div>
+    <div class="task-meta"></div>
+  </div>
+
+  <div class="task">
+    <span class="priority queue">Queue</span>
+    <div>
+      <div class="task-name">Cleanup &mdash; Retire 11 Inactive Workflow Rules</div>
+      <div class="task-desc">Broadly (old Zapier), duplicate Customer 7 Week Letter, Must_Fill_Out_Job_Schedule_Dates validation rule, Commercial Lead alert (broken criteria), and 7 other inactive rules cluttering the org.</div>
+    </div>
+    <div class="task-meta"></div>
+  </div>
+
+  <div class="task">
+    <span class="priority queue">Queue</span>
+    <div>
+      <div class="task-name">Cleanup &mdash; Email Alerts Folder Content Refresh</div>
+      <div class="task-desc">All 15 templates in Email Alerts folder are 2016-2018 vintage. Internal-only but overdue for content audit. Flag for Liz / Tim review.</div>
+    </div>
+    <div class="task-meta"></div>
   </div>
 </div>
 
@@ -350,25 +627,16 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">Queued &mdash; On the Radar</span>
-    <span class="cat-count">13 items</span>
+    <span class="cat-count">16 items</span>
   </div>
 
   <div class="task">
     <span class="priority queued">Queued</span>
     <div>
-      <div class="task-name">Self-Service Client Onboarding</div>
-      <div class="task-desc">Currently adding a client requires Harlan + Troy. Need a flow where Andrew (or a client) can onboard without engineering.</div>
+      <div class="task-name">Rent Manager &mdash; New Vertical Target</div>
+      <div class="task-desc">Property management backend (residential, commercial, storage, MH, student, vacation). Open Access API + ODBC = same connector pattern. Lane is horizontal agentic ops layer, NOT another AI leasing chatbot. Andrew has internal contact gathering intel &mdash; 8 questions sent Apr 9. HOLD until intel lands.</div>
     </div>
-    <div class="task-meta">Product gap</div>
-  </div>
-
-  <div class="task">
-    <span class="priority queued">Queued</span>
-    <div>
-      <div class="task-name">Billing Integration (Stripe)</div>
-      <div class="task-desc">Pricing tiers exist (Core $297 / Pro $597 / Enterprise $997) but billing is manual. Wire Stripe into the onboarding flow.</div>
-    </div>
-    <div class="task-meta">Product gap</div>
+    <div class="task-meta"><a href="https://www.rentmanager.com">Rent Manager</a><br>Intel ask sent Apr 9<br>Waiting on Andrew&#x27;s contact</div>
   </div>
 
   <div class="task">
@@ -410,6 +678,15 @@
   <div class="task">
     <span class="priority queued">Queued</span>
     <div>
+      <div class="task-name">AGM Friday Live &mdash; Episode 1</div>
+      <div class="task-desc">Troy brings industry context (3-5 min), Andrew demos AGM live (8-12 min). One 15-20 min session multiplied into 6-7 content pieces.</div>
+    </div>
+    <div class="task-meta">Not scheduled</div>
+  </div>
+
+  <div class="task">
+    <span class="priority queued">Queued</span>
+    <div>
       <div class="task-name">Mac Mini Visual Dashboard</div>
       <div class="task-desc">Single-pane-of-glass view of system health, client status, event flow, alerts.</div>
     </div>
@@ -419,10 +696,28 @@
   <div class="task">
     <span class="priority queued">Queued</span>
     <div>
-      <div class="task-name">HG Calendar &rarr; AGM Data Source Swap</div>
-      <div class="task-desc">Calendar dashboard currently reads from SF Events. Phase 2: swap to AGM calendar data.</div>
+      <div class="task-name">Andrew MacBook Air &mdash; Clone AGM Instance</div>
+      <div class="task-desc">Turn Andrew&#x27;s MacBook Air into 4th Tailscale mesh node with full AGM dev environment. 5 layers: mesh setup, agent identity (.andrew marker), scoped credentials, memory bootstrap, handoff integration.</div>
     </div>
-    <div class="task-meta">Phase 2</div>
+    <div class="task-meta"><a href="https://github.com/agmpro-byte/agm-automation/blob/main/docs/ANDREW_MACBOOK_CLONE_GUIDE.md">Clone Guide</a><br>Guide ready<br>Needs Troy decisions</div>
+  </div>
+
+  <div class="task">
+    <span class="priority queued">Queued</span>
+    <div>
+      <div class="task-name">X/Twitter Developer Account Setup</div>
+      <div class="task-desc">Create developer account at developer.x.com, get API keys, test automated posting. Script execution/publish_twitter.py is built. Then Instagram + TikTok after.</div>
+    </div>
+    <div class="task-meta">Script ready<br>Needs API keys</div>
+  </div>
+
+  <div class="task">
+    <span class="priority queued">Queued</span>
+    <div>
+      <div class="task-name">S3 Backup &mdash; All 3 Machines</div>
+      <div class="task-desc">S3 encrypted backup currently only runs from Office iMac (2 AM daily cron). Home iMac and Mac Mini are NOT backing up independently.</div>
+    </div>
+    <div class="task-meta">Office iMac only<br>Home + Mini needed</div>
   </div>
 
   <div class="task">
@@ -455,108 +750,28 @@
   <div class="task">
     <span class="priority queued">Queued</span>
     <div>
-      <div class="task-name">Jobber Marketplace Listing</div>
-      <div class="task-desc">Get AGM Pro Tools listed on the Jobber App Marketplace. Partnership conversation initiated. Key distribution channel for first 100 clients.</div>
-    </div>
-    <div class="task-meta">Partnership</div>
-  </div>
-
-  <div class="task">
-    <span class="priority queued">Queued</span>
-    <div>
       <div class="task-name">Content Flywheel &mdash; White-Label Subscription Product</div>
       <div class="task-desc">Modularize the content flywheel into a white-labeled subscription product. HG is Instance #1. Third revenue layer alongside ProTools automation and franchise intelligence. 10 open design decisions documented.</div>
     </div>
     <div class="task-meta">Third revenue layer<br>HG = Instance #1</div>
   </div>
-</div>
-
-<!-- ═══════════════════════════════════════════ -->
-<div class="category">
-  <div class="cat-header">
-    <span class="cat-title">AGM Pro Tools &mdash; Product &amp; Funnel</span>
-    <span class="cat-count">9 items</span>
-  </div>
 
   <div class="task">
-    <span class="priority next">Next</span>
+    <span class="priority queued">Queued</span>
     <div>
-      <div class="task-name">Pre-Qualification Form</div>
-      <div class="task-desc">Spec done (PRE_QUAL_FORM_SPEC.md). 5-step survey in AGM survey builder, wire to calendar. No inbound funnel live yet &mdash; biggest product gap.</div>
+      <div class="task-name">Client-Facing Health Dashboard</div>
+      <div class="task-desc">Clients see nothing about their integration health. Build GitHub Pages dashboard &mdash; one row per client, auto-updated from /health endpoints.</div>
     </div>
-    <div class="task-meta">Andrew<br>Spec ready</div>
-  </div>
-
-  <div class="task">
-    <span class="priority soon">Soon</span>
-    <div>
-      <div class="task-name">Discovery Call &mdash; Confirmation Email + SMS</div>
-      <div class="task-desc">Write subject + body for booking confirmation. Part of 4-step appointment automation sequence.</div>
-    </div>
-    <div class="task-meta">Troy<br>Copy needed</div>
-  </div>
-
-  <div class="task">
-    <span class="priority soon">Soon</span>
-    <div>
-      <div class="task-name">Discovery Call &mdash; 24-Hour Reminder</div>
-      <div class="task-desc">Write subject + body for 24hr reminder email + SMS.</div>
-    </div>
-    <div class="task-meta">Troy<br>Copy needed</div>
-  </div>
-
-  <div class="task">
-    <span class="priority soon">Soon</span>
-    <div>
-      <div class="task-name">Discovery Call &mdash; 1-Hour Reminder</div>
-      <div class="task-desc">Write subject + body for 1hr reminder email + SMS.</div>
-    </div>
-    <div class="task-meta">Troy<br>Copy needed</div>
-  </div>
-
-  <div class="task">
-    <span class="priority soon">Soon</span>
-    <div>
-      <div class="task-name">Discovery Call &mdash; 10-Min Reminder SMS</div>
-      <div class="task-desc">Write final nudge SMS before call.</div>
-    </div>
-    <div class="task-meta">Troy<br>Copy needed</div>
-  </div>
-
-  <div class="task">
-    <span class="priority soon">Soon</span>
-    <div>
-      <div class="task-name">Bridge Video (Calendar Redirect)</div>
-      <div class="task-desc">Record or source intro video for the booking page. Button wired on site, no video content yet.</div>
-    </div>
-    <div class="task-meta">Troy<br>Not started</div>
-  </div>
-
-  <div class="task">
-    <span class="priority soon">Soon</span>
-    <div>
-      <div class="task-name">Product Overview Video</div>
-      <div class="task-desc">Create AGM Pro Tools product overview video. &quot;Watch Overview&quot; button on site has no content.</div>
-    </div>
-    <div class="task-meta">Troy<br>Not started</div>
+    <div class="task-meta">Mac Mini crons live<br>Dashboard not built</div>
   </div>
 
   <div class="task">
     <span class="priority queued">Queued</span>
     <div>
-      <div class="task-name">Verify hello@agmprotools.com</div>
-      <div class="task-desc">Confirm email is receiving and sending correctly.</div>
+      <div class="task-name">Document Signature Watch Dog</div>
+      <div class="task-desc">Automated reminder loop for unsigned documents (sales contract, start of work, completion of work). Three independent loops, timed escalation.</div>
     </div>
-    <div class="task-meta">Andrew<br>5 min</div>
-  </div>
-
-  <div class="task">
-    <span class="priority queued">Queued</span>
-    <div>
-      <div class="task-name">Search Atlas SEO Setup</div>
-      <div class="task-desc">Add tracking code, configure Atlas for agmprotools.com.</div>
-    </div>
-    <div class="task-meta">Troy<br>Not started</div>
+    <div class="task-meta">Designed<br>Not built</div>
   </div>
 </div>
 
@@ -564,34 +779,16 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">Waiting On Others</span>
-    <span class="cat-count">6 items</span>
+    <span class="cat-count">5 items</span>
   </div>
 
   <div class="task">
     <span class="priority waiting">Waiting</span>
     <div>
       <div class="task-name">Andrew &mdash; Review Workflow SMS/Email Copy</div>
-      <div class="task-desc">Needs to finalize SMS + email copy for the &quot;Completed - Paid&quot; review request.</div>
+      <div class="task-desc">Needs to finalize SMS + email copy for the &#x27;Completed - Paid&#x27; review request.</div>
     </div>
     <div class="task-meta">Andrew</div>
-  </div>
-
-  <div class="task done-row">
-    <span class="priority done">Done</span>
-    <div>
-      <div class="task-name">Andrew &mdash; Create AGM Custom Fields for WF2 Line Items</div>
-      <div class="task-desc">Fields already existed (created Mar 2): Turf Type, Total Job Size, Add-Ons, Jobber Quote Link, Turf Type For Quote. Two already wired in sync config. No action needed.</div>
-    </div>
-    <div class="task-meta">Apr 3<br>Already existed</div>
-  </div>
-
-  <div class="task done-row">
-    <span class="priority done">Done</span>
-    <div>
-      <div class="task-name">Andrew &mdash; Confirm Opportunity Name Format with Ivana</div>
-      <div class="task-desc">Ivana confirmed she&#x27;s happy with LastName - QuoteTitle format. Closed.</div>
-    </div>
-    <div class="task-meta">Apr 3<br>Confirmed by Ivana</div>
   </div>
 
   <div class="task">
@@ -615,10 +812,19 @@
   <div class="task">
     <span class="priority waiting">Waiting</span>
     <div>
-      <div class="task-name">Waterloo Turf &mdash; Pilot Location Selection</div>
-      <div class="task-desc">Waiting on Jeromie to select 3-5 pilot locations. CEO deck v3 delivered. Meeting went well.</div>
+      <div class="task-name">Waterloo Turf &mdash; Follow Up Week of Apr 13</div>
+      <div class="task-desc">Jeromie went quiet after seeing franchise intelligence deck. New strategy: &#x27;you had first look before Jobber partnership goes public&#x27; follow-up email. Draft ready at .tmp/drafts/waterloo_jeromie_followup.md. Troy to review and approve. Time around Jobber Marketplace announcement.</div>
     </div>
-    <div class="task-meta">Jeromie</div>
+    <div class="task-meta">Draft ready<br>Follow up week of Apr 13</div>
+  </div>
+
+  <div class="task">
+    <span class="priority waiting">Waiting</span>
+    <div>
+      <div class="task-name">Rent Manager &mdash; Andrew Intel</div>
+      <div class="task-desc">8 questions sent to Andrew&#x27;s internal contact Apr 9. HOLD on all build/outreach/sandbox until intel lands.</div>
+    </div>
+    <div class="task-meta">Andrew&#x27;s contact<br>Sent Apr 9</div>
   </div>
 </div>
 
@@ -626,7 +832,7 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">Recurring / Ongoing</span>
-    <span class="cat-count">5 items</span>
+    <span class="cat-count">4 items</span>
   </div>
 
   <div class="task">
@@ -648,21 +854,12 @@
   </div>
 
   <div class="task">
-    <span class="priority recurring">Recurring</span>
-    <div>
-      <div class="task-name">HG Newsletter</div>
-      <div class="task-desc">Monthly newsletter for Heavenly Greens. HTML generated by Harlan, distributed via AGM Conversations API.</div>
-    </div>
-    <div class="task-meta">Monthly</div>
-  </div>
-
-  <div class="task">
-    <span class="priority recurring">Recurring</span>
+    <span class="priority now">Now</span>
     <div>
       <div class="task-name">Weekly Intelligence Report</div>
-      <div class="task-desc">Monthly industry intelligence report to ~280 subscribers. Issue #14 sent Apr 1. Pipeline: Scout &rarr; Quill &rarr; Pixel &rarr; Echo &rarr; distribution.</div>
+      <div class="task-desc">Automated delivery DARK since Mar 27 (18 days). Content pipeline Echo stage (Modal cron content_pipeline_scheduled, Tue 5 AM PT) fires but skips with &quot;no trends file&quot; &mdash; Monday Scout not persisting to /tokens/flywheel/monthly_trends.md. Last publish_request: 2026-03-27_214245. Morning triage: Modal logs + volume inspection. See docs/NEXT_SESSION.md top priority.</div>
     </div>
-    <div class="task-meta">Monthly<br>269 subscribers</div>
+    <div class="task-meta">BROKEN since Mar 27<br>269 subscribers impacted</div>
   </div>
 
   <div class="task">
@@ -679,14 +876,104 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">Recently Completed</span>
-    <span class="cat-count">8 items</span>
+    <span class="cat-count">14 items</span>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Launchpad Phase 1 &mdash; Franchise-to-Launchpad Rename</div>
+      <div class="task-desc">12 files renamed/refactored. INDUSTRY_TEMPLATES replaces FRANCHISE_NETWORKS. All docs, directives, registry updated. Backward-compat fallbacks throughout.</div>
+    </div>
+    <div class="task-meta">Apr 10</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Launchpad Phase 2 &mdash; Intake Form + Checkout Endpoint</div>
+      <div class="task-desc">Customer-facing intake form + /launchpad-checkout Modal endpoint. Industry dropdown drives template selection.</div>
+    </div>
+    <div class="task-meta">Apr 10</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Launchpad Build Workbook &mdash; Google Doc</div>
+      <div class="task-desc">Complete status tracker: what&#x27;s built, tested, missing, and remaining work with owners + time estimates. 701 formatting requests.</div>
+    </div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1h3Fgk1c1wRl3jDY-ZpoD9deJ19JAetZl8Mf-yVu_vPo/edit">Google Doc</a><br>Apr 10</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">North Star Vision Confirmed</div>
+      <div class="task-desc">5 pillars confirmed: Jobber Marketplace (distribution), Franchise Intelligence (moat), Automation Score (funnel), Content Flywheel (engagement), Launchpad (onboarding). Launchpad is the critical path.</div>
+    </div>
+    <div class="task-meta">Apr 10</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Deactivate Broadly Workflow Rule in SF</div>
+      <div class="task-desc">Already deactivated. Confirmed Apr 2. Zapier contamination path fully dead.</div>
+    </div>
+    <div class="task-meta">Apr 2</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Project Ironclad &mdash; Tailscale Install</div>
+      <div class="task-desc">Tailscale on all 3 machines. Cross-session persistence DONE.</div>
+    </div>
+    <div class="task-meta">Apr 2</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Content Flywheel &mdash; 3 Platforms Live</div>
+      <div class="task-desc">Scout, Quill, Pixel, Echo pipeline operational. LinkedIn first automated post sent. YouTube both channels authorized.</div>
+    </div>
+    <div class="task-meta">Apr 4-5</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Scout Intelligence Bridge &mdash; Operational</div>
+      <div class="task-desc">Claude web search, RSS feed ingestion, Reddit monitoring (9 subreddits, 12 terms). First real run: 12 sourced signals.</div>
+    </div>
+    <div class="task-meta">Apr 5</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Automation Score Backend &mdash; Deployed &amp; Tested</div>
+      <div class="task-desc">End-to-end pipeline verified: quiz, scoring, AGM lead, email/PDF, Slack, Sheet. Critical bugs fixed.</div>
+    </div>
+    <div class="task-meta"><a href="https://contractorautomationscore.com">Live</a><br>Apr 5</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Chapter Book Complete &mdash; 28 Chapters</div>
+      <div class="task-desc">All chapters have audio, S3 links, and email delivery. Dual distribution (Telegram + email).</div>
+    </div>
+    <div class="task-meta">Apr 5</div>
   </div>
 
   <div class="task done-row">
     <span class="priority done">Done</span>
     <div>
       <div class="task-name">Harlan Email Rewire &mdash; harlan@agmprotools.com</div>
-      <div class="task-desc">Rewired from Gmail OAuth to SMTP. 13 scripts + Modal secrets updated. All email delivery now goes through harlan@agmprotools.com.</div>
+      <div class="task-desc">Rewired from Gmail OAuth to SMTP. 13 scripts + Modal secrets updated.</div>
     </div>
     <div class="task-meta">Apr 1</div>
   </div>
@@ -695,7 +982,7 @@
     <span class="priority done">Done</span>
     <div>
       <div class="task-name">Weekly Intelligence Report &mdash; First Live Send</div>
-      <div class="task-desc">Issue #14 sent Apr 1 to 269 subscribers. First fully automated AI intelligence report. Pipeline confirmed working autonomously.</div>
+      <div class="task-desc">Issue #14 sent Apr 1 to 269 subscribers. First fully automated AI intelligence report.</div>
     </div>
     <div class="task-meta">Apr 1</div>
   </div>
@@ -703,35 +990,8 @@
   <div class="task done-row">
     <span class="priority done">Done</span>
     <div>
-      <div class="task-name">Waterloo Turf &mdash; CEO Deck v3 + Generic Deck</div>
-      <div class="task-desc">12-slide franchise intelligence pitch. $7K math, 35% close rate, Jobber Central comparison. Generic version also generated.</div>
-    </div>
-    <div class="task-meta">Apr 1</div>
-  </div>
-
-  <div class="task done-row">
-    <span class="priority done">Done</span>
-    <div>
-      <div class="task-name">WeasyPrint Fix &mdash; PDF Generation on Modal</div>
-      <div class="task-desc">Pinned WeasyPrint to 59.0. PDF report generation for Automation Score restored.</div>
-    </div>
-    <div class="task-meta">Apr 1</div>
-  </div>
-
-  <div class="task done-row">
-    <span class="priority done">Done</span>
-    <div>
-      <div class="task-name">Ironclad: Cross-Session Persistence</div>
-      <div class="task-desc">Built docs/NEXT_SESSION.md &mdash; git-tracked action queue. Every session reads at open, writes at close.</div>
-    </div>
-    <div class="task-meta">Mar 31</div>
-  </div>
-
-  <div class="task done-row">
-    <span class="priority done">Done</span>
-    <div>
-      <div class="task-name">Zapier Deprecation &mdash; All Zaps Off + Modal Poller Live</div>
-      <div class="task-desc">All 38 Zaps replaced. Andrew confirmed all off Mar 30. Modal poller is live replacement.</div>
+      <div class="task-name">Zapier Deprecation &mdash; All Zaps Off</div>
+      <div class="task-desc">All 38 Zaps replaced. Modal poller is live replacement.</div>
     </div>
     <div class="task-meta">Mar 30</div>
   </div>
@@ -740,24 +1000,15 @@
     <span class="priority done">Done</span>
     <div>
       <div class="task-name">Modal Decomposition &mdash; 12 Independent Apps</div>
-      <div class="task-desc">5,249&rarr;1,927 lines. 6 new apps + shared library. All 12 apps live and independent.</div>
+      <div class="task-desc">5,249 to 1,927 lines. 6 new apps + shared library. All 12 apps live.</div>
     </div>
     <div class="task-meta">Mar 27</div>
-  </div>
-
-  <div class="task done-row">
-    <span class="priority done">Done</span>
-    <div>
-      <div class="task-name">Blog Cluster 1 &mdash; FSM Automation Gaps (4 posts)</div>
-      <div class="task-desc">4 posts published. Hero images, case study nav, expanded to 2x length. Blog SPA live.</div>
-    </div>
-    <div class="task-meta">Mar 30</div>
   </div>
 </div>
 
 <div class="footer">
-  North Star To-Do List &mdash; AGM Pro Tools &mdash; Updated 2026-04-03 by Harlan<br>
-  Single source of truth for everything in flight. Updated each session. Replaces AGM Command Center Google Sheet.
+  True North &mdash; AGM Pro Tools &mdash; Updated 2026-04-24 by Harlan<br>
+  Single source of truth for everything in flight. Updated each session.
 </div>
 
 </body>

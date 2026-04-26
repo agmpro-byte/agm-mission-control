@@ -312,9 +312,9 @@
     <span class="priority now">Now</span>
     <div>
       <div class="task-name">Installer Packet &mdash; Video thumbnails on tile buttons</div>
-      <div class="task-desc">Replace solid green tile background with single-frame ffmpeg thumbnail (1.0s offset, 480px scale). Generate at upload time in normalize_video, push to S3 alongside video as &lt;basename&gt;_thumb.jpg. Packet builder fetches thumb, page.insert_image overlay under existing PLAY badge. Fall back to current green tile if thumb missing. Backfill script for existing 5 test uploads.</div>
+      <div class="task-desc">Delta on top of the just-shipped Site Videos tile grid (b17e90d). Add ~15 lines to format_normalize.normalize_video to extract a 1.0s frame thumbnail (ffmpeg -ss 1 -frames:v 1 -vf scale=480:-2) and upload to S3 as &lt;basename&gt;_thumb.jpg. Add ~25 lines to _layout_videos in installer_packet.py to fetch the thumb via boto3, write to tmpfile, page.insert_image as tile background under existing PLAY badge. Fall back silently to the current green tile if thumb missing. Backfill script for the 5 existing HGC-TEST-001 videos.</div>
     </div>
-    <div class="task-meta">~half day<br>Mechanical &mdash; ffmpeg + PyMuPDF already in stack</div>
+    <div class="task-meta">~1 hour<br>Mechanical &mdash; built on top of shipped tile grid</div>
   </div>
 
   <div class="task">

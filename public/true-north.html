@@ -83,13 +83,13 @@
 
 <h1>True North</h1>
 <p class="subtitle">AGM Pro Tools &mdash; everything in flight, prioritized</p>
-<p class="datestamp">Last updated: 2026-04-24</p>
+<p class="datestamp">Last updated: 2026-04-25</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Prospects</div></div>
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
-  <div class="stat"><div class="stat-value">21</div><div class="stat-label">Now / This Week</div></div>
+  <div class="stat"><div class="stat-value">25</div><div class="stat-label">Now / This Week</div></div>
   <div class="stat"><div class="stat-value">18</div><div class="stat-label">Next Up</div></div>
   <div class="stat"><div class="stat-value">17</div><div class="stat-label">Queued</div></div>
 </div>
@@ -205,6 +205,131 @@
 <!-- ═══════════════════════════════════════════ -->
 <div class="category">
   <div class="cat-header">
+    <span class="cat-title">Multi-Track Contract Engine &mdash; Active Sprint</span>
+    <span class="cat-count">13 items</span>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Phase 1 &mdash; Engine rename dealer&rarr;rep, member&rarr;signer</div>
+      <div class="task-desc">Atomic SQLite migration + code rename across contract_engine/. UI copy + email templates updated. Migration logic in signing.py:248-250 rewrites old status values to new on first read.</div>
+    </div>
+    <div class="task-meta">Apr 25<br>Commit 9e3b785</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Phase 1E &mdash; Multi-track primitives in ClientConfig</div>
+      <div class="task-desc">Added track, vertical, customer_role_label, ready_for_install_trigger fields to client YAML schema. Foundation for HG Direct, paver, roofer, fencing tracks on the same engine.</div>
+    </div>
+    <div class="task-meta">Apr 25<br>Commit 5b853bf</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Phase 2 &mdash; Project Documents Uploader</div>
+      <div class="task-desc">Rep-facing portal at agmpro.tools/upload/&lt;job_number&gt;. Format normalization (HEIC &rarr; JPEG, HEVC &rarr; H.264 720p). Dual-write to S3 + AGM agmpro_site_photos custom field. Apr 26 fix: scale filter + error display bug &mdash; transcode now produces playable H.264 baseline MP4 with audio mapping intact.</div>
+    </div>
+    <div class="task-meta"><a href="https://agm-pro--documents-uploader.modal.run/upload/HGC-TEST-001">Live</a><br>Apr 25 ship + Apr 26 transcode fix<br>Commit 855f3d5 + uncommitted format_normalize.py</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Phase 3 &mdash; Build Installer Packet AGM custom action</div>
+      <div class="task-desc">agm-pro--installer-packet-build.modal.run accepts contact_id, generates packet, registers short URL, writes to agmpro_installer_packet_url + built_at + version custom fields + Notes. Production manager clicks button on AGM contact to fire.</div>
+    </div>
+    <div class="task-meta">Apr 25<br>Commit 22d2e82</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">agmpro.tools branded short URLs LIVE</div>
+      <div class="task-desc">Cloudflare zone (Free plan, separate from agmprotools.com) fronts Modal endpoints via 302 redirect. /j/&lt;id&gt; &rarr; installer-redirect, /upload/&lt;job&gt; &rarr; documents-uploader, /v/&lt;id&gt; &rarr; video-redirect. Engine config flipped: hg_costco.yml + 3 hardcoded URLs in modal_app.py / create_cadence_copy_sheet.py. Origin Rules need Enterprise plan; Free plan = redirects, brand moment is the SMS link not the address bar after click. Cloudflare wildcard pattern requires https:// prefix.</div>
+    </div>
+    <div class="task-meta"><a href="https://agmpro.tools/upload/HGC-TEST-001">Upload portal</a><br>Apr 25<br>Commit 1ca9efd + uncommitted /v/ rule</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Site Videos in installer packet &mdash; /v/&lt;id&gt; redirect + clickable PDF tiles</div>
+      <div class="task-desc">Videos uploaded via Project Documents Uploader are now discovered at packet build time, registered with a /v/&lt;id&gt; short URL each, and rendered as a 3-up tile grid on a Site Videos page in the packet PDF. Each tile is a clickable hyperlink that 302s to a freshly-minted S3 presigned URL. Mirror of the /j/ pattern. Default-on for HG Costco; future tenants opt in via video_short_url_base + video_index_s3_prefix YAML fields.</div>
+    </div>
+    <div class="task-meta">Apr 25 (uncommitted)<br>installer_packet.py + modal_app.py + config.py + hg_costco.yml</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Uploader &mdash; Camera Roll-only video flow</div>
+      <div class="task-desc">In-portal video recorder removed. iOS Safari silently drops audio on both &lt;input capture&gt; and getUserMedia in this context (server-side ffprobe diagnostic confirmed: 0 audio streams in delivered file regardless of approach). Workaround: reps record in native iOS Camera app, upload via Add from Camera Roll &mdash; those files always carry audio. Helper text on the portal explains the flow. Saves ~120 lines of MediaRecorder JS, simpler UX, more reliable.</div>
+    </div>
+    <div class="task-meta">Apr 25 (uncommitted)<br>uploader_app.py + format_normalize.py</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Phase 4A &mdash; Rep photo upload cadence LIVE</div>
+      <div class="task-desc">8 AM SMS+email + 4 PM SMS daily until photos appear in agmpro_site_photos. No-breaks rule, no dormancy, no weekend skip. Cadence copy review sheet shipped to troy@agmprotools.com for editorial review.</div>
+    </div>
+    <div class="task-meta">Apr 25<br>Commit bd0dfb5</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Phase 4D &mdash; Installer packet reads from S3 site-photos as primary source</div>
+      <div class="task-desc">Packet builder discovers videos + photos in S3 hg-costco/site-photos/&lt;job&gt; folder, registers short IDs per video, embeds photos inline + clickable video tiles on Site Videos page.</div>
+    </div>
+    <div class="task-meta">Apr 25<br>Commit e66625f</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Phase 4B/C &mdash; Lifecycle clock + customer cadences + per-rep daily digest</div>
+      <div class="task-desc">Lifecycle clock stamps timestamp on each pending state, emits state_stale event on stale threshold cross. Customer cadences (signing 3-day Costco / 7-day HG Direct, deposit 14-day HG Direct only). Per-rep 8 AM email with stalled-deals queue across all stages. Custom field updates: agmpro_contract_status_label, agmpro_contract_age_days. Phase 4A rep cadence already live &mdash; this is the customer side and the digest.</div>
+    </div>
+    <div class="task-meta">TOP PRIORITY #1<br>~1 day build<br>Completes the cadence engine</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Phase 5 &mdash; Change order extension</div>
+      <div class="task-desc">Upload portal accepts /upload/&lt;job&gt;/co/&lt;n&gt; route with CO-scoped storage paths. Installer packet versions per CO; superseded notice on old short URLs. Trigger on CO fully_executed (Costco) or CO deposit_received (HG Direct) sends rep new upload link.</div>
+    </div>
+    <div class="task-meta">~half day<br>Unlocks ATE + retroactive CO support</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Installer Packet &mdash; Video thumbnails on tile buttons</div>
+      <div class="task-desc">Replace solid green tile background with single-frame ffmpeg thumbnail (1.0s offset, 480px scale). Generate at upload time in normalize_video, push to S3 alongside video as &lt;basename&gt;_thumb.jpg. Packet builder fetches thumb, page.insert_image overlay under existing PLAY badge. Fall back to current green tile if thumb missing. Backfill script for existing 5 test uploads.</div>
+    </div>
+    <div class="task-meta">~half day<br>Mechanical &mdash; ffmpeg + PyMuPDF already in stack</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Engine &mdash; End-to-end real-job dry run</div>
+      <div class="task-desc">One real HG Costco contract through the full pipeline: signing UI &rarr; fully_executed &rarr; ready_for_install &rarr; rep upload (mix of HEIC photos + HEVC videos) &rarr; production clicks Build Installer Packet button &rarr; packet PDF reviewed for correctness (header, photos inline, video tiles clickable + playing). Establishes the smoke baseline for every future engine deploy.</div>
+    </div>
+    <div class="task-meta">TOP PRIORITY #2<br>~1 hour with Troy<br>Validates Phases 1-4 in production posture</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<div class="category">
+  <div class="cat-header">
     <span class="cat-title">This Week &mdash; Priority</span>
     <span class="cat-count">15 items</span>
   </div>
@@ -221,10 +346,10 @@
   <div class="task">
     <span class="priority now">Now</span>
     <div>
-      <div class="task-name">HG Costco Contract Workflow Optimization</div>
-      <div class="task-desc">Contract engine (agm-contract-engine) live on Modal. PDF overlay (PyMuPDF) renders pixel-perfect Rev 1-1-26 contracts. Signing UI wired Apr 13 &mdash; ASGI FastAPI app at agm-pro--contract-signing.modal.run serves /review/{id}, /sign/{id}, /pdf/{id} with token auth, typed-name signature, and replay protection. End-to-end tested draft_review &rarr; member_pending &rarr; dealer_pending &rarr; completed. POST-SIGN FINALIZATION WIRED Apr 13 (evening): finalizer.py produces 16-page finalized PDF (14-page draft + ratification page with ESIGN/UETA attestation + multi-page Signature Certificate with full event log). _finalize_and_deliver() in modal_app.py writes to /state/signed/{doc_ref}.pdf, updates signed_pdf_url, and runs delivery.deliver_signed_contract for S3 archive + member email + office email + AGM contact custom-field writeback. Verified in Modal against a real completed session (16 pages, text extracts cleanly). Remaining: (a) custom domain signature.heavenlygreens.com (waiting on Andrew/DNS tomorrow), (b) optional upgrade to freehand signature pad using existing signing.js/css assets, (c) flesh out HG Work Order pages 13-14 properly (still placeholder). Apr 13 eve: field-map audit pass &mdash; closed every blank on pages 3/6/7/8/9/10/11 (Shop Card $ + %, NoC widgets + cancel deadline + 65+ checkbox, member initials footers, disclosure signing block, completion verification signing block). Committed, not yet deployed.</div>
+      <div class="task-name">HG Costco Contract &mdash; Field-map audit deploy + DNS</div>
+      <div class="task-desc">Engine + signing UI + finalizer LIVE since Apr 13. REMAINING: (a) deploy committed field-map audit changes via pre_deploy_check.py --deploy execution/contract_engine/modal_app.py &mdash; closes blanks on pages 3/6/7/8/9/10/11 (Shop Card $/%, NoC widgets + cancel deadline + 65+ checkbox, member initials footers, disclosure + completion verification signing blocks), (b) custom domain signature.heavenlygreens.com (waiting on Andrew DNS), (c) HG Work Order pages 13-14 still placeholder, (d) optional freehand signature pad upgrade.</div>
     </div>
-    <div class="task-meta">TOP PRIORITY #1<br>Engine + signing UI + finalizer live Apr 13<br>Verified end-to-end in Modal<br>Awaiting DNS for branded domain</div>
+    <div class="task-meta">Field-map audit committed not deployed<br>DNS waiting on Andrew</div>
   </div>
 
   <div class="task">
@@ -1007,7 +1132,7 @@
 </div>
 
 <div class="footer">
-  True North &mdash; AGM Pro Tools &mdash; Updated 2026-04-24 by Harlan<br>
+  True North &mdash; AGM Pro Tools &mdash; Updated 2026-04-25 by Harlan<br>
   Single source of truth for everything in flight. Updated each session.
 </div>
 

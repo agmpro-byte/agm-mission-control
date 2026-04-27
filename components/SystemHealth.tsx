@@ -16,6 +16,7 @@ interface ClientHealth {
   last_event_at?: string
   last_check_at?: string
   last_event_key?: string
+  dashboard_mode?: string
   issues?: string[]
 }
 
@@ -295,12 +296,18 @@ export default function SystemHealth() {
         <div className="grid grid-cols-1 lg:grid-cols-2 divide-y lg:divide-y-0 lg:divide-x divide-gray-800">
           {clientEntries.map(([slug, client]) => {
             const displayName = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+            const isAgmOnly = client.dashboard_mode === 'agm_only'
 
             return (
               <div key={slug} className="p-4 space-y-3">
                 {/* Client header */}
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-semibold text-white tracking-wide">{displayName}</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm font-semibold text-white tracking-wide">{displayName}</span>
+                    {isAgmOnly && (
+                      <span className="text-[9px] uppercase tracking-widest px-1.5 py-0.5 rounded bg-blue-900/40 text-blue-400 border border-blue-800/50">AGM Only</span>
+                    )}
+                  </div>
                   <StatusBadge status={client.status} />
                 </div>
 
@@ -322,48 +329,56 @@ export default function SystemHealth() {
                   </div>
                   <div className="border border-gray-800 rounded p-2">
                     <p className="text-[10px] uppercase tracking-widest text-gray-500">Last Event</p>
-                    <p className="font-bold text-white">{timeAgo(client.last_event_at)}</p>
+                    <p className="font-bold text-white">{isAgmOnly ? 'N/A' : timeAgo(client.last_event_at)}</p>
                   </div>
                 </div>
 
-                {/* Injection counts — Today / This Week / This Month */}
-                <div>
-                  <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-1.5">Injections</p>
-                  <div className="grid grid-cols-3 gap-2">
-                    <div className="border border-gray-800 rounded p-2 text-center">
-                      <p className="text-[9px] uppercase tracking-widest text-gray-600">Today</p>
-                      <p className="text-xl font-bold text-cyan-400">{(client.injections_today || 0).toLocaleString()}</p>
-                    </div>
-                    <div className="border border-gray-800 rounded p-2 text-center">
-                      <p className="text-[9px] uppercase tracking-widest text-gray-600">This Week</p>
-                      <p className="text-xl font-bold text-cyan-400">{(client.injections_this_week || 0).toLocaleString()}</p>
-                    </div>
-                    <div className="border border-gray-800 rounded p-2 text-center">
-                      <p className="text-[9px] uppercase tracking-widest text-gray-600">This Month</p>
-                      <p className="text-xl font-bold text-cyan-400">{(client.injections_this_month || 0).toLocaleString()}</p>
-                    </div>
+                {isAgmOnly ? (
+                  <div className="border border-gray-800 rounded p-3 text-center">
+                    <p className="text-[10px] uppercase tracking-widest text-gray-500">AGM-native client — no webhook event tracking</p>
                   </div>
-                </div>
+                ) : (
+                  <>
+                    {/* Injection counts — Today / This Week / This Month */}
+                    <div>
+                      <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-1.5">Injections</p>
+                      <div className="grid grid-cols-3 gap-2">
+                        <div className="border border-gray-800 rounded p-2 text-center">
+                          <p className="text-[9px] uppercase tracking-widest text-gray-600">Today</p>
+                          <p className="text-xl font-bold text-cyan-400">{(client.injections_today || 0).toLocaleString()}</p>
+                        </div>
+                        <div className="border border-gray-800 rounded p-2 text-center">
+                          <p className="text-[9px] uppercase tracking-widest text-gray-600">This Week</p>
+                          <p className="text-xl font-bold text-cyan-400">{(client.injections_this_week || 0).toLocaleString()}</p>
+                        </div>
+                        <div className="border border-gray-800 rounded p-2 text-center">
+                          <p className="text-[9px] uppercase tracking-widest text-gray-600">This Month</p>
+                          <p className="text-xl font-bold text-cyan-400">{(client.injections_this_month || 0).toLocaleString()}</p>
+                        </div>
+                      </div>
+                    </div>
 
-                {/* Health indicators */}
-                <div className="grid grid-cols-3 gap-2">
-                  <div className="border border-gray-800 rounded p-2 text-center">
-                    <p className="text-[9px] uppercase tracking-widest text-gray-600">Total Events</p>
-                    <p className="text-lg font-bold text-white">{(client.processed_events_count || 0).toLocaleString()}</p>
-                  </div>
-                  <div className="border border-gray-800 rounded p-2 text-center">
-                    <p className="text-[9px] uppercase tracking-widest text-gray-600">Retries</p>
-                    <p className={`text-lg font-bold ${(client.pending_retries || 0) > 0 ? 'text-yellow-400' : 'text-green-400'}`}>
-                      {client.pending_retries || 0}
-                    </p>
-                  </div>
-                  <div className="border border-gray-800 rounded p-2 text-center">
-                    <p className="text-[9px] uppercase tracking-widest text-gray-600">Dead Letters</p>
-                    <p className={`text-lg font-bold ${(client.dead_retries || 0) > 0 ? 'text-red-400' : 'text-green-400'}`}>
-                      {client.dead_retries || 0}
-                    </p>
-                  </div>
-                </div>
+                    {/* Health indicators */}
+                    <div className="grid grid-cols-3 gap-2">
+                      <div className="border border-gray-800 rounded p-2 text-center">
+                        <p className="text-[9px] uppercase tracking-widest text-gray-600">Total Events</p>
+                        <p className="text-lg font-bold text-white">{(client.processed_events_count || 0).toLocaleString()}</p>
+                      </div>
+                      <div className="border border-gray-800 rounded p-2 text-center">
+                        <p className="text-[9px] uppercase tracking-widest text-gray-600">Retries</p>
+                        <p className={`text-lg font-bold ${(client.pending_retries || 0) > 0 ? 'text-yellow-400' : 'text-green-400'}`}>
+                          {client.pending_retries || 0}
+                        </p>
+                      </div>
+                      <div className="border border-gray-800 rounded p-2 text-center">
+                        <p className="text-[9px] uppercase tracking-widest text-gray-600">Dead Letters</p>
+                        <p className={`text-lg font-bold ${(client.dead_retries || 0) > 0 ? 'text-red-400' : 'text-green-400'}`}>
+                          {client.dead_retries || 0}
+                        </p>
+                      </div>
+                    </div>
+                  </>
+                )}
 
                 {/* Issues */}
                 {client.issues && client.issues.filter(i => !i.includes('within_tolerance')).length > 0 && (

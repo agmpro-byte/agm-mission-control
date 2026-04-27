@@ -41,12 +41,30 @@ interface RecoveryAction {
   ts: string
 }
 
+interface TokenHealth {
+  status: string
+  valid: boolean
+  expires_in_hours?: number
+  has_refresh_token?: boolean
+}
+
+interface ApiCosts {
+  total_cost: number
+  call_count: number
+  period_days: number
+  by_provider?: Record<string, number>
+  by_model?: Record<string, number>
+  log_exists?: boolean
+}
+
 interface HealthData {
   status: string
   clients: Record<string, ClientHealth>
   heartbeats: Record<string, Heartbeat>
   uptime_history?: UptimeEntry[]
   recovery_log?: RecoveryAction[]
+  google_token_health?: Record<string, TokenHealth>
+  api_costs?: ApiCosts
 }
 
 const HEALTH_URL = 'https://agm-pro--agm-health-health.modal.run'
@@ -73,16 +91,16 @@ const CRON_LABELS: Record<string, { label: string; schedule: string }> = {
   'sf_job_sold_remove_lnc': { label: 'SF Job Sold Tag', schedule: 'Every 5 min' },
   'fieldroutes_valleywide_sync': { label: 'Valleywide Sync', schedule: 'Every 5 min' },
   'daily_briefings': { label: 'Daily Briefings', schedule: 'Daily 6 AM PT' },
+  'immune_system_sweep': { label: 'Immune System', schedule: 'Every 15 min' },
 }
 
 // Internal process crons — shown separately from client integration crons.
-// These should NOT appear in the client health section.
 const INTERNAL_CRONS = new Set([
-  'content_pipeline',
   'security_audit_self_report',
   'morning_inbox_cleanup',
   'morning_email_briefing',
   'volume_backup',
+  'immune_system_sweep',
 ])
 
 function timeAgo(isoStr?: string): string {
@@ -123,6 +141,22 @@ function StatusBadge({ status }: { status: string }) {
     return <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded border border-yellow-700 bg-yellow-900/40 text-yellow-400">degraded</span>
   }
   return <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded border border-red-700 bg-red-900/40 text-red-400">unhealthy</span>
+}
+
+// Token health badge
+function TokenBadge({ status }: { status: string }) {
+  const s = status?.toLowerCase()
+  const configs: Record<string, { label: string; border: string; bg: string; text: string }> = {
+    healthy:          { label: 'VALID',        border: 'border-green-700',  bg: 'bg-green-900/40',  text: 'text-green-400' },
+    auto_refreshable: { label: 'AUTO-REFRESH', border: 'border-green-700',  bg: 'bg-green-900/40',  text: 'text-green-400' },
+    warning:          { label: 'EXPIRING',     border: 'border-yellow-700', bg: 'bg-yellow-900/40', text: 'text-yellow-400' },
+    critical:         { label: 'CRITICAL',     border: 'border-red-700',    bg: 'bg-red-900/40',    text: 'text-red-400' },
+    expired:          { label: 'EXPIRED',      border: 'border-red-700',    bg: 'bg-red-900/40',    text: 'text-red-400' },
+    not_configured:   { label: 'N/A',          border: 'border-gray-700',   bg: 'bg-gray-900/40',   text: 'text-gray-500' },
+    missing:          { label: 'MISSING',      border: 'border-red-700',    bg: 'bg-red-900/40',    text: 'text-red-400' },
+  }
+  const c = configs[s] || { label: s.toUpperCase(), border: 'border-gray-700', bg: 'bg-gray-900/40', text: 'text-gray-400' }
+  return <span className={`text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded border ${c.border} ${c.bg} ${c.text}`}>{c.label}</span>
 }
 
 
@@ -190,6 +224,10 @@ export default function SystemHealth() {
   const totalDead = clientEntries.reduce((sum, [, c]) => sum + (c.dead_retries || 0), 0)
   const totalPending = clientEntries.reduce((sum, [, c]) => sum + (c.pending_retries || 0), 0)
 
+  const tokenHealth = data.google_token_health || {}
+  const apiCosts = data.api_costs || { total_cost: 0, call_count: 0, period_days: 1 }
+  const costColor = apiCosts.total_cost > 25 ? 'text-red-400' : apiCosts.total_cost > 10 ? 'text-yellow-400' : 'text-green-400'
+
   const allCronEntries = Object.entries(heartbeats).sort((a, b) => {
     if (a[1].status !== b[1].status) return a[1].status === 'error' ? -1 : 1
     return (b[1].epoch || 0) - (a[1].epoch || 0)
@@ -246,13 +284,19 @@ export default function SystemHealth() {
       </div>
 
       {/* ── Top-Level Metrics ── */}
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-3">
         <MetricCard label="Uptime" value={uptimePct === '--' ? '--' : `${uptimePct}%`} color={uptimeColor} />
         <MetricCard label="Clients" value={`${operationalClients}/${clientEntries.length}`} color={operationalClients === clientEntries.length ? 'text-green-400' : 'text-yellow-400'} />
         <MetricCard label="Today" value={totalToday} color="text-cyan-400" />
         <MetricCard label="This Week" value={totalWeek} color="text-cyan-400" />
         <MetricCard label="This Month" value={totalMonth} color="text-cyan-400" />
         <MetricCard label="Total Events" value={totalEvents.toLocaleString()} color="text-white" />
+        <MetricCard
+          label="API Cost (24h)"
+          value={apiCosts.total_cost > 0 ? `$${apiCosts.total_cost.toFixed(2)}` : '$0'}
+          color={costColor}
+          subtitle={apiCosts.call_count > 0 ? `${apiCosts.call_count} calls` : undefined}
+        />
       </div>
 
       {/* ── Uptime History Bar ── */}
@@ -285,6 +329,79 @@ export default function SystemHealth() {
           </div>
         </div>
       )}
+
+      {/* ── System Infrastructure ── */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        {/* Google Token Health */}
+        <div className="border border-gray-800 rounded-lg bg-[#0d1117]">
+          <div className="px-4 py-3 border-b border-gray-800">
+            <p className="text-[10px] uppercase tracking-widest text-gray-500">Google Token Health</p>
+          </div>
+          <div className="p-4 space-y-3">
+            {Object.keys(tokenHealth).length === 0 ? (
+              <p className="text-[10px] text-gray-600">No token data available</p>
+            ) : (
+              Object.entries(tokenHealth).map(([name, tok]) => (
+                <div key={name} className="flex items-center justify-between border border-gray-800 rounded p-3">
+                  <div>
+                    <p className="text-xs text-white font-medium">{name}</p>
+                    {tok.expires_in_hours !== undefined && tok.expires_in_hours !== null && (
+                      <p className="text-[10px] text-gray-500 mt-0.5">
+                        {tok.expires_in_hours > 0
+                          ? `Expires in ${tok.expires_in_hours < 1 ? Math.round(tok.expires_in_hours * 60) + 'm' : tok.expires_in_hours.toFixed(1) + 'h'}`
+                          : 'Expired'}
+                      </p>
+                    )}
+                  </div>
+                  <TokenBadge status={tok.status} />
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+
+        {/* API Cost Breakdown */}
+        <div className="border border-gray-800 rounded-lg bg-[#0d1117]">
+          <div className="px-4 py-3 border-b border-gray-800 flex items-center justify-between">
+            <p className="text-[10px] uppercase tracking-widest text-gray-500">API Cost Tracking</p>
+            <span className="text-[10px] text-gray-600">{apiCosts.period_days}d window</span>
+          </div>
+          <div className="p-4 space-y-3">
+            <div className="grid grid-cols-2 gap-3">
+              <div className="border border-gray-800 rounded p-3 text-center">
+                <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-1">Total Spend</p>
+                <p className={`text-2xl font-bold font-mono ${costColor}`}>
+                  ${apiCosts.total_cost.toFixed(2)}
+                </p>
+              </div>
+              <div className="border border-gray-800 rounded p-3 text-center">
+                <p className="text-[10px] uppercase tracking-widest text-gray-500 mb-1">API Calls</p>
+                <p className="text-2xl font-bold font-mono text-white">
+                  {apiCosts.call_count.toLocaleString()}
+                </p>
+              </div>
+            </div>
+            {apiCosts.by_model && Object.keys(apiCosts.by_model).length > 0 && (
+              <div className="space-y-1.5">
+                <p className="text-[10px] uppercase tracking-widest text-gray-500">By Model</p>
+                {Object.entries(apiCosts.by_model)
+                  .sort(([, a], [, b]) => b - a)
+                  .map(([model, cost]) => (
+                    <div key={model} className="flex items-center justify-between border border-gray-800/50 rounded px-3 py-1.5">
+                      <span className="text-[10px] text-gray-400 font-mono">{model}</span>
+                      <span className="text-[10px] text-white font-mono">${cost.toFixed(4)}</span>
+                    </div>
+                  ))}
+              </div>
+            )}
+            {apiCosts.call_count === 0 && (
+              <p className="text-[10px] text-gray-600 text-center py-2">
+                Cost tracking active — data populates as Modal apps make API calls
+              </p>
+            )}
+          </div>
+        </div>
+      </div>
 
       {/* ── Client Integration Cards ── */}
       <div className="border border-gray-800 rounded-lg bg-[#0d1117]">

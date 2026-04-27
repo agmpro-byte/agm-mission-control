@@ -94,6 +94,17 @@ const CRON_LABELS: Record<string, { label: string; schedule: string }> = {
   'immune_system_sweep': { label: 'Immune System', schedule: 'Every 15 min' },
 }
 
+const CLIENT_PLATFORMS: Record<string, { label: string; bg: string; text: string; border: string }[]> = {
+  'texas-turf': [
+    { label: 'JOBBER', bg: 'bg-green-900/40', text: 'text-green-400', border: 'border-green-800/50' },
+    { label: 'AGM', bg: 'bg-blue-900/40', text: 'text-blue-400', border: 'border-blue-800/50' },
+  ],
+  'heavenly-greens': [
+    { label: 'AGM', bg: 'bg-blue-900/40', text: 'text-blue-400', border: 'border-blue-800/50' },
+    { label: 'SALESFORCE', bg: 'bg-indigo-900/40', text: 'text-indigo-400', border: 'border-indigo-800/50' },
+  ],
+}
+
 // Internal process crons — shown separately from client integration crons.
 const INTERNAL_CRONS = new Set([
   'security_audit_self_report',
@@ -424,6 +435,9 @@ export default function SystemHealth() {
                     {isAgmOnly && (
                       <span className="text-[9px] uppercase tracking-widest px-1.5 py-0.5 rounded bg-blue-900/40 text-blue-400 border border-blue-800/50">AGM Only</span>
                     )}
+                    {CLIENT_PLATFORMS[slug]?.map(p => (
+                      <span key={p.label} className={`text-[9px] uppercase tracking-widest px-1.5 py-0.5 rounded ${p.bg} ${p.text} border ${p.border}`}>{p.label}</span>
+                    ))}
                   </div>
                   <StatusBadge status={client.status} />
                 </div>

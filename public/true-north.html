@@ -83,14 +83,14 @@
 
 <h1>True North</h1>
 <p class="subtitle">AGM Pro Tools &mdash; everything in flight, prioritized</p>
-<p class="datestamp">Last updated: 2026-04-27</p>
+<p class="datestamp">Last updated: 2026-04-30</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Prospects</div></div>
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
-  <div class="stat"><div class="stat-value">26</div><div class="stat-label">Now / This Week</div></div>
-  <div class="stat"><div class="stat-value">18</div><div class="stat-label">Next Up</div></div>
+  <div class="stat"><div class="stat-value">29</div><div class="stat-label">Now / This Week</div></div>
+  <div class="stat"><div class="stat-value">17</div><div class="stat-label">Next Up</div></div>
   <div class="stat"><div class="stat-value">17</div><div class="stat-label">Queued</div></div>
 </div>
 
@@ -376,7 +376,25 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">This Week &mdash; Priority</span>
-    <span class="cat-count">16 items</span>
+    <span class="cat-count">19 items</span>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Review Automation Redesign &mdash; HG Retail + Costco</div>
+      <div class="task-desc">Two distinct gaps surfaced 2026-04-30 when Marcia Serpa-Garcia &#x27;Positive Review Survey&#x27; alert routed to Anthony Hall instead of auto-converting to a public Google review. (1) HG RETAIL: review workflow stack EXISTS (Ask For Review &gt; Send Survey, Review Rating Results, Job Reviewed &mdash; all published) but is rep-dependent: satisfaction survey &rarr; manual rep follow-up. Needs rewiring to auto-fire Google review CTA; rep alert kept only for negative responses. (2) COSTCO: NO post-install review workflow exists at all &mdash; none of 24 review/survey/install workflows reference Costco. Greenfield build needed: trigger (SF install_complete or AGM fully_executed + N days), message (SMS+email with Google review URL), cadence (+3, +7, +14 then stop), branching (positive &rarr; public CTA, negative &rarr; ops escalation). Full research at docs/research/2026-04-30_review_automation_audit.md &mdash; includes workflow IDs, open questions, and Troy&#x27;s confirmed framing that SF owns install triggers and Costco review side is dark.</div>
+    </div>
+    <div class="task-meta"><a href="https://github.com/agmpro-byte/agm-automation/blob/main/docs/research/2026-04-30_review_automation_audit.md">Research Doc</a><br>Surfaced Apr 30<br>Research saved<br>Next session priority</div>
+  </div>
+
+  <div class="task">
+    <span class="priority high">High</span>
+    <div>
+      <div class="task-name">The Build Log &mdash; Weekly Newsletter + YouTube Campaign</div>
+      <div class="task-desc">Automated weekly build cycle report: git commits + chapter notes &rarr; contractor-friendly newsletter + companion YouTube video. 7 historical issues (Mar–Apr) drafted for May rollout. Issue # + publish date override ready. Campaign calendar at docs/BUILD_CYCLE_CAMPAIGN.md.</div>
+    </div>
+    <div class="task-meta"><a href="https://github.com/agmpro-byte/agm-automation/blob/main/docs/BUILD_CYCLE_CAMPAIGN.md">Campaign Calendar</a><br>Apr 29<br>7 issues drafted<br>May launch</div>
   </div>
 
   <div class="task">
@@ -388,7 +406,7 @@
     <div class="task-meta"><a href="https://docs.google.com/document/d/1Q-4YZScmet1499k5tb1w0bzAHlOBU-LlS4qk8ve6P_k/edit">Spec Doc (Draft v0.1)</a><br>SPEC DELIVERED Apr 23<br>Awaiting Troy review + §9 decisions<br>Proposed ship: Fri May 1 (AGM dogfood)<br>Parallel to HG Costco Layer 2/3</div>
   </div>
 
-  <div class="task">
+  <div class="task done-row">
     <span class="priority now">Now</span>
     <div>
       <div class="task-name">HG Costco Contract &mdash; Field-map audit deploy + DNS</div>
@@ -433,7 +451,7 @@
     <div class="task-meta">Added Apr 27<br>Troy priority<br>Tied to multi-rep + staffing</div>
   </div>
 
-  <div class="task">
+  <div class="task done-row">
     <span class="priority next">Next</span>
     <div>
       <div class="task-name">HG Costco Retroactive Contract Re-Generation (Path 1 &mdash; Signature Porting)</div>
@@ -523,6 +541,15 @@
     </div>
     <div class="task-meta">Code: done<br>BLOCKED: API quota</div>
   </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">HG AGM Email/SMS Triage &mdash; Sender Identity Audit</div>
+      <div class="task-desc">Audit every AGM workflow, calendar automation, and trigger that sends email or SMS for Heavenly Greens. Map: what sends, who it comes from, who receives it. Flag anything using {{user.name}} or rep identity when it should be call center. Today&#x27;s session found 3 instances (appointment confirmation email, appointment confirmation SMS, welcome email/SMS). Systematic sweep needed to catch the rest.</div>
+    </div>
+    <div class="task-meta"></div>
+  </div>
 </div>
 
 <!-- ═══════════════════════════════════════════ -->
@@ -542,12 +569,12 @@
   </div>
 
   <div class="task">
-    <span class="priority next">Next</span>
+    <span class="priority now">Now</span>
     <div>
-      <div class="task-name">Jobber Marketplace Listing &mdash; Submit for Review</div>
-      <div class="task-desc">Engineering ALL GREEN (8 bugs fixed, live drill passed Apr 7). Partnership channel now active: Garrett passed deck to Jobber partners dept Apr 10, developer platform application submitted, awaiting approval. Remaining paperwork: support@agmprotools.com inbox, 5 screenshots, Loom demo video, privacy policy URL, ToS URL, app icon 512x512.</div>
+      <div class="task-name">Jobber Developer Onboarding Call &mdash; May 6, 9 AM PT</div>
+      <div class="task-desc">SCHEDULED. Developer onboarding call with Jobber team set for May 6, 2026 at 9:00 AM PT. Engineering ALL GREEN (8 bugs fixed, live drill passed Apr 7). Partnership channel active: Garrett passed deck to partners dept Apr 10. Remaining prep: support@agmprotools.com inbox, 5 screenshots, Loom demo video, privacy policy URL, ToS URL, app icon 512x512. Everything must be demo-ready by May 5.</div>
     </div>
-    <div class="task-meta">Engineering done<br>Partnership channel active Apr 10<br>Awaiting dev platform approval</div>
+    <div class="task-meta">May 6, 9 AM PT<br>Demo prep by May 5<br>Engineering done</div>
   </div>
 
   <div class="task">
@@ -1195,7 +1222,7 @@
 </div>
 
 <div class="footer">
-  True North &mdash; AGM Pro Tools &mdash; Updated 2026-04-27 by Harlan (home iMac, end-of-session 2026-04-26)<br>
+  True North &mdash; AGM Pro Tools &mdash; Updated 2026-04-30 by Harlan (office iMac, Build Log session 2026-04-29)<br>
   Single source of truth for everything in flight. Updated each session.
 </div>
 

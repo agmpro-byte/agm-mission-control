@@ -83,13 +83,13 @@
 
 <h1>True North</h1>
 <p class="subtitle">AGM Pro Tools &mdash; everything in flight, prioritized</p>
-<p class="datestamp">Last updated: 2026-05-01</p>
+<p class="datestamp">Last updated: 2026-05-05</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Prospects</div></div>
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
-  <div class="stat"><div class="stat-value">29</div><div class="stat-label">Now / This Week</div></div>
+  <div class="stat"><div class="stat-value">32</div><div class="stat-label">Now / This Week</div></div>
   <div class="stat"><div class="stat-value">18</div><div class="stat-label">Next Up</div></div>
   <div class="stat"><div class="stat-value">17</div><div class="stat-label">Queued</div></div>
 </div>
@@ -376,7 +376,34 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">This Week &mdash; Priority</span>
-    <span class="cat-count">19 items</span>
+    <span class="cat-count">22 items</span>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Contract Engine Productization Strategy &mdash; Costco + HG-direct as two AGM products</div>
+      <div class="task-desc">Strategic frame ratified 2026-05-05 for everything happening on the contract engine. Two distinct products fall out of one engine: (1) Costco Contract Engine as a Service &mdash; sold to Costco-approved vendors, &#x27;already approved by Costco&#x27; as moat, small TAM / high margin / white-glove sales, gated by Costco approval relationship; (2) HG Deposit-to-Delivery Engine &mdash; sold to any FSM with deposit-then-execute workflow (turf, pool, fence, painters, hardscape, solar), broad TAM / mid margin / self-service signup. Same primitives, different products, different sales motions. Engine is already multi-tenant-aware in its bones (client_id first-class, track + ready_for_install_trigger anticipates deposit handling). Per-Modal-app split deferred until paid tenant #2. Andrew gets scoped Modal deploy so Troy is not on the critical path for client incidents (two-layer enforcement: pre_deploy_check.py Check 7 + scoped Modal token). Open non-engineering items: Costco approval conversation, pricing model, compliance posture for HG-direct deposits (Stripe Connect with tenant merchant accounts), tenant onboarding UI, per-tenant SLA + observability, Costco change-management process. Order of execution: finish Costco on current architecture &rarr; audit four large modules (delivery, pipeline, assembler, installer_packet) for tenant-cleanliness &rarr; ship HG-direct as a track &rarr; start Costco approval conversation in parallel &rarr; layer Andrew scoped deploy &rarr; first paying non-HG tenant triggers per-Modal-app split + tenant onboarding UI sprint.</div>
+    </div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1k56vALUlmQJ2um5jVRiNH4pSrwAn2hcYBduB8dioA_o/edit">Overview Doc</a><br>May 5 &mdash; strategy doc + memory files saved<br>Defer per-Modal-app split until paid tenant #2</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Stream B / Gap 4 chunk 2 &mdash; Stripe wiring + STARTER pipeline</div>
+      <div class="task-desc">$97 Starter end-to-end commerce. Add $97 Stripe Price in parent agm-stripe acct_1TKjcNRN9q5afIIK alongside existing $297. Build execution/stripe_price_registry.json. Migrate modal_webhook.py:2772 from inline price_data to Price ID lookup with tier param. Implement 5 STARTER_TRACK_STEPS (client_provisioned Starter variant, dashboard_deployed multi-tenant scaffold, welcome_sent Starter copy, starter_registered, etc.). Wire CAS quiz CTA at automation_score/index.html:1921 to pass tier=starter. End-to-end smoke test.</div>
+    </div>
+    <div class="task-meta">May 4 morning &mdash; Stream B kickoff</div>
+  </div>
+
+  <div class="task">
+    <span class="priority now">Now</span>
+    <div>
+      <div class="task-name">Pre-Stripe interstitial + post-OAuth wow moment</div>
+      <div class="task-desc">Two conversion-frame pieces deferred from 5/3 audio-first bundle. Pre-Stripe: &#x27;What happens next (60 sec)&#x27; page between report-CTA-click and Stripe redirect. Post-OAuth: first 60 sec after Jobber connect must show real leads + dollar values immediately (&#x27;You have 17 leads &gt;4hrs old, est loss $2,180&#x27;). Both bundle with Stream B since they share modal_webhook.py:2772.</div>
+    </div>
+    <div class="task-meta">May 4 &mdash; Stream B chunk 2</div>
   </div>
 
   <div class="task">
@@ -556,18 +583,7 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">Next Up &mdash; This Week / Next Week</span>
-    <span class="cat-count">14 items</span>
-  </div>
-
-  <div class="task">
-    <span class="priority high">High</span>
-    <div>
-      <div class="task-name">Heavenly Greens AGM Sub-Account Cleanup &mdash; 4-Week Audit Sprint</div>
-      <div class="task-desc">Full audit complete: 362 workflows, 438 custom fields, 292 custom values mapped. Auto-triage flagged 111 DELETE, 52 ARCHIVE, 45 CONSOLIDATE (per-city sprawl). Three structural overlaps cause the compounding-email problem: (1) per-city workflow sprawl 45&rarr;6, (2) old numbered pipeline still published alongside new 77 workflows, (3) AI/chatbot snapshot residue 20+ workflows + 27 empty CVs. 4-week plan: Week 1 zero-risk deletes (~95 items), Week 2 synthetic test + archive old pipeline, Week 3 consolidation, Week 4 field/CV sweep. Working tree, 3 CSV checklists, raw API snapshots all in repo.</div>
-    </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1hGS9JDSncJMfA_TnTqQ1erCsNFzizk7Zq9T26Lvi_JI/edit">Google Doc — Working Tree</a><br>
-      <a href="https://github.com/agmpro-byte/agm-automation/blob/main/docs/hg_audit/HG_WORKING_TREE.md">Repo Working Tree (MD)</a><br>
-      <a href="https://github.com/agmpro-byte/agm-automation/blob/main/docs/hg_audit/workflows_checklist.csv">Workflows checklist (CSV)</a><br>May 1<br>Week 1 ready · awaiting greenlight</div>
+    <span class="cat-count">13 items</span>
   </div>
 
   <div class="task">
@@ -1111,7 +1127,34 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">Recently Completed</span>
-    <span class="cat-count">14 items</span>
+    <span class="cat-count">17 items</span>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">CAS Outside View &mdash; URL-first delivery + audio-first comms</div>
+      <div class="task-desc">Free-tier CAS report fully redesigned 5/3 to mirror $97 Starter dashboard preview. URL-first delivery (PDF retired as primary), promoted audio-hero with native HTML5 player + click-to-play big green icon, recoverable-range green callout, conversion bridge, dynamic CTA, audio script rewritten operator-style. Full positioning sweep &mdash; purged &#x27;fix it automatically&#x27; across audio + email + URL ($97 = visibility, NOT remediation). Cross-browser verified Chrome/Safari/Firefox desktop + Mobile Safari + Mobile Chrome iOS.</div>
+    </div>
+    <div class="task-meta">May 3 &mdash; bundled pivot shipped</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Audio-first communication framework &mdash; locked</div>
+      <div class="task-desc">AGM is becoming a voice layer on top of contractor&#x27;s business. Subject lines lead with cost (&#x27;Troy, this is costing you ~$X/month&#x27;), email body opens with audio block as primary, URL audio-hero is hero-prominent. Future surfaces: weekly score audio updates, trigger-based alerts, exec-level rollups. See memory/project_audio_first_communication_framework.md.</div>
+    </div>
+    <div class="task-meta">May 3 &mdash; strategic positioning</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Email body conversion frame &mdash; Shock&rarr;Personalize&rarr;Quantify&rarr;Direct</div>
+      <div class="task-desc">Validated email pattern for any AGM diagnostic email. H1 leak number, credibility bridge, annual reframe callout, audio-first CTA, three named loss points, outcome-anchored button, &#x27;what happens after you click&#x27; 3-step, soft close. See memory/feedback_email_conversion_frame.md.</div>
+    </div>
+    <div class="task-meta">May 3 &mdash; pattern locked</div>
   </div>
 
   <div class="task done-row">
@@ -1242,7 +1285,7 @@
 </div>
 
 <div class="footer">
-  True North &mdash; AGM Pro Tools &mdash; Updated 2026-05-01 by Harlan<br>
+  True North &mdash; AGM Pro Tools &mdash; Updated 2026-05-05 by Harlan (May 5: Contract Engine Productization Strategy added — Costco + HG-direct as two AGM products, deep-dive revised per-Modal-app split to defer until paid tenant #2)<br>
   Single source of truth for everything in flight. Updated each session.
 </div>
 

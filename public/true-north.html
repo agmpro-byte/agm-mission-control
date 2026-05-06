@@ -1109,7 +1109,88 @@
 <div class="category">
   <div class="cat-header">
     <span class="cat-title">Recently Completed</span>
-    <span class="cat-count">17 items</span>
+    <span class="cat-count">26 items</span>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Costco CO E2E &mdash; three surgical blockers cleared</div>
+      <div class="task-desc">Three Monday-priority bugs killed in one commit (104eaea, May 4): (1) delivery.py customer email subject + body now branches on contract_type for Change Order copy; (2) pipeline.py skips contract-signed tag write on CO sessions so Specs &amp; Warranty workflow doesn&#x27;t re-fire; (3) signing UI markerEls scoped to CO field set (co_member_initial, co_member_sig, co_member_date) so JS classList errors are gone. Andrew unblocked for full Test-Costco CO E2E.</div>
+    </div>
+    <div class="task-meta">May 4 &mdash; commit 104eaea</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Multi-Track Contract Engine &mdash; Phase 5 CO pipeline</div>
+      <div class="task-desc">Full Change Order pipeline shipped May 1–5 across 40+ commits. Standalone CO PDF (parent-ref correlation, Pacific date, dealer block, project address recompose, anchor-based signature positioning). CO-aware signing/finalization/delivery. Rep countersign SMS. Form delete buttons + drop empty turf rows. Cumulative anchor lift across signed COs. Materials manifest per step. Signed-CO email + installer packet bundle. CO paired test day 2 walked 5/5.</div>
+    </div>
+    <div class="task-meta">May 1–5 sprint<br>40+ commits</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">HG Lead Alert &mdash; race-condition + opp source resolver</div>
+      <div class="task-desc">Race-condition hardening (3-retry enrichment with 2/5/10s backoff + dead-letter on suppression). Opportunity-source resolver &mdash; fetch_hg_opportunity_source searches opps by contact_id, reads HG Opportunity Source + Secondary Source. Dedupe + Opportunity Created support (24h Modal Dict window). 2-min Wait + opp gate replaces dedupe/two-trigger design. Sender split costco@ &rarr; HGLeads@ + Andrew cut over to agmprotools.com.</div>
+    </div>
+    <div class="task-meta">May 1–5<br>Commits 69fb7ef, 8fe2a7e, cc77248, 2464fc5, 4d60510</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Architecture Migration &mdash; Shared Library + Self-Healing + Cost Tracking</div>
+      <div class="task-desc">execution/lib/ package shipped Apr 27 with 9 modules (credentials, email, slack, paths, retry, state, cost_tracker, remediation). 30 local scripts migrated to shared credentials library. All hardcoded absolute paths removed for machine-agnostic resolution. Self-healing layers: shared retry lib + Modal auto-replay + auto-recover map. API cost tracking + Google token health wired into health endpoint. Immune system: per-cron staleness threshold + automated 15-min self-healing sweep.</div>
+    </div>
+    <div class="task-meta">Apr 27<br>9 lib modules<br>30+ scripts migrated</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">INSURANCE.md split &mdash; auto-state + playbook + changelog</div>
+      <div class="task-desc">INSURANCE.md hardening (Apr 30, commit 72a6f6c). Split into INSURANCE_STATE.md (auto-regenerated tier-aware state), INSURANCE_PLAYBOOK.md (manual recovery runbook), and AGM_BUILD_CHANGELOG.md (chronological build log). generate_insurance_state.py preserves .env section across non-credentialed regenerations. Closes the structural gap that let canonical docs drift behind reality.</div>
+    </div>
+    <div class="task-meta">Apr 30<br>Commits 72a6f6c, 5231052, 205e97d</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Mission Control composite &mdash; single-pane-of-glass</div>
+      <div class="task-desc">Mission Control composite endpoint (commit 92479fc, Apr 30). Aggregates clients + crons + health + uptime + cost + token health into one view. Rolls up per-client and per-cron status with severity tiers. Replaces piecing together state from Slack + email + dashboards.</div>
+    </div>
+    <div class="task-meta">Apr 30<br>Commit 92479fc</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">agmpro.tools branded short URLs LIVE</div>
+      <div class="task-desc">Cloudflare zone (Free plan) fronts Modal endpoints via 302 redirect. /j/&lt;id&gt; &rarr; installer-redirect, /upload/&lt;job&gt; &rarr; documents-uploader, /v/&lt;id&gt; &rarr; video-redirect. Engine config flipped: hg_costco.yml + 3 hardcoded URLs. Brand moment is the SMS link contractor sees, not the address bar.</div>
+    </div>
+    <div class="task-meta">Apr 25<br>Commit 1ca9efd</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">Subscriber dashboard scaffold + Texas Turf Mission Control</div>
+      <div class="task-desc">Subscriber dashboard scaffold shipped Apr 19 &mdash; multi-tenant with 3-window filtering and cross-check gates. Texas Turf dashboard rebuilt on gold-standard layout (commit a785064): filter parity, auto-refresh, product-mix cron, Recent Activity scrubbing, brand footer, stage normalization. Chad/Real Turf dashboard rebuilt on CAS-anchored pattern. One-command password rotation workflow added 5/5.</div>
+    </div>
+    <div class="task-meta">Apr 18–19 + 5/5 polish<br>Multi-tenant scaffold<br>TT + Chad live</div>
+  </div>
+
+  <div class="task done-row">
+    <span class="priority done">Done</span>
+    <div>
+      <div class="task-name">HG Call Center Transition &mdash; John Throne onboarded</div>
+      <div class="task-desc">Elizabeth Morton departed; John Throne onboarded as new HG call center manager. Team meeting held Apr 15-16 window; transition complete. Workflow ownership clarified, Andrew agmprotools.com rebrand cutover for HG Lead Alert sender (4d60510) closes the visible loop on call-center sender identity.</div>
+    </div>
+    <div class="task-meta">Apr 15–16 transition<br>May 5 sender rebrand close</div>
   </div>
 
   <div class="task done-row">

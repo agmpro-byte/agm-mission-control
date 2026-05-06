@@ -277,7 +277,7 @@
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
   <div class="stat accent"><div class="stat-value">26</div><div class="stat-label">Now</div></div>
   <div class="stat"><div class="stat-value">17</div><div class="stat-label">Next</div></div>
-  <div class="stat"><div class="stat-value">75</div><div class="stat-label">Active Total</div></div>
+  <div class="stat"><div class="stat-value">76</div><div class="stat-label">Active Total</div></div>
 </div>
 
 <div class="filter-bar" id="filterBar">
@@ -1120,7 +1120,7 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Waiting On Others</span>
-    <span class="cat-count">5 active</span>
+    <span class="cat-count">6 active</span>
   </header>
   <div class="cat-items">
   <article class="task p-waiting">
@@ -1161,6 +1161,14 @@
       <div class="task-desc">8 questions sent to Andrew&#x27;s internal contact Apr 9. HOLD on all build/outreach/sandbox until intel lands.</div>
     </div>
     <div class="task-meta"><span class="meta-text">Andrew&#x27;s contact · Sent Apr 9</span></div>
+  </article>
+
+  <article class="task p-waiting">
+    <div class="task-body">
+      <div class="task-name"><span class="priority waiting">Waiting</span>Andrew &mdash; 4 AGM custom field IDs (Drawing PDF, Walkthrough Video, Change Order PDFs, Waiver PDFs)</div>
+      <div class="task-desc">Batched ask emailed 2026-05-05 (Troy CC&#x27;d). System runs degraded-but-functional until field IDs land &mdash; drawings/videos/waivers still upload to S3 and reach installer packet via prefix listing, but won&#x27;t show on AGM contact card as &#x27;received&#x27;. Manifest evaluator treats missing field IDs as pending so digest keeps nudging. Soft-failing on purpose so no data lost.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Sent May 5 · Follow up by May 12</span></div>
   </article>
   </div>
 </section>
@@ -1221,10 +1229,18 @@
   <details>
     <summary class="cat-header">
       <span class="cat-title">Recently Completed</span>
-      <span class="cat-count">26</span>
+      <span class="cat-count">27</span>
       <span class="cat-toggle">expand &darr;</span>
     </summary>
     <div class="cat-items">
+  <article class="task p-done">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>HG Costco Materials Manifest &mdash; shipped + deployed</div>
+      <div class="task-desc">Per-step blocking-materials tracker (photos / access photos / drawing / video / change order / waivers) replaces the binary &#x27;needs site photos&#x27; rep nudge. Manifest evaluator with conditional steps. Forensic packet_audit_log + AGM contact-timeline notes. Step-scoped uploader URLs. Auto-rebuild on CO countersign. Smart subject lines (e.g. &#x27;10 jobs waiting &mdash; 4 just need drawings&#x27;). Commit 7a5c263 + Troy&#x27;s manifest tightening (access_photos required, photos min_count=3). Both contract engine + uploader deployed and verified live.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">May 5 · +1,365 lines · 7 files</span></div>
+  </article>
+
   <article class="task p-done done-row">
     <div class="task-body">
       <div class="task-name"><span class="priority done">Done</span>Costco CO E2E &mdash; three surgical blockers cleared</div>
@@ -1438,7 +1454,7 @@
 
 <div class="footer">
   True North &mdash; AGM Pro Tools<br>
-  Updated 2026-05-06 by Harlan (May 6 cleanup pass — reconciled shipped vs open against git log: Phase 5 CO pipeline + Shared Library Refactor + legacy CO converter marked done; Stream B paused on Jobber call; Apr 13/15 stale items moved to completed; new shipped items added)<br>
+  Updated 2026-05-06 by Harlan<br>
   Single source of truth for everything in flight.
 </div>
 

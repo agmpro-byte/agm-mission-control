@@ -275,9 +275,9 @@
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Prospects</div></div>
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
-  <div class="stat accent"><div class="stat-value">37</div><div class="stat-label">Now</div></div>
+  <div class="stat accent"><div class="stat-value">38</div><div class="stat-label">Now</div></div>
   <div class="stat"><div class="stat-value">23</div><div class="stat-label">Next</div></div>
-  <div class="stat"><div class="stat-value">91</div><div class="stat-label">Active Total</div></div>
+  <div class="stat"><div class="stat-value">93</div><div class="stat-label">Active Total</div></div>
 </div>
 
 <div class="filter-bar" id="filterBar">
@@ -572,9 +572,17 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">This Week &mdash; Priority</span>
-    <span class="cat-count">28 active &middot; 3 done</span>
+    <span class="cat-count">29 active &middot; 3 done</span>
   </header>
   <div class="cat-items">
+  <article class="task p-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority now">Now</span>🚨 CENTAH &#x27;Re:&#x27; Thread Bombardment Fix &mdash; Costco Lead Intake</div>
+      <div class="task-desc">Leo Apostol (CENTAH #9046723) bombarded with 43 welcome SMS + 43 welcome emails + 43 new opportunities in 3.5 hours on 2026-05-19. Three stacked bugs: (1) classifier accepts &#x27;Re:&#x27; prefixed subjects as new leads, (2) inline auto-response fires welcome+opp unconditionally on every reprocess &mdash; the helper that skips on duplicates is dead code, (3) no retry cap for sf_failed/agm_failed/both_failed. Also: _clear_auto_assignment fights AGM round-robin on every opp create. Bundle Fixes 1-3 into one Modal deploy; design Fix 4 (no new opp on duplicates) with Tim; design Fix 5 (Modal injects &rarr; AGM workflow owns comms) with Andrew. Customer is DND&#x27;d.</div>
+    </div>
+    <div class="task-meta"><a href="docs/post_mortems/2026-05-19_centah_re_thread_bombardment.md">Post-Mortem</a> · <a href="memory/feedback_centah_reply_thread_classifier.md">Memory</a><br><span class="meta-text">2026-05-20 TOP PRIORITY · Post-mortem: docs/post_mortems/2026-05-19_centah_re_thread_bombardment.md</span></div>
+  </article>
+
   <article class="task p-now">
     <div class="task-body">
       <div class="task-name"><span class="priority now">Now</span>HG Command Center &mdash; 3-tab dashboard live</div>
@@ -1164,9 +1172,17 @@ Deadline: targeted week of 2026-05-25. Stop-gap until then is the rotation runbo
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Queued &mdash; On the Radar</span>
-    <span class="cat-count">15 active</span>
+    <span class="cat-count">16 active</span>
   </header>
   <div class="cat-items">
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>Level 3 Outcome-Feedback Bandit (recursion-capability promotion)</div>
+      <div class="task-desc">Move AGM Pro Tools from Level 2 (structural enforcement) to Level 3 (bandit/exploitation) on the Vibe Thesis recursive-capability ladder. Wire Thompson-sampling bandit over signing-link email subject line &mdash; first axis. Substrate already in place: signing_pg.sql captures sent/viewed/signed/withdrawn/reminder timestamps + rep stratification. 3 sprints / 8 working weeks once unblocked. Gated behind 2026-05-19 SF breach recovery (Path B &rarr; OAuth Client Credentials) + CENTAH &#x27;Re:&#x27; thread bombardment fix. First Monday after green light: 10-min HG send-volume query, 20-min variant_assignments schema PR, 30-min Tim+Eric template-discipline prep. See memory/project_level_3_outcome_bandit.md.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Added May 19 · Gated: SF breach + CENTAH cleanup</span></div>
+  </article>
+
   <article class="task p-queued">
     <div class="task-body">
       <div class="task-name"><span class="priority queued">Queued</span>Multi-Cloud Redundancy</div>
@@ -1650,7 +1666,7 @@ Deadline: targeted week of 2026-05-25. Stop-gap until then is the rotation runbo
 
 <div class="footer">
   True North &mdash; AGM Pro Tools<br>
-  Updated 2026-05-19 by Harlan (2026-05-19 SF freeze response)<br>
+  Updated 2026-05-19 by Harlan (added Level 3 outcome-feedback bandit to Queued)<br>
   Single source of truth for everything in flight.
 </div>
 

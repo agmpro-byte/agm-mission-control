@@ -275,9 +275,9 @@
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Prospects</div></div>
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
-  <div class="stat accent"><div class="stat-value">38</div><div class="stat-label">Now</div></div>
+  <div class="stat accent"><div class="stat-value">37</div><div class="stat-label">Now</div></div>
   <div class="stat"><div class="stat-value">23</div><div class="stat-label">Next</div></div>
-  <div class="stat"><div class="stat-value">94</div><div class="stat-label">Active Total</div></div>
+  <div class="stat"><div class="stat-value">93</div><div class="stat-label">Active Total</div></div>
 </div>
 
 <div class="filter-bar" id="filterBar">
@@ -572,17 +572,9 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">This Week &mdash; Priority</span>
-    <span class="cat-count">29 active &middot; 3 done</span>
+    <span class="cat-count">28 active &middot; 4 done</span>
   </header>
   <div class="cat-items">
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>🚨 CENTAH &#x27;Re:&#x27; Thread Bombardment Fix &mdash; Costco Lead Intake</div>
-      <div class="task-desc">Leo Apostol (CENTAH #9046723) bombarded with 43 welcome SMS + 43 welcome emails + 43 new opportunities in 3.5 hours on 2026-05-19. Three stacked bugs: (1) classifier accepts &#x27;Re:&#x27; prefixed subjects as new leads, (2) inline auto-response fires welcome+opp unconditionally on every reprocess &mdash; the helper that skips on duplicates is dead code, (3) no retry cap for sf_failed/agm_failed/both_failed. Also: _clear_auto_assignment fights AGM round-robin on every opp create. Bundle Fixes 1-3 into one Modal deploy; design Fix 4 (no new opp on duplicates) with Tim; design Fix 5 (Modal injects &rarr; AGM workflow owns comms) with Andrew. Customer is DND&#x27;d.</div>
-    </div>
-    <div class="task-meta"><a href="docs/post_mortems/2026-05-19_centah_re_thread_bombardment.md">Post-Mortem</a> · <a href="memory/feedback_centah_reply_thread_classifier.md">Memory</a><br><span class="meta-text">2026-05-20 TOP PRIORITY · Post-mortem: docs/post_mortems/2026-05-19_centah_re_thread_bombardment.md</span></div>
-  </article>
-
   <article class="task p-now">
     <div class="task-body">
       <div class="task-name"><span class="priority now">Now</span>HG Command Center &mdash; 3-tab dashboard live</div>
@@ -808,8 +800,16 @@
   </article>
   </div>
   <details class="completed-fold">
-    <summary>3 completed in this category &mdash; show</summary>
+    <summary>4 completed in this category &mdash; show</summary>
     <div class="cat-items completed-items">
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>✅ CENTAH &#x27;Re:&#x27; Thread Bombardment &mdash; Fixes 1-3 SHIPPED (Fix 4/5 carry forward)</div>
+      <div class="task-desc">SHIPPED 2026-05-20 ~11:35 AM PT in commit 0cf6669, bundled deploy of modal_costco (15/15 pre-deploy checks pass). Fix 1: is_centah_lead_email() now rejects Re:/Fwd:/RE:/FWD:/Fw: subject prefixes and bracketed wrappers like &#x27;[EXT] Re:&#x27; via new _subject_is_reply_or_forward() helper (12/12 test cases pass; Leo&#x27;s original reply subject correctly rejected). Fix 2: Per-contact welcome idempotency via new agm_contact_has_tag() + agm_mark_costco_welcomed() helpers and a persistent costco-welcomed AGM tag &mdash; once-per-contact, ever. The (already-existing but dead) _run_costco_auto_response() is now the live path, extended with the tag gate AND opp-skip-on-duplicate. The 2026-05-12 deferred structural fix is finally in. Fix 3: RETRY_CAP_BY_STATUS = {sf_failed: 5, agm_failed: 5, both_failed: 3} wired into the cron loop; cap-hit fires one Slack alert then goes silent so the lead surfaces for manual review. Triage verification: two fresh Costco leads from today (Lisa Nicolosi 13:45 UTC, Hannah Schroeder 18:05 UTC) both attempts=1, status=success &mdash; no bombardment. Carry forward (NOT urgent now that bleeding is structurally stopped): Fix 4 (Tim alignment on opp duplication semantics; partially covered by helper now skipping opp create on is_duplicate), Fix 5 (Andrew working session on Modal&rarr;AGM workflow split for all customer-facing comms), 30-day backfill audit (any other attempts&gt;3 victims besides Leo), lift Leo&#x27;s DND once Tim/Andrew confirm tracking.</div>
+    </div>
+    <div class="task-meta"><a href="docs/post_mortems/2026-05-19_centah_re_thread_bombardment.md">Post-Mortem</a> · <a href="memory/feedback_centah_reply_thread_classifier.md">Memory</a> · <a href="https://github.com/agmpro-byte/agm-automation/commit/0cf6669">Commit 0cf6669</a><br><span class="meta-text">Shipped 2026-05-20 commit 0cf6669 · Files: execution/costco_lead_intake.py (+191 -36) · Deploy: pre_deploy_check --deploy modal_costco (15/15 pass) · Follow-ups: Fix 4 (Tim), Fix 5 (Andrew), backfill audit, lift Leo DND</span></div>
+  </article>
+
   <article class="task p-done done-row">
     <div class="task-body">
       <div class="task-name"><span class="priority done">Done</span>Prospecting Engine v1.1 &mdash; Enrichment Layer (FR Pest)</div>
@@ -1097,22 +1097,24 @@
 
   <article class="task p-next">
     <div class="task-body">
-      <div class="task-name"><span class="priority next">Next</span>SF OAuth Client Credentials Migration &mdash; NEXT WEEK PRIORITY</div>
-      <div class="task-desc">URGENCY BUMPED 2026-05-19: Salesforce Transaction Security froze user Tscott@heavenlygreens.com (00537000000vH5J) for apparent OAuth-token reuse via an anonymizing proxy. Forensics + rotation runbook in directives/sf_admin_password_rotation.md. The root vulnerability is that all 11 backend scripts log in as Troy&#x27;s human user via SOAP username/password &mdash; a single freeze takes down the entire SF integration surface, and the human-user classifier is what flagged the cloud egress as a proxy in the first place. Moving to OAuth Client Credentials Flow eliminates both failure modes.
+      <div class="task-name"><span class="priority next">Next</span>SF OAuth Client Credentials Migration &mdash; Defensive Hardening</div>
+      <div class="task-desc">DEMOTED 2026-05-20 from &quot;next-week emergency&quot; to tracked priority after the 2026-05-19 incident was re-investigated and the original framing was found to be wrong. The 5/19 SF freeze did NOT hit Tscott (the backend integration user) &mdash; it hit Sherrie Feinstein (sfeinstein@heavenlygreens.com, SF user ID 00537000000vH5J). All 11 backend integrations stayed green throughout. Sherrie&#x27;s freeze (and the 5/20 re-freeze) was caused by her iPhone routing the SF mobile app through a PacketHub VPN exit that SF&#x27;s Transaction Security policy classifies as an anonymizing proxy. Tim Duggan&#x27;s 5/1 freeze was an unrelated failed-password lockout, also not VPN. Post-mortem: docs/post_mortems/2026-05-20_sf_user_id_misattribution.md.
 
-Original 2026-05-07 notice: SOAP API login() in API v31.0–64.0 retires Summer &#x27;27. v65+ has no SOAP login() at all. We use SOAP login() across 11 production scripts: costco_lead_intake.py, modal_costco.py, contract_engine/pipeline.py, modal_zapier_replacement.py, sf_agm_stage_sync.py, sf_yoy_report.py, hg_sales_dashboard_data.py, costco_dashboard_data.py, sf_calendar_feed.py, sf_to_agm_migration.py, salesforce_triage.py.
+The migration is still worth doing as defensive hardening for the original Summer &#x27;27 SOAP retirement, and the Strangler Fig benefit (shared execution/lib/salesforce.py replacing 11 duplicate login functions) is real. But the &quot;emergency, drop everything&quot; framing has no basis &mdash; no integration was ever down, and OAuth Client Credentials Flow would not have prevented either of the actual freezes (both were human-user mobile auth, not backend SOAP auth).
 
-Migration plan (next week sprint):
+Original 2026-05-07 notice still stands: SOAP API login() in API v31.0–64.0 retires Summer &#x27;27. v65+ has no SOAP login() at all. We use SOAP login() across 11 production scripts: costco_lead_intake.py, modal_costco.py, contract_engine/pipeline.py, modal_zapier_replacement.py, sf_agm_stage_sync.py, sf_yoy_report.py, hg_sales_dashboard_data.py, costco_dashboard_data.py, sf_calendar_feed.py, sf_to_agm_migration.py, salesforce_triage.py.
+
+Migration plan (unchanged &mdash; just no longer urgent):
 1. Create External Client App in HG SF org with OAuth Client Credentials Flow (run-as a dedicated integration user, NOT Troy).
-2. Build execution/lib/salesforce.py shared OAuth helper (Strangler Fig &mdash; eliminates 11 duplicate login functions, aligns with the 2026-04-27 shared library policy).
-3. Add SF_CLIENT_ID/SF_CLIENT_SECRET to .env + 2 Modal secrets (contract-engine-sf, costco-lead-intake). Drop SF_ADMIN_USERNAME / SF_ADMIN_PASSWORD.
-4. Migrate scripts one at a time with staging verification; the contract engine has the sf_soap_liveness_probe cron that flips to sf_oauth_liveness_probe on the new path.
+2. Build execution/lib/salesforce.py shared OAuth helper (Strangler Fig).
+3. Add SF_CLIENT_ID/SF_CLIENT_SECRET to .env + 2 Modal secrets (contract-engine-sf, costco-lead-intake).
+4. Migrate scripts one at a time with shadow-auth observer; contract engine cuts LAST.
 5. Bump API version to v60+ across the board.
-6. Deprecate SF_ADMIN_USERNAME/SF_ADMIN_PASSWORD entirely; remove from verify_andrew_scope.py.
+6. Deprecate SF_ADMIN_USERNAME/SF_ADMIN_PASSWORD; remove from verify_andrew_scope.py.
 
-Deadline: targeted week of 2026-05-25. Stop-gap until then is the rotation runbook + password change. Reference: directives/sf_admin_password_rotation.md.</div>
+Target: schedule into a future sprint when laptop builds + CENTAH bombardment fix have shipped. Stop-gap remains the rotation runbook at directives/sf_admin_password_rotation.md.</div>
     </div>
-    <div class="task-meta"><a href="directives/sf_admin_password_rotation.md">Rotation runbook</a><br><span class="meta-text">Trigger event: 2026-05-19 SF freeze of Tscott@heavenlygreens.com · Original notice: 2026-05-07 (Summer &#x27;27 SOAP retirement) · Stop-gap: directives/sf_admin_password_rotation.md · Target sprint: week of 2026-05-25 · Affected scripts: 11 production</span></div>
+    <div class="task-meta"><a href="directives/sf_admin_password_rotation.md">Rotation runbook</a><br><span class="meta-text">Demoted 2026-05-20 from emergency to tracked · Original notice: 2026-05-07 (Summer &#x27;27 SOAP retirement) · Real trigger event: NONE &mdash; 5/19 narrative was misdiagnosis · Stop-gap: directives/sf_admin_password_rotation.md · Affected scripts: 11 production · Post-mortem: docs/post_mortems/2026-05-20_sf_user_id_misattribution.md</span></div>
   </article>
 
   <article class="task p-queued">

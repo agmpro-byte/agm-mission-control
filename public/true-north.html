@@ -315,14 +315,14 @@
 
 <h1>True North</h1>
 <p class="subtitle">AGM Pro Tools &mdash; everything in flight, prioritized</p>
-<p class="datestamp">Last updated: 2026-05-22</p>
+<p class="datestamp">Last updated: 2026-05-25</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Prospects</div></div>
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
-  <div class="stat accent"><div class="stat-value">38</div><div class="stat-label">Now</div></div>
-  <div class="stat"><div class="stat-value">26</div><div class="stat-label">Next</div></div>
+  <div class="stat accent"><div class="stat-value">8</div><div class="stat-label">Now</div></div>
+  <div class="stat"><div class="stat-value">42</div><div class="stat-label">Next</div></div>
   <div class="stat"><div class="stat-value">98</div><div class="stat-label">Active Total</div></div>
 </div>
 
@@ -379,25 +379,25 @@
     <span class="cat-count">4 active &middot; 7 done</span>
   </header>
   <div class="cat-items">
-  <article class="task p-now">
+  <article class="task p-next">
     <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Golden Template &mdash; Turf (First Industry)</div>
+      <div class="task-name"><span class="priority next">Next</span>Golden Template &mdash; Turf (First Industry)</div>
       <div class="task-desc">Builder script exists (launchpad_build_template.py, 732 lines). Turf messaging pack complete (turf.json &mdash; 5 workflows, custom fields, 6 pipeline stages). But NO template has been built yet. All snapshot_id = null in registry. Custom fields bootstrap DONE (Apr 24). Steps: (1) run --build --industry turf, (2) configure 5 workflows in AGM UI using copy from Golden Template Google Doc, (3) review pipeline + custom fields, (4) take snapshot in AGM UI, (5) run --register --industry turf --snapshot-id &lt;ID&gt;.</div>
     </div>
     <div class="task-meta"><a href="https://docs.google.com/document/d/12mqb2Lzc8ti2-lw-Z7koJao8ya0mqBqApTD8GGyovk8/edit">Golden Template Build Spec + Copy (Google Doc)</a> · <a href="https://docs.google.com/document/d/1bl4sAjSCIxPcCW5grL40r_ysrx8WPoHA4DyzFYsa04I/edit">Push-Button Client Plan (Google Doc)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><br><span class="meta-text">Troy + Harlan · ~1 hour together · Custom fields: DONE</span></div>
   </article>
 
-  <article class="task p-now">
+  <article class="task p-next">
     <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Automation Score Funnel: Quiz &rarr; Nurture &rarr; Launchpad &rarr; Closed Won</div>
+      <div class="task-name"><span class="priority next">Next</span>Automation Score Funnel: Quiz &rarr; Nurture &rarr; Launchpad &rarr; Closed Won</div>
       <div class="task-desc">CORRECTED Apr 24, then WIRED Apr 24. Backend /score endpoint now returns contact_id to frontend. Quiz results page has &#x27;Get Started with AGM Pro Tools&#x27; CTA that links to Launchpad intake with pre-filled name/email/phone/company/agm_contact_id. Full report (page 6) also has &#x27;Get Started Now&#x27; CTA with same pre-fill. Remaining: deploy modal_automation_score.py to Modal (contact_id in response), push agm-automation-score to GitHub Pages (frontend CTAs).</div>
     </div>
     <div class="task-meta"><a href="https://docs.google.com/document/d/1bl4sAjSCIxPcCW5grL40r_ysrx8WPoHA4DyzFYsa04I/edit">Push-Button Client Plan (Google Doc)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><br><span class="meta-text">WIRED Apr 24 · Needs Modal deploy + GitHub Pages push</span></div>
   </article>
 
-  <article class="task p-now">
+  <article class="task p-next">
     <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>End-to-End Test &mdash; Form to Dashboard</div>
+      <div class="task-name"><span class="priority next">Next</span>End-to-End Test &mdash; Form to Dashboard</div>
       <div class="task-desc">Full Stripe test mode walkthrough: fill intake form, pay with test card, verify webhook fires, pipeline runs, close-the-loop fires, AGM sub-account created from golden template (not interim), OAuth URL appears, dashboard deployed, lifecycle email fires Day 1. Never tested. Target: under 10 min.</div>
     </div>
     <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><br><span class="meta-text">Troy + Harlan · ~1 hour · Blocked by golden template + custom fields</span></div>
@@ -479,36 +479,36 @@
     <span class="cat-count">4 active &middot; 17 done</span>
   </header>
   <div class="cat-items">
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Phase 4B/C &mdash; Lifecycle clock + customer cadences + per-rep daily digest</div>
-      <div class="task-desc">Lifecycle clock stamps timestamp on each pending state, emits state_stale event on stale threshold cross. Customer cadences (signing 3-day Costco / 7-day HG Direct, deposit 14-day HG Direct only). Per-rep 8 AM email with stalled-deals queue across all stages. Custom field updates: agmpro_contract_status_label, agmpro_contract_age_days. Phase 4A rep cadence already live &mdash; this is the customer side and the digest.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-contract-engine-phase-4bc-lifecycle-f476424dba33">Linear: HG Contract Engine — Phase 4B/C + Lifecycle</a><br><span class="meta-text">TOP PRIORITY #1 · ~1 day build · Completes the cadence engine</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Installer Packet &mdash; Video thumbnails on tile buttons</div>
-      <div class="task-desc">Delta on top of the just-shipped Site Videos tile grid (b17e90d). Add ~15 lines to format_normalize.normalize_video to extract a 1.0s frame thumbnail (ffmpeg -ss 1 -frames:v 1 -vf scale=480:-2) and upload to S3 as &lt;basename&gt;_thumb.jpg. Add ~25 lines to _layout_videos in installer_packet.py to fetch the thumb via boto3, write to tmpfile, page.insert_image as tile background under existing PLAY badge. Fall back silently to the current green tile if thumb missing. Backfill script for the 5 existing HGC-TEST-001 videos.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-contract-engine-phase-4bc-lifecycle-f476424dba33">Linear: HG Contract Engine — Phase 4B/C + Lifecycle</a><br><span class="meta-text">~1 hour · Mechanical &mdash; built on top of shipped tile grid</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>HG Costco Contract Engine &mdash; Anthony Punch List</div>
-      <div class="task-desc">Sequenced 11-item punch list out of Anthony Zoom call. Status as of 2026-05-15: items 1, 2 (parts 1+2), 8, 9, 10 SHIPPED. Item 7 KILLED by Troy 2026-05-14. Items 3, 4 BLOCKED on Tim Fullerton (commission). Remaining attackable: items 5 (Wrap-Up section), 6 (Problem/Issue uploader), 11 (Pause project reminders). Andrew owes validation on items 1+2 &mdash; scenarios A/B/C.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">Linear: HG Costco Operations</a><br><span class="meta-text">5 of 11 shipped | 1 killed | 2 blocked on Tim | 3 attackable (5/6/11) | Andrew validation pending on 1+2</span></div>
-  </article>
-
   <article class="task p-next">
     <div class="task-body">
       <div class="task-name"><span class="priority next">Next</span>AGM HG Contracts &mdash; HG-direct Contract Engine Build</div>
       <div class="task-desc">Second client config on the contract engine: HG-direct retail jobs. ~90% reuse from Costco; net-new is deep product catalog (25+ turf SKUs alone), custom React contract form with line-item picker, deposit-capture step via AGM native payments + card-on-file (reused for progress + final payments), and GHL native QuickBooks connector for accounting reconciliation (replaces SF/DBSync on the AGM side). Architectural primitive already in place &mdash; ready_for_install_trigger: deposit_received was anticipated in config.py from day one. Execution plan covers 11 workstreams across catalog, form, engine wiring, template + signing calibration, deposit capture, QBO connector, stored-card payments, ordering pipeline, testing, and pilot/go-live. ~10-week timeline targeting mid-July 2026 GA. Open decisions logged for both Troy (verbiage, catalog source, processor confirmation) and Andrew (Eric sit-down on current deposit flow, GL mapping, tax codes, top-25 SKU inventory).</div>
     </div>
     <div class="task-meta"><a href="https://docs.google.com/document/d/1f4cfOsk1nQhCv9TRYeJtv6UJzmWyqw25tapyKPJjmIU/edit">Execution Plan</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/hg-contract-engine-phase-4bc-lifecycle-f476424dba33">Linear: HG Contract Engine — Phase 4B/C + Lifecycle</a><br><span class="meta-text">Planning · Plan drafted 2026-05-11 · 11 workstreams · ~10 wk to GA</span></div>
+  </article>
+
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>Phase 4B/C &mdash; Lifecycle clock + customer cadences + per-rep daily digest</div>
+      <div class="task-desc">Lifecycle clock stamps timestamp on each pending state, emits state_stale event on stale threshold cross. Customer cadences (signing 3-day Costco / 7-day HG Direct, deposit 14-day HG Direct only). Per-rep 8 AM email with stalled-deals queue across all stages. Custom field updates: agmpro_contract_status_label, agmpro_contract_age_days. Phase 4A rep cadence already live &mdash; this is the customer side and the digest.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-contract-engine-phase-4bc-lifecycle-f476424dba33">Linear: HG Contract Engine — Phase 4B/C + Lifecycle</a><br><span class="meta-text">TOP PRIORITY #1 · ~1 day build · Completes the cadence engine</span></div>
+  </article>
+
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>Installer Packet &mdash; Video thumbnails on tile buttons</div>
+      <div class="task-desc">Delta on top of the just-shipped Site Videos tile grid (b17e90d). Add ~15 lines to format_normalize.normalize_video to extract a 1.0s frame thumbnail (ffmpeg -ss 1 -frames:v 1 -vf scale=480:-2) and upload to S3 as &lt;basename&gt;_thumb.jpg. Add ~25 lines to _layout_videos in installer_packet.py to fetch the thumb via boto3, write to tmpfile, page.insert_image as tile background under existing PLAY badge. Fall back silently to the current green tile if thumb missing. Backfill script for the 5 existing HGC-TEST-001 videos.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-contract-engine-phase-4bc-lifecycle-f476424dba33">Linear: HG Contract Engine — Phase 4B/C + Lifecycle</a><br><span class="meta-text">~1 hour · Mechanical &mdash; built on top of shipped tile grid</span></div>
+  </article>
+
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>HG Costco Contract Engine &mdash; Anthony Punch List</div>
+      <div class="task-desc">Sequenced 11-item punch list out of Anthony Zoom call. Status as of 2026-05-15: items 1, 2 (parts 1+2), 8, 9, 10 SHIPPED. Item 7 KILLED by Troy 2026-05-14. Items 3, 4 BLOCKED on Tim Fullerton (commission). Remaining attackable: items 5 (Wrap-Up section), 6 (Problem/Issue uploader), 11 (Pause project reminders). Andrew owes validation on items 1+2 &mdash; scenarios A/B/C.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">Linear: HG Costco Operations</a><br><span class="meta-text">5 of 11 shipped | 1 killed | 2 blocked on Tim | 3 attackable (5/6/11) | Andrew validation pending on 1+2</span></div>
   </article>
   </div>
   <details class="completed-fold">
@@ -656,25 +656,9 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">This Week &mdash; Priority</span>
-    <span class="cat-count">28 active &middot; 4 done</span>
+    <span class="cat-count">27 active &middot; 5 done</span>
   </header>
   <div class="cat-items">
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>HG Command Center &mdash; 3-tab dashboard live</div>
-      <div class="task-desc">Password-gated internal dashboard at agm-pro--agm-costco-audit-dashboard-web-app.modal.run. Three tabs: Costco Triage (per-lead audit + handle/snooze/note across 191 leads), Costco Overview (KPIs, status funnel, 16-store revenue ranking, turf/Shaw mix &mdash; 191 leads, 40 sold, $450k YTD), HG Sales (residential aggregates &mdash; 5,949 opps, $38M revenue, 7,418 leads, 19-stage funnel, 30-month revenue history). Data path is fully Modal-native: 15-min costco_dashboard_refresh + hg_sales_dashboard_refresh feed the tabs; 30-min refresh_snapshot_cron rebuilds the triage view with live contract-engine session overlay. PII never touches public hosts (Dashboard Security Contract Rule 1). Custom domain deferred &mdash; stays on Modal URL for now.</div>
-    </div>
-    <div class="task-meta"><a href="https://agm-pro--agm-costco-audit-dashboard-web-app.modal.run/">HG Command Center</a><br><span class="meta-text">Live 2026-05-18 · Build 2026-05-19 · 3 tabs, single auth boundary</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>OffClock™ Phase 0 &mdash; Monday sprint Track 2 (parallel Claude execution)</div>
-      <div class="task-desc">OffClock is the marquee Pro Max ($497/mo) feature for AGM Pro Tools &mdash; autonomous after-hours operator that reads inbound customer email, replies in the company&#x27;s brand voice (typed + audio), and bubbles to a morning digest. Phase 0 = scaffold + go live shadow on service@heavenlygreens.com Monday 2026-05-18. Sprint Track 2, executed by a parallel Claude instance while Harlan owns Track 1 (Jobber Marketplace) and Track 3 (Synthflow planning) runs separately. Phase 0 outputs: Modal app deployed, Graph webhook subscribed on service@, 10-bucket service intent classifier wired, every inbound email classified and logged. Zero customer sends &mdash; pure shadow mode. Voice persona locked: Sarah (ElevenLabs EXAVITQu4vr4xnSDxMaL). Anchor-tenant pilot of the HG Call Center Automation directive (Apr 3) &mdash; OffClock is the productized form, HG Call Center Automation is the HG implementation. Risk gates: zero sends Phase 0, warranty/complaint/&lt;30-day-install always reviewer touch, daily volume cap 30, OFFCLOCK_SEND_AUTHORITY kill switch, pre_deploy_check additions 15-17. Spec at directives/offclock_spec.md; HG implementation at directives/hg_call_center_automation.md.</div>
-    </div>
-    <div class="task-meta"><a href="../directives/offclock_spec.md">OffClock Spec</a> · <a href="../directives/hg_call_center_automation.md">HG Call Center Automation (anchor pilot)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/on-the-radar-queued-initiatives-66d386df1a17">Linear: On the Radar — Queued Initiatives</a><br><span class="meta-text">Monday 2026-05-18 launch · Track 2 (parallel Claude execution) · Voice: Sarah (EXAVITQu4vr4xnSDxMaL)</span></div>
-  </article>
-
   <article class="task p-now">
     <div class="task-body">
       <div class="task-name"><span class="priority now">Now</span>Jobber App Marketplace Listing &mdash; AGM Pro Tools</div>
@@ -689,22 +673,6 @@
       <div class="task-desc">Decoded v13 commission workbook end-to-end. Proof-of-concept built 2026-05-14 on HGC-00121 (Anthony Hall / Fermin Go) &mdash; programmatically populated v13 .xlsm from Postgres contract data, Excel recalculates the math. Email sent to Tim Fullerton (CC Andrew + Troy) with 4 validation questions: (1) Right approach for Costco contracts? (2) Add Shaw to catalog or separate sheet? (3) Are the 3 flags captured in contract engine? (4) Does H51 match HG&#x27;s manual payout? Forward execution gated on Tim&#x27;s response: wire 3-flag capture, build generate_commission_sheet(session_id) Modal function on signing-complete, per-rep daily digest (folds into Phase 4B/C), Tim review queue. Don&#x27;t rebuild the math in Python &mdash; drive the existing workbook. Productizable as paid AGM Pro Tools feature. Memory: project_hg_costco_commission_automation.md.</div>
     </div>
     <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hgcostco-commission-sheet-automation-f9a561325f8b">Linear: HG/Costco Commission Sheet Automation</a><br><span class="meta-text">May 14 | PoC shipped | Awaiting Tim&#x27;s 4 validation answers</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Curation as Compound Interest &mdash; 5th Strategic Pillar</div>
-      <div class="task-desc">Naming the missing pillar in AGM&#x27;s recursive strategy. Accumulation pillars (Franchise Intel, Outcome Loop, Structural Enforcement, 3-Layer Arch) get heavier; curation discipline is the durable AI-era moat. Four-artifact execution: (1) context_curation_monitor.py &mdash; half day, this week, (2) AGM_COMPANY_STRATEGY.md fifth-pillar section &mdash; next strategy session, (3) Build Log essay &#x27;Knowing How to Forget&#x27; &mdash; queued, (4) customer-facing context health dashboard &mdash; after Phase 4B/C ships. Memory: project_curation_fifth_pillar.md. NEXT_SESSION.md has full details.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">May 14 | New strategic framing | Half-day Artifact 1 first</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Prospecting Engine v1.2 &mdash; GBP Review-Velocity Enricher</div>
-      <div class="task-desc">Build google_business_signals.py: given an operator domain, capture total review count + last-30d delta from Google Business Profile. Populate signals.review_velocity_30d + review_velocity_gap_pct (15pt of the FR-pest rubric &mdash; currently unsourced, capping cohort at 67/100). Wire into enrichment/__init__.py after geography. Flip HOT_SCORE_THRESHOLD back from 60&rarr;80 in pipeline.py. Re-run backfill &mdash; expect 4-8 of existing 8-warm cohort to move into ≥80 with review-velocity on record. Open arch question: Places API (~$0.70 one-off for 41 ops) vs. public scrape &mdash; lean Places API for reliability.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/agm-sales-and-marketing-funnel-7b71df16c09c">Linear: AGM Sales &amp; Marketing Funnel</a><br><span class="meta-text">Queued for May 13 · ~2-3 hours</span></div>
   </article>
 
   <article class="task p-now">
@@ -725,14 +693,6 @@
 
   <article class="task p-now">
     <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Contract Engine Productization Strategy &mdash; Costco + HG-direct as two AGM products</div>
-      <div class="task-desc">Strategic frame ratified 2026-05-05 for everything happening on the contract engine. Two distinct products fall out of one engine: (1) Costco Contract Engine as a Service &mdash; sold to Costco-approved vendors, &#x27;already approved by Costco&#x27; as moat, small TAM / high margin / white-glove sales, gated by Costco approval relationship; (2) HG Deposit-to-Delivery Engine &mdash; sold to any FSM with deposit-then-execute workflow (turf, pool, fence, painters, hardscape, solar), broad TAM / mid margin / self-service signup. Same primitives, different products, different sales motions. Engine is already multi-tenant-aware in its bones (client_id first-class, track + ready_for_install_trigger anticipates deposit handling). Per-Modal-app split deferred until paid tenant #2. Andrew gets scoped Modal deploy so Troy is not on the critical path for client incidents (two-layer enforcement: pre_deploy_check.py Check 7 + scoped Modal token). Open non-engineering items: Costco approval conversation, pricing model, compliance posture for HG-direct deposits (Stripe Connect with tenant merchant accounts), tenant onboarding UI, per-tenant SLA + observability, Costco change-management process. Order of execution: finish Costco on current architecture &rarr; audit four large modules (delivery, pipeline, assembler, installer_packet) for tenant-cleanliness &rarr; ship HG-direct as a track &rarr; start Costco approval conversation in parallel &rarr; layer Andrew scoped deploy &rarr; first paying non-HG tenant triggers per-Modal-app split + tenant onboarding UI sprint.</div>
-    </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1k56vALUlmQJ2um5jVRiNH4pSrwAn2hcYBduB8dioA_o/edit">Overview Doc</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/on-the-radar-queued-initiatives-66d386df1a17">Linear: On the Radar — Queued Initiatives</a><br><span class="meta-text">May 5 &mdash; strategy doc + memory files saved · Defer per-Modal-app split until paid tenant #2</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
       <div class="task-name"><span class="priority now">Now</span>Stream B / Gap 4 chunk 2 &mdash; Stripe wiring + STARTER pipeline</div>
       <div class="task-desc">PAUSED 2026-05-06 morning for Jobber developer onboarding call. STARTER_TRACK_STEPS scaffold already in execution/launchpad_pipeline.py (lines 158-177); 9-module shared library ready in execution/lib/. Resume after Jobber call: add $97 Stripe Price in parent agm-stripe acct_1TKjcNRN9q5afIIK alongside existing $297, build execution/stripe_price_registry.json, migrate modal_webhook.py:2772 from inline price_data to Price ID lookup with tier param, implement 5 STARTER_TRACK_STEPS bodies (client_provisioned Starter variant, dashboard_deployed multi-tenant tenant, welcome_sent Starter copy, starter_registered), wire CAS quiz CTA at automation_score/index.html:1921 to pass tier=starter, end-to-end smoke test.</div>
     </div>
@@ -741,130 +701,10 @@
 
   <article class="task p-now">
     <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Pre-Stripe interstitial + post-OAuth wow moment</div>
-      <div class="task-desc">Two conversion-frame pieces deferred from 5/3 audio-first bundle, bundled with Stream B (shared file: modal_webhook.py:2772). Pre-Stripe: &#x27;What happens next (60 sec)&#x27; page between report-CTA-click and Stripe redirect. Post-OAuth: first 60 sec after Jobber connect must show real leads + dollar values immediately (&#x27;You have 17 leads &gt;4hrs old, est loss $2,180&#x27;).</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><br><span class="meta-text">Bundled with Stream B (paused for Jobber call)</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Review Automation Redesign &mdash; HG Retail + Costco</div>
-      <div class="task-desc">Two distinct gaps surfaced 2026-04-30 when Marcia Serpa-Garcia &#x27;Positive Review Survey&#x27; alert routed to Anthony Hall instead of auto-converting to a public Google review. (1) HG RETAIL: review workflow stack EXISTS (Ask For Review &gt; Send Survey, Review Rating Results, Job Reviewed &mdash; all published) but is rep-dependent: satisfaction survey &rarr; manual rep follow-up. Needs rewiring to auto-fire Google review CTA; rep alert kept only for negative responses. (2) COSTCO: NO post-install review workflow exists at all &mdash; none of 24 review/survey/install workflows reference Costco. Greenfield build needed: trigger (SF install_complete or AGM fully_executed + N days), message (SMS+email with Google review URL), cadence (+3, +7, +14 then stop), branching (positive &rarr; public CTA, negative &rarr; ops escalation). Full research at docs/research/2026-04-30_review_automation_audit.md &mdash; includes workflow IDs, open questions, and Troy&#x27;s confirmed framing that SF owns install triggers and Costco review side is dark.</div>
-    </div>
-    <div class="task-meta"><a href="https://github.com/agmpro-byte/agm-automation/blob/main/docs/research/2026-04-30_review_automation_audit.md">Research Doc</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/hg-workflow-gaps-accounting-automation-c5ee379bcf50">Linear: HG Workflow Gaps + Accounting Automation</a><br><span class="meta-text">Surfaced Apr 30 · Research saved · Next session priority</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
       <div class="task-name"><span class="priority now">Now</span>The Build Log &mdash; Weekly Newsletter + YouTube Campaign</div>
       <div class="task-desc">Automated weekly build cycle report: git commits + chapter notes &rarr; contractor-friendly newsletter + companion YouTube video. 7 historical issues (Mar–Apr) drafted for May rollout. Issue # + publish date override ready. Campaign calendar at docs/BUILD_CYCLE_CAMPAIGN.md.</div>
     </div>
     <div class="task-meta"><a href="https://github.com/agmpro-byte/agm-automation/blob/main/docs/BUILD_CYCLE_CAMPAIGN.md">Campaign Calendar</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">Apr 29 · 7 issues drafted · May launch</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Newsletter-as-a-Service &mdash; Spec DELIVERED, awaiting Troy review</div>
-      <div class="task-desc">Managed monthly newsletter addon for AGM subscribers. $197/mo Pro Tools addon ($497 weekly). SPEC DELIVERED 2026-04-23 &mdash; Draft v0.1 Google Doc live: https://docs.google.com/document/d/1Q-4YZScmet1499k5tb1w0bzAHlOBU-LlS4qk8ve6P_k/edit (13 sections: scope, 10-beat architecture, intake/assembly/send pipeline detail, template system, packaging, pilot roadmap, risks, success criteria). ORIGINAL SPRINT (Apr 15-17) MISSED &mdash; HG Costco/change-order build owned the window. REPLANNED ship date in spec: Fri 2026-05-01 for AGM dogfood issue #1. SIX OPEN DECISIONS in §9 awaiting Troy: (1) ship date confirmation, (2) SMS number strategy (shared vs per-customer), (3) Quill voice calibration &mdash; add Andrew for pilot QA?, (4) pricing sanity check $197 vs $297, (5) Apple Shortcut v1 vs v1.1, (6) unsubscribe plumbing SES-managed vs custom AGM-writeback. GREEN-LIGHT PATH: Troy reviews &rarr; Harlan starts MJML template + SES identity for agmpro.com subdomain &rarr; build through pilot roadmap Phase 1. RED-FLAG PATH: inline edits in doc &rarr; Harlan revises v0.2. Andrew&#x27;s role remains DNS-only for Chad rollout, NOT editorial. Chad&#x27;s intake trigger is AGM workflow engine, NOT Jobber. Jobber stacks on later for HG/ATE.</div>
-    </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1Q-4YZScmet1499k5tb1w0bzAHlOBU-LlS4qk8ve6P_k/edit">Spec Doc (Draft v0.1)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">SPEC DELIVERED Apr 23 · Awaiting Troy review + §9 decisions · Proposed ship: Fri May 1 (AGM dogfood) · Parallel to HG Costco Layer 2/3</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>HG Multi-Rep Capability &mdash; Costco Lead Coverage</div>
-      <div class="task-desc">Bring more reps online to run Costco in-home leads representing the Shaw product line. These are seasoned sales vets &mdash; they need training on the Costco system (proposals, contracts, workflow), not on selling. Training deck is the key deliverable that enables this.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">Linear: HG Costco Operations</a><br><span class="meta-text">TOP PRIORITY · Training + automation walkthrough</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>HG Costco Training Deck &mdash; Completion</div>
-      <div class="task-desc">Finalize the Costco system training deck. Covers how to use the system, write proposals, create and process contracts through the workflow. These are experienced sellers &mdash; the deck is about the system, not the sale. Backbone of multi-rep capability.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">Linear: HG Costco Operations</a><br><span class="meta-text">TOP PRIORITY · Tied to multi-rep training</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>HG Costco Staffing Plan</div>
-      <div class="task-desc">Logistics plan for Costco lead coverage: store locations, dates, times, personnel assignments, and materials required. Need a clear schedule so every store is covered with a trained rep and the right materials &mdash; no gaps, no scrambling.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">Linear: HG Costco Operations</a><br><span class="meta-text">TOP PRIORITY · Operational &mdash; Tim meeting</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>HG Rep QR Codes for Costco Events</div>
-      <div class="task-desc">Generate per-rep QR codes for HG sales reps working Costco in-store events. Each rep gets a unique QR that routes leads into the HG pipeline with rep attribution baked in &mdash; scan at the booth, lead enters the system pre-tagged to the rep who sourced them. Ties directly into multi-rep rollout and staffing plan. Build: QR generation script, rep-to-URL mapping, printable card/badge template.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">Linear: HG Costco Operations</a><br><span class="meta-text">Added Apr 27 · Troy priority · Tied to multi-rep + staffing</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Contractor Automation Score &mdash; LinkedIn GTM launch</div>
-      <div class="task-desc">Backend deployed, audio-first pivot shipped 5/3 (URL-first delivery, click-to-play green icon, Shock&rarr;Personalize&rarr;Quantify&rarr;Direct email frame, visibility-only positioning). Cross-browser verified Chrome/Safari/Firefox desktop + Mobile iOS. Stream B Stripe wiring paused for Jobber call. REMAINING: LinkedIn GTM post &mdash; drafted + approved, send when Stream B is live so the quiz CTA routes correctly. Email-client matrix (Gmail/Outlook/iOS Mail) verification still on the punch list before broad GTM push.</div>
-    </div>
-    <div class="task-meta"><a href="https://contractorautomationscore.com">Live</a> · <a href="https://docs.google.com/document/d/1tgOKf6nLOHS5EGUrEp96u3xl4YfTZdx8Ux3bE3eO71I/edit">Comms Catalog</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/agm-sales-and-marketing-funnel-7b71df16c09c">Linear: AGM Sales &amp; Marketing Funnel</a><br><span class="meta-text">Audio-first pivot shipped May 3 · LinkedIn post pending Stream B</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Monthly Customer 3-Point Email &mdash; V2 Ready</div>
-      <div class="task-desc">Built end-to-end Apr 6. V2 is AGM-centric per Troy&#x27;s feedback (&#x27;pretty dang good&#x27;). Open question: Automation Score URL referenced but funnel not live &mdash; decide whether to cut paragraph, hold email, or swap content. Once approved, send to Texas Turf/Andrew first.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">Troy reviewing · V2 ready to send</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Chapter Audio Link Sweep &mdash; Chapters 1-29</div>
-      <div class="task-desc">Format drift between record_chapter.py and create_chapter_book_doc.py caused dead links in Google Doc. Fixed for Chapter 30+. Chapters 1-29 need: sweep script to verify S3 URLs, backfill missing objects, update chapter entries, re-run doc generator.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">Script needed · Dead links in Google Doc</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>J. Chris Update &mdash; Gift Card Delivery Workflow</div>
-      <div class="task-desc">Add J. Chris to the update loop and get the live gift card delivery workflow operational.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-workflow-gaps-accounting-automation-c5ee379bcf50">Linear: HG Workflow Gaps + Accounting Automation</a><br><span class="meta-text">Action item · Added Apr 17</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>AGM Opportunity Value Backfill</div>
-      <div class="task-desc">AGM pipeline opportunities show $0 because Zapier never synced monetary values. Backfill from SF contract amounts for all synced opportunities.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/on-the-radar-queued-initiatives-66d386df1a17">Linear: On the Radar — Queued Initiatives</a><br><span class="meta-text">Script needed</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Valleywide PestRoutes &mdash; Go Live</div>
-      <div class="task-desc">Code-side wiring complete. Service Type custom field + 5 appointment fields created in AGM Pro Tools sub-account, sync writes them all. 6 workflow shells published. Premium API key unlocked 2026-04-09 (quota blocker cleared, domain migrated pestroutes.com &rarr; fieldroutes.com everywhere, 15-min cadence locked). Tenant 1 of the AGM Pro Tools for FieldRoutes product &mdash; see full plan for productization context. Still pending go-live: SERTBO nurture workflow copy review + client cadence confirmation + flip active: true.</div>
-    </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1AULQa4g7TrzMIp6nVmUixvdKALZcmDxr6fGXzv4fdFE/edit">AGM Pro Tools for FieldRoutes — Complete Plan</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/client-integrations-pipeline-21e5cf753ce1">Linear: Client Integrations Pipeline</a><br><span class="meta-text">Code: done · Premium key: unlocked Apr 9 · Pending: nurture copy review + active flip</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>HG AGM Email/SMS Triage &mdash; Sender Identity Audit</div>
-      <div class="task-desc">Audit every AGM workflow, calendar automation, and trigger that sends email or SMS for Heavenly Greens. Map: what sends, who it comes from, who receives it. Flag anything using {{user.name}} or rep identity when it should be call center. Partial progress: HG Lead Alert split sender from costco@ to HGLeads@ + Andrew cut over to agmprotools.com (commit 4d60510, May 5). Contract emails now route FROM rep with callcenter fallback (commit f5529e2). Three earlier-found instances fixed (appointment confirmation email/SMS, welcome email/SMS). Systematic sweep across all remaining workflows still pending.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-workflow-gaps-accounting-automation-c5ee379bcf50">Linear: HG Workflow Gaps + Accounting Automation</a><br><span class="meta-text">Partial progress · Full sweep still pending</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Content Flywheel &mdash; Restart (back on the radar)</div>
-      <div class="task-desc">Triggered 2026-05-17 by audit of an external 5-agent content pipeline article vs our Scout/Quill/Pixel/Echo flywheel. Troy: &#x27;we&#x27;ve got to get back on this.&#x27; The architecture in directives/content_flywheel_master.md is more sophisticated than the article &mdash; the gap is execution + invocability + cadence enforcement. Priority sequence: (1) Fork Scout/Quill/Pixel/Echo into invocable .claude/agents/*.md files with frontmatter + short identity line + machine-parseable &#x27;End with:&#x27; footer (one-hour first step, immediately unlocks /agents content-scout from any session). (2) Add &#x27;End with:&#x27; footers to existing scripts so cron can grep handoff status. (3) Audit weekly cadence crons (Mon Scout / Wed Quill / Thu Pixel / Fri Publish / Sat Atomize) &mdash; verify each runs or document the manual gap. (4) Define {{voice_profile}} text per content stream instead of word-blocklists. (5) Pixel + Echo gap audit: publish_linkedin/twitter/tiktok/instagram scripts exist but may not be cron-invoked. Full audit memo in Harlan memory: project_content_flywheel_2026-05-17_audit.md.</div>
-    </div>
-    <div class="task-meta"><a href="../directives/content_flywheel_master.md">Content Flywheel Master Directive</a> · <a href="../execution/content_pipeline.py">Content Pipeline Orchestrator</a> · <a href="../execution/briggs_skills/SKILL_flywheel_monitor.md">Briggs Flywheel Monitor Skill</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">Restart 2026-05-17 · One-hour first step · Master ToDo items #50-#54</span></div>
   </article>
 
   <article class="task p-next">
@@ -882,9 +722,161 @@
     </div>
     <div class="task-meta"><a href="../directives/newsletter_multi_tenant.md">Architecture directive</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">Slipped to P1 behind Jobber Marketplace · Build after Jobber Round 1-3 · Directive: newsletter_multi_tenant.md</span></div>
   </article>
+
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>Curation as Compound Interest &mdash; 5th Strategic Pillar</div>
+      <div class="task-desc">Naming the missing pillar in AGM&#x27;s recursive strategy. Accumulation pillars (Franchise Intel, Outcome Loop, Structural Enforcement, 3-Layer Arch) get heavier; curation discipline is the durable AI-era moat. Four-artifact execution: (1) context_curation_monitor.py &mdash; half day, this week, (2) AGM_COMPANY_STRATEGY.md fifth-pillar section &mdash; next strategy session, (3) Build Log essay &#x27;Knowing How to Forget&#x27; &mdash; queued, (4) customer-facing context health dashboard &mdash; after Phase 4B/C ships. Memory: project_curation_fifth_pillar.md. NEXT_SESSION.md has full details.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">May 14 | New strategic framing | Half-day Artifact 1 first</span></div>
+  </article>
+
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>Prospecting Engine v1.2 &mdash; GBP Review-Velocity Enricher</div>
+      <div class="task-desc">Build google_business_signals.py: given an operator domain, capture total review count + last-30d delta from Google Business Profile. Populate signals.review_velocity_30d + review_velocity_gap_pct (15pt of the FR-pest rubric &mdash; currently unsourced, capping cohort at 67/100). Wire into enrichment/__init__.py after geography. Flip HOT_SCORE_THRESHOLD back from 60&rarr;80 in pipeline.py. Re-run backfill &mdash; expect 4-8 of existing 8-warm cohort to move into ≥80 with review-velocity on record. Open arch question: Places API (~$0.70 one-off for 41 ops) vs. public scrape &mdash; lean Places API for reliability.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/agm-sales-and-marketing-funnel-7b71df16c09c">Linear: AGM Sales &amp; Marketing Funnel</a><br><span class="meta-text">Queued for May 13 · ~2-3 hours</span></div>
+  </article>
+
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>Pre-Stripe interstitial + post-OAuth wow moment</div>
+      <div class="task-desc">Two conversion-frame pieces deferred from 5/3 audio-first bundle, bundled with Stream B (shared file: modal_webhook.py:2772). Pre-Stripe: &#x27;What happens next (60 sec)&#x27; page between report-CTA-click and Stripe redirect. Post-OAuth: first 60 sec after Jobber connect must show real leads + dollar values immediately (&#x27;You have 17 leads &gt;4hrs old, est loss $2,180&#x27;).</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><br><span class="meta-text">Bundled with Stream B (paused for Jobber call)</span></div>
+  </article>
+
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>Review Automation Redesign &mdash; HG Retail + Costco</div>
+      <div class="task-desc">Two distinct gaps surfaced 2026-04-30 when Marcia Serpa-Garcia &#x27;Positive Review Survey&#x27; alert routed to Anthony Hall instead of auto-converting to a public Google review. (1) HG RETAIL: review workflow stack EXISTS (Ask For Review &gt; Send Survey, Review Rating Results, Job Reviewed &mdash; all published) but is rep-dependent: satisfaction survey &rarr; manual rep follow-up. Needs rewiring to auto-fire Google review CTA; rep alert kept only for negative responses. (2) COSTCO: NO post-install review workflow exists at all &mdash; none of 24 review/survey/install workflows reference Costco. Greenfield build needed: trigger (SF install_complete or AGM fully_executed + N days), message (SMS+email with Google review URL), cadence (+3, +7, +14 then stop), branching (positive &rarr; public CTA, negative &rarr; ops escalation). Full research at docs/research/2026-04-30_review_automation_audit.md &mdash; includes workflow IDs, open questions, and Troy&#x27;s confirmed framing that SF owns install triggers and Costco review side is dark.</div>
+    </div>
+    <div class="task-meta"><a href="https://github.com/agmpro-byte/agm-automation/blob/main/docs/research/2026-04-30_review_automation_audit.md">Research Doc</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/hg-workflow-gaps-accounting-automation-c5ee379bcf50">Linear: HG Workflow Gaps + Accounting Automation</a><br><span class="meta-text">Surfaced Apr 30 · Research saved · Next session priority</span></div>
+  </article>
+
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>HG Multi-Rep Capability &mdash; Costco Lead Coverage</div>
+      <div class="task-desc">Bring more reps online to run Costco in-home leads representing the Shaw product line. These are seasoned sales vets &mdash; they need training on the Costco system (proposals, contracts, workflow), not on selling. Training deck is the key deliverable that enables this.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">Linear: HG Costco Operations</a><br><span class="meta-text">TOP PRIORITY · Training + automation walkthrough</span></div>
+  </article>
+
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>Contractor Automation Score &mdash; LinkedIn GTM launch</div>
+      <div class="task-desc">Backend deployed, audio-first pivot shipped 5/3 (URL-first delivery, click-to-play green icon, Shock&rarr;Personalize&rarr;Quantify&rarr;Direct email frame, visibility-only positioning). Cross-browser verified Chrome/Safari/Firefox desktop + Mobile iOS. Stream B Stripe wiring paused for Jobber call. REMAINING: LinkedIn GTM post &mdash; drafted + approved, send when Stream B is live so the quiz CTA routes correctly. Email-client matrix (Gmail/Outlook/iOS Mail) verification still on the punch list before broad GTM push.</div>
+    </div>
+    <div class="task-meta"><a href="https://contractorautomationscore.com">Live</a> · <a href="https://docs.google.com/document/d/1tgOKf6nLOHS5EGUrEp96u3xl4YfTZdx8Ux3bE3eO71I/edit">Comms Catalog</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/agm-sales-and-marketing-funnel-7b71df16c09c">Linear: AGM Sales &amp; Marketing Funnel</a><br><span class="meta-text">Audio-first pivot shipped May 3 · LinkedIn post pending Stream B</span></div>
+  </article>
+
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>HG AGM Email/SMS Triage &mdash; Sender Identity Audit</div>
+      <div class="task-desc">Audit every AGM workflow, calendar automation, and trigger that sends email or SMS for Heavenly Greens. Map: what sends, who it comes from, who receives it. Flag anything using {{user.name}} or rep identity when it should be call center. Partial progress: HG Lead Alert split sender from costco@ to HGLeads@ + Andrew cut over to agmprotools.com (commit 4d60510, May 5). Contract emails now route FROM rep with callcenter fallback (commit f5529e2). Three earlier-found instances fixed (appointment confirmation email/SMS, welcome email/SMS). Systematic sweep across all remaining workflows still pending.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-workflow-gaps-accounting-automation-c5ee379bcf50">Linear: HG Workflow Gaps + Accounting Automation</a><br><span class="meta-text">Partial progress · Full sweep still pending</span></div>
+  </article>
+
+  <article class="task p-waiting">
+    <div class="task-body">
+      <div class="task-name"><span class="priority waiting">Waiting</span>Newsletter-as-a-Service &mdash; Spec DELIVERED, awaiting Troy review</div>
+      <div class="task-desc">Managed monthly newsletter addon for AGM subscribers. $197/mo Pro Tools addon ($497 weekly). SPEC DELIVERED 2026-04-23 &mdash; Draft v0.1 Google Doc live: https://docs.google.com/document/d/1Q-4YZScmet1499k5tb1w0bzAHlOBU-LlS4qk8ve6P_k/edit (13 sections: scope, 10-beat architecture, intake/assembly/send pipeline detail, template system, packaging, pilot roadmap, risks, success criteria). ORIGINAL SPRINT (Apr 15-17) MISSED &mdash; HG Costco/change-order build owned the window. REPLANNED ship date in spec: Fri 2026-05-01 for AGM dogfood issue #1. SIX OPEN DECISIONS in §9 awaiting Troy: (1) ship date confirmation, (2) SMS number strategy (shared vs per-customer), (3) Quill voice calibration &mdash; add Andrew for pilot QA?, (4) pricing sanity check $197 vs $297, (5) Apple Shortcut v1 vs v1.1, (6) unsubscribe plumbing SES-managed vs custom AGM-writeback. GREEN-LIGHT PATH: Troy reviews &rarr; Harlan starts MJML template + SES identity for agmpro.com subdomain &rarr; build through pilot roadmap Phase 1. RED-FLAG PATH: inline edits in doc &rarr; Harlan revises v0.2. Andrew&#x27;s role remains DNS-only for Chad rollout, NOT editorial. Chad&#x27;s intake trigger is AGM workflow engine, NOT Jobber. Jobber stacks on later for HG/ATE.</div>
+    </div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1Q-4YZScmet1499k5tb1w0bzAHlOBU-LlS4qk8ve6P_k/edit">Spec Doc (Draft v0.1)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">SPEC DELIVERED Apr 23 · Awaiting Troy review + §9 decisions · Proposed ship: Fri May 1 (AGM dogfood) · Parallel to HG Costco Layer 2/3</span></div>
+  </article>
+
+  <article class="task p-waiting">
+    <div class="task-body">
+      <div class="task-name"><span class="priority waiting">Waiting</span>Monthly Customer 3-Point Email &mdash; V2 Ready</div>
+      <div class="task-desc">Built end-to-end Apr 6. V2 is AGM-centric per Troy&#x27;s feedback (&#x27;pretty dang good&#x27;). Open question: Automation Score URL referenced but funnel not live &mdash; decide whether to cut paragraph, hold email, or swap content. Once approved, send to Texas Turf/Andrew first.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">Troy reviewing · V2 ready to send</span></div>
+  </article>
+
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>OffClock™ Phase 0 &mdash; Monday sprint Track 2 (parallel Claude execution)</div>
+      <div class="task-desc">OffClock is the marquee Pro Max ($497/mo) feature for AGM Pro Tools &mdash; autonomous after-hours operator that reads inbound customer email, replies in the company&#x27;s brand voice (typed + audio), and bubbles to a morning digest. Phase 0 = scaffold + go live shadow on service@heavenlygreens.com Monday 2026-05-18. Sprint Track 2, executed by a parallel Claude instance while Harlan owns Track 1 (Jobber Marketplace) and Track 3 (Synthflow planning) runs separately. Phase 0 outputs: Modal app deployed, Graph webhook subscribed on service@, 10-bucket service intent classifier wired, every inbound email classified and logged. Zero customer sends &mdash; pure shadow mode. Voice persona locked: Sarah (ElevenLabs EXAVITQu4vr4xnSDxMaL). Anchor-tenant pilot of the HG Call Center Automation directive (Apr 3) &mdash; OffClock is the productized form, HG Call Center Automation is the HG implementation. Risk gates: zero sends Phase 0, warranty/complaint/&lt;30-day-install always reviewer touch, daily volume cap 30, OFFCLOCK_SEND_AUTHORITY kill switch, pre_deploy_check additions 15-17. Spec at directives/offclock_spec.md; HG implementation at directives/hg_call_center_automation.md.</div>
+    </div>
+    <div class="task-meta"><a href="../directives/offclock_spec.md">OffClock Spec</a> · <a href="../directives/hg_call_center_automation.md">HG Call Center Automation (anchor pilot)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/on-the-radar-queued-initiatives-66d386df1a17">Linear: On the Radar — Queued Initiatives</a><br><span class="meta-text">Monday 2026-05-18 launch · Track 2 (parallel Claude execution) · Voice: Sarah (EXAVITQu4vr4xnSDxMaL)</span></div>
+  </article>
+
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>Contract Engine Productization Strategy &mdash; Costco + HG-direct as two AGM products</div>
+      <div class="task-desc">Strategic frame ratified 2026-05-05 for everything happening on the contract engine. Two distinct products fall out of one engine: (1) Costco Contract Engine as a Service &mdash; sold to Costco-approved vendors, &#x27;already approved by Costco&#x27; as moat, small TAM / high margin / white-glove sales, gated by Costco approval relationship; (2) HG Deposit-to-Delivery Engine &mdash; sold to any FSM with deposit-then-execute workflow (turf, pool, fence, painters, hardscape, solar), broad TAM / mid margin / self-service signup. Same primitives, different products, different sales motions. Engine is already multi-tenant-aware in its bones (client_id first-class, track + ready_for_install_trigger anticipates deposit handling). Per-Modal-app split deferred until paid tenant #2. Andrew gets scoped Modal deploy so Troy is not on the critical path for client incidents (two-layer enforcement: pre_deploy_check.py Check 7 + scoped Modal token). Open non-engineering items: Costco approval conversation, pricing model, compliance posture for HG-direct deposits (Stripe Connect with tenant merchant accounts), tenant onboarding UI, per-tenant SLA + observability, Costco change-management process. Order of execution: finish Costco on current architecture &rarr; audit four large modules (delivery, pipeline, assembler, installer_packet) for tenant-cleanliness &rarr; ship HG-direct as a track &rarr; start Costco approval conversation in parallel &rarr; layer Andrew scoped deploy &rarr; first paying non-HG tenant triggers per-Modal-app split + tenant onboarding UI sprint.</div>
+    </div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1k56vALUlmQJ2um5jVRiNH4pSrwAn2hcYBduB8dioA_o/edit">Overview Doc</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/on-the-radar-queued-initiatives-66d386df1a17">Linear: On the Radar — Queued Initiatives</a><br><span class="meta-text">May 5 &mdash; strategy doc + memory files saved · Defer per-Modal-app split until paid tenant #2</span></div>
+  </article>
+
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>HG Costco Training Deck &mdash; Completion</div>
+      <div class="task-desc">Finalize the Costco system training deck. Covers how to use the system, write proposals, create and process contracts through the workflow. These are experienced sellers &mdash; the deck is about the system, not the sale. Backbone of multi-rep capability.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">Linear: HG Costco Operations</a><br><span class="meta-text">TOP PRIORITY · Tied to multi-rep training</span></div>
+  </article>
+
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>HG Costco Staffing Plan</div>
+      <div class="task-desc">Logistics plan for Costco lead coverage: store locations, dates, times, personnel assignments, and materials required. Need a clear schedule so every store is covered with a trained rep and the right materials &mdash; no gaps, no scrambling.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">Linear: HG Costco Operations</a><br><span class="meta-text">TOP PRIORITY · Operational &mdash; Tim meeting</span></div>
+  </article>
+
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>HG Rep QR Codes for Costco Events</div>
+      <div class="task-desc">Generate per-rep QR codes for HG sales reps working Costco in-store events. Each rep gets a unique QR that routes leads into the HG pipeline with rep attribution baked in &mdash; scan at the booth, lead enters the system pre-tagged to the rep who sourced them. Ties directly into multi-rep rollout and staffing plan. Build: QR generation script, rep-to-URL mapping, printable card/badge template.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">Linear: HG Costco Operations</a><br><span class="meta-text">Added Apr 27 · Troy priority · Tied to multi-rep + staffing</span></div>
+  </article>
+
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>Chapter Audio Link Sweep &mdash; Chapters 1-29</div>
+      <div class="task-desc">Format drift between record_chapter.py and create_chapter_book_doc.py caused dead links in Google Doc. Fixed for Chapter 30+. Chapters 1-29 need: sweep script to verify S3 URLs, backfill missing objects, update chapter entries, re-run doc generator.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">Script needed · Dead links in Google Doc</span></div>
+  </article>
+
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>J. Chris Update &mdash; Gift Card Delivery Workflow</div>
+      <div class="task-desc">Add J. Chris to the update loop and get the live gift card delivery workflow operational.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-workflow-gaps-accounting-automation-c5ee379bcf50">Linear: HG Workflow Gaps + Accounting Automation</a><br><span class="meta-text">Action item · Added Apr 17</span></div>
+  </article>
+
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>AGM Opportunity Value Backfill</div>
+      <div class="task-desc">AGM pipeline opportunities show $0 because Zapier never synced monetary values. Backfill from SF contract amounts for all synced opportunities.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/on-the-radar-queued-initiatives-66d386df1a17">Linear: On the Radar — Queued Initiatives</a><br><span class="meta-text">Script needed</span></div>
+  </article>
+
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>Valleywide PestRoutes &mdash; Go Live</div>
+      <div class="task-desc">Code-side wiring complete. Service Type custom field + 5 appointment fields created in AGM Pro Tools sub-account, sync writes them all. 6 workflow shells published. Premium API key unlocked 2026-04-09 (quota blocker cleared, domain migrated pestroutes.com &rarr; fieldroutes.com everywhere, 15-min cadence locked). Tenant 1 of the AGM Pro Tools for FieldRoutes product &mdash; see full plan for productization context. Still pending go-live: SERTBO nurture workflow copy review + client cadence confirmation + flip active: true.</div>
+    </div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1AULQa4g7TrzMIp6nVmUixvdKALZcmDxr6fGXzv4fdFE/edit">AGM Pro Tools for FieldRoutes — Complete Plan</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/client-integrations-pipeline-21e5cf753ce1">Linear: Client Integrations Pipeline</a><br><span class="meta-text">Code: done · Premium key: unlocked Apr 9 · Pending: nurture copy review + active flip</span></div>
+  </article>
+
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>Content Flywheel &mdash; Restart (back on the radar)</div>
+      <div class="task-desc">Triggered 2026-05-17 by audit of an external 5-agent content pipeline article vs our Scout/Quill/Pixel/Echo flywheel. Troy: &#x27;we&#x27;ve got to get back on this.&#x27; The architecture in directives/content_flywheel_master.md is more sophisticated than the article &mdash; the gap is execution + invocability + cadence enforcement. Priority sequence: (1) Fork Scout/Quill/Pixel/Echo into invocable .claude/agents/*.md files with frontmatter + short identity line + machine-parseable &#x27;End with:&#x27; footer (one-hour first step, immediately unlocks /agents content-scout from any session). (2) Add &#x27;End with:&#x27; footers to existing scripts so cron can grep handoff status. (3) Audit weekly cadence crons (Mon Scout / Wed Quill / Thu Pixel / Fri Publish / Sat Atomize) &mdash; verify each runs or document the manual gap. (4) Define {{voice_profile}} text per content stream instead of word-blocklists. (5) Pixel + Echo gap audit: publish_linkedin/twitter/tiktok/instagram scripts exist but may not be cron-invoked. Full audit memo in Harlan memory: project_content_flywheel_2026-05-17_audit.md.</div>
+    </div>
+    <div class="task-meta"><a href="../directives/content_flywheel_master.md">Content Flywheel Master Directive</a> · <a href="../execution/content_pipeline.py">Content Pipeline Orchestrator</a> · <a href="../execution/briggs_skills/SKILL_flywheel_monitor.md">Briggs Flywheel Monitor Skill</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">Restart 2026-05-17 · One-hour first step · Master ToDo items #50-#54</span></div>
+  </article>
   </div>
   <details class="completed-fold">
-    <summary>4 completed in this category &mdash; show</summary>
+    <summary>5 completed in this category &mdash; show</summary>
     <div class="cat-items completed-items">
   <article class="task p-done done-row">
     <div class="task-body">
@@ -892,6 +884,14 @@
       <div class="task-desc">Full architectural shift from &#x27;Modal owns customer comms&#x27; to &#x27;AGM workflow owns customer comms&#x27; is live in production as of 2026-05-20T21:32:00Z. Five commits shipped this session: 0cf6669 morning Fixes 1-3 (Re:/Fwd: classifier, costco-welcomed idempotency tag, retry caps), 9d3362a docs reflecting morning fix, 5d1665d THE CUTOVER (centah-new-lead tag stamp + NEW_CONTACT_CUTOVER_TS flipped + auto-response cutover-gated; pre-cutover Python welcome path preserved for rollback), bb07325 dedicated #costco-leads Slack channel (clean lead-stream signal separated from operational firehose), 2898328/e44481c WinGen-CENTAH disambiguation in docstring. Live verification on first real post-cutover lead Dennis Kuehl (CENTAH #9049489, AGM contact cvXCd6kN0SUKcUkipUQf): intake at 4:05:50 PM PT stamped both costco and centah-new-lead tags; Andrew&#x27;s AGM workflow fired ~70s later creating the opportunity, sending welcome SMS, sending welcome email; call center booked appointment at 4:14 PM for Tuesday 5/26 at 1 PM (Sales Pres with rep Steven McIntire at 2029 West Park Ave Napa); appointment confirmation comms fired at 4:14/4:19. Modal sent ZERO customer comms post-cutover for Dennis &mdash; designed behaviour. Total wall-clock from WinGen tap inside Costco to confirmed appointment on member&#x27;s phone: 14 minutes. Rollback path: flip NEW_CONTACT_CUTOVER_TS to None or future timestamp in execution/costco_lead_intake.py and redeploy. Carry-forwards: (1) Andrew hardcoding email sent awaiting reply &mdash; appointment titles show &#x27;Anthony Hall&#x27; regardless of actual assignedTo (Steven McIntire on Dennis); (2) lift Leo Apostol DND (cutover supersedes Fix 4/5 design); (3) 30-day backfill audit for other attempts&gt;3 bombardment victims; (4) Andrew workflow inspection to map exact step list + exit conditions for canonical doc; (5) sunset costco-welcomed tag stamping after one week of cutover safety.</div>
     </div>
     <div class="task-meta"><a href="docs/post_mortems/2026-05-19_centah_re_thread_bombardment.md">Post-Mortem</a> · <a href="memory/feedback_centah_reply_thread_classifier.md">Memory</a> · <a href="https://github.com/agmpro-byte/agm-automation/commit/5d1665d">Cutover commit 5d1665d</a> · <a href="https://github.com/agmpro-byte/agm-automation/commit/bb07325">Leads channel commit bb07325</a> · <a href="https://github.com/agmpro-byte/agm-automation/commit/0cf6669">Morning Fixes 1-3 commit 0cf6669</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/centah-re-thread-bombardment-fix-048454a4f614">Linear: CENTAH &quot;Re:&quot; Thread Bombardment Fix</a><br><span class="meta-text">Shipped + verified 2026-05-20 · Five commits: 0cf6669 morning fixes, 5d1665d cutover, bb07325 leads channel, 2898328+e44481c disambiguation · Live proof: Dennis Kuehl converted in 14 min wall-clock · Follow-ups: hardcoding email (Andrew), lift Leo DND, 30-day backfill, workflow inspection, sunset costco-welcomed tag</span></div>
+  </article>
+
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>HG Command Center &mdash; 3-tab dashboard live</div>
+      <div class="task-desc">Password-gated internal dashboard at agm-pro--agm-costco-audit-dashboard-web-app.modal.run. Three tabs: Costco Triage (per-lead audit + handle/snooze/note across 191 leads), Costco Overview (KPIs, status funnel, 16-store revenue ranking, turf/Shaw mix &mdash; 191 leads, 40 sold, $450k YTD), HG Sales (residential aggregates &mdash; 5,949 opps, $38M revenue, 7,418 leads, 19-stage funnel, 30-month revenue history). Data path is fully Modal-native: 15-min costco_dashboard_refresh + hg_sales_dashboard_refresh feed the tabs; 30-min refresh_snapshot_cron rebuilds the triage view with live contract-engine session overlay. PII never touches public hosts (Dashboard Security Contract Rule 1). Custom domain deferred &mdash; stays on Modal URL for now.</div>
+    </div>
+    <div class="task-meta"><a href="https://agm-pro--agm-costco-audit-dashboard-web-app.modal.run/">HG Command Center</a><br><span class="meta-text">Live 2026-05-18 · Build 2026-05-19 · 3 tabs, single auth boundary</span></div>
   </article>
 
   <article class="task p-done done-row">
@@ -924,31 +924,23 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Next Up &mdash; This Week / Next Week</span>
-    <span class="cat-count">17 active &middot; 1 done</span>
+    <span class="cat-count">17 active &middot; 2 done</span>
   </header>
   <div class="cat-items">
   <article class="task p-now">
     <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Sprint 3 #1 &mdash; installer_packet_build auth gate</div>
+      <div class="task-name"><span class="priority now">Now</span>Andrew&#x27;s MacBook Air provisioning</div>
+      <div class="task-desc">Phase 1c + Phase 2 hardening, ~2-2.5 hr. Pre-stage materials ready (AWS IAM policy JSON, Modal Viewer-role steps, Slack #andrew-client-alerts webhook, verify_andrew_scope.py patch, per-machine SSH keygen approach). Setup-Assistant target state: local admin `andrew`, NO Apple ID, FileVault on with recovery key in Troy&#x27;s 1Password. Linear: Laptop Builds Sprint (High, target 2026-05-26). Troy driving in another instance.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/laptop-builds-sprint-troy-andrew-d2f7d8dc3621">Linear: Laptop Builds Sprint (Troy + Andrew)</a><br><span class="meta-text">Tomorrow Tue 2026-05-26 · ~2-2.5 hr provisioning · Andrew Tier 2 SCOPED</span></div>
+  </article>
+
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>Sprint 3 #1 &mdash; installer_packet_build auth gate</div>
       <div class="task-desc">installer_packet_build endpoint takes a guessable AGM contact_id with no bearer auth. Has IP rate limit (120/min) from Sprint 2 but no identity gate. Fix: require WEBHOOK_API_KEY like change_order_endpoint, OR scope to AGM custom-action HMAC, OR signed-URL pattern from AGM workflow. 2-4 hours design + implementation. Highest priority Sprint 3 item.</div>
     </div>
     <div class="task-meta"><a href="docs/architecture_gaps.md">architecture_gaps.md 2026-05-15</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><br><span class="meta-text">2-4 hr design + build</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Jobber Developer Onboarding Call &mdash; May 6, 9 AM PT</div>
-      <div class="task-desc">TODAY. Developer onboarding call with Jobber team (Liam) at 9:00 AM PT. Engineering ALL GREEN (8 bugs fixed, live drill passed Apr 7). Partnership channel active. Demo prep status to verify before call: support@agmprotools.com inbox, 5 screenshots, Loom demo video, privacy policy URL, ToS URL, app icon 512x512.</div>
-    </div>
-    <div class="task-meta"><span class="meta-text">TODAY May 6, 9 AM PT · Live call with Liam</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>HG BarCloud Integration &mdash; Inventory Automation</div>
-      <div class="task-desc">TOP PRIORITY. AGM-driven workflow: on install stage, fire webhook to Modal worker, write BarCloud Stock Issue with turf type + dye lot, push draw record back to AGM + SF. Exec memo sent to Tim + Troy Apr 9 &mdash; significant scope. First step: BOM schema + dye lot data model in AGM. No canonical bill of materials exists at HG today &mdash; this build forces a canonical turf-type &rarr; materials map to exist for the first time. BarCloud API has no webhooks (pull-only). Eliminates manual BarCloud entry by office staff.</div>
-    </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/10tyXtR-3YMY3xeZnc6YLm-TXr_W3lG5BGkaqZvtBMLE/edit">Exec Memo (Google Doc)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/client-integrations-pipeline-21e5cf753ce1">Linear: Client Integrations Pipeline</a><br><span class="meta-text">Top priority · Exec memo sent Apr 9</span></div>
   </article>
 
   <article class="task p-next">
@@ -1047,6 +1039,14 @@
     <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><br><span class="meta-text">Part of flywheel · ~280 subscribers</span></div>
   </article>
 
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>HG BarCloud Integration &mdash; Inventory Automation</div>
+      <div class="task-desc">TOP PRIORITY. AGM-driven workflow: on install stage, fire webhook to Modal worker, write BarCloud Stock Issue with turf type + dye lot, push draw record back to AGM + SF. Exec memo sent to Tim + Troy Apr 9 &mdash; significant scope. First step: BOM schema + dye lot data model in AGM. No canonical bill of materials exists at HG today &mdash; this build forces a canonical turf-type &rarr; materials map to exist for the first time. BarCloud API has no webhooks (pull-only). Eliminates manual BarCloud entry by office staff.</div>
+    </div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/10tyXtR-3YMY3xeZnc6YLm-TXr_W3lG5BGkaqZvtBMLE/edit">Exec Memo (Google Doc)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/client-integrations-pipeline-21e5cf753ce1">Linear: Client Integrations Pipeline</a><br><span class="meta-text">Top priority · Exec memo sent Apr 9</span></div>
+  </article>
+
   <article class="task p-later">
     <div class="task-body">
       <div class="task-name"><span class="priority later">Later</span>Sprint 3 #4 &mdash; Third-party pen test (deferred)</div>
@@ -1064,7 +1064,7 @@
   </article>
   </div>
   <details class="completed-fold">
-    <summary>1 completed in this category &mdash; show</summary>
+    <summary>2 completed in this category &mdash; show</summary>
     <div class="cat-items completed-items">
   <article class="task p-done done-row">
     <div class="task-body">
@@ -1072,6 +1072,14 @@
       <div class="task-desc">Architecture migration shipped Apr 27. execution/lib/ package now provides 9 modules (credentials, email, slack, paths, retry, state, cost_tracker, remediation, __init__). 30 local scripts migrated to shared credentials library (commit 9f82e54). All hardcoded absolute paths removed for machine-agnostic resolution (commit 7f635b2). 37 files now import from execution.lib. Self-healing layers + cost tracking + token health all built on the shared foundation.</div>
     </div>
     <div class="task-meta"><span class="meta-text">Apr 27 &mdash; architecture migration · 9 lib modules · 30+ scripts migrated</span></div>
+  </article>
+
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>Jobber Developer Onboarding Call &mdash; May 6, 9 AM PT</div>
+      <div class="task-desc">TODAY. Developer onboarding call with Jobber team (Liam) at 9:00 AM PT. Engineering ALL GREEN (8 bugs fixed, live drill passed Apr 7). Partnership channel active. Demo prep status to verify before call: support@agmprotools.com inbox, 5 screenshots, Loom demo video, privacy policy URL, ToS URL, app icon 512x512.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">TODAY May 6, 9 AM PT · Live call with Liam</span></div>
   </article>
     </div>
   </details>
@@ -1083,20 +1091,12 @@
     <span class="cat-count">12 active</span>
   </header>
   <div class="cat-items">
-  <article class="task p-now">
+  <article class="task p-next">
     <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Product Mission Control &mdash; Phase 1: Dispatch shell</div>
+      <div class="task-name"><span class="priority next">Next</span>Product Mission Control &mdash; Phase 1: Dispatch shell</div>
       <div class="task-desc">First contractor-facing product surface. Mobile-first single feed: what AGM did for them overnight &mdash; leads created, contacts updated, follow-ups fired, jobs flagged, alerts triggered. Read-only to start. The killer demo and the foundation Phases 2-5 hang on. Back-end (Modal logs, Slack, Telegram) already firing; front-end is greenfield. ~2-3 days for first pilot with HG as tenant 1. Architectural inspiration: Julia McCoy&#x27;s closed-loop personal operating system, productized one layer down for contractors (wearables explicitly OUT of scope per Troy 2026-05-22).</div>
     </div>
     <div class="task-meta"><a href="https://linear.app/agmprotools/issue/AGM-110/phase-1-dispatch-shell-what-agm-did-overnight">Linear AGM-110</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/agm-pro-tools-product-mission-control-11081209f086">Linear: AGM Pro Tools — Product Mission Control</a><br><span class="meta-text">May 22 · Front-end greenfield · Back-end already firing · Linear AGM-110 (Urgent)</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Speaking Opportunities &mdash; Conferences, Podcasts, Events</div>
-      <div class="task-desc">Curated dossier of 30+ speaking opportunities for Troy to position AGM Pro Tools. Covers industry conferences (Lawn &amp; Landscape Tech Conference, Service World Expo, Equip Exposition, PestWorld), SaaS events (SaaStr, SaaS North), 20+ podcasts (Tommy Mello, Jobber, Owned and Operated, Landscape Disruptors), and local events (Phoenix/Austin expos). Three pitch angles by audience type. Several have OPEN speaker applications now &mdash; Lawn &amp; Landscape Tech Conference (Jul, Scottsdale) is the slam dunk.</div>
-    </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1bDPSRwbIZF3m0SwQND45F-J4IMeeplqSG_Y_CHYQ6EY/edit">Full Dossier (Google Doc)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/agm-sales-and-marketing-funnel-7b71df16c09c">Linear: AGM Sales &amp; Marketing Funnel</a><br><span class="meta-text">Apr 24 · Multiple open deadlines · SaaS North: Jun 30</span></div>
   </article>
 
   <article class="task p-next">
@@ -1113,6 +1113,14 @@
       <div class="task-desc">Onboarding step: contractor records 30 min of audio, system clones via ElevenLabs (pipeline already wired for HG reps). Every AI-drafted email/SMS goes out in their voice and cadence. The moat &mdash; Hatch / Service Titan can&#x27;t get here without rebuilding their stack. Brand boundary enforcement critical: voice replies fire only on contractor&#x27;s own rail, never AGM&#x27;s. Parallelizable with Phase 2 (different surface).</div>
     </div>
     <div class="task-meta"><a href="https://linear.app/agmprotools/issue/AGM-112/phase-3-voice-cloned-reply-engine">Linear AGM-112</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/agm-pro-tools-product-mission-control-11081209f086">Linear: AGM Pro Tools — Product Mission Control</a><br><span class="meta-text">Parallel to Phase 2 · ~5-7 days · Linear AGM-112 (Medium)</span></div>
+  </article>
+
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>Speaking Opportunities &mdash; Conferences, Podcasts, Events</div>
+      <div class="task-desc">Curated dossier of 30+ speaking opportunities for Troy to position AGM Pro Tools. Covers industry conferences (Lawn &amp; Landscape Tech Conference, Service World Expo, Equip Exposition, PestWorld), SaaS events (SaaStr, SaaS North), 20+ podcasts (Tommy Mello, Jobber, Owned and Operated, Landscape Disruptors), and local events (Phoenix/Austin expos). Three pitch angles by audience type. Several have OPEN speaker applications now &mdash; Lawn &amp; Landscape Tech Conference (Jul, Scottsdale) is the slam dunk.</div>
+    </div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1bDPSRwbIZF3m0SwQND45F-J4IMeeplqSG_Y_CHYQ6EY/edit">Full Dossier (Google Doc)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/agm-sales-and-marketing-funnel-7b71df16c09c">Linear: AGM Sales &amp; Marketing Funnel</a><br><span class="meta-text">Apr 24 · Multiple open deadlines · SaaS North: Jun 30</span></div>
   </article>
 
   <article class="task p-next">
@@ -1184,9 +1192,17 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Heavenly Greens &mdash; SF Automation Rebuild</span>
-    <span class="cat-count">9 active &middot; 2 done</span>
+    <span class="cat-count">10 active &middot; 2 done</span>
   </header>
   <div class="cat-items">
+  <article class="task p-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority now">Now</span>SF OAuth Client Credentials Migration</div>
+      <div class="task-desc">Eliminate SOAP-as-Troy auth from 11 backend scripts. Move HG SF surface to OAuth Client Credentials Flow with dedicated integration user. Zero-downtime plan, shadow-auth first, contract engine cuts LAST. Linear: SF OAuth Client Credentials Migration (Urgent). Demoted from emergency to tracked priority after 2026-05-20 reframe &mdash; 5/19 freeze hit Sherrie, not Tscott. Summer &#x27;27 SOAP retirement makes this a forced migration eventually.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/sf-oauth-client-credentials-migration-416a261d754a">Linear: SF OAuth Client Credentials Migration</a><br><span class="meta-text">Linear Urgent · 11 scripts to migrate · Target: a focused sprint week</span></div>
+  </article>
+
   <article class="task p-next">
     <div class="task-body">
       <div class="task-name"><span class="priority next">Next</span>Gap #1 &mdash; Automated Welcome Email on Contract Approved</div>
@@ -1493,14 +1509,6 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
     <span class="cat-count">4 active &middot; 1 done</span>
   </header>
   <div class="cat-items">
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Weekly Intelligence Report</div>
-      <div class="task-desc">Automated delivery DARK since Mar 27 (18 days). Content pipeline Echo stage (Modal cron content_pipeline_scheduled, Tue 5 AM PT) fires but skips with &quot;no trends file&quot; &mdash; Monday Scout not persisting to /tokens/flywheel/monthly_trends.md. Last publish_request: 2026-03-27_214245. Morning triage: Modal logs + volume inspection. See docs/NEXT_SESSION.md top priority.</div>
-    </div>
-    <div class="task-meta"><span class="meta-text">BROKEN since Mar 27 · 269 subscribers impacted</span></div>
-  </article>
-
   <article class="task p-recurring">
     <div class="task-body">
       <div class="task-name"><span class="priority recurring">Recurring</span>Daily Chapter Recording</div>
@@ -1515,6 +1523,14 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
       <div class="task-desc">AI-powered email briefing with one-click archive. Live for Troy + Tim. Embeds system health. Daily automated run.</div>
     </div>
     <div class="task-meta"><span class="meta-text">Daily</span></div>
+  </article>
+
+  <article class="task p-recurring">
+    <div class="task-body">
+      <div class="task-name"><span class="priority recurring">Recurring</span>Weekly Intelligence Report</div>
+      <div class="task-desc">Automated delivery DARK since Mar 27 (18 days). Content pipeline Echo stage (Modal cron content_pipeline_scheduled, Tue 5 AM PT) fires but skips with &quot;no trends file&quot; &mdash; Monday Scout not persisting to /tokens/flywheel/monthly_trends.md. Last publish_request: 2026-03-27_214245. Morning triage: Modal logs + volume inspection. See docs/NEXT_SESSION.md top priority.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">BROKEN since Mar 27 · 269 subscribers impacted</span></div>
   </article>
 
   <article class="task p-recurring">
@@ -1800,7 +1816,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
 
 <div class="footer">
   True North &mdash; AGM Pro Tools<br>
-  Updated 2026-05-22 by Harlan (AGM Pro Tools — Product Mission Control initiative seeded; Julia McCoy closed-loop pattern productized for contractors; 5-phase Linear project + True North entries created)<br>
+  Updated 2026-05-25 by Harlan / 2026-05-25 Memorial Day re-rack<br>
   Single source of truth for everything in flight.
 </div>
 

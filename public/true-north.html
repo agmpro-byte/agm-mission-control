@@ -656,7 +656,7 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Enforcement Layer &mdash; Hooks Over Prompts</span>
-    <span class="cat-count">2 active &middot; 3 done</span>
+    <span class="cat-count">3 active &middot; 3 done</span>
   </header>
   <div class="cat-items">
   <article class="task p-queued">
@@ -673,6 +673,14 @@
       <div class="task-desc">Hook captures every tool call to JSONL; Haiku distiller surfaces repeated corrections (3+) into confidence-scored, client-scoped memory files with decay. The real build &mdash; its own sprint. Sources: ecc_refs/observe.sh, observer-loop.sh, instinct-cli.py.</div>
     </div>
     <div class="task-meta"><a href="https://linear.app/agmprotools/issue/AGM-127">AGM-127</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/the-enforcement-layer-0c7e02de7808">Linear: The Enforcement Layer</a><br><span class="meta-text">Own sprint · no creds</span></div>
+  </article>
+
+  <article class="task p-do">
+    <div class="task-body">
+      <div class="task-name"><span class="priority do">Do</span>WS-6 &mdash; Observability branch (monitoring = enforcement)</div>
+      <div class="task-desc">Fold monitoring into the Enforcement Layer. WS-6a SHIPPED: scheduled pre_deploy_check --audit-all weekly via LaunchAgent + Slack alert on drift/crash (first audit 41/0 clean). Next: meta-monitor the auditor + WS-6b synthetic alarm tests (make the green earn the green). Born from the silent morning_inbox_cleanup cron triage.</div>
+    </div>
+    <div class="task-meta"><a href="https://linear.app/agmprotools/issue/AGM-128">AGM-128</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/the-enforcement-layer-0c7e02de7808">Linear: The Enforcement Layer</a><br><span class="meta-text">WS-6a shipped 2026-06-02 · AGM-129 · own follow-ups</span></div>
   </article>
   </div>
   <details class="completed-fold">

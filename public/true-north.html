@@ -315,7 +315,7 @@
 
 <h1>True North</h1>
 <p class="subtitle">AGM Pro Tools &mdash; everything in flight, prioritized</p>
-<p class="datestamp">Last updated: 2026-05-25</p>
+<p class="datestamp">Last updated: 2026-06-02</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
@@ -323,7 +323,7 @@
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
   <div class="stat accent"><div class="stat-value">7</div><div class="stat-label">Now</div></div>
   <div class="stat"><div class="stat-value">43</div><div class="stat-label">Next</div></div>
-  <div class="stat"><div class="stat-value">98</div><div class="stat-label">Active Total</div></div>
+  <div class="stat"><div class="stat-value">99</div><div class="stat-label">Active Total</div></div>
 </div>
 
 <div class="filter-bar" id="filterBar">
@@ -651,6 +651,54 @@
   </article>
     </div>
   </details>
+</section>
+
+<section class="category">
+  <header class="cat-header">
+    <span class="cat-title">Enforcement Layer &mdash; Hooks Over Prompts</span>
+    <span class="cat-count">5 active</span>
+  </header>
+  <div class="cat-items">
+  <article class="task p-queued">
+    <div class="task-body">
+      <div class="task-name"><span class="priority queued">Queued</span>WS-5 &mdash; Cost visibility + silent-failure pass</div>
+      <div class="task-desc">CostTracker dataclass + PostToolUse-&gt;SQLite (first dollar figure we have; keeps Opus mandate). silent-failure-hunter as pre-deploy review pass. Optional: agent-frontmatter tool/model scoping for Briggs.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Incremental</span></div>
+  </article>
+
+  <article class="task p-do-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority do-now">Do-now</span>WS-1 &mdash; Prompt Defense Baseline</div>
+      <div class="task-desc">6-line anti-injection preamble on every directive + Harlan/Briggs/Andrew persona across CLAUDE.md/AGENTS.md/GEMINI.md. Closes the no-injection-defense gap for agents that read foreign email/PDF/web with credentials loaded.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Afternoon · no creds</span></div>
+  </article>
+
+  <article class="task p-do-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority do-now">Do-now</span>WS-2 &mdash; block-no-verify git hook</div>
+      <div class="task-desc">PreToolUse(Bash) hook blocking git commit --no-verify / -n / core.hooksPath overrides. Closes the one-flag bypass that defeats pre_deploy_check. Port from ecc_refs/block-no-verify.js.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Afternoon · no creds</span></div>
+  </article>
+
+  <article class="task p-do">
+    <div class="task-body">
+      <div class="task-name"><span class="priority do">Do</span>WS-3 &mdash; Council skill</div>
+      <div class="task-desc">Fresh-subagent anti-anchoring deliberation (Architect/Skeptic/Pragmatist/Critic given only the question, not the transcript). Mechanism for the no-self-anchoring rule. Port from ecc_refs/council_SKILL.md.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">~1 day · no creds</span></div>
+  </article>
+
+  <article class="task p-do">
+    <div class="task-body">
+      <div class="task-name"><span class="priority do">Do</span>WS-4 &mdash; Passive-learning engine</div>
+      <div class="task-desc">Hook captures every tool call to JSONL; Haiku distiller surfaces repeated corrections (3+) into confidence-scored, client-scoped memory files with decay. The real build &mdash; its own sprint. Sources: ecc_refs/observe.sh, observer-loop.sh, instinct-cli.py.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Own sprint · no creds</span></div>
+  </article>
+  </div>
 </section>
 
 <section class="category">
@@ -1816,7 +1864,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
 
 <div class="footer">
   True North &mdash; AGM Pro Tools<br>
-  Updated 2026-05-25 by Harlan / 2026-05-25 Memorial Day re-rack<br>
+  Updated 2026-06-02 by Harlan / 2026-06-02 Enforcement Layer initiative<br>
   Single source of truth for everything in flight.
 </div>
 

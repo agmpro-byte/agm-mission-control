@@ -322,8 +322,8 @@
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Prospects</div></div>
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
   <div class="stat accent"><div class="stat-value">7</div><div class="stat-label">Now</div></div>
-  <div class="stat"><div class="stat-value">43</div><div class="stat-label">Next</div></div>
-  <div class="stat"><div class="stat-value">99</div><div class="stat-label">Active Total</div></div>
+  <div class="stat"><div class="stat-value">44</div><div class="stat-label">Next</div></div>
+  <div class="stat"><div class="stat-value">100</div><div class="stat-label">Active Total</div></div>
 </div>
 
 <div class="filter-bar" id="filterBar">
@@ -656,9 +656,17 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Enforcement Layer &mdash; Hooks Over Prompts</span>
-    <span class="cat-count">3 active &middot; 3 done</span>
+    <span class="cat-count">3 active &middot; 4 done</span>
   </header>
   <div class="cat-items">
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>WS-4 &mdash; Passive-learning engine (HALTED at NOT-YET)</div>
+      <div class="task-desc">Circumference Protocol review (Council run #3) overturned the build TWICE: capture hook is the highest-risk component (raw credentialed-I/O log = day-one exposure); the diff IS content so metadata-only vs useful-signal is the undecided core. Verdict NOT-YET. Do not build tool-I/O capture. Pivot to validate: consent-based / non-PII capture (agent&#x27;s own correction-reasoning + marked operator corrections, never customer payload). See enforcement_layer.md Corrections #1+#2.</div>
+    </div>
+    <div class="task-meta"><a href="https://linear.app/agmprotools/issue/AGM-127">AGM-127</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/the-enforcement-layer-0c7e02de7808">Linear: The Enforcement Layer</a><br><span class="meta-text">⛔ NOT-YET · pivot to non-PII capture</span></div>
+  </article>
+
   <article class="task p-queued">
     <div class="task-body">
       <div class="task-name"><span class="priority queued">Queued</span>WS-5 &mdash; Cost visibility + silent-failure pass</div>
@@ -669,22 +677,14 @@
 
   <article class="task p-do">
     <div class="task-body">
-      <div class="task-name"><span class="priority do">Do</span>WS-4 &mdash; Passive-learning engine</div>
-      <div class="task-desc">Hook captures every tool call to JSONL; Haiku distiller surfaces repeated corrections (3+) into confidence-scored, client-scoped memory files with decay. The real build &mdash; its own sprint. Sources: ecc_refs/observe.sh, observer-loop.sh, instinct-cli.py.</div>
-    </div>
-    <div class="task-meta"><a href="https://linear.app/agmprotools/issue/AGM-127">AGM-127</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/the-enforcement-layer-0c7e02de7808">Linear: The Enforcement Layer</a><br><span class="meta-text">Own sprint · no creds</span></div>
-  </article>
-
-  <article class="task p-do">
-    <div class="task-body">
       <div class="task-name"><span class="priority do">Do</span>WS-6 &mdash; Observability branch (monitoring = enforcement)</div>
-      <div class="task-desc">Fold monitoring into the Enforcement Layer. WS-6a SHIPPED: scheduled pre_deploy_check --audit-all weekly via LaunchAgent + Slack alert on drift/crash (first audit 41/0 clean). Next: meta-monitor the auditor + WS-6b synthetic alarm tests (make the green earn the green). Born from the silent morning_inbox_cleanup cron triage.</div>
+      <div class="task-desc">Fold monitoring into the Enforcement Layer. WS-6a SHIPPED (audit 41/0). Red-team probes NOW scheduled weekly (com.agm.red-team-probes LaunchAgent, Slack-on-CRITICAL/HIGH, self-test verified) &mdash; closes the &#x27;red-team never took hold&#x27; gap. 🔴 TOP SECURITY FOLLOW-UP: posture audit is operationally dead (0/100, ~109 false new-script findings, 6 un-triaged CRITICAL unauth-endpoint flags = public Starter funnel) &mdash; advance the noise baseline + triage the 6 CRITICALs. Then: meta-monitor the auditor + WS-6b synthetic alarms. Cross-machine: install red-team probes on the Mac Mini (no creds needed) + Andrew&#x27;s Air.</div>
     </div>
-    <div class="task-meta"><a href="https://linear.app/agmprotools/issue/AGM-128">AGM-128</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/the-enforcement-layer-0c7e02de7808">Linear: The Enforcement Layer</a><br><span class="meta-text">WS-6a shipped 2026-06-02 · AGM-129 · own follow-ups</span></div>
+    <div class="task-meta"><a href="https://linear.app/agmprotools/issue/AGM-128">AGM-128</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/the-enforcement-layer-0c7e02de7808">Linear: The Enforcement Layer</a><br><span class="meta-text">WS-6a + red-team scheduled · audit-noise triage next · AGM-129</span></div>
   </article>
   </div>
   <details class="completed-fold">
-    <summary>3 completed in this category &mdash; show</summary>
+    <summary>4 completed in this category &mdash; show</summary>
     <div class="cat-items completed-items">
   <article class="task p-done done-row">
     <div class="task-body">
@@ -708,6 +708,14 @@
       <div class="task-desc">Fresh-subagent anti-anchoring deliberation (Architect/Skeptic/Pragmatist/Critic given only the question, not the transcript). Mechanism for the no-self-anchoring rule. Port from ecc_refs/council_SKILL.md.</div>
     </div>
     <div class="task-meta"><a href="https://linear.app/agmprotools/issue/AGM-126">AGM-126</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/the-enforcement-layer-0c7e02de7808">Linear: The Enforcement Layer</a><br><span class="meta-text">~1 day · no creds · SHIPPED 2026-06-02</span></div>
+  </article>
+
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>Circumference Protocol &mdash; 360° blast-radius decision gate</div>
+      <div class="task-desc">Born 2026-06-02 from the WS-4 review. directives/circumference_protocol.md + a High-Stakes Decision Gate trigger mirrored above Identity in CLAUDE/AGENTS/GEMINI. Forces a Council run + walks every blast-radius dimension (artifact-before-logic, data-at-rest, replication/trust boundaries, injection, credentialed reach, reversibility) &rarr; GO/NO-GO/GO-WITH-PREREQS verdict. &#x27;The feeling of being sure is the trigger, not the all-clear.&#x27; Already proved itself: produced the WS-4 NOT-YET overturns.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/the-enforcement-layer-0c7e02de7808">Linear: The Enforcement Layer</a><br><span class="meta-text">SHIPPED 2026-06-02 · commit 67a7d2b</span></div>
   </article>
     </div>
   </details>

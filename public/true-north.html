@@ -315,15 +315,15 @@
 
 <h1>True North</h1>
 <p class="subtitle">AGM Pro Tools &mdash; everything in flight, prioritized</p>
-<p class="datestamp">Last updated: 2026-06-02</p>
+<p class="datestamp">Last updated: 2026-06-03</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Prospects</div></div>
   <div class="stat"><div class="stat-value">$891</div><div class="stat-label">Monthly MRR</div></div>
-  <div class="stat accent"><div class="stat-value">7</div><div class="stat-label">Now</div></div>
+  <div class="stat accent"><div class="stat-value">10</div><div class="stat-label">Now</div></div>
   <div class="stat"><div class="stat-value">44</div><div class="stat-label">Next</div></div>
-  <div class="stat"><div class="stat-value">100</div><div class="stat-label">Active Total</div></div>
+  <div class="stat"><div class="stat-value">103</div><div class="stat-label">Active Total</div></div>
 </div>
 
 <div class="filter-bar" id="filterBar">
@@ -476,9 +476,33 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Multi-Track Contract Engine &mdash; Active Sprint</span>
-    <span class="cat-count">4 active &middot; 17 done</span>
+    <span class="cat-count">8 active &middot; 21 done</span>
   </header>
   <div class="cat-items">
+  <article class="task p-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority now">Now</span>HG-Direct: stand up test environment (NEXT &mdash; needs Troy GO)</div>
+      <div class="task-desc">2 credentialed-infra steps: Neon Postgres branch + contract-engine-pg-dev secret, _DEV binds it (invariant: dev never touches prod). Gates pricing + the 13-rep load test. Reuses CONTRACT_ENGINE_ENV=dev. Design §0h.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Next session · bridge design §0h</span></div>
+  </article>
+
+  <article class="task p-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority now">Now</span>HG-Direct: pricing workstream (deferred to test env)</div>
+      <div class="task-desc">Pricing is per-deal on 20,648 OpportunityLineItems (catalog/PricebookEntry all $0; units inverted: Quantity=sqft, UnitPrice=line total). Build Python pricing engine, derive default per-unit rates = median(UnitPrice/Quantity), validate via replay harness. Model: turf $/sqft, edging $/lf, discrete $/each.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">After test env</span></div>
+  </article>
+
+  <article class="task p-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority now">Now</span>HG-Direct: 13-rep concurrency load-test gate</div>
+      <div class="task-desc">Extend signing_concurrent_write_canary to simulate 13 reps submitting + N signing concurrently against the test env. MANDATORY gate before any rep rollout (design §0g).</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Gate before rollout</span></div>
+  </article>
+
   <article class="task p-next">
     <div class="task-body">
       <div class="task-name"><span class="priority next">Next</span>AGM HG Contracts &mdash; HG-direct Contract Engine Build</div>
@@ -510,9 +534,17 @@
     </div>
     <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">Linear: HG Costco Operations</a><br><span class="meta-text">5 of 11 shipped | 1 killed | 2 blocked on Tim | 3 attackable (5/6/11) | Andrew validation pending on 1+2</span></div>
   </article>
+
+  <article class="task p-medium">
+    <div class="task-body">
+      <div class="task-name"><span class="priority medium">Medium</span>HG-Direct: builder UI + dynamic render</div>
+      <div class="task-desc">Builder launches from AGM contact (?id=) + hydrates, cascading catalog picker, qty entry -&gt; ContractDocument. Dynamic render: growing line-item table + §4.2 section-anchored signatures. Payment layer (deposit-&gt;milestone) gated on processor-connected fact (flagged to Andrew).</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">After slice proves</span></div>
+  </article>
   </div>
   <details class="completed-fold">
-    <summary>17 completed in this category &mdash; show</summary>
+    <summary>21 completed in this category &mdash; show</summary>
     <div class="cat-items completed-items">
   <article class="task p-done done-row">
     <div class="task-body">
@@ -648,6 +680,38 @@
       <div class="task-desc">Drop hashed basename caption from Site Videos tiles. Per-upload category picker (B) + AI auto-classify (C) revisit after a week of real upload traffic.</div>
     </div>
     <div class="task-meta"><span class="meta-text">Shipped 2026-04-26 commit b783366</span></div>
+  </article>
+
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>HG-Direct: infra-verified architecture (§0f)</div>
+      <div class="task-desc">Decision settled: our engine authors (catalog+line-item+pricing+render+sign); AGM is system-of-record + payment rail, NOT author. Verified AGM Products have no unit/category/cost, estimates aren&#x27;t legal contracts, pricing can&#x27;t live in workflows.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Jun 3 · bridge design §0f, commit d9db901</span></div>
+  </article>
+
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>HG-Direct: line-item ContractDocument keystone</div>
+      <div class="task-desc">line_items.py &mdash; LineItem + ContractDocument (the single front-door-agnostic seam) + ContractData.to_line_items()/to_contract_document() Costco adapter. 30 tests pass. Additive, no prod change.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Jun 3 · commit 82677fd</span></div>
+  </article>
+
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>HG-Direct: catalog draft (190 products)</div>
+      <div class="task-desc">build_hg_catalog.py -&gt; data/hg_catalog_draft.json. 190 usable SF products auto-categorized (66 high/111 medium/13 low). 13 &#x27;other&#x27; oddballs need Troy&#x27;s category (possible new &#x27;ground cover&#x27; category).</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Jun 3 · commit dc2f88f</span></div>
+  </article>
+
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>Contract engine: job-number concurrency race FIXED + DEPLOYED</div>
+      <div class="task-desc">mint() read-modify-write produced silent duplicate job numbers under PG+autoscale (BEGIN IMMEDIATE skipped on PG). Fixed with atomic INSERT...ON CONFLICT...counter+1 RETURNING. 80 concurrent -&gt; 0 dupes. Live in prod.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Jun 3 · commit 7100bb0/eb43cfc</span></div>
   </article>
     </div>
   </details>
@@ -1884,7 +1948,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
 
 <div class="footer">
   True North &mdash; AGM Pro Tools<br>
-  Updated 2026-06-02 by Harlan / 2026-06-02 Enforcement Layer initiative<br>
+  Updated 2026-06-03 by Harlan / 2026-06-03 HG-Direct contract engine kickoff<br>
   Single source of truth for everything in flight.
 </div>
 

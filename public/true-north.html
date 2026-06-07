@@ -326,6 +326,10 @@
   .ps-date { font-size: 10.5px; color: var(--text-dim); }
   .ps-noissue { font-style: italic; color: var(--text-dim); }
   .ps-drift-chip { font-size: 12px; cursor: help; }
+  .ps-rank { font-size: 11px; font-weight: 800; color: var(--text-mute); min-width: 18px; text-align: right; font-variant-numeric: tabular-nums; }
+  .ps-glyph { font-size: 11px; }
+  .ps-promo { font-size: 10px; font-weight: 800; color: #34d399; background: rgba(52,211,153,0.12); border-radius: 4px; padding: 1px 6px; letter-spacing: .02em; cursor: help; }
+  .ps-row-promoted { background: rgba(52,211,153,0.05); box-shadow: inset 2px 0 0 #34d399; }
   .ps-gating { margin: 4px 0 2px 2px; }
   .ps-gating > summary { cursor: pointer; font-size: 10.5px; color: var(--text-dim); list-style: none; }
   .ps-gating ul { margin: 5px 0 4px; padding-left: 18px; }
@@ -366,7 +370,7 @@
 
 <h1>True North</h1>
 <p class="subtitle">AGM Pro Tools &mdash; everything in flight, prioritized</p>
-<p class="datestamp">Last updated: 2026-06-06</p>
+<p class="datestamp">Last updated: 2026-06-07</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
@@ -388,11 +392,12 @@
 <section class="priority-stack">
   <header class="ps-header">
     <span class="ps-title">Operational Priority Stack</span>
-    <span class="ps-sub">live from Linear &middot; bands by status, ranked by leverage</span>
+    <span class="ps-sub">live from Linear &middot; ranked by leverage (heat &times; what it unblocks)</span>
   </header>
   <details class="ps-drift" open><summary>⚠ Needs your attention <span class="ps-drift-count">4</span></summary><ul><li><a href="https://linear.app/agmprotools/project/hg-contract-engine-sf-bridge-agm-native-builder-4abdf033e726">HG Contract Engine — SF Bridge + AGM-Native Builder</a> — In Progress but has 0 sub-issues — untracked. Decompose it?</li><li><a href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Launchpad — Quiz → Automation Score → Closed Won</a> — Marked Urgent but sitting in Backlog with nothing started.</li><li><a href="https://linear.app/agmprotools/project/sf-oauth-client-credentials-migration-416a261d754a">SF OAuth Client Credentials Migration</a> — Marked Urgent but sitting in Backlog with nothing started.</li><li><a href="https://linear.app/agmprotools/project/sf-oauth-client-credentials-migration-416a261d754a">SF OAuth Client Credentials Migration</a> — Past target date 2026-05-22 — reschedule or close.</li></ul></details>
-  <div class="ps-band ps-now"><div class="ps-band-head"><span class="ps-band-label">🔴 Igniting now</span><span class="ps-band-hint">Actively in progress — bring these online</span><span class="ps-band-n">6</span></div><div class="ps-row">
+  <div class="ps-list"><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">1</span><span class="ps-glyph">🔴</span>
       <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/the-enforcement-layer-0c7e02de7808">The Enforcement Layer</a>
     </div>
@@ -400,6 +405,7 @@
     <details class="ps-gating"><summary>gating (3)</summary><ul><li>AGM-129 [High] WS-6 — Observability branch (scheduled audit + synthetic alarms)</li><li>AGM-127 [Medium] WS-4 — Passive-learning engine (hook → JSONL → Haiku distiller → confidence-scored memory)</li><li>AGM-128 [Low] WS-5 — Cost visibility + silent-failure pass</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">2</span><span class="ps-glyph">🔴</span>
       <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-urgent">Urgent</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/hg-contract-engine-sf-bridge-agm-native-builder-4abdf033e726">HG Contract Engine — SF Bridge + AGM-Native Builder</a><span class="ps-drift-chip" title="In Progress but has 0 sub-issues — untracked. Decompose it?">⚠</span>
     </div>
@@ -407,6 +413,7 @@
     
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">3</span><span class="ps-glyph">🔴</span>
       <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/happywater-usa-headless-standalone-build-outside-the-system-313d7177609b">HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)</a>
     </div>
@@ -414,6 +421,7 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-137 [High] Architecture: single-source-of-truth data contract (GHL vs AGM domains)</li><li>AGM-136 [High] Discovery: collect HappyWater intake (brand, system catalog + pricing, specialist roster, prospect CSV)</li><li>AGM-135 [High] Provision AGM-branded headless sub-account for HappyWater (white-label platform layer)</li><li>AGM-133 [High] Baseline CAS dashboard (headless, native GHL/AGM metrics) — v1 lean cockpit / &quot;clean pipes&quot;</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">4</span><span class="ps-glyph">🔴</span>
       <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">HG Costco Operations</a>
     </div>
@@ -421,6 +429,7 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-25 [High] HG Costco Contract Engine — Anthony Punch List</li><li>HGP-23 [High] HG Costco Staffing Plan</li><li>HGP-22 [High] HG Costco Training Deck — Completion</li><li>HGP-21 [High] HG Multi-Rep Capability — Costco Lead Coverage</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">5</span><span class="ps-glyph">🔴</span>
       <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/hg-contract-engine-phase-4bc-lifecycle-f476424dba33">HG Contract Engine — Phase 4B/C + Lifecycle</a>
     </div>
@@ -428,34 +437,31 @@
     <details class="ps-gating"><summary>gating (4)</summary><ul><li>HGP-18 [High] Installer Packet — Video thumbnails on tile buttons</li><li>HGP-17 [High] Phase 4B/C — Lifecycle clock + customer cadences + per-rep daily digest</li><li>HGP-20 [Medium] Andrew — 4 AGM custom field IDs (Drawing PDF, Walkthrough Video, Change Order PDFs, Waiver PDFs)</li><li>HGP-19 [Medium] AGM HG Contracts — HG-direct Contract Engine Build (beyond Costco)</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">6</span><span class="ps-glyph">🔴</span>
       <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/jobber-app-marketplace-path-b-build-sprint-31e2c40987db">Jobber App Marketplace — Path B Build Sprint</a>
     </div>
     <div class="ps-row-meta"><span class="ln-bar" title="0/16 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/16</span></div>
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-122 [Urgent] Step 8 — End-to-end verification post-launch</li><li>AGM-121 [Urgent] Step 7 — Submit Jobber Marketplace listing</li><li>AGM-120 [Urgent] Step 6 — HG beta validation pass</li><li>AGM-119 [Urgent] Step 5 — Quiz/Checkout bridge</li></ul></details>
-  </div></div><div class="ps-band ps-scheduled"><div class="ps-band-head"><span class="ps-band-label">🟠 Scheduled</span><span class="ps-band-hint">Planned — queued to start</span><span class="ps-band-n">3</span></div><div class="ps-row">
+  </div><div class="ps-row ps-row-promoted">
     <div class="ps-row-main">
+      <span class="ps-rank">7</span><span class="ps-glyph">🟠</span>
       <span class="ln-pill ln-planned">Planned</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/hgcostco-commission-sheet-automation-f9a561325f8b">HG/Costco Commission Sheet Automation</a>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/hgcostco-commission-sheet-automation-f9a561325f8b">HG/Costco Commission Sheet Automation</a><span class="ps-promo" title="Promoted by leverage — gates: HG Contract Engine — Phase 4B/C + Lifecycle">↑ gates HG Contract Engine — Phase 4B/C + Lifecycle</span>
     </div>
     <div class="ps-row-meta"><span class="ln-bar" title="0/4 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/4</span></div>
     <details class="ps-gating"><summary>gating (4)</summary><ul><li>HGP-9 [High] Build generate_commission_sheet(session_id) Modal function</li><li>HGP-8 [High] Wire 3 flags into contract engine (Costco / rep-tier / install-condition)</li><li>HGP-7 [High] Awaiting Tim — 4 commission-sheet validation questions</li><li>HGP-10 [Medium] Per-rep daily digest — fold into Phase 4B/C lifecycle work</li></ul></details>
+  </div><div class="ps-row ps-row-promoted">
+    <div class="ps-row-main">
+      <span class="ps-rank">8</span><span class="ps-glyph">⚪</span>
+      <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-urgent">Urgent</span>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Launchpad — Quiz → Automation Score → Closed Won</a><span class="ps-drift-chip" title="Marked Urgent but sitting in Backlog with nothing started.">⚠</span><span class="ps-promo" title="Promoted by leverage — gates: HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)">↑ gates HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)</span>
+    </div>
+    <div class="ps-row-meta"><span class="ln-bar" title="0/7 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></div>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-44 [Urgent] Stream B / Gap 4 chunk 2 — Stripe wiring + STARTER pipeline</li><li>AGM-43 [Urgent] End-to-End Test — Form to Dashboard</li><li>AGM-42 [Urgent] Automation Score Funnel — Quiz → Nurture → Launchpad → Closed Won</li><li>AGM-41 [Urgent] Golden Template — Turf (first industry)</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
-      <span class="ln-pill ln-planned">Planned</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/hg-live-production-board-77a22d3328d0">HG Live Production Board</a>
-    </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="0/10 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/10</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-46 [High] Production auth + hosting (authed Modal endpoint)</li><li>HGP-45 [High] Stage write-back actions → AGM / Salesforce</li><li>HGP-43 [High] Define the Area (1–5) source field</li><li>HGP-40 [High] Wire in Payments → Charging Queue ledger (Not-Paid + balance)</li></ul></details>
-  </div><div class="ps-row">
-    <div class="ps-row-main">
-      <span class="ln-pill ln-planned">Planned</span><span class="ps-prio ps-prio-medium">Medium</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/hg-workflow-gaps-accounting-automation-c5ee379bcf50">HG Workflow Gaps + Accounting Automation</a>
-    </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="0/12 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/12</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-35 [High] HG AGM Email/SMS Triage — Sender Identity Audit</li><li>HGP-33 [High] HG Accounting Automation — 3-Phase Plan (awaiting Tim scoping)</li><li>HGP-28 [High] Gap #3 — Post-Install Thank-You + Review Request</li><li>HGP-27 [High] Gap #2 — Post-Deposit Nurture Sequence</li></ul></details>
-  </div></div><div class="ps-band ps-queued"><div class="ps-band-head"><span class="ps-band-label">⚪ Queued</span><span class="ps-band-hint">Backlog — not yet started</span><span class="ps-band-n">11</span></div><div class="ps-row">
-    <div class="ps-row-main">
+      <span class="ps-rank">9</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-urgent">Urgent</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/sf-oauth-client-credentials-migration-416a261d754a">SF OAuth Client Credentials Migration</a><span class="ps-drift-chip" title="Marked Urgent but sitting in Backlog with nothing started. · Past target date 2026-05-22 — reschedule or close.">⚠</span>
     </div>
@@ -463,13 +469,23 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-8 [Urgent] Per-script cutover — flip 10 scripts to OAuth (contract engine LAST)</li><li>AGM-7 [Urgent] Build execution/lib/salesforce.py + pre_deploy_check Check 17 + shadow-auth wrapper</li><li>AGM-6 [Urgent] SF Setup: integration user + External Client App + Permission Set</li><li>AGM-5 [Urgent] SObject enumeration scan + send Troy permission set list</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
-      <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-urgent">Urgent</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Launchpad — Quiz → Automation Score → Closed Won</a><span class="ps-drift-chip" title="Marked Urgent but sitting in Backlog with nothing started.">⚠</span>
+      <span class="ps-rank">10</span><span class="ps-glyph">🟠</span>
+      <span class="ln-pill ln-planned">Planned</span><span class="ps-prio ps-prio-high">High</span>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/hg-live-production-board-77a22d3328d0">HG Live Production Board</a>
     </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="0/7 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-44 [Urgent] Stream B / Gap 4 chunk 2 — Stripe wiring + STARTER pipeline</li><li>AGM-43 [Urgent] End-to-End Test — Form to Dashboard</li><li>AGM-42 [Urgent] Automation Score Funnel — Quiz → Nurture → Launchpad → Closed Won</li><li>AGM-41 [Urgent] Golden Template — Turf (first industry)</li></ul></details>
+    <div class="ps-row-meta"><span class="ln-bar" title="0/10 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/10</span></div>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-46 [High] Production auth + hosting (authed Modal endpoint)</li><li>HGP-45 [High] Stage write-back actions → AGM / Salesforce</li><li>HGP-43 [High] Define the Area (1–5) source field</li><li>HGP-40 [High] Wire in Payments → Charging Queue ledger (Not-Paid + balance)</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">11</span><span class="ps-glyph">🟠</span>
+      <span class="ln-pill ln-planned">Planned</span><span class="ps-prio ps-prio-medium">Medium</span>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/hg-workflow-gaps-accounting-automation-c5ee379bcf50">HG Workflow Gaps + Accounting Automation</a>
+    </div>
+    <div class="ps-row-meta"><span class="ln-bar" title="0/12 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/12</span></div>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-35 [High] HG AGM Email/SMS Triage — Sender Identity Audit</li><li>HGP-33 [High] HG Accounting Automation — 3-Phase Plan (awaiting Tim scoping)</li><li>HGP-28 [High] Gap #3 — Post-Install Thank-You + Review Request</li><li>HGP-27 [High] Gap #2 — Post-Deposit Nurture Sequence</li></ul></details>
+  </div><div class="ps-row">
+    <div class="ps-row-main">
+      <span class="ps-rank">12</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/agm-pro-tools-product-mission-control-11081209f086">AGM Pro Tools — Product Mission Control</a>
     </div>
@@ -477,6 +493,7 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-110 [Urgent] Phase 1 — Dispatch shell (&quot;What AGM did overnight&quot;)</li><li>AGM-111 [High] Phase 2 — Approval / redirect layer</li><li>AGM-114 [Medium] Phase 5 — Proactive briefing layer</li><li>AGM-113 [Medium] Phase 4 — Subscriber-pulse content engine</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">13</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/fieldroutes-marketplace-headless-build-ea4e9e27fa97">FieldRoutes Marketplace + Headless Build</a>
     </div>
@@ -484,6 +501,7 @@
     <details class="ps-gating"><summary>gating (4)</summary><ul><li>AGM-59 [High] AGM Pricing Reframe sprint (2026-05-06 origin)</li><li>AGM-57 [High] AGM Pro Tools for FieldRoutes — Headless Onboarding</li><li>AGM-56 [High] FieldRoutes Marketplace Listing (mirror of Jobber path)</li><li>AGM-58 [Medium] Activation Monitoring Build</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">14</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-medium">Medium</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-queued-c2775ee853d3">Level 3 Outcome-Feedback Bandit (queued)</a>
     </div>
@@ -491,6 +509,7 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-16 [Medium] Sprint 3 (3 wk) — Pattern generalization to execution/lib/bandit/</li><li>HGP-15 [Medium] Sprint 2 (3 wk) — Routing live on signing-link email subject line</li><li>HGP-14 [Medium] Sprint 1 (2 wk) — Variant scaffolding + baseline backfill</li><li>HGP-13 [Medium] Define &quot;success&quot; honestly — 7-day leading + 60-day lagging metrics</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">15</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-medium">Medium</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Infrastructure &amp; Security Cleanup</a>
     </div>
@@ -498,6 +517,15 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-20 [High] Leak-vector forensics — 60-day Login History pull + cross-ref offboarding</li><li>AGM-18 [High] Deactivate former-employee SF System Admins (waiting on Tim&#x27;s CSV)</li><li>AGM-16 [High] Fix rotate_credential.py bug — preserves other keys when rotating one</li><li>AGM-17 [Medium] Build execution/rebuild_modal_secret.py from versioned manifest</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">16</span><span class="ps-glyph">⚪</span>
+      <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-medium">Medium</span>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/valley-wide-automation-go-live-fr-sertbo-47d3fb84514d">Valley-Wide Automation Go-Live (FR → SERTBO)</a>
+    </div>
+    <div class="ps-row-meta"><span class="ln-bar" title="0/10 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/10</span></div>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-144 [High] [Stage C] Troy GO/NO-GO sign-off — hard gate before any real send</li><li>AGM-141 [High] [Client decision] Consent handling + do-not-contact list</li><li>AGM-140 [High] [Client decision] Valley-Wide channel mix — SMS / email / hybrid</li><li>AGM-139 [High] [Build] Finish FR→SERTBO sync — conditional service_type write + active-only bulk-join backfill</li></ul></details>
+  </div><div class="ps-row">
+    <div class="ps-row-main">
+      <span class="ps-rank">17</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-medium">Medium</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/agm-sales-and-marketing-funnel-7b71df16c09c">AGM Sales &amp; Marketing Funnel</a>
     </div>
@@ -505,6 +533,7 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-87 [High] Prospecting Engine v1.2 — GBP Review-Velocity Enricher</li><li>AGM-79 [High] Speaking Opportunities — Conferences, Podcasts, Events</li><li>AGM-86 [Medium] Contractor Automation Score — LinkedIn GTM launch</li><li>AGM-84 [Medium] Verify hello@agmprotools.com</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">18</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-medium">Medium</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Content Flywheel + Build Log</a>
     </div>
@@ -512,6 +541,7 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-75 [High] Monthly Customer 3-Point Email — V2 Ready</li><li>AGM-72 [High] Content Flywheel — Restart</li><li>AGM-71 [High] The Build Log — Weekly Newsletter + YouTube Campaign</li><li>AGM-70 [High] Curation as Compound Interest — 5th Strategic Pillar</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">19</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-medium">Medium</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/client-integrations-pipeline-21e5cf753ce1">Client Integrations Pipeline</a>
     </div>
@@ -519,6 +549,7 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-61 [Urgent] HG BarCloud Integration — Inventory Automation</li><li>AGM-60 [High] Valleywide PestRoutes — Go Live</li><li>AGM-69 [Medium] Turf Prep — Method:CRM Integration</li><li>AGM-67 [Medium] Golden Mailer — Housecall Pro Integration</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">20</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-low">Low</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/on-the-radar-queued-initiatives-66d386df1a17">On the Radar — Queued Initiatives</a>
     </div>
@@ -526,13 +557,16 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-108 [Medium] AGM Opportunity Value Backfill</li><li>AGM-107 [Medium] Contract Engine Productization Strategy — Costco + HG-direct as two AGM products</li><li>AGM-105 [Medium] SF-to-AGM Migration — Batch Strategy</li><li>AGM-104 [Medium] Jobber Token Refresh — Distributed Lock</li></ul></details>
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-rank">21</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/content-flywheel-822ab134b105">Content Flywheel</a>
     </div>
     <div class="ps-row-meta"><span class="ln-bar" title="0/20 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/20</span></div>
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-23 [High] Layer A: Newsletter-as-a-Service — Troy decisions (9 open questions)</li><li>AGM-21 [High] Compound un-park decision — (a) memory pre-read / (b) seed Linear now / (c) park until SF ships</li><li>AGM-40 [Medium] Layer A: Weekly Newsletter pipeline — 5 stacked gaps (8 weeks dark since 2026-03-23)</li><li>AGM-39 [Medium] Layer B: Objections — standard rebuttals</li></ul></details>
-  </div></div><details class="ps-band ps-done"><summary><span class="ps-band-label">✅ Done / retired</span><span class="ps-band-n">2</span></summary><div class="ps-row">
+  </div></div>
+  <details class="ps-band ps-done"><summary><span class="ps-band-label">✅ Done / retired</span><span class="ps-band-n">2</span></summary><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-glyph">✅</span>
       <span class="ln-pill ln-completed">Completed</span><span class="ps-prio ps-prio-urgent">Urgent</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/centah-re-thread-bombardment-fix-048454a4f614">CENTAH &quot;Re:&quot; Thread Bombardment Fix</a>
     </div>
@@ -540,6 +574,7 @@
     
   </div><div class="ps-row">
     <div class="ps-row-main">
+      <span class="ps-glyph">✅</span>
       <span class="ln-pill ln-completed">Completed</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/laptop-builds-sprint-troy-andrew-d2f7d8dc3621">Laptop Builds Sprint (Troy + Andrew)</a>
     </div>
@@ -2177,7 +2212,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
 
 <div class="footer">
   True North &mdash; AGM Pro Tools<br>
-  Updated 2026-06-06 by sync_linear_to_true_north.py<br>
+  Updated 2026-06-07 by sync_linear_to_true_north.py<br>
   Single source of truth for everything in flight.
 </div>
 

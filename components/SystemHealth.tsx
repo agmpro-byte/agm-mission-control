@@ -231,7 +231,16 @@ export default function SystemHealth() {
   const heartbeats = data.heartbeats || {}
 
   // Filter out non-production clients (test-sandbox is an internal dev environment)
-  const clientEntries = Object.entries(clients).filter(([slug]) => slug !== 'test-sandbox')
+  // Explicit display order for the System Health grid. Any client not listed here
+  // falls to the end in its original key order.
+  const CLIENT_DISPLAY_ORDER = ['amazing-turf-lawn', 'dfw-turf', 'texas-turf', 'valleywide', 'heavenly-greens']
+  const clientEntries = Object.entries(clients)
+    .filter(([slug]) => slug !== 'test-sandbox')
+    .sort(([a], [b]) => {
+      const ia = CLIENT_DISPLAY_ORDER.indexOf(a)
+      const ib = CLIENT_DISPLAY_ORDER.indexOf(b)
+      return (ia === -1 ? Infinity : ia) - (ib === -1 ? Infinity : ib)
+    })
   const totalEvents = clientEntries.reduce((sum, [, c]) => sum + (c.processed_events_count || 0), 0)
   const totalToday = clientEntries.reduce((sum, [, c]) => sum + (c.injections_today || 0), 0)
   const totalWeek = clientEntries.reduce((sum, [, c]) => sum + (c.injections_this_week || 0), 0)

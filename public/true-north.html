@@ -369,7 +369,7 @@
 
 <h1>True North</h1>
 <p class="subtitle">AGM Pro Tools &mdash; everything in flight, prioritized</p>
-<p class="datestamp">Last updated: 2026-06-07</p>
+<p class="datestamp">Last updated: 2026-06-10</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
@@ -1594,9 +1594,17 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Heavenly Greens &mdash; SF Automation Rebuild</span>
-    <span class="cat-count">10 active &middot; 2 done</span>
+    <span class="cat-count">11 active &middot; 2 done</span>
   </header>
   <div class="cat-items">
+  <article class="task p-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority now">Now</span>HG Architecture Audit &mdash; Pass 1 Inventory complete</div>
+      <div class="task-desc">Full HG architecture map across AGM (1,512 inventory rows + 388 fields + 275 workflows), Salesforce (PENDING Harlan dump), AGM Pro Tools code (133 files classified), and external rails (37 Modal apps + S3). 20 customer-facing flows synthesized on Flows tab with overlap warnings, read-only dashboards tagged, HG-direct contract engine marked planned. Built 2026-06-09 by Andrew. Sister project to Troy&#x27;s HG Lead-Nurture &amp; Comms Consolidation &mdash; superset scope. Workbook: docs/hg_audit/architecture_audit_2026-06-09.xlsx. Pass 2 (interaction map) waits on Harlan SF dump (HGP-53).</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Linear: HG Architecture Audit (HGP project, Andrew lead) · 6 sub-issues: HGP-121..126, HGP-137 (Google OAuth setup) · Workbook: docs/hg_audit/architecture_audit_2026-06-09.xlsx · Pass 2 blocker: HGP-53 Harlan SF dump</span></div>
+  </article>
+
   <article class="task p-now">
     <div class="task-body">
       <div class="task-name"><span class="priority now">Now</span>SF OAuth Client Credentials Migration</div>
@@ -1961,10 +1969,18 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
   <details>
     <summary class="cat-header">
       <span class="cat-title">Recently Completed</span>
-      <span class="cat-count">31</span>
+      <span class="cat-count">32</span>
       <span class="cat-toggle">expand &darr;</span>
     </summary>
     <div class="cat-items">
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>Morning Discovery Loop &mdash; loop-engineering ignition</div>
+      <div class="task-desc">Local LaunchAgent wakes 05:00, reads live state (Linear source-of-truth + True North stack + handoffs + cron health + doc staleness), triages via maker-then-checker Opus pass, writes a dated briefing to NEXT_SESSION.md voiced at session start. Draft-and-queue; fires nothing credentialed. Shipped via Circumference Protocol (Council GO-WITH-PREREQS): cross-machine watchdog, draft cap, kill-criterion review 2026-07-09. Primary active on Office Mac. OPEN: Home Mac standby + Mac Mini watchdog install (Troy, tonight).</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Jun 10 · harlan_morning_discovery.py + LaunchAgents</span></div>
+  </article>
+
   <article class="task p-done done-row">
     <div class="task-body">
       <div class="task-name"><span class="priority done">Done</span>CO Current Scope panel &mdash; closed-conn rollup fix (commit f37f085)</div>
@@ -2218,7 +2234,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
 
 <div class="footer">
   True North &mdash; AGM Pro Tools<br>
-  Updated 2026-06-07 by Harlan<br>
+  Updated 2026-06-10 by Andrew (audit close-out)<br>
   Single source of truth for everything in flight.
 </div>
 

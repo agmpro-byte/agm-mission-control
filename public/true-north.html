@@ -722,9 +722,17 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Multi-Track Contract Engine &mdash; Active Sprint</span>
-    <span class="cat-count">8 active &middot; 21 done</span>
+    <span class="cat-count">9 active &middot; 22 done</span>
   </header>
   <div class="cat-items">
+  <article class="task p-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority now">Now</span>Level 3 Bandit &mdash; HGP-144 metric ratification (only Sprint 2 gate)</div>
+      <div class="task-desc">Ratify the 7-day leading metric before live routing. Census finding: surviving sessions sign &gt;90% in 7d (survivorship-biased) &mdash; sign-rate has thin headroom; proposal on HGP-144 is time-to-sign / viewed-within-48h. Shadow data accruing now will power-check both options.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-c2775ee853d3">Linear</a><br><span class="meta-text">Jun 12 · Troy ratifies</span></div>
+  </article>
+
   <article class="task p-now">
     <div class="task-body">
       <div class="task-name"><span class="priority now">Now</span>HG-Direct: stand up test environment (NEXT &mdash; needs Troy GO)</div>
@@ -790,8 +798,16 @@
   </article>
   </div>
   <details class="completed-fold">
-    <summary>21 completed in this category &mdash; show</summary>
+    <summary>22 completed in this category &mdash; show</summary>
     <div class="cat-items completed-items">
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>Level 3 Bandit &mdash; Sprint 1 shadow mode LIVE (2026-06-12)</div>
+      <div class="task-desc">Thompson-sampling selector records shadow subject-line assignments on every customer signing-link send; variant_assignments table in Neon; daily digest cron (stall alarm + Monday posteriors). Council-reviewed. HGP-143 waived by Troy. Next: verify first shadow row (HGP-140), then HGP-144 metric ratification is the only gate before Sprint 2 live routing.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-c2775ee853d3">Linear</a><br><span class="meta-text">Jun 12 · Shadow live in prod</span></div>
+  </article>
+
   <article class="task p-done done-row">
     <div class="task-body">
       <div class="task-name"><span class="priority done">Done</span>Phase 6 &mdash; SQLite &rarr; Neon Postgres migration (concurrency-fix sprint)</div>
@@ -1740,7 +1756,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Queued &mdash; On the Radar</span>
-    <span class="cat-count">17 active</span>
+    <span class="cat-count">16 active</span>
   </header>
   <div class="cat-items">
   <article class="task p-next">
@@ -1757,14 +1773,6 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
       <div class="task-desc">Audit-driven plan from 2026-05-19 session: turn the existing Content Flywheel infrastructure (Weekly Industry Report live, 51+ State of the System chapters, HG content-flywheel prototype repo with 3 layers built, Scout/Quill/Pixel/Echo agent specs never forked, parked Newsletter-as-a-Service and Multi-Tenant Newsletter specs, dormant blog-to-video + YouTube intelligence engines) into a curated compounding asset library inside the Linear Content Flywheel project. Layer A = unblock-stream epics over existing parked work. Layer B = 10-bucket curation library (Hooks/Demos/Stories/Frameworks/Case-Studies/Proofs/Quotes/Talking-Points/Visuals/Objections) populated from chapter archive + git log + Industry Report outputs. Briggs&#x27;s SKILL_flywheel_monitor.md gets a new Friday audit line item. 14 strategic memory files queued for read before un-parking. Plan captured in docs/NEXT_SESSION.md under &#x27;🟦 PARKED 2026-05-20 &mdash; Compound&#x27;. Un-park trigger: SF OAuth ships + CENTAH structurally fixed + Costco commission automation unblocked.</div>
     </div>
     <div class="task-meta"><a href="https://linear.app/agmprotools/project/content-flywheel-822ab134b105">Linear: Content Flywheel project</a> · <a href="../docs/NEXT_SESSION.md">NEXT_SESSION.md parked entry</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/on-the-radar-queued-initiatives-66d386df1a17">Linear: On the Radar — Queued Initiatives</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="1/22 issues done"><span class="ln-bar-fill" style="width:5%"></span></span><span class="ln-count">1/22</span></span><br><span class="meta-text">Parked 2026-05-19 · Off-hours canvas prep · Not competing with SF/CENTAH/Costco fires</span></div>
-  </article>
-
-  <article class="task p-queued">
-    <div class="task-body">
-      <div class="task-name"><span class="priority queued">Queued</span>Level 3 Outcome-Feedback Bandit (recursion-capability promotion)</div>
-      <div class="task-desc">Move AGM Pro Tools from Level 2 (structural enforcement) to Level 3 (bandit/exploitation) on the Vibe Thesis recursive-capability ladder. Wire Thompson-sampling bandit over signing-link email subject line &mdash; first axis. Substrate already in place: signing_pg.sql captures sent/viewed/signed/withdrawn/reminder timestamps + rep stratification. 3 sprints / 8 working weeks once unblocked. Gated behind 2026-05-19 SF breach recovery (Path B &rarr; OAuth Client Credentials) + CENTAH &#x27;Re:&#x27; thread bombardment fix. First Monday after green light: 10-min HG send-volume query, 20-min variant_assignments schema PR, 30-min Tim+Eric template-discipline prep. See memory/project_level_3_outcome_bandit.md.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-queued-c2775ee853d3">Linear: Level 3 Outcome-Feedback Bandit (queued)</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/6 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/6</span></span><br><span class="meta-text">Added May 19 · Gated: SF breach + CENTAH cleanup</span></div>
   </article>
 
   <article class="task p-queued">
@@ -1985,10 +1993,18 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
   <details>
     <summary class="cat-header">
       <span class="cat-title">Recently Completed</span>
-      <span class="cat-count">32</span>
+      <span class="cat-count">33</span>
       <span class="cat-toggle">expand &darr;</span>
     </summary>
     <div class="cat-items">
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>Level 3 Outcome-Feedback Bandit (recursion-capability promotion)</div>
+      <div class="task-desc">Move AGM Pro Tools from Level 2 (structural enforcement) to Level 3 (bandit/exploitation) on the Vibe Thesis recursive-capability ladder. Wire Thompson-sampling bandit over signing-link email subject line &mdash; first axis. Substrate already in place: signing_pg.sql captures sent/viewed/signed/withdrawn/reminder timestamps + rep stratification. 3 sprints / 8 working weeks once unblocked. Gated behind 2026-05-19 SF breach recovery (Path B &rarr; OAuth Client Credentials) + CENTAH &#x27;Re:&#x27; thread bombardment fix. First Monday after green light: 10-min HG send-volume query, 20-min variant_assignments schema PR, 30-min Tim+Eric template-discipline prep. See memory/project_level_3_outcome_bandit.md. &mdash; UNQUEUED 2026-06-12: Troy green-lit; Sprint 1 shadow mode built, Council-reviewed, and deployed same-day. Tracking continues under Multi-Track Contract Engine.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-queued-c2775ee853d3">Linear: Level 3 Outcome-Feedback Bandit (queued)</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/6 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/6</span></span><br><span class="meta-text">Jun 12 · Left the queue &mdash; Sprint 1 shipped same-day</span></div>
+  </article>
+
   <article class="task p-done done-row">
     <div class="task-body">
       <div class="task-name"><span class="priority done">Done</span>Morning Discovery Loop &mdash; loop-engineering ignition</div>

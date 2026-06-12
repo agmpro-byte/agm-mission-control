@@ -369,14 +369,14 @@
 
 <h1>True North</h1>
 <p class="subtitle">AGM Pro Tools &mdash; everything in flight, prioritized</p>
-<p class="datestamp">Last updated: 2026-06-11</p>
+<p class="datestamp">Last updated: 2026-06-12</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
-  <div class="stat"><div class="stat-value">28</div><div class="stat-label">Active Projects</div></div>
-  <div class="stat accent"><div class="stat-value">12</div><div class="stat-label">Igniting Now</div></div>
-  <div class="stat promo"><div class="stat-value">4</div><div class="stat-label">Promoted &uarr;</div></div>
-  <div class="stat"><div class="stat-value">0</div><div class="stat-label">Drift</div></div>
+  <div class="stat"><div class="stat-value">21</div><div class="stat-label">Active Projects</div></div>
+  <div class="stat accent"><div class="stat-value">6</div><div class="stat-label">Igniting Now</div></div>
+  <div class="stat promo"><div class="stat-value">2</div><div class="stat-label">Promoted &uarr;</div></div>
+  <div class="stat alarm"><div class="stat-value">4</div><div class="stat-label">Drift</div></div>
 </div>
 
 <div class="filter-bar" id="filterBar">
@@ -392,82 +392,34 @@
     <span class="ps-title">Operational Priority Stack</span>
     <span class="ps-sub">live from Linear &middot; ranked by leverage (heat &times; what it unblocks)</span>
   </header>
-  
-  <div class="ps-list"><div class="ps-row" data-band="live" data-promoted="0">
+  <details class="ps-drift" open><summary>⚠ Needs your attention <span class="ps-drift-count">4</span></summary><ul><li><a href="https://linear.app/agmprotools/project/hg-contract-engine-sf-bridge-agm-native-builder-4abdf033e726">HG Contract Engine — SF Bridge + AGM-Native Builder</a> — In Progress but has 0 sub-issues — untracked. Decompose it?</li><li><a href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Launchpad — Quiz → Automation Score → Closed Won</a> — Marked Urgent but sitting in Backlog with nothing started.</li><li><a href="https://linear.app/agmprotools/project/sf-oauth-client-credentials-migration-416a261d754a">SF OAuth Client Credentials Migration</a> — Marked Urgent but sitting in Backlog with nothing started.</li><li><a href="https://linear.app/agmprotools/project/sf-oauth-client-credentials-migration-416a261d754a">SF OAuth Client Credentials Migration</a> — Past target date 2026-05-22 — reschedule or close.</li></ul></details>
+  <div class="ps-list"><div class="ps-row" data-band="now" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">1</span><span class="ps-glyph">🟢</span>
-      <span class="ln-pill ln-started">Live</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/contract-engine-pg-strict-sql-deploy-gate-harness-hardening-6f4fb267728b">Contract Engine — PG-Strict SQL Deploy Gate + Harness Hardening</a>
-    </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="3/4 done"><span class="ln-bar-fill" style="width:75%"></span></span><span class="ln-count">3/4</span></div>
-    <details class="ps-gating"><summary>gating (1)</summary><ul><li>HGP-69 [High] Autoscale HTTP load test: prove the engine at N concurrent real submits</li></ul></details>
-  </div><div class="ps-row" data-band="now" data-promoted="0">
-    <div class="ps-row-main">
-      <span class="ps-rank">2</span><span class="ps-glyph">🔴</span>
-      <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-urgent">Urgent</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/sf-oauth-client-credentials-migration-416a261d754a">SF OAuth Client Credentials Migration</a>
-    </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="3/5 done"><span class="ln-bar-fill" style="width:60%"></span></span><span class="ln-count">3/5</span><span class="ps-date">2026-07-31</span></div>
-    <details class="ps-gating"><summary>gating (2)</summary><ul><li>HGP-64 [Urgent] Per-script cutover — flip 10 scripts to OAuth (contract engine LAST)</li><li>HGP-65 [High] Cleanup: remove SF_ADMIN_PASSWORD from secrets after 24-48hr green</li></ul></details>
-  </div><div class="ps-row ps-row-promoted" data-band="now" data-promoted="1">
-    <div class="ps-row-main">
-      <span class="ps-rank">3</span><span class="ps-glyph">🔴</span>
-      <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-urgent">Urgent</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/hg-contract-engine-sf-bridge-agm-native-builder-4abdf033e726">HG Contract Engine — SF Bridge + AGM-Native Builder</a><span class="ps-promo" title="Promoted by leverage — gates: Contract Engine — PG-Strict SQL Deploy Gate + Harness Hardening">↑ gates Contract Engine — PG-Strict SQL Deploy Gate + Harness Hardening</span>
-    </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="0/10 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/10</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-132 [Urgent] Bridge 6 — E2E on Troy&#x27;s test contact → Circumference/Council → supervised first real send (5 stuck contracts)</li><li>HGP-131 [Urgent] Bridge 5 — SF injection by job number + durable retry queue</li><li>HGP-129 [Urgent] Bridge 3 — authenticated rep upload page (+ prior-work-waiver 7-item checklist)</li><li>HGP-128 [Urgent] Bridge 2 — route the 4 signing-field seams through signing_fields_for_session() (NEXT STEP)</li></ul></details>
-  </div><div class="ps-row" data-band="now" data-promoted="0">
-    <div class="ps-row-main">
-      <span class="ps-rank">4</span><span class="ps-glyph">🔴</span>
-      <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-urgent">Urgent</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/launchpad-funnel-quiz-dollar97-starter-jobber-listing-645a59f3a3b3">Launchpad Funnel — Quiz → $97 Starter → Jobber Listing</a>
-    </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="5/22 done"><span class="ln-bar-fill" style="width:23%"></span></span><span class="ln-count">5/22</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-200 [High] CAS report redesign: adopt the demo page&#x27;s card grammar at three honest data depths (TODAY / PROJECTED / BENCHMARK)</li><li>AGM-122 [Urgent] S6 — Post-launch E2E verification with a fresh Jobber account [Lane: Harlan]</li><li>AGM-121 [Urgent] S5 — Submit Jobber Marketplace listing [Lane: Troy submits, Harlan preps]</li><li>AGM-120 [Urgent] S3 — HG beta validation pass: real $97 charge → dashboard → refund [Lane: Troy + Harlan]</li></ul></details>
-  </div><div class="ps-row ps-row-promoted" data-band="now" data-promoted="1">
-    <div class="ps-row-main">
-      <span class="ps-rank">5</span><span class="ps-glyph">🔴</span>
-      <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/happywater-usa-headless-standalone-build-outside-the-system-313d7177609b">HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)</a><span class="ps-promo" title="Promoted by leverage — gates: Launchpad Funnel — Quiz → $97 Starter → Jobber Listing">↑ gates Launchpad Funnel — Quiz → $97 Starter → Jobber Listing</span>
-    </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="0/9 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-137 [High] Architecture: single-source-of-truth data contract (GHL vs AGM domains)</li><li>AGM-136 [High] Discovery: collect HappyWater intake (brand, system catalog + pricing, specialist roster, prospect CSV)</li><li>AGM-135 [High] Provision AGM-branded headless sub-account for HappyWater (white-label platform layer)</li><li>AGM-133 [High] Baseline CAS dashboard (headless, native GHL/AGM metrics) — v1 lean cockpit / &quot;clean pipes&quot;</li></ul></details>
-  </div><div class="ps-row" data-band="now" data-promoted="0">
-    <div class="ps-row-main">
-      <span class="ps-rank">6</span><span class="ps-glyph">🔴</span>
+      <span class="ps-rank">1</span><span class="ps-glyph">🔴</span>
       <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/the-enforcement-layer-0c7e02de7808">The Enforcement Layer</a>
     </div>
     <div class="ps-row-meta"><span class="ln-bar" title="3/6 done"><span class="ln-bar-fill" style="width:50%"></span></span><span class="ln-count">3/6</span></div>
     <details class="ps-gating"><summary>gating (3)</summary><ul><li>AGM-129 [High] WS-6 — Observability branch (scheduled audit + synthetic alarms)</li><li>AGM-127 [Medium] WS-4 — Passive-learning engine (hook → JSONL → Haiku distiller → confidence-scored memory)</li><li>AGM-128 [Low] WS-5 — Cost visibility + silent-failure pass</li></ul></details>
-  </div><div class="ps-row ps-row-promoted" data-band="scheduled" data-promoted="1">
-    <div class="ps-row-main">
-      <span class="ps-rank">7</span><span class="ps-glyph">🟠</span>
-      <span class="ln-pill ln-planned">Planned</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/hg-live-production-board-77a22d3328d0">HG Live Production Board</a><span class="ps-promo" title="Promoted by leverage — gates: HG Contract Engine — SF Bridge + AGM-Native Builder">↑ gates HG Contract Engine — SF Bridge + AGM-Native Builder</span>
-    </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="0/10 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/10</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-46 [High] Production auth + hosting (authed Modal endpoint)</li><li>HGP-45 [High] Stage write-back actions → AGM / Salesforce</li><li>HGP-43 [High] Define the Area (1–5) source field</li><li>HGP-40 [High] Wire in Payments → Charging Queue ledger (Not-Paid + balance)</li></ul></details>
   </div><div class="ps-row" data-band="now" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">8</span><span class="ps-glyph">🔴</span>
+      <span class="ps-rank">2</span><span class="ps-glyph">🔴</span>
+      <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-urgent">Urgent</span>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/hg-contract-engine-sf-bridge-agm-native-builder-4abdf033e726">HG Contract Engine — SF Bridge + AGM-Native Builder</a><span class="ps-drift-chip" title="In Progress but has 0 sub-issues — untracked. Decompose it?">⚠</span>
+    </div>
+    <div class="ps-row-meta"><span class="ln-count ps-noissue">no issues</span></div>
+    
+  </div><div class="ps-row" data-band="now" data-promoted="0">
+    <div class="ps-row-main">
+      <span class="ps-rank">3</span><span class="ps-glyph">🔴</span>
       <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/real-turf-usa-odoo-multi-location-dashboard-headless-4e8651cd11ae">Real Turf USA — Odoo Multi-Location Dashboard (Headless)</a>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/happywater-usa-headless-standalone-build-outside-the-system-313d7177609b">HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)</a>
     </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="0/4 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/4</span></div>
-    <details class="ps-gating"><summary>gating (4)</summary><ul><li>AGM-62 [Medium] Odoo API credentials from Kendra — 4 items (URL, db, integration user, API key)</li><li>AGM-195 [High] Build execution/lib/realturf_odoo.py connector (JSON-2 first) + live auth smoke test</li><li>AGM-197 [Medium] Multi-location dashboard v1 — Odoo feed on the Modal dashboard pattern</li><li>AGM-196 [Medium] Scope Odoo sync objects + integration goal with Real Turf</li></ul></details>
+    <div class="ps-row-meta"><span class="ln-bar" title="0/9 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></div>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-137 [High] Architecture: single-source-of-truth data contract (GHL vs AGM domains)</li><li>AGM-136 [High] Discovery: collect HappyWater intake (brand, system catalog + pricing, specialist roster, prospect CSV)</li><li>AGM-135 [High] Provision AGM-branded headless sub-account for HappyWater (white-label platform layer)</li><li>AGM-133 [High] Baseline CAS dashboard (headless, native GHL/AGM metrics) — v1 lean cockpit / &quot;clean pipes&quot;</li></ul></details>
   </div><div class="ps-row" data-band="now" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">9</span><span class="ps-glyph">🔴</span>
-      <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/hg-lead-nurture-and-comms-consolidation-5b68fd5ca128">HG Lead-Nurture &amp; Comms Consolidation</a>
-    </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="1/13 done"><span class="ln-bar-fill" style="width:8%"></span></span><span class="ln-count">1/13</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-60 [High] [SF] No-sale lead reporting pull — total count + all dimensional data</li><li>HGP-58 [High] [Crossover] Map AGM↔SF nurture overlap — leads emailed by both platforms</li><li>HGP-57 [High] [Crossover] De-dup Costco no-sale: code cadence vs AGM &quot;HG Costco — No Sale Nurture&quot; workflow</li><li>HGP-53 [High] [SF] Pull Salesforce automation inventory on the office iMac</li></ul></details>
-  </div><div class="ps-row" data-band="now" data-promoted="0">
-    <div class="ps-row-main">
-      <span class="ps-rank">10</span><span class="ps-glyph">🔴</span>
+      <span class="ps-rank">4</span><span class="ps-glyph">🔴</span>
       <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/hg-costco-operations-6724321f783f">HG Costco Operations</a>
     </div>
@@ -475,7 +427,7 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-25 [High] HG Costco Contract Engine — Anthony Punch List</li><li>HGP-23 [High] HG Costco Staffing Plan</li><li>HGP-22 [High] HG Costco Training Deck — Completion</li><li>HGP-21 [High] HG Multi-Rep Capability — Costco Lead Coverage</li></ul></details>
   </div><div class="ps-row" data-band="now" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">11</span><span class="ps-glyph">🔴</span>
+      <span class="ps-rank">5</span><span class="ps-glyph">🔴</span>
       <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/hg-contract-engine-phase-4bc-lifecycle-f476424dba33">HG Contract Engine — Phase 4B/C + Lifecycle</a>
     </div>
@@ -483,63 +435,47 @@
     <details class="ps-gating"><summary>gating (4)</summary><ul><li>HGP-18 [High] Installer Packet — Video thumbnails on tile buttons</li><li>HGP-17 [High] Phase 4B/C — Lifecycle clock + customer cadences + per-rep daily digest</li><li>HGP-20 [Medium] Andrew — 4 AGM custom field IDs (Drawing PDF, Walkthrough Video, Change Order PDFs, Waiver PDFs)</li><li>HGP-19 [Medium] AGM HG Contracts — HG-direct Contract Engine Build (beyond Costco)</li></ul></details>
   </div><div class="ps-row" data-band="now" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">12</span><span class="ps-glyph">🔴</span>
+      <span class="ps-rank">6</span><span class="ps-glyph">🔴</span>
       <span class="ln-pill ln-started">In Progress</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/fieldroutes-marketplace-headless-build-ea4e9e27fa97">FieldRoutes Marketplace + Headless Build</a>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/jobber-app-marketplace-path-b-build-sprint-31e2c40987db">Jobber App Marketplace — Path B Build Sprint</a>
     </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="0/4 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/4</span></div>
-    <details class="ps-gating"><summary>gating (4)</summary><ul><li>AGM-59 [High] AGM Pricing Reframe sprint (2026-05-06 origin)</li><li>AGM-57 [High] AGM Pro Tools for FieldRoutes — Headless Onboarding</li><li>AGM-56 [High] FieldRoutes Marketplace Listing (mirror of Jobber path)</li><li>AGM-58 [Medium] Activation Monitoring Build</li></ul></details>
+    <div class="ps-row-meta"><span class="ln-bar" title="0/16 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/16</span></div>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-122 [Urgent] Step 8 — End-to-end verification post-launch</li><li>AGM-121 [Urgent] Step 7 — Submit Jobber Marketplace listing</li><li>AGM-120 [Urgent] Step 6 — HG beta validation pass</li><li>AGM-119 [Urgent] Step 5 — Quiz/Checkout bridge</li></ul></details>
   </div><div class="ps-row ps-row-promoted" data-band="scheduled" data-promoted="1">
     <div class="ps-row-main">
-      <span class="ps-rank">13</span><span class="ps-glyph">🟠</span>
+      <span class="ps-rank">7</span><span class="ps-glyph">🟠</span>
       <span class="ln-pill ln-planned">Planned</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/hgcostco-commission-sheet-automation-f9a561325f8b">HG/Costco Commission Sheet Automation</a><span class="ps-promo" title="Promoted by leverage — gates: HG Contract Engine — Phase 4B/C + Lifecycle">↑ gates HG Contract Engine — Phase 4B/C + Lifecycle</span>
     </div>
     <div class="ps-row-meta"><span class="ln-bar" title="0/4 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/4</span></div>
     <details class="ps-gating"><summary>gating (4)</summary><ul><li>HGP-9 [High] Build generate_commission_sheet(session_id) Modal function</li><li>HGP-8 [High] Wire 3 flags into contract engine (Costco / rep-tier / install-condition)</li><li>HGP-7 [High] Awaiting Tim — 4 commission-sheet validation questions</li><li>HGP-10 [Medium] Per-rep daily digest — fold into Phase 4B/C lifecycle work</li></ul></details>
-  </div><div class="ps-row" data-band="now" data-promoted="0">
+  </div><div class="ps-row ps-row-promoted" data-band="queued" data-promoted="1">
     <div class="ps-row-main">
-      <span class="ps-rank">14</span><span class="ps-glyph">🔴</span>
-      <span class="ln-pill ln-started">In Progress</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/hg-architecture-audit-351abeb27369">HG Architecture Audit</a>
+      <span class="ps-rank">8</span><span class="ps-glyph">⚪</span>
+      <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-urgent">Urgent</span>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Launchpad — Quiz → Automation Score → Closed Won</a><span class="ps-drift-chip" title="Marked Urgent but sitting in Backlog with nothing started.">⚠</span><span class="ps-promo" title="Promoted by leverage — gates: HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)">↑ gates HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)</span>
     </div>
     <div class="ps-row-meta"><span class="ln-bar" title="0/7 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-124 [High] [Inventory] Costco contract send — full path from rep click to PDF in S3</li><li>HGP-122 [High] [Inventory] External rails — Modal apps, crons, S3 buckets, LaunchAgents</li><li>HGP-121 [High] [Inventory] Code layer — walk execution/*.py for HG/SF touchpoints</li><li>HGP-137 [Medium] [Infra] Set up Google OAuth on Andrew Air</li></ul></details>
-  </div><div class="ps-row" data-band="scheduled" data-promoted="0">
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-44 [Urgent] Stream B / Gap 4 chunk 2 — Stripe wiring + STARTER pipeline</li><li>AGM-43 [Urgent] End-to-End Test — Form to Dashboard</li><li>AGM-42 [Urgent] Automation Score Funnel — Quiz → Nurture → Launchpad → Closed Won</li><li>AGM-41 [Urgent] Golden Template — Turf (first industry)</li></ul></details>
+  </div><div class="ps-row" data-band="queued" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">15</span><span class="ps-glyph">🟠</span>
-      <span class="ln-pill ln-planned">Planned</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/ai-front-office-lead-operating-board-4f3a7a39f1d5">AI Front Office + Lead Operating Board</a>
+      <span class="ps-rank">9</span><span class="ps-glyph">⚪</span>
+      <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-urgent">Urgent</span>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/sf-oauth-client-credentials-migration-416a261d754a">SF OAuth Client Credentials Migration</a><span class="ps-drift-chip" title="Marked Urgent but sitting in Backlog with nothing started. · Past target date 2026-05-22 — reschedule or close.">⚠</span>
     </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="0/41 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/41</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-120 [High] Greeter/Router — the fast first slice (warm answer + route + card-drop)</li><li>HGP-118 [High] Load/concurrency + failure-mode hardening</li><li>HGP-116 [High] Incremental Polly→Synthflow cutover (channel-by-channel)</li><li>HGP-115 [High] HG go-live — board as the team&#x27;s operating surface</li></ul></details>
+    <div class="ps-row-meta"><span class="ln-bar" title="0/5 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/5</span><span class="ps-date">2026-05-22</span></div>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-8 [Urgent] Per-script cutover — flip 10 scripts to OAuth (contract engine LAST)</li><li>AGM-7 [Urgent] Build execution/lib/salesforce.py + pre_deploy_check Check 17 + shadow-auth wrapper</li><li>AGM-6 [Urgent] SF Setup: integration user + External Client App + Permission Set</li><li>AGM-5 [Urgent] SObject enumeration scan + send Troy permission set list</li></ul></details>
   </div><div class="ps-row" data-band="scheduled" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">16</span><span class="ps-glyph">🟠</span>
+      <span class="ps-rank">10</span><span class="ps-glyph">🟠</span>
       <span class="ln-pill ln-planned">Planned</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/hg-barcloud-integration-sold-job-installer-ready-automation-363d7a03399a">HG BarCloud Integration — Sold-Job → Installer-Ready Automation</a>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/hg-live-production-board-77a22d3328d0">HG Live Production Board</a>
     </div>
     <div class="ps-row-meta"><span class="ln-bar" title="0/10 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/10</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-74 [High] &quot;Job Build Ready&quot; stage trigger → unified Modal pipeline (extend the existing spine)</li><li>HGP-71 [High] Cut-list field schema on the AGM job record</li><li>HGP-70 [High] BarCloud API client — Stock Issue creation + transaction-ID writeback to AGM</li><li>HGP-77 [Medium] Verify rep notes → installer packet wiring on the live flow</li></ul></details>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-46 [High] Production auth + hosting (authed Modal endpoint)</li><li>HGP-45 [High] Stage write-back actions → AGM / Salesforce</li><li>HGP-43 [High] Define the Area (1–5) source field</li><li>HGP-40 [High] Wire in Payments → Charging Queue ledger (Not-Paid + balance)</li></ul></details>
   </div><div class="ps-row" data-band="scheduled" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">17</span><span class="ps-glyph">🟠</span>
-      <span class="ln-pill ln-planned">Planned</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/fieldroutes-etl-framework-multi-tenant-dashboard-substrate-9fa3ed512891">FieldRoutes ETL Framework — Multi-Tenant Dashboard Substrate</a>
-    </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="3/13 done"><span class="ln-bar-fill" style="width:23%"></span></span><span class="ln-count">3/13</span><span class="ps-date">2026-06-30</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-152 [High] [Decision — RESOLVED 2026-06-07] Adopt the scaffold; formal sprint queued for next week</li><li>AGM-161 [Medium] [Phase 8] Cutover Valleywide dashboard onto new ETL + ship V2.1</li><li>AGM-160 [Medium] [Phase 7] Live validation against Valleywide — reference-value gate before cutover</li><li>AGM-158 [Medium] [Phase 5] Draft Pest Vertical Dashboard Spec — canonicalize the 10 KPIs</li></ul></details>
-  </div><div class="ps-row" data-band="scheduled" data-promoted="0">
-    <div class="ps-row-main">
-      <span class="ps-rank">18</span><span class="ps-glyph">🟠</span>
-      <span class="ln-pill ln-planned">Planned</span><span class="ps-prio ps-prio-medium">Medium</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/valley-wide-automation-go-live-fr-sertbo-47d3fb84514d">Valley-Wide Automation Go-Live (FR → SERTBO)</a>
-    </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="0/10 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/10</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-144 [High] [Stage C] Troy GO/NO-GO sign-off — hard gate before any real send</li><li>AGM-141 [High] [Client decision] Consent handling + do-not-contact list</li><li>AGM-140 [High] [Client decision] Valley-Wide channel mix — SMS / email / hybrid</li><li>AGM-139 [High] [Build] Finish FR→SERTBO sync — conditional service_type write + active-only bulk-join backfill</li></ul></details>
-  </div><div class="ps-row" data-band="scheduled" data-promoted="0">
-    <div class="ps-row-main">
-      <span class="ps-rank">19</span><span class="ps-glyph">🟠</span>
+      <span class="ps-rank">11</span><span class="ps-glyph">🟠</span>
       <span class="ln-pill ln-planned">Planned</span><span class="ps-prio ps-prio-medium">Medium</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/hg-workflow-gaps-accounting-automation-c5ee379bcf50">HG Workflow Gaps + Accounting Automation</a>
     </div>
@@ -547,7 +483,7 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-35 [High] HG AGM Email/SMS Triage — Sender Identity Audit</li><li>HGP-33 [High] HG Accounting Automation — 3-Phase Plan (awaiting Tim scoping)</li><li>HGP-28 [High] Gap #3 — Post-Install Thank-You + Review Request</li><li>HGP-27 [High] Gap #2 — Post-Deposit Nurture Sequence</li></ul></details>
   </div><div class="ps-row" data-band="queued" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">20</span><span class="ps-glyph">⚪</span>
+      <span class="ps-rank">12</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-high">High</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/agm-pro-tools-product-mission-control-11081209f086">AGM Pro Tools — Product Mission Control</a>
     </div>
@@ -555,7 +491,15 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-110 [Urgent] Phase 1 — Dispatch shell (&quot;What AGM did overnight&quot;)</li><li>AGM-111 [High] Phase 2 — Approval / redirect layer</li><li>AGM-114 [Medium] Phase 5 — Proactive briefing layer</li><li>AGM-113 [Medium] Phase 4 — Subscriber-pulse content engine</li></ul></details>
   </div><div class="ps-row" data-band="queued" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">21</span><span class="ps-glyph">⚪</span>
+      <span class="ps-rank">13</span><span class="ps-glyph">⚪</span>
+      <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-high">High</span>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/fieldroutes-marketplace-headless-build-ea4e9e27fa97">FieldRoutes Marketplace + Headless Build</a>
+    </div>
+    <div class="ps-row-meta"><span class="ln-bar" title="0/4 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/4</span></div>
+    <details class="ps-gating"><summary>gating (4)</summary><ul><li>AGM-59 [High] AGM Pricing Reframe sprint (2026-05-06 origin)</li><li>AGM-57 [High] AGM Pro Tools for FieldRoutes — Headless Onboarding</li><li>AGM-56 [High] FieldRoutes Marketplace Listing (mirror of Jobber path)</li><li>AGM-58 [Medium] Activation Monitoring Build</li></ul></details>
+  </div><div class="ps-row" data-band="queued" data-promoted="0">
+    <div class="ps-row-main">
+      <span class="ps-rank">14</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-medium">Medium</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-queued-c2775ee853d3">Level 3 Outcome-Feedback Bandit (queued)</a>
     </div>
@@ -563,23 +507,23 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>HGP-16 [Medium] Sprint 3 (3 wk) — Pattern generalization to execution/lib/bandit/</li><li>HGP-15 [Medium] Sprint 2 (3 wk) — Routing live on signing-link email subject line</li><li>HGP-14 [Medium] Sprint 1 (2 wk) — Variant scaffolding + baseline backfill</li><li>HGP-13 [Medium] Define &quot;success&quot; honestly — 7-day leading + 60-day lagging metrics</li></ul></details>
   </div><div class="ps-row" data-band="queued" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">22</span><span class="ps-glyph">⚪</span>
+      <span class="ps-rank">15</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-medium">Medium</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Infrastructure &amp; Security Cleanup</a>
     </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="1/8 done"><span class="ln-bar-fill" style="width:12%"></span></span><span class="ln-count">1/8</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-20 [High] Leak-vector forensics — 60-day Login History pull + cross-ref offboarding</li><li>AGM-18 [High] Deactivate former-employee SF System Admins (waiting on Tim&#x27;s CSV)</li><li>AGM-16 [High] Fix rotate_credential.py bug — preserves other keys when rotating one</li><li>AGM-181 [Medium] Retired-infra-value denylist grep (catch stale IPs/users/endpoints in canonical docs)</li></ul></details>
+    <div class="ps-row-meta"><span class="ln-bar" title="0/5 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/5</span></div>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-20 [High] Leak-vector forensics — 60-day Login History pull + cross-ref offboarding</li><li>AGM-18 [High] Deactivate former-employee SF System Admins (waiting on Tim&#x27;s CSV)</li><li>AGM-16 [High] Fix rotate_credential.py bug — preserves other keys when rotating one</li><li>AGM-17 [Medium] Build execution/rebuild_modal_secret.py from versioned manifest</li></ul></details>
   </div><div class="ps-row" data-band="queued" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">23</span><span class="ps-glyph">⚪</span>
+      <span class="ps-rank">16</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-medium">Medium</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/agm-pro-tools-market-valuation-june-2026-3d3654c25900">AGM Pro Tools — Market Valuation (June 2026)</a>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/valley-wide-automation-go-live-fr-sertbo-47d3fb84514d">Valley-Wide Automation Go-Live (FR → SERTBO)</a>
     </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="0/8 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/8</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-184 [High] Headline valuation — $1M–$2.5M as-is · $4M–$10M on-plan · $25M–$80M+ strategic</li><li>AGM-190 [Medium] Value drivers vs. caps — what moves the number up and down</li><li>AGM-188 [Medium] Lens 4 — Strategic / platform ceiling: $25M–$80M+</li><li>AGM-187 [Medium] Lens 3 — Forward vertical-SaaS multiple (on plan): $4M–$10M</li></ul></details>
+    <div class="ps-row-meta"><span class="ln-bar" title="0/10 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/10</span></div>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-144 [High] [Stage C] Troy GO/NO-GO sign-off — hard gate before any real send</li><li>AGM-141 [High] [Client decision] Consent handling + do-not-contact list</li><li>AGM-140 [High] [Client decision] Valley-Wide channel mix — SMS / email / hybrid</li><li>AGM-139 [High] [Build] Finish FR→SERTBO sync — conditional service_type write + active-only bulk-join backfill</li></ul></details>
   </div><div class="ps-row" data-band="queued" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">24</span><span class="ps-glyph">⚪</span>
+      <span class="ps-rank">17</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-medium">Medium</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/agm-sales-and-marketing-funnel-7b71df16c09c">AGM Sales &amp; Marketing Funnel</a>
     </div>
@@ -587,23 +531,23 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-87 [High] Prospecting Engine v1.2 — GBP Review-Velocity Enricher</li><li>AGM-79 [High] Speaking Opportunities — Conferences, Podcasts, Events</li><li>AGM-86 [Medium] Contractor Automation Score — LinkedIn GTM launch</li><li>AGM-84 [Medium] Verify hello@agmprotools.com</li></ul></details>
   </div><div class="ps-row" data-band="queued" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">25</span><span class="ps-glyph">⚪</span>
+      <span class="ps-rank">18</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-medium">Medium</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Content Flywheel + Build Log</a>
     </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="0/21 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/21</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-173 [High] Phase 0 — Chapter public/private flag + first curation pass</li><li>AGM-172 [High] Phase 0 — chapters_podcast_feed.py (RSS generator, the leverage move)</li><li>AGM-169 [High] Distribution Cadence Plan — Mission Control as media hub (parent)</li><li>AGM-75 [High] Monthly Customer 3-Point Email — V2 Ready</li></ul></details>
+    <div class="ps-row-meta"><span class="ln-bar" title="0/9 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></div>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-75 [High] Monthly Customer 3-Point Email — V2 Ready</li><li>AGM-72 [High] Content Flywheel — Restart</li><li>AGM-71 [High] The Build Log — Weekly Newsletter + YouTube Campaign</li><li>AGM-70 [High] Curation as Compound Interest — 5th Strategic Pillar</li></ul></details>
   </div><div class="ps-row" data-band="queued" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">26</span><span class="ps-glyph">⚪</span>
+      <span class="ps-rank">19</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-medium">Medium</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/client-integrations-pipeline-21e5cf753ce1">Client Integrations Pipeline</a>
     </div>
     <div class="ps-row-meta"><span class="ln-bar" title="0/10 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/10</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-61 [Urgent] HG BarCloud Integration — Inventory Automation</li><li>AGM-60 [High] Valleywide PestRoutes — Go Live</li><li>AGM-167 [Medium] Retrofit DND check on all shipped client integrations (per external_rail_send_dnd_check directive)</li><li>AGM-69 [Medium] Turf Prep — Method:CRM Integration</li></ul></details>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-61 [Urgent] HG BarCloud Integration — Inventory Automation</li><li>AGM-60 [High] Valleywide PestRoutes — Go Live</li><li>AGM-69 [Medium] Turf Prep — Method:CRM Integration</li><li>AGM-67 [Medium] Golden Mailer — Housecall Pro Integration</li></ul></details>
   </div><div class="ps-row" data-band="queued" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">27</span><span class="ps-glyph">⚪</span>
+      <span class="ps-rank">20</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span><span class="ps-prio ps-prio-low">Low</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/on-the-radar-queued-initiatives-66d386df1a17">On the Radar — Queued Initiatives</a>
     </div>
@@ -611,22 +555,14 @@
     <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-108 [Medium] AGM Opportunity Value Backfill</li><li>AGM-107 [Medium] Contract Engine Productization Strategy — Costco + HG-direct as two AGM products</li><li>AGM-105 [Medium] SF-to-AGM Migration — Batch Strategy</li><li>AGM-104 [Medium] Jobber Token Refresh — Distributed Lock</li></ul></details>
   </div><div class="ps-row" data-band="queued" data-promoted="0">
     <div class="ps-row-main">
-      <span class="ps-rank">28</span><span class="ps-glyph">⚪</span>
+      <span class="ps-rank">21</span><span class="ps-glyph">⚪</span>
       <span class="ln-pill ln-backlog">Backlog</span>
       <a class="ps-name" href="https://linear.app/agmprotools/project/content-flywheel-822ab134b105">Content Flywheel</a>
     </div>
     <div class="ps-row-meta"><span class="ln-bar" title="0/20 done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/20</span></div>
-    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-23 [High] Layer A: Newsletter-as-a-Service — Troy decisions (9 open questions)</li><li>AGM-21 [High] Compound un-park decision — (a) memory pre-read / (b) seed Linear now / (c) stay parked</li><li>AGM-40 [Medium] Layer A: Weekly Newsletter pipeline — 5 stacked gaps (dark since 2026-03-23)</li><li>AGM-39 [Medium] Layer B: Objections — standard rebuttals</li></ul></details>
+    <details class="ps-gating"><summary>gating (5)</summary><ul><li>AGM-23 [High] Layer A: Newsletter-as-a-Service — Troy decisions (9 open questions)</li><li>AGM-21 [High] Compound un-park decision — (a) memory pre-read / (b) seed Linear now / (c) park until SF ships</li><li>AGM-40 [Medium] Layer A: Weekly Newsletter pipeline — 5 stacked gaps (8 weeks dark since 2026-03-23)</li><li>AGM-39 [Medium] Layer B: Objections — standard rebuttals</li></ul></details>
   </div></div>
-  <details class="ps-band ps-done"><summary><span class="ps-band-label">✅ Done / retired</span><span class="ps-band-n">3</span></summary><div class="ps-row ps-row-promoted" data-band="done" data-promoted="1">
-    <div class="ps-row-main">
-      <span class="ps-glyph">✅</span>
-      <span class="ln-pill ln-completed">Completed</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/jobber-app-marketplace-path-b-build-sprint-31e2c40987db">Jobber App Marketplace — Path B Build Sprint</a><span class="ps-promo" title="Promoted by leverage — gates: Launchpad Funnel — Quiz → $97 Starter → Jobber Listing; HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)">↑ gates Launchpad Funnel — Quiz → $97 Starter → Jobber Listing, HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)</span>
-    </div>
-    <div class="ps-row-meta"><span class="ln-bar" title="5/12 done"><span class="ln-bar-fill" style="width:42%"></span></span><span class="ln-count">5/12</span></div>
-    
-  </div><div class="ps-row" data-band="done" data-promoted="0">
+  <details class="ps-band ps-done"><summary><span class="ps-band-label">✅ Done / retired</span><span class="ps-band-n">2</span></summary><div class="ps-row" data-band="done" data-promoted="0">
     <div class="ps-row-main">
       <span class="ps-glyph">✅</span>
       <span class="ln-pill ln-completed">Completed</span><span class="ps-prio ps-prio-urgent">Urgent</span>
@@ -694,7 +630,7 @@
       <div class="task-name"><span class="priority next">Next</span>Golden Template &mdash; Turf (First Industry)</div>
       <div class="task-desc">Builder script exists (launchpad_build_template.py, 732 lines). Turf messaging pack complete (turf.json &mdash; 5 workflows, custom fields, 6 pipeline stages). But NO template has been built yet. All snapshot_id = null in registry. Custom fields bootstrap DONE (Apr 24). Steps: (1) run --build --industry turf, (2) configure 5 workflows in AGM UI using copy from Golden Template Google Doc, (3) review pipeline + custom fields, (4) take snapshot in AGM UI, (5) run --register --industry turf --snapshot-id &lt;ID&gt;.</div>
     </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/12mqb2Lzc8ti2-lw-Z7koJao8ya0mqBqApTD8GGyovk8/edit">Golden Template Build Spec + Copy (Google Doc)</a> · <a href="https://docs.google.com/document/d/1bl4sAjSCIxPcCW5grL40r_ysrx8WPoHA4DyzFYsa04I/edit">Push-Button Client Plan (Google Doc)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Troy + Harlan · ~1 hour together · Custom fields: DONE</span></div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/12mqb2Lzc8ti2-lw-Z7koJao8ya0mqBqApTD8GGyovk8/edit">Golden Template Build Spec + Copy (Google Doc)</a> · <a href="https://docs.google.com/document/d/1bl4sAjSCIxPcCW5grL40r_ysrx8WPoHA4DyzFYsa04I/edit">Push-Button Client Plan (Google Doc)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Troy + Harlan · ~1 hour together · Custom fields: DONE</span></div>
   </article>
 
   <article class="task p-next">
@@ -702,7 +638,7 @@
       <div class="task-name"><span class="priority next">Next</span>Automation Score Funnel: Quiz &rarr; Nurture &rarr; Launchpad &rarr; Closed Won</div>
       <div class="task-desc">CORRECTED Apr 24, then WIRED Apr 24. Backend /score endpoint now returns contact_id to frontend. Quiz results page has &#x27;Get Started with AGM Pro Tools&#x27; CTA that links to Launchpad intake with pre-filled name/email/phone/company/agm_contact_id. Full report (page 6) also has &#x27;Get Started Now&#x27; CTA with same pre-fill. Remaining: deploy modal_automation_score.py to Modal (contact_id in response), push agm-automation-score to GitHub Pages (frontend CTAs).</div>
     </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1bl4sAjSCIxPcCW5grL40r_ysrx8WPoHA4DyzFYsa04I/edit">Push-Button Client Plan (Google Doc)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">WIRED Apr 24 · Needs Modal deploy + GitHub Pages push</span></div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1bl4sAjSCIxPcCW5grL40r_ysrx8WPoHA4DyzFYsa04I/edit">Push-Button Client Plan (Google Doc)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">WIRED Apr 24 · Needs Modal deploy + GitHub Pages push</span></div>
   </article>
 
   <article class="task p-next">
@@ -710,7 +646,7 @@
       <div class="task-name"><span class="priority next">Next</span>End-to-End Test &mdash; Form to Dashboard</div>
       <div class="task-desc">Full Stripe test mode walkthrough: fill intake form, pay with test card, verify webhook fires, pipeline runs, close-the-loop fires, AGM sub-account created from golden template (not interim), OAuth URL appears, dashboard deployed, lifecycle email fires Day 1. Never tested. Target: under 10 min.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Troy + Harlan · ~1 hour · Blocked by golden template + custom fields</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Troy + Harlan · ~1 hour · Blocked by golden template + custom fields</span></div>
   </article>
 
   <article class="task p-next">
@@ -718,7 +654,7 @@
       <div class="task-name"><span class="priority next">Next</span>Industry Templates &mdash; Pest + General</div>
       <div class="task-desc">Follow turf template pattern for pest control and general FSM. Different messaging copy, same pipeline/tags/fields structure. Build after turf validates.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Harlan · ~1 hour each · After turf template</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Harlan · ~1 hour each · After turf template</span></div>
   </article>
   </div>
   <details class="completed-fold">
@@ -729,7 +665,7 @@
       <div class="task-name"><span class="priority done">Done</span>Launchpad Build &mdash; Phase 1: Rename Complete</div>
       <div class="task-desc">Full franchise-to-Launchpad rename across 12 files. INDUSTRY_TEMPLATES dict replaces FRANCHISE_NETWORKS (turf/pest/general/waterloo). All docs, directives, registry, pipeline, webhook, and dashboard updated. Backward-compat fallbacks in place.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Apr 10 · 12 files updated</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Apr 10 · 12 files updated</span></div>
   </article>
 
   <article class="task p-done done-row">
@@ -737,7 +673,7 @@
       <div class="task-name"><span class="priority done">Done</span>Launchpad Build &mdash; Phase 2: Intake Form + Checkout Endpoint</div>
       <div class="task-desc">Customer-facing intake form (index.html) with industry dropdown, US state selector, all required fields, dark theme. /launchpad-checkout endpoint in modal_webhook.py creates Stripe Checkout Sessions with metadata from form. Both built and committed.</div>
     </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1h3Fgk1c1wRl3jDY-ZpoD9deJ19JAetZl8Mf-yVu_vPo/edit">Build Workbook</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Apr 10 · Both committed</span></div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1h3Fgk1c1wRl3jDY-ZpoD9deJ19JAetZl8Mf-yVu_vPo/edit">Build Workbook</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Apr 10 · Both committed</span></div>
   </article>
 
   <article class="task p-done done-row">
@@ -753,7 +689,7 @@
       <div class="task-name"><span class="priority done">Done</span>Post-Payment Success Page</div>
       <div class="task-desc">Built success.html with 4-step progress tracker, session_id polling, OAuth button on step 5, dashboard link on completion. Live on GitHub Pages.</div>
     </div>
-    <div class="task-meta"><a href="https://agmpro-byte.github.io/agm-launchpad/success.html">Live</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Apr 10</span></div>
+    <div class="task-meta"><a href="https://agmpro-byte.github.io/agm-launchpad/success.html">Live</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Apr 10</span></div>
   </article>
 
   <article class="task p-done done-row">
@@ -761,7 +697,7 @@
       <div class="task-name"><span class="priority done">Done</span>Deploy Intake Form to GitHub Pages</div>
       <div class="task-desc">agm-launchpad repo created, intake + success pages deployed, GitHub Pages live. Form pre-fills from URL params for unified funnel.</div>
     </div>
-    <div class="task-meta"><a href="https://agmpro-byte.github.io/agm-launchpad/">Intake Form</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Apr 10</span></div>
+    <div class="task-meta"><a href="https://agmpro-byte.github.io/agm-launchpad/">Intake Form</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Apr 10</span></div>
   </article>
 
   <article class="task p-done done-row">
@@ -1098,7 +1034,7 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">This Week &mdash; Priority</span>
-    <span class="cat-count">29 active &middot; 5 done</span>
+    <span class="cat-count">28 active &middot; 6 done</span>
   </header>
   <div class="cat-items">
   <article class="task p-now">
@@ -1122,7 +1058,7 @@
       <div class="task-name"><span class="priority now">Now</span>Jobber App Marketplace Listing &mdash; AGM Pro Tools</div>
       <div class="task-desc">**Listing copy 100% LOCKED 2026-05-18.** All Phase 1 Troy decisions locked: App Category (Custom Automations + Sales &amp; Marketing), Country (None &mdash; global / US-first), Brand hex (#22C55E new Pro Tools system green), Need Help? phone (skip &mdash; 2 email bullets only). Sections #7/#8/#9/#11/#12 ratified across ~30 iterations of competitive research. Single paste-ready Google Doc generated at https://docs.google.com/document/d/1fho4M8ZVegUMdmd8qfYm7KPy-RM3h4div3toq-YI17A/edit &mdash; every Jobber form field in order, paste-ready. **Remaining work = Path B build sprint (~5-6.5 focused hours)**: $97 Stripe price object, payment-status gate on jobber_callback(), lightweight AGM CRM contact at $97 signup, Starter pipeline branching, Quiz &rarr; Checkout bridge, Starter dashboard provisioning, HG beta install end-to-end (Gallery screenshots captured here), submit. Generator script: execution/create_jobber_marketplace_paste_doc.py. Work-items doc: docs/JOBBER_MARKETPLACE_LISTING_WORK_ITEMS.md.</div>
     </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1Hz3jlyfYFfhB7wnddAXY6hJIfasj8jX0Ri__6kb5ZSY/edit">Working Doc (Jobber Marketplace Listing)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/jobber-app-marketplace-path-b-build-sprint-31e2c40987db">Linear: Jobber App Marketplace — Path B Build Sprint</a><span class="ln-state"><span class="ln-pill ln-completed">Completed</span><span class="ln-bar" title="5/12 issues done"><span class="ln-bar-fill" style="width:42%"></span></span><span class="ln-count">5/12</span></span><br><span class="meta-text">Listing copy LOCKED &mdash; build sprint pending · Paste doc: docs.google.com/document/d/1fho4M8ZVegUMdmd8qfYm7KPy-RM3h4div3toq-YI17A · Work items: JOBBER_MARKETPLACE_LISTING_WORK_ITEMS.md</span></div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1Hz3jlyfYFfhB7wnddAXY6hJIfasj8jX0Ri__6kb5ZSY/edit">Working Doc (Jobber Marketplace Listing)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/jobber-app-marketplace-path-b-build-sprint-31e2c40987db">Linear: Jobber App Marketplace — Path B Build Sprint</a><span class="ln-state"><span class="ln-pill ln-started">In Progress</span><span class="ln-bar" title="0/16 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/16</span></span><br><span class="meta-text">Listing copy LOCKED &mdash; build sprint pending · Paste doc: docs.google.com/document/d/1fho4M8ZVegUMdmd8qfYm7KPy-RM3h4div3toq-YI17A · Work items: JOBBER_MARKETPLACE_LISTING_WORK_ITEMS.md</span></div>
   </article>
 
   <article class="task p-now">
@@ -1138,7 +1074,7 @@
       <div class="task-name"><span class="priority now">Now</span>FieldRoutes Marketplace Listing + AGM Pricing Reframe (2026-05-06 sprint)</div>
       <div class="task-desc">Recon shipped 2026-05-06 found the FieldRoutes (formerly PestRoutes, same software, ServiceTitan-owned) marketplace is empty real estate &mdash; 17 partners total across 9 categories, only 4 in Marketing Solutions, only Scorpion as a real platform-shaped competitor (and Scorpion sits 30-100x above AGM in price as a $10-25K/mo agency play). The $300-$3,000/mo price band is completely empty. Combined with the Valley Wide owner&#x27;s no-flinch at $297 (would have closed at $597), the pricing thesis: AGM is structurally underpriced. Recommended new ladder: $97 Diagnostic / $397 P2 Headless (Troy&#x27;s call) / $597-697 P3 Pro / $997 P3 Plus / $2,497 Enterprise (NEW tier). Existing subs grandfathered. Five-attribute defensible moat (FSM-agnostic, diagnostic-first, headless, self-serve, vertical-aware) &mdash; no competitor combines all five. Week-1 actions: (1) email FR partner team re: listing requirements + Scorpion positioning question, (2) draft marketplace listing copy using Jobber template Liam shared, (3) update Andrew&#x27;s pitch deck with new ladder, (4) run 5-prospect elasticity test before locking. June-July: build quantified Sertbo/Valley Wide case study. Oct 7-9: IGNITE Orlando &mdash; pursue peer-led speaker slot (no public CFP, curated/invited), booth as fallback. Full doc + email shipped + project memory saved.</div>
     </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1vGw05-7IDkWcX8DDvBbTiBzhaGwzdB71Da8MLaIi5do/edit">Marketplace Recon Doc</a> · <a href="https://agm-newsletter-audio.s3.us-east-2.amazonaws.com/opportunities/AGM_Opportunity_fieldroutes_blue_ocean_2026-05-06.mp3">Audio Opportunity Story (11min)</a> · <a href="https://marketplace.fieldroutes.com/">FieldRoutes Marketplace</a> · <a href="https://docs.google.com/document/d/1AULQa4g7TrzMIp6nVmUixvdKALZcmDxr6fGXzv4fdFE/edit">AGM Pro Tools for FieldRoutes — Complete Plan</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/fieldroutes-marketplace-headless-build-ea4e9e27fa97">Linear: FieldRoutes Marketplace + Headless Build</a><span class="ln-state"><span class="ln-pill ln-started">In Progress</span><span class="ln-bar" title="0/4 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/4</span></span><br><span class="meta-text">May 6 &mdash; recon + doc + audio + email + memory · New tier: Enterprise $2,497/mo · IGNITE 2026 Oct 7-9 Orlando · 11min audio opportunity story shipped</span></div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1vGw05-7IDkWcX8DDvBbTiBzhaGwzdB71Da8MLaIi5do/edit">Marketplace Recon Doc</a> · <a href="https://agm-newsletter-audio.s3.us-east-2.amazonaws.com/opportunities/AGM_Opportunity_fieldroutes_blue_ocean_2026-05-06.mp3">Audio Opportunity Story (11min)</a> · <a href="https://marketplace.fieldroutes.com/">FieldRoutes Marketplace</a> · <a href="https://docs.google.com/document/d/1AULQa4g7TrzMIp6nVmUixvdKALZcmDxr6fGXzv4fdFE/edit">AGM Pro Tools for FieldRoutes — Complete Plan</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/fieldroutes-marketplace-headless-build-ea4e9e27fa97">Linear: FieldRoutes Marketplace + Headless Build</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/4 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/4</span></span><br><span class="meta-text">May 6 &mdash; recon + doc + audio + email + memory · New tier: Enterprise $2,497/mo · IGNITE 2026 Oct 7-9 Orlando · 11min audio opportunity story shipped</span></div>
   </article>
 
   <article class="task p-now">
@@ -1146,15 +1082,7 @@
       <div class="task-name"><span class="priority now">Now</span>AGM Pro Tools for FieldRoutes &mdash; Headless Onboarding + Activation Monitoring Build</div>
       <div class="task-desc">Top-to-bottom plan (drafted 2026-05-11) for productizing the FieldRoutes opportunity. Five phases: intake (self-serve form), headless provisioning (clone pest snapshot &rarr; new AGM Pro Tools sub-account &rarr; generate config + Modal apps), initial backfill, steady state (15-min Modal cron already running for Valleywide), and activation monitoring (per-client AGM Pro Tools dashboard + AGM-internal multi-client matrix with single activation score). BLOCKER #1: pest snapshot in AGM Pro Tools has never been built &mdash; launchpad_template_registry.json shows it null, falls back to turf template, which means headless onboarding for any new FR client can&#x27;t run today. Build order: (1) pest snapshot &mdash; Andrew, (2) provision_fr_client.py generator, (3) FieldRoutes branch of Launchpad intake, (4) per-client dashboard as reusable template, (5) multi-client activation matrix, (6) activation score formula + Slack alerts on red transitions, (7) wire review_request_tag on completed-ticket detection, (8) marketplace listing. Includes embedded 2026-05-06 market research deep dive (Part 10 of the doc) covering: FieldRoutes ≡ PestRoutes lineage, 17-partner marketplace footprint, five-attribute defensible moat, IGNITE 2026 strategy, pricing thesis with outcome math, recommended ladder ($97/$397/$597-697/$997/$2,497). Seven decisions needed from Troy (pest snapshot owner, activation score weights, multi-office handling, per-frequency tags, backfill SLA, marketplace timing, pricing).</div>
     </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1AULQa4g7TrzMIp6nVmUixvdKALZcmDxr6fGXzv4fdFE/edit">Complete Plan Google Doc</a> · <a href="https://docs.google.com/document/d/1vGw05-7IDkWcX8DDvBbTiBzhaGwzdB71Da8MLaIi5do/edit">Marketplace Recon (2026-05-06)</a> · <a href="https://agm-newsletter-audio.s3.us-east-2.amazonaws.com/opportunities/AGM_Opportunity_fieldroutes_blue_ocean_2026-05-06.mp3">Audio Opportunity Story (11min)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/fieldroutes-marketplace-headless-build-ea4e9e27fa97">Linear: FieldRoutes Marketplace + Headless Build</a><span class="ln-state"><span class="ln-pill ln-started">In Progress</span><span class="ln-bar" title="0/4 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/4</span></span><br><span class="meta-text">May 11 &mdash; plan drafted + Google Doc + directive committed · Blocker #1: pest snapshot · Valleywide is tenant 1</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Stream B / Gap 4 chunk 2 &mdash; Stripe wiring + STARTER pipeline</div>
-      <div class="task-desc">PAUSED 2026-05-06 morning for Jobber developer onboarding call. STARTER_TRACK_STEPS scaffold already in execution/launchpad_pipeline.py (lines 158-177); 9-module shared library ready in execution/lib/. Resume after Jobber call: add $97 Stripe Price in parent agm-stripe acct_1TKjcNRN9q5afIIK alongside existing $297, build execution/stripe_price_registry.json, migrate modal_webhook.py:2772 from inline price_data to Price ID lookup with tier param, implement 5 STARTER_TRACK_STEPS bodies (client_provisioned Starter variant, dashboard_deployed multi-tenant tenant, welcome_sent Starter copy, starter_registered), wire CAS quiz CTA at automation_score/index.html:1921 to pass tier=starter, end-to-end smoke test.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">PAUSED on Jobber call (May 6) · Resume post-call</span></div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1AULQa4g7TrzMIp6nVmUixvdKALZcmDxr6fGXzv4fdFE/edit">Complete Plan Google Doc</a> · <a href="https://docs.google.com/document/d/1vGw05-7IDkWcX8DDvBbTiBzhaGwzdB71Da8MLaIi5do/edit">Marketplace Recon (2026-05-06)</a> · <a href="https://agm-newsletter-audio.s3.us-east-2.amazonaws.com/opportunities/AGM_Opportunity_fieldroutes_blue_ocean_2026-05-06.mp3">Audio Opportunity Story (11min)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/fieldroutes-marketplace-headless-build-ea4e9e27fa97">Linear: FieldRoutes Marketplace + Headless Build</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/4 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/4</span></span><br><span class="meta-text">May 11 &mdash; plan drafted + Google Doc + directive committed · Blocker #1: pest snapshot · Valleywide is tenant 1</span></div>
   </article>
 
   <article class="task p-next">
@@ -1170,7 +1098,7 @@
       <div class="task-name"><span class="priority next">Next</span>Multi-Tenant Newsletter &mdash; Phase 1 ATE pilot</div>
       <div class="task-desc">Build the multi-tenant newsletter engine (one engine, N instance YAMLs). ATE is Instance 5 &mdash; Phase 1 pilot uses troy@artificialturfexpress.com, single-recipient newsletter-test tag, no CC. Validates full pipeline (research &rarr; draft &rarr; preview &rarr; magic-link approve &rarr; send &rarr; Day+7 metrics) before rolling out Nathan/Oasis, Chad/DFW, Justin/Amazing as config-only additions. Architecture committed at directives/newsletter_multi_tenant.md.</div>
     </div>
-    <div class="task-meta"><a href="../directives/newsletter_multi_tenant.md">Architecture directive</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/21 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/21</span></span><br><span class="meta-text">Slipped to P1 behind Jobber Marketplace · Build after Jobber Round 1-3 · Directive: newsletter_multi_tenant.md</span></div>
+    <div class="task-meta"><a href="../directives/newsletter_multi_tenant.md">Architecture directive</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">Slipped to P1 behind Jobber Marketplace · Build after Jobber Round 1-3 · Directive: newsletter_multi_tenant.md</span></div>
   </article>
 
   <article class="task p-next">
@@ -1178,7 +1106,7 @@
       <div class="task-name"><span class="priority next">Next</span>Curation as Compound Interest &mdash; 5th Strategic Pillar</div>
       <div class="task-desc">Naming the missing pillar in AGM&#x27;s recursive strategy. Accumulation pillars (Franchise Intel, Outcome Loop, Structural Enforcement, 3-Layer Arch) get heavier; curation discipline is the durable AI-era moat. Four-artifact execution: (1) context_curation_monitor.py &mdash; half day, this week, (2) AGM_COMPANY_STRATEGY.md fifth-pillar section &mdash; next strategy session, (3) Build Log essay &#x27;Knowing How to Forget&#x27; &mdash; queued, (4) customer-facing context health dashboard &mdash; after Phase 4B/C ships. Memory: project_curation_fifth_pillar.md. NEXT_SESSION.md has full details.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/21 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/21</span></span><br><span class="meta-text">May 14 | New strategic framing | Half-day Artifact 1 first</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">May 14 | New strategic framing | Half-day Artifact 1 first</span></div>
   </article>
 
   <article class="task p-next">
@@ -1194,7 +1122,7 @@
       <div class="task-name"><span class="priority next">Next</span>Pre-Stripe interstitial + post-OAuth wow moment</div>
       <div class="task-desc">Two conversion-frame pieces deferred from 5/3 audio-first bundle, bundled with Stream B (shared file: modal_webhook.py:2772). Pre-Stripe: &#x27;What happens next (60 sec)&#x27; page between report-CTA-click and Stripe redirect. Post-OAuth: first 60 sec after Jobber connect must show real leads + dollar values immediately (&#x27;You have 17 leads &gt;4hrs old, est loss $2,180&#x27;).</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Bundled with Stream B (paused for Jobber call)</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Bundled with Stream B (paused for Jobber call)</span></div>
   </article>
 
   <article class="task p-next">
@@ -1210,7 +1138,7 @@
       <div class="task-name"><span class="priority next">Next</span>The Build Log &mdash; Weekly Newsletter + YouTube Campaign</div>
       <div class="task-desc">Automated weekly build cycle report: git commits + chapter notes &rarr; contractor-friendly newsletter + companion YouTube video. 7 historical issues (Mar–Apr) drafted for May rollout. Issue # + publish date override ready. Campaign calendar at docs/BUILD_CYCLE_CAMPAIGN.md.</div>
     </div>
-    <div class="task-meta"><a href="https://github.com/agmpro-byte/agm-automation/blob/main/docs/BUILD_CYCLE_CAMPAIGN.md">Campaign Calendar</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/21 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/21</span></span><br><span class="meta-text">Apr 29 · 7 issues drafted · May launch</span></div>
+    <div class="task-meta"><a href="https://github.com/agmpro-byte/agm-automation/blob/main/docs/BUILD_CYCLE_CAMPAIGN.md">Campaign Calendar</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">Apr 29 · 7 issues drafted · May launch</span></div>
   </article>
 
   <article class="task p-next">
@@ -1242,7 +1170,7 @@
       <div class="task-name"><span class="priority waiting">Waiting</span>Newsletter-as-a-Service &mdash; Spec DELIVERED, awaiting Troy review</div>
       <div class="task-desc">Managed monthly newsletter addon for AGM subscribers. $197/mo Pro Tools addon ($497 weekly). SPEC DELIVERED 2026-04-23 &mdash; Draft v0.1 Google Doc live: https://docs.google.com/document/d/1Q-4YZScmet1499k5tb1w0bzAHlOBU-LlS4qk8ve6P_k/edit (13 sections: scope, 10-beat architecture, intake/assembly/send pipeline detail, template system, packaging, pilot roadmap, risks, success criteria). ORIGINAL SPRINT (Apr 15-17) MISSED &mdash; HG Costco/change-order build owned the window. REPLANNED ship date in spec: Fri 2026-05-01 for AGM dogfood issue #1. SIX OPEN DECISIONS in §9 awaiting Troy: (1) ship date confirmation, (2) SMS number strategy (shared vs per-customer), (3) Quill voice calibration &mdash; add Andrew for pilot QA?, (4) pricing sanity check $197 vs $297, (5) Apple Shortcut v1 vs v1.1, (6) unsubscribe plumbing SES-managed vs custom AGM-writeback. GREEN-LIGHT PATH: Troy reviews &rarr; Harlan starts MJML template + SES identity for agmpro.com subdomain &rarr; build through pilot roadmap Phase 1. RED-FLAG PATH: inline edits in doc &rarr; Harlan revises v0.2. Andrew&#x27;s role remains DNS-only for Chad rollout, NOT editorial. Chad&#x27;s intake trigger is AGM workflow engine, NOT Jobber. Jobber stacks on later for HG/ATE.</div>
     </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1Q-4YZScmet1499k5tb1w0bzAHlOBU-LlS4qk8ve6P_k/edit">Spec Doc (Draft v0.1)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/21 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/21</span></span><br><span class="meta-text">SPEC DELIVERED Apr 23 · Awaiting Troy review + §9 decisions · Proposed ship: Fri May 1 (AGM dogfood) · Parallel to HG Costco Layer 2/3</span></div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1Q-4YZScmet1499k5tb1w0bzAHlOBU-LlS4qk8ve6P_k/edit">Spec Doc (Draft v0.1)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">SPEC DELIVERED Apr 23 · Awaiting Troy review + §9 decisions · Proposed ship: Fri May 1 (AGM dogfood) · Parallel to HG Costco Layer 2/3</span></div>
   </article>
 
   <article class="task p-waiting">
@@ -1250,7 +1178,7 @@
       <div class="task-name"><span class="priority waiting">Waiting</span>Monthly Customer 3-Point Email &mdash; V2 Ready</div>
       <div class="task-desc">Built end-to-end Apr 6. V2 is AGM-centric per Troy&#x27;s feedback (&#x27;pretty dang good&#x27;). Open question: Automation Score URL referenced but funnel not live &mdash; decide whether to cut paragraph, hold email, or swap content. Once approved, send to Texas Turf/Andrew first.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/21 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/21</span></span><br><span class="meta-text">Troy reviewing · V2 ready to send</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">Troy reviewing · V2 ready to send</span></div>
   </article>
 
   <article class="task p-queued">
@@ -1298,7 +1226,7 @@
       <div class="task-name"><span class="priority queued">Queued</span>Chapter Audio Link Sweep &mdash; Chapters 1-29</div>
       <div class="task-desc">Format drift between record_chapter.py and create_chapter_book_doc.py caused dead links in Google Doc. Fixed for Chapter 30+. Chapters 1-29 need: sweep script to verify S3 URLs, backfill missing objects, update chapter entries, re-run doc generator.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/21 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/21</span></span><br><span class="meta-text">Script needed · Dead links in Google Doc</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">Script needed · Dead links in Google Doc</span></div>
   </article>
 
   <article class="task p-queued">
@@ -1330,11 +1258,11 @@
       <div class="task-name"><span class="priority queued">Queued</span>Content Flywheel &mdash; Restart (back on the radar)</div>
       <div class="task-desc">Triggered 2026-05-17 by audit of an external 5-agent content pipeline article vs our Scout/Quill/Pixel/Echo flywheel. Troy: &#x27;we&#x27;ve got to get back on this.&#x27; The architecture in directives/content_flywheel_master.md is more sophisticated than the article &mdash; the gap is execution + invocability + cadence enforcement. Priority sequence: (1) Fork Scout/Quill/Pixel/Echo into invocable .claude/agents/*.md files with frontmatter + short identity line + machine-parseable &#x27;End with:&#x27; footer (one-hour first step, immediately unlocks /agents content-scout from any session). (2) Add &#x27;End with:&#x27; footers to existing scripts so cron can grep handoff status. (3) Audit weekly cadence crons (Mon Scout / Wed Quill / Thu Pixel / Fri Publish / Sat Atomize) &mdash; verify each runs or document the manual gap. (4) Define {{voice_profile}} text per content stream instead of word-blocklists. (5) Pixel + Echo gap audit: publish_linkedin/twitter/tiktok/instagram scripts exist but may not be cron-invoked. Full audit memo in Harlan memory: project_content_flywheel_2026-05-17_audit.md.</div>
     </div>
-    <div class="task-meta"><a href="../directives/content_flywheel_master.md">Content Flywheel Master Directive</a> · <a href="../execution/content_pipeline.py">Content Pipeline Orchestrator</a> · <a href="../execution/briggs_skills/SKILL_flywheel_monitor.md">Briggs Flywheel Monitor Skill</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/21 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/21</span></span><br><span class="meta-text">Restart 2026-05-17 · One-hour first step · Master ToDo items #50-#54</span></div>
+    <div class="task-meta"><a href="../directives/content_flywheel_master.md">Content Flywheel Master Directive</a> · <a href="../execution/content_pipeline.py">Content Pipeline Orchestrator</a> · <a href="../execution/briggs_skills/SKILL_flywheel_monitor.md">Briggs Flywheel Monitor Skill</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">Restart 2026-05-17 · One-hour first step · Master ToDo items #50-#54</span></div>
   </article>
   </div>
   <details class="completed-fold">
-    <summary>5 completed in this category &mdash; show</summary>
+    <summary>6 completed in this category &mdash; show</summary>
     <div class="cat-items completed-items">
   <article class="task p-done done-row">
     <div class="task-body">
@@ -1358,6 +1286,14 @@
       <div class="task-desc">SHIPPED 2026-05-12. Full enrichment layer (domain_resolver, website_audit, vendor_mention_scan, geography) + Opus dossier writer + outbound email/LinkedIn drafter. First backfill: 32/41 enriched, 8 dossiers + 8 outbound drafts queued in awaiting_send. Threshold ran at ≥60 for v1.1 (achievable ceiling 85 until v1.2 GBP review-velocity enricher lands). Top cohort: Go Forth (67), Miche (67), Alta/City Wide/Ridd/Magic City (63), Friendly/Admiral (62).</div>
     </div>
     <div class="task-meta"><a href="directives/prospecting_engine.md">Directive</a> · <a href="https://modal.com/apps/agm-pro/main/deployed/agm-prospecting">Modal app</a> · <a href="directives/agm_protools_fieldroutes_opportunity.md">FR Strategy</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/agm-sales-and-marketing-funnel-7b71df16c09c">Linear: AGM Sales &amp; Marketing Funnel</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">Shipped May 12 · 8 dossiers + 8 outbound drafts queued</span></div>
+  </article>
+
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>Stream B / Gap 4 chunk 2 &mdash; Stripe wiring + STARTER pipeline</div>
+      <div class="task-desc">PAUSED 2026-05-06 morning for Jobber developer onboarding call. STARTER_TRACK_STEPS scaffold already in execution/launchpad_pipeline.py (lines 158-177); 9-module shared library ready in execution/lib/. Resume after Jobber call: add $97 Stripe Price in parent agm-stripe acct_1TKjcNRN9q5afIIK alongside existing $297, build execution/stripe_price_registry.json, migrate modal_webhook.py:2772 from inline price_data to Price ID lookup with tier param, implement 5 STARTER_TRACK_STEPS bodies (client_provisioned Starter variant, dashboard_deployed multi-tenant tenant, welcome_sent Starter copy, starter_registered), wire CAS quiz CTA at automation_score/index.html:1921 to pass tier=starter, end-to-end smoke test.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">PAUSED on Jobber call (May 6) · Resume post-call</span></div>
   </article>
 
   <article class="task p-done done-row">
@@ -1406,7 +1342,7 @@
       <div class="task-name"><span class="priority next">Next</span>Sprint 3 #1 &mdash; installer_packet_build auth gate</div>
       <div class="task-desc">installer_packet_build endpoint takes a guessable AGM contact_id with no bearer auth. Has IP rate limit (120/min) from Sprint 2 but no identity gate. Fix: require WEBHOOK_API_KEY like change_order_endpoint, OR scope to AGM custom-action HMAC, OR signed-URL pattern from AGM workflow. 2-4 hours design + implementation. Highest priority Sprint 3 item.</div>
     </div>
-    <div class="task-meta"><a href="docs/architecture_gaps.md">architecture_gaps.md 2026-05-15</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="1/8 issues done"><span class="ln-bar-fill" style="width:12%"></span></span><span class="ln-count">1/8</span></span><br><span class="meta-text">2-4 hr design + build</span></div>
+    <div class="task-meta"><a href="docs/architecture_gaps.md">architecture_gaps.md 2026-05-15</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/5 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/5</span></span><br><span class="meta-text">2-4 hr design + build</span></div>
   </article>
 
   <article class="task p-next">
@@ -1414,7 +1350,7 @@
       <div class="task-name"><span class="priority next">Next</span>Sprint 3 #2 &mdash; Document UUID-as-credential pattern</div>
       <div class="task-desc">Six contract_engine endpoints rely on session_id (UUID v4, 122 bits) being the de-facto auth credential. Pattern is fine if documented and UUID generation is verified random &mdash; but currently implicit. Add to directives/dashboard_security_contract.md or write new directives/unguessable_id_auth.md codifying entropy floor + canonical generator.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="1/8 issues done"><span class="ln-bar-fill" style="width:12%"></span></span><span class="ln-count">1/8</span></span><br><span class="meta-text">1 hr writing</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/5 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/5</span></span><br><span class="meta-text">1 hr writing</span></div>
   </article>
 
   <article class="task p-next">
@@ -1422,7 +1358,7 @@
       <div class="task-name"><span class="priority next">Next</span>Sprint 3 #3 &mdash; Audit log Modal Volume + S3 rollup</div>
       <div class="task-desc">execution/lib/audit_log.write_audit_entry falls back to logger.info (Modal structured logs) when /audit volume isn&#x27;t mounted. For long-term forensic retention: mount agm-audit-log volume on every Modal function calling require_auth or guard_contract_endpoint + daily cron rolling to S3 with KMS-encrypted at-rest storage.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="1/8 issues done"><span class="ln-bar-fill" style="width:12%"></span></span><span class="ln-count">1/8</span></span><br><span class="meta-text">3-4 hr</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/5 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/5</span></span><br><span class="meta-text">3-4 hr</span></div>
   </article>
 
   <article class="task p-next">
@@ -1438,7 +1374,7 @@
       <div class="task-name"><span class="priority next">Next</span>Launchpad Intelligence &mdash; Wire Live Infrastructure</div>
       <div class="task-desc">Architecture doc, market research, aggregation engine, registry, demo dashboard, and 3 Gamma decks all built. NOT deployment-ready. Needs: deploy launchpad_sync Modal cron, multi-location OAuth onboarding flow, live Jobber data connection (currently mock), Launchpad tab on Mission Control, permission model, health endpoint. Waterloo Turf is reference customer.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span></div>
   </article>
 
   <article class="task p-next">
@@ -1494,7 +1430,7 @@
       <div class="task-name"><span class="priority next">Next</span>Blog Content &mdash; Clusters 2-7</div>
       <div class="task-desc">18 posts remaining across 6 topic clusters: Quote Follow-Up, Missed Call Recovery, Review Generation, FSM-Specific Bridges, Franchise Intelligence, ROI &amp; Proof. All posts must follow AI Overview SEO structure.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/21 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/21</span></span><br><span class="meta-text">10/28 published · Content strategy saved</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">10/28 published · Content strategy saved</span></div>
   </article>
 
   <article class="task p-next">
@@ -1502,7 +1438,7 @@
       <div class="task-name"><span class="priority next">Next</span>April Intelligence Report Pipeline</div>
       <div class="task-desc">Folded into Content Flywheel. Tuesday 5AM = Intelligence Report (Monthly Trends replaces on 1st Tue). Scout ran successfully Apr 9 (41KB). Pipeline: Scout, Quill, Pixel, Echo.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/21 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/21</span></span><br><span class="meta-text">Part of flywheel · ~280 subscribers</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">Part of flywheel · ~280 subscribers</span></div>
   </article>
 
   <article class="task p-queued">
@@ -1518,7 +1454,7 @@
       <div class="task-name"><span class="priority later">Later</span>Sprint 3 #4 &mdash; Third-party pen test (deferred)</div>
       <div class="task-desc">All red-teaming today is internal (red_team_3_probes.py). For enterprise sales, external attestation from boutique vendor (Cure53, Latacora, Bishop Fox tier, $10K-$25K). Defer until enterprise pipeline justifies the spend or until processing live multi-tenant revenue data at scale. Re-evaluate quarterly.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="1/8 issues done"><span class="ln-bar-fill" style="width:12%"></span></span><span class="ln-count">1/8</span></span><br><span class="meta-text">$10K-$25K · Gated on enterprise pipeline</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/5 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/5</span></span><br><span class="meta-text">$10K-$25K · Gated on enterprise pipeline</span></div>
   </article>
 
   <article class="task p-later">
@@ -1526,7 +1462,7 @@
       <div class="task-name"><span class="priority later">Later</span>Sprint 3 #5 &mdash; DPA legal review</div>
       <div class="task-desc">docs/legal/data_processing_agreement.md is a v1 draft written without counsel. Standard Art. 28 structure but every customer signing requires a lawyer to sign off on jurisdiction, liability caps, SCC implementation. Engage counsel before first enterprise contract that requests a DPA.</div>
     </div>
-    <div class="task-meta"><a href="docs/legal/data_processing_agreement.md">DPA draft</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="1/8 issues done"><span class="ln-bar-fill" style="width:12%"></span></span><span class="ln-count">1/8</span></span><br><span class="meta-text">Gated on first DPA request</span></div>
+    <div class="task-meta"><a href="docs/legal/data_processing_agreement.md">DPA draft</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/5 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/5</span></span><br><span class="meta-text">Gated on first DPA request</span></div>
   </article>
   </div>
   <details class="completed-fold">
@@ -1554,9 +1490,17 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">AGM Pro Tools &mdash; Product &amp; Funnel</span>
-    <span class="cat-count">12 active</span>
+    <span class="cat-count">13 active</span>
   </header>
   <div class="cat-items">
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>ArcSite Integration &mdash; Partnership + Writeback</div>
+      <div class="task-desc">Integrate ArcSite (mobile CAD / takeoff / proposal app for turf, fencing, landscaping) as a data source that writes drawings, takeoffs, and proposals back into AGM Pro Tools. AGM occupies the agentic automation/orchestration layer on top of ArcSite data &mdash; a partner slot no current ArcSite integration fills. Warm entry: Oasis Turf is already an ArcSite integration-candidate prospect in our pipeline. Hooks: ArcSite already feeds Salesforce (HG Direct stack) + its Drawing-PDF output maps onto our Project Documents Uploader. Next action: book Zoom walkthrough with Nate to map every ArcSite object to its AGM writeback (AGM-205).</div>
+    </div>
+    <div class="task-meta"><a href="https://linear.app/agmprotools/issue/AGM-205/book-zoom-call-with-nate-arcsite-agm-writeback-walkthrough">Linear AGM-205 — Book Nate call</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/arcsite-integration-06c188d6fb3b">Linear: ArcSite Integration</a><br><span class="meta-text">Jun 12 · Warm via Oasis Turf · Next: Nate Zoom walkthrough · Linear AGM-205 (book call)</span></div>
+  </article>
+
   <article class="task p-next">
     <div class="task-body">
       <div class="task-name"><span class="priority next">Next</span>Product Mission Control &mdash; Phase 1: Dispatch shell</div>
@@ -1674,7 +1618,7 @@
       <div class="task-name"><span class="priority now">Now</span>SF OAuth Client Credentials Migration</div>
       <div class="task-desc">Eliminate SOAP-as-Troy auth from 11 backend scripts. Move HG SF surface to OAuth Client Credentials Flow with dedicated integration user. Zero-downtime plan, shadow-auth first, contract engine cuts LAST. Linear: SF OAuth Client Credentials Migration (Urgent). Demoted from emergency to tracked priority after 2026-05-20 reframe &mdash; 5/19 freeze hit Sherrie, not Tscott. Summer &#x27;27 SOAP retirement makes this a forced migration eventually.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/sf-oauth-client-credentials-migration-416a261d754a">Linear: SF OAuth Client Credentials Migration</a><span class="ln-state"><span class="ln-pill ln-started">In Progress</span><span class="ln-bar" title="3/5 issues done"><span class="ln-bar-fill" style="width:60%"></span></span><span class="ln-count">3/5</span></span><br><span class="meta-text">Linear Urgent · 11 scripts to migrate · Target: a focused sprint week</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/sf-oauth-client-credentials-migration-416a261d754a">Linear: SF OAuth Client Credentials Migration</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/5 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/5</span></span><br><span class="meta-text">Linear Urgent · 11 scripts to migrate · Target: a focused sprint week</span></div>
   </article>
 
   <article class="task p-next">
@@ -1728,7 +1672,7 @@ Migration plan (unchanged &mdash; just no longer urgent):
 
 Target: schedule into a future sprint when laptop builds + CENTAH bombardment fix have shipped. Stop-gap remains the rotation runbook at directives/sf_admin_password_rotation.md.</div>
     </div>
-    <div class="task-meta"><a href="directives/sf_admin_password_rotation.md">Rotation runbook</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/sf-oauth-client-credentials-migration-416a261d754a">Linear: SF OAuth Client Credentials Migration</a><span class="ln-state"><span class="ln-pill ln-started">In Progress</span><span class="ln-bar" title="3/5 issues done"><span class="ln-bar-fill" style="width:60%"></span></span><span class="ln-count">3/5</span></span><br><span class="meta-text">Demoted 2026-05-20 from emergency to tracked · Original notice: 2026-05-07 (Summer &#x27;27 SOAP retirement) · Real trigger event: NONE &mdash; 5/19 narrative was misdiagnosis · Stop-gap: directives/sf_admin_password_rotation.md · Affected scripts: 11 production · Post-mortem: docs/post_mortems/2026-05-20_sf_user_id_misattribution.md</span></div>
+    <div class="task-meta"><a href="directives/sf_admin_password_rotation.md">Rotation runbook</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/sf-oauth-client-credentials-migration-416a261d754a">Linear: SF OAuth Client Credentials Migration</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/5 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/5</span></span><br><span class="meta-text">Demoted 2026-05-20 from emergency to tracked · Original notice: 2026-05-07 (Summer &#x27;27 SOAP retirement) · Real trigger event: NONE &mdash; 5/19 narrative was misdiagnosis · Stop-gap: directives/sf_admin_password_rotation.md · Affected scripts: 11 production · Post-mortem: docs/post_mortems/2026-05-20_sf_user_id_misattribution.md</span></div>
   </article>
 
   <article class="task p-queued">
@@ -1908,7 +1852,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
       <div class="task-name"><span class="priority queued">Queued</span>Content Flywheel &mdash; White-Label Subscription Product</div>
       <div class="task-desc">Modularize the content flywheel into a white-labeled subscription product. HG is Instance #1. Third revenue layer alongside ProTools automation and franchise intelligence. 10 open design decisions documented.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/21 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/21</span></span><br><span class="meta-text">Third revenue layer · HG = Instance #1</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">Third revenue layer · HG = Instance #1</span></div>
   </article>
 
   <article class="task p-queued">
@@ -2058,7 +2002,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
       <div class="task-name"><span class="priority done">Done</span>Sprint 2 security hardening &mdash; DONE</div>
       <div class="task-desc">Closed 4-gap audit from 2026-05-15 vibe-coded-app checklist: (1) Per-bearer-token rate limit (60/min soft, 1000/hr hard) via modal.Dict token bucket in execution/lib/rate_limit.py, wired into require_auth. (2) Audit log per authed call to Modal structured logs with Slack alerts on hard-cap + auth-failure bursts (execution/lib/audit_log.py). (3) Six security response headers (HSTS, X-Frame-Options DENY, etc.) on all 20 fastapi_endpoints via @with_security_headers decorator (execution/lib/security_headers.py). (4) GDPR DPA v1 draft + privacy policy uplifted with sub-processor disclosure, lawful bases, SCC reference. Pre-deploy Check 14 enforces decorator pairing structurally. Contract engine endpoints (no require_auth) got guard_contract_endpoint() with IP-based rate limiting (120/min, 2000/hr per IP per scope). Live-verified on both Modal apps.</div>
     </div>
-    <div class="task-meta"><a href="docs/legal/data_processing_agreement.md">DPA draft</a> · <a href="docs/agmpro/privacy.html">Privacy policy</a> · <a href="docs/architecture_gaps.md">Architecture gaps</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="1/8 issues done"><span class="ln-bar-fill" style="width:12%"></span></span><span class="ln-count">1/8</span></span><br><span class="meta-text">May 15 · Commits 231fd10 + 511711a · All 14 pre_deploy_check checks green</span></div>
+    <div class="task-meta"><a href="docs/legal/data_processing_agreement.md">DPA draft</a> · <a href="docs/agmpro/privacy.html">Privacy policy</a> · <a href="docs/architecture_gaps.md">Architecture gaps</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/infrastructure-and-security-cleanup-86e8647b7b6a">Linear: Infrastructure &amp; Security Cleanup</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/5 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/5</span></span><br><span class="meta-text">May 15 · Commits 231fd10 + 511711a · All 14 pre_deploy_check checks green</span></div>
   </article>
 
   <article class="task p-done done-row">
@@ -2202,7 +2146,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
       <div class="task-name"><span class="priority done">Done</span>Launchpad Build Workbook &mdash; Google Doc</div>
       <div class="task-desc">Complete status tracker: what&#x27;s built, tested, missing, and remaining work with owners + time estimates. 701 formatting requests.</div>
     </div>
-    <div class="task-meta"><a href="https://docs.google.com/document/d/1h3Fgk1c1wRl3jDY-ZpoD9deJ19JAetZl8Mf-yVu_vPo/edit">Google Doc</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Apr 10</span></div>
+    <div class="task-meta"><a href="https://docs.google.com/document/d/1h3Fgk1c1wRl3jDY-ZpoD9deJ19JAetZl8Mf-yVu_vPo/edit">Google Doc</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Apr 10</span></div>
   </article>
 
   <article class="task p-done done-row">
@@ -2234,7 +2178,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
       <div class="task-name"><span class="priority done">Done</span>Content Flywheel &mdash; 3 Platforms Live</div>
       <div class="task-desc">Scout, Quill, Pixel, Echo pipeline operational. LinkedIn first automated post sent. YouTube both channels authorized.</div>
     </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/21 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/21</span></span><br><span class="meta-text">Apr 4-5</span></div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/content-flywheel-build-log-60e5771fde9c">Linear: Content Flywheel + Build Log</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">Apr 4-5</span></div>
   </article>
 
   <article class="task p-done done-row">
@@ -2250,7 +2194,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
       <div class="task-name"><span class="priority done">Done</span>Automation Score Backend &mdash; Deployed &amp; Tested</div>
       <div class="task-desc">End-to-end pipeline verified: quiz, scoring, AGM lead, email/PDF, Slack, Sheet. Critical bugs fixed.</div>
     </div>
-    <div class="task-meta"><a href="https://contractorautomationscore.com">Live</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Apr 5</span></div>
+    <div class="task-meta"><a href="https://contractorautomationscore.com">Live</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">Apr 5</span></div>
   </article>
 
   <article class="task p-done done-row">
@@ -2298,7 +2242,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
 
 <div class="footer">
   True North &mdash; AGM Pro Tools<br>
-  Updated 2026-06-11 by sync_linear_to_true_north.py<br>
+  Updated 2026-06-12 by Harlan (Opus 4.8)<br>
   Single source of truth for everything in flight.
 </div>
 

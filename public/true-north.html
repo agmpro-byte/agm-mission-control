@@ -818,7 +818,7 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Multi-Track Contract Engine &mdash; Active Sprint</span>
-    <span class="cat-count">8 active &middot; 21 done</span>
+    <span class="cat-count">8 active &middot; 23 done</span>
   </header>
   <div class="cat-items">
   <article class="task p-now">
@@ -886,8 +886,24 @@
   </article>
   </div>
   <details class="completed-fold">
-    <summary>21 completed in this category &mdash; show</summary>
+    <summary>23 completed in this category &mdash; show</summary>
     <div class="cat-items completed-items">
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>Level 3 Bandit &mdash; Sprint 1 shadow mode LIVE (2026-06-12)</div>
+      <div class="task-desc">Thompson-sampling selector records shadow subject-line assignments on every customer signing-link send; variant_assignments table in Neon; daily digest cron (stall alarm + Monday posteriors). Council-reviewed. HGP-143 waived by Troy. Next: verify first shadow row (HGP-140), then HGP-144 metric ratification is the only gate before Sprint 2 live routing.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-c2775ee853d3">Linear</a><span class="ln-state"><span class="ln-pill ln-started">In Progress</span><span class="ln-bar" title="7/15 issues done"><span class="ln-bar-fill" style="width:47%"></span></span><span class="ln-count">7/15</span></span><br><span class="meta-text">Jun 12 · Shadow live in prod</span></div>
+  </article>
+
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>Level 3 Bandit &mdash; S2 metrics RATIFIED + first shadow row landed (2026-06-12)</div>
+      <div class="task-desc">HGP-144 DONE: Troy ratified time-to-sign (7d leading, bandit iteration) + completed/installed-without-withdrawal-at-60d (lagging, monthly validation). HGP-140 DONE: first shadow assignment verified in prod (session 5adf7445, variant c_next_step, 2026-06-12T23:10Z) &mdash; selector&rarr;Neon plumbing proven end-to-end. Remaining before HGP-146 live routing build: a clean shadow-mode validation window (now accruing). HGP-143 waived.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-c2775ee853d3">Linear</a><span class="ln-state"><span class="ln-pill ln-started">In Progress</span><span class="ln-bar" title="7/15 issues done"><span class="ln-bar-fill" style="width:47%"></span></span><span class="ln-count">7/15</span></span><br><span class="meta-text">Jun 12 · S2 gate cleared</span></div>
+  </article>
+
   <article class="task p-done done-row">
     <div class="task-body">
       <div class="task-name"><span class="priority done">Done</span>Phase 6 &mdash; SQLite &rarr; Neon Postgres migration (concurrency-fix sprint)</div>
@@ -1130,9 +1146,17 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">This Week &mdash; Priority</span>
-    <span class="cat-count">29 active &middot; 5 done</span>
+    <span class="cat-count">29 active &middot; 6 done</span>
   </header>
   <div class="cat-items">
+  <article class="task p-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority now">Now</span>FieldRoutes ETL Framework &mdash; V2.1 cutover (AGM-160/161)</div>
+      <div class="task-desc">Phases 1-6 SHIPPED + DEPLOYED 2026-06-12 in one session (Troy greenlit on Zoom, Harlan on auto): verified-filter date-bisect extract layer (live-proven 2,469 subs / 9,239 customers / 4,744 appts in 57 FR calls), agm-fieldroutes-etl Modal app (3 PT crons gated on etl.enabled=false &mdash; zero FR usage pre-cutover), pre-deploy checks 20/21/22, pest_vertical_dashboard_spec.md (10 KPIs ratified), V2.1 dashboard deployed (zero FR calls, snapshot view + maturity chips). REMAINING: Andrew Phase 7 validation (AGM-160, ~2h, fully staged) &rarr; AGM-161 cutover = flip etl.enabled + redeploy. Target 06-21. Unblocks the Headless Build + Pest Routes connector items &mdash; contractor #2 is now a config file.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/fieldroutes-etl-framework-multi-tenant-dashboard-substrate-9fa3ed512891">Linear: FieldRoutes ETL Framework — Multi-Tenant Dashboard Substrate</a><span class="ln-state"><span class="ln-pill ln-started">Live</span><span class="ln-bar" title="9/13 issues done"><span class="ln-bar-fill" style="width:69%"></span></span><span class="ln-count">9/13</span></span><br><span class="meta-text">Phases 1-6 done 06-12 · Andrew validation next · cutover 06-21</span></div>
+  </article>
+
   <article class="task p-now">
     <div class="task-body">
       <div class="task-name"><span class="priority now">Now</span>Finish CAS workflows &rarr; send AlphaTurf their Contractor Automation Score link</div>
@@ -1176,17 +1200,9 @@
   <article class="task p-now">
     <div class="task-body">
       <div class="task-name"><span class="priority now">Now</span>AGM Pro Tools for FieldRoutes &mdash; Headless Onboarding + Activation Monitoring Build</div>
-      <div class="task-desc">Top-to-bottom plan (drafted 2026-05-11) for productizing the FieldRoutes opportunity. Five phases: intake (self-serve form), headless provisioning (clone pest snapshot &rarr; new AGM Pro Tools sub-account &rarr; generate config + Modal apps), initial backfill, steady state (15-min Modal cron already running for Valleywide), and activation monitoring (per-client AGM Pro Tools dashboard + AGM-internal multi-client matrix with single activation score). BLOCKER #1: pest snapshot in AGM Pro Tools has never been built &mdash; launchpad_template_registry.json shows it null, falls back to turf template, which means headless onboarding for any new FR client can&#x27;t run today. Build order: (1) pest snapshot &mdash; Andrew, (2) provision_fr_client.py generator, (3) FieldRoutes branch of Launchpad intake, (4) per-client dashboard as reusable template, (5) multi-client activation matrix, (6) activation score formula + Slack alerts on red transitions, (7) wire review_request_tag on completed-ticket detection, (8) marketplace listing. Includes embedded 2026-05-06 market research deep dive (Part 10 of the doc) covering: FieldRoutes ≡ PestRoutes lineage, 17-partner marketplace footprint, five-attribute defensible moat, IGNITE 2026 strategy, pricing thesis with outcome math, recommended ladder ($97/$397/$597-697/$997/$2,497). Seven decisions needed from Troy (pest snapshot owner, activation score weights, multi-office handling, per-frequency tags, backfill SLA, marketplace timing, pricing).</div>
+      <div class="task-desc">Top-to-bottom plan (drafted 2026-05-11) for productizing the FieldRoutes opportunity. Five phases: intake (self-serve form), headless provisioning (clone pest snapshot &rarr; new AGM Pro Tools sub-account &rarr; generate config + Modal apps), initial backfill, steady state (15-min Modal cron already running for Valleywide), and activation monitoring (per-client AGM Pro Tools dashboard + AGM-internal multi-client matrix with single activation score). BLOCKER #1: pest snapshot in AGM Pro Tools has never been built &mdash; launchpad_template_registry.json shows it null, falls back to turf template, which means headless onboarding for any new FR client can&#x27;t run today. Build order: (1) pest snapshot &mdash; Andrew, (2) provision_fr_client.py generator, (3) FieldRoutes branch of Launchpad intake, (4) per-client dashboard as reusable template, (5) multi-client activation matrix, (6) activation score formula + Slack alerts on red transitions, (7) wire review_request_tag on completed-ticket detection, (8) marketplace listing. Includes embedded 2026-05-06 market research deep dive (Part 10 of the doc) covering: FieldRoutes ≡ PestRoutes lineage, 17-partner marketplace footprint, five-attribute defensible moat, IGNITE 2026 strategy, pricing thesis with outcome math, recommended ladder ($97/$397/$597-697/$997/$2,497). Seven decisions needed from Troy (pest snapshot owner, activation score weights, multi-office handling, per-frequency tags, backfill SLA, marketplace timing, pricing). &mdash; 2026-06-12 UPDATE: the ETL substrate this build depends on shipped (phases 1-6 deployed); blocker shifts to pest snapshot + cutover validation.</div>
     </div>
     <div class="task-meta"><a href="https://docs.google.com/document/d/1AULQa4g7TrzMIp6nVmUixvdKALZcmDxr6fGXzv4fdFE/edit">Complete Plan Google Doc</a> · <a href="https://docs.google.com/document/d/1vGw05-7IDkWcX8DDvBbTiBzhaGwzdB71Da8MLaIi5do/edit">Marketplace Recon (2026-05-06)</a> · <a href="https://agm-newsletter-audio.s3.us-east-2.amazonaws.com/opportunities/AGM_Opportunity_fieldroutes_blue_ocean_2026-05-06.mp3">Audio Opportunity Story (11min)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/fieldroutes-marketplace-headless-build-ea4e9e27fa97">Linear: FieldRoutes Marketplace + Headless Build</a><span class="ln-state"><span class="ln-pill ln-started">In Progress</span><span class="ln-bar" title="0/4 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/4</span></span><br><span class="meta-text">May 11 &mdash; plan drafted + Google Doc + directive committed · Blocker #1: pest snapshot · Valleywide is tenant 1</span></div>
-  </article>
-
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Stream B / Gap 4 chunk 2 &mdash; Stripe wiring + STARTER pipeline</div>
-      <div class="task-desc">PAUSED 2026-05-06 morning for Jobber developer onboarding call. STARTER_TRACK_STEPS scaffold already in execution/launchpad_pipeline.py (lines 158-177); 9-module shared library ready in execution/lib/. Resume after Jobber call: add $97 Stripe Price in parent agm-stripe acct_1TKjcNRN9q5afIIK alongside existing $297, build execution/stripe_price_registry.json, migrate modal_webhook.py:2772 from inline price_data to Price ID lookup with tier param, implement 5 STARTER_TRACK_STEPS bodies (client_provisioned Starter variant, dashboard_deployed multi-tenant tenant, welcome_sent Starter copy, starter_registered), wire CAS quiz CTA at automation_score/index.html:1921 to pass tier=starter, end-to-end smoke test.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">PAUSED on Jobber call (May 6) · Resume post-call</span></div>
   </article>
 
   <article class="task p-next">
@@ -1366,7 +1382,7 @@
   </article>
   </div>
   <details class="completed-fold">
-    <summary>5 completed in this category &mdash; show</summary>
+    <summary>6 completed in this category &mdash; show</summary>
     <div class="cat-items completed-items">
   <article class="task p-done done-row">
     <div class="task-body">
@@ -1390,6 +1406,14 @@
       <div class="task-desc">SHIPPED 2026-05-12. Full enrichment layer (domain_resolver, website_audit, vendor_mention_scan, geography) + Opus dossier writer + outbound email/LinkedIn drafter. First backfill: 32/41 enriched, 8 dossiers + 8 outbound drafts queued in awaiting_send. Threshold ran at ≥60 for v1.1 (achievable ceiling 85 until v1.2 GBP review-velocity enricher lands). Top cohort: Go Forth (67), Miche (67), Alta/City Wide/Ridd/Magic City (63), Friendly/Admiral (62).</div>
     </div>
     <div class="task-meta"><a href="directives/prospecting_engine.md">Directive</a> · <a href="https://modal.com/apps/agm-pro/main/deployed/agm-prospecting">Modal app</a> · <a href="directives/agm_protools_fieldroutes_opportunity.md">FR Strategy</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/agm-sales-and-marketing-funnel-7b71df16c09c">Linear: AGM Sales &amp; Marketing Funnel</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/9 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/9</span></span><br><span class="meta-text">Shipped May 12 · 8 dossiers + 8 outbound drafts queued</span></div>
+  </article>
+
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>Stream B / Gap 4 chunk 2 &mdash; Stripe wiring + STARTER pipeline</div>
+      <div class="task-desc">PAUSED 2026-05-06 morning for Jobber developer onboarding call. STARTER_TRACK_STEPS scaffold already in execution/launchpad_pipeline.py (lines 158-177); 9-module shared library ready in execution/lib/. Resume after Jobber call: add $97 Stripe Price in parent agm-stripe acct_1TKjcNRN9q5afIIK alongside existing $297, build execution/stripe_price_registry.json, migrate modal_webhook.py:2772 from inline price_data to Price ID lookup with tier param, implement 5 STARTER_TRACK_STEPS bodies (client_provisioned Starter variant, dashboard_deployed multi-tenant tenant, welcome_sent Starter copy, starter_registered), wire CAS quiz CTA at automation_score/index.html:1921 to pass tier=starter, end-to-end smoke test.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/launchpad-quiz-automation-score-closed-won-645a59f3a3b3">Linear: Launchpad — Quiz → Automation Score → Closed Won</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/7 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/7</span></span><br><span class="meta-text">PAUSED on Jobber call (May 6) · Resume post-call</span></div>
   </article>
 
   <article class="task p-done done-row">
@@ -1586,9 +1610,17 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">AGM Pro Tools &mdash; Product &amp; Funnel</span>
-    <span class="cat-count">12 active</span>
+    <span class="cat-count">13 active</span>
   </header>
   <div class="cat-items">
+  <article class="task p-next">
+    <div class="task-body">
+      <div class="task-name"><span class="priority next">Next</span>ArcSite Integration &mdash; Partnership + Writeback</div>
+      <div class="task-desc">Integrate ArcSite (mobile CAD / takeoff / proposal app for turf, fencing, landscaping) as a data source that writes drawings, takeoffs, and proposals back into AGM Pro Tools. AGM occupies the agentic automation/orchestration layer on top of ArcSite data &mdash; a partner slot no current ArcSite integration fills. Warm entry: Oasis Turf is already an ArcSite integration-candidate prospect in our pipeline. Hooks: ArcSite already feeds Salesforce (HG Direct stack) + its Drawing-PDF output maps onto our Project Documents Uploader. Next action: book Zoom walkthrough with Nate to map every ArcSite object to its AGM writeback (AGM-205).</div>
+    </div>
+    <div class="task-meta"><a href="https://linear.app/agmprotools/issue/AGM-205/book-zoom-call-with-nate-arcsite-agm-writeback-walkthrough">Linear AGM-205 — Book Nate call</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/arcsite-integration-06c188d6fb3b">Linear: ArcSite Integration</a><span class="ln-state"><span class="ln-pill ln-planned">Planned</span><span class="ln-bar" title="0/5 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/5</span></span><br><span class="meta-text">Jun 12 · Warm via Oasis Turf · Next: Nate Zoom walkthrough · Linear AGM-205 (book call)</span></div>
+  </article>
+
   <article class="task p-next">
     <div class="task-body">
       <div class="task-name"><span class="priority next">Next</span>Product Mission Control &mdash; Phase 1: Dispatch shell</div>
@@ -1841,14 +1873,6 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
 
   <article class="task p-queued">
     <div class="task-body">
-      <div class="task-name"><span class="priority queued">Queued</span>Level 3 Outcome-Feedback Bandit (recursion-capability promotion)</div>
-      <div class="task-desc">Move AGM Pro Tools from Level 2 (structural enforcement) to Level 3 (bandit/exploitation) on the Vibe Thesis recursive-capability ladder. Wire Thompson-sampling bandit over signing-link email subject line &mdash; first axis. Substrate already in place: signing_pg.sql captures sent/viewed/signed/withdrawn/reminder timestamps + rep stratification. 3 sprints / 8 working weeks once unblocked. Gated behind 2026-05-19 SF breach recovery (Path B &rarr; OAuth Client Credentials) + CENTAH &#x27;Re:&#x27; thread bombardment fix. First Monday after green light: 10-min HG send-volume query, 20-min variant_assignments schema PR, 30-min Tim+Eric template-discipline prep. See memory/project_level_3_outcome_bandit.md.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-queued-c2775ee853d3">Linear: Level 3 Outcome-Feedback Bandit (queued)</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/6 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/6</span></span><br><span class="meta-text">Added May 19 · Gated: SF breach + CENTAH cleanup</span></div>
-  </article>
-
-  <article class="task p-queued">
-    <div class="task-body">
       <div class="task-name"><span class="priority queued">Queued</span>Multi-Cloud Redundancy</div>
       <div class="task-desc">Single Modal deployment, single region (us-west). Fine for 10 clients. At 50+ need multi-region or multi-cloud failover.</div>
     </div>
@@ -1958,6 +1982,14 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
     </div>
     <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/on-the-radar-queued-initiatives-66d386df1a17">Linear: On the Radar — Queued Initiatives</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="1/22 issues done"><span class="ln-bar-fill" style="width:5%"></span></span><span class="ln-count">1/22</span></span><br><span class="meta-text">Designed · Not built</span></div>
   </article>
+
+  <article class="task p-medium">
+    <div class="task-body">
+      <div class="task-name"><span class="priority medium">Medium</span>Loop Engineering &mdash; Autonomous Build Factory (Spec &rarr; Build &rarr; Review)</div>
+      <div class="task-desc">From the Alex Finn loop-architecture synthesis (2026-06-12): add the build/review middle to the discovery-loop front end. P1 Slack rails (blocked channel, EOD test-and-merge, backlog auditor), P2 /spec intake &rarr; machine-buildable Linear cards, P3 worktree build loop + independent review loop (Circumference Protocol gated). Cards AGM-206..211.</div>
+    </div>
+    <div class="task-meta"><a href="https://linear.app/agmprotools/project/loop-engineering-autonomous-build-factory-spec-build-review-9eb71b9b21f7">Linear project</a><br><span class="meta-text">Jun 12 · Project opened &mdash; board only, no code yet</span></div>
+  </article>
   </div>
 </section>
 
@@ -2065,10 +2097,18 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
   <details>
     <summary class="cat-header">
       <span class="cat-title">Recently Completed</span>
-      <span class="cat-count">32</span>
+      <span class="cat-count">33</span>
       <span class="cat-toggle">expand &darr;</span>
     </summary>
     <div class="cat-items">
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>Level 3 Outcome-Feedback Bandit (recursion-capability promotion)</div>
+      <div class="task-desc">Move AGM Pro Tools from Level 2 (structural enforcement) to Level 3 (bandit/exploitation) on the Vibe Thesis recursive-capability ladder. Wire Thompson-sampling bandit over signing-link email subject line &mdash; first axis. Substrate already in place: signing_pg.sql captures sent/viewed/signed/withdrawn/reminder timestamps + rep stratification. 3 sprints / 8 working weeks once unblocked. Gated behind 2026-05-19 SF breach recovery (Path B &rarr; OAuth Client Credentials) + CENTAH &#x27;Re:&#x27; thread bombardment fix. First Monday after green light: 10-min HG send-volume query, 20-min variant_assignments schema PR, 30-min Tim+Eric template-discipline prep. See memory/project_level_3_outcome_bandit.md. &mdash; UNQUEUED 2026-06-12: Troy green-lit; Sprint 1 shadow mode built, Council-reviewed, and deployed same-day. Tracking continues under Multi-Track Contract Engine.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-queued-c2775ee853d3">Linear: Level 3 Outcome-Feedback Bandit (queued)</a><span class="ln-state"><span class="ln-pill ln-stale" title="This Linear project URL no longer resolves — renamed or superseded">⚠ link stale</span><span class="ln-bar" title="0/6 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/6</span></span><br><span class="meta-text">Jun 12 · Left the queue &mdash; Sprint 1 shipped same-day</span></div>
+  </article>
+
   <article class="task p-done done-row">
     <div class="task-body">
       <div class="task-name"><span class="priority done">Done</span>Morning Discovery Loop &mdash; loop-engineering ignition</div>

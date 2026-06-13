@@ -722,17 +722,9 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Multi-Track Contract Engine &mdash; Active Sprint</span>
-    <span class="cat-count">9 active &middot; 22 done</span>
+    <span class="cat-count">8 active &middot; 23 done</span>
   </header>
   <div class="cat-items">
-  <article class="task p-now">
-    <div class="task-body">
-      <div class="task-name"><span class="priority now">Now</span>Level 3 Bandit &mdash; HGP-144 metric ratification (only Sprint 2 gate)</div>
-      <div class="task-desc">Ratify the 7-day leading metric before live routing. Census finding: surviving sessions sign &gt;90% in 7d (survivorship-biased) &mdash; sign-rate has thin headroom; proposal on HGP-144 is time-to-sign / viewed-within-48h. Shadow data accruing now will power-check both options.</div>
-    </div>
-    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-c2775ee853d3">Linear</a><br><span class="meta-text">Jun 12 · Troy ratifies</span></div>
-  </article>
-
   <article class="task p-now">
     <div class="task-body">
       <div class="task-name"><span class="priority now">Now</span>HG-Direct: stand up test environment (NEXT &mdash; needs Troy GO)</div>
@@ -798,7 +790,7 @@
   </article>
   </div>
   <details class="completed-fold">
-    <summary>22 completed in this category &mdash; show</summary>
+    <summary>23 completed in this category &mdash; show</summary>
     <div class="cat-items completed-items">
   <article class="task p-done done-row">
     <div class="task-body">
@@ -806,6 +798,14 @@
       <div class="task-desc">Thompson-sampling selector records shadow subject-line assignments on every customer signing-link send; variant_assignments table in Neon; daily digest cron (stall alarm + Monday posteriors). Council-reviewed. HGP-143 waived by Troy. Next: verify first shadow row (HGP-140), then HGP-144 metric ratification is the only gate before Sprint 2 live routing.</div>
     </div>
     <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-c2775ee853d3">Linear</a><br><span class="meta-text">Jun 12 · Shadow live in prod</span></div>
+  </article>
+
+  <article class="task p-done done-row">
+    <div class="task-body">
+      <div class="task-name"><span class="priority done">Done</span>Level 3 Bandit &mdash; S2 metrics RATIFIED + first shadow row landed (2026-06-12)</div>
+      <div class="task-desc">HGP-144 DONE: Troy ratified time-to-sign (7d leading, bandit iteration) + completed/installed-without-withdrawal-at-60d (lagging, monthly validation). HGP-140 DONE: first shadow assignment verified in prod (session 5adf7445, variant c_next_step, 2026-06-12T23:10Z) &mdash; selector&rarr;Neon plumbing proven end-to-end. Remaining before HGP-146 live routing build: a clean shadow-mode validation window (now accruing). HGP-143 waived.</div>
+    </div>
+    <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/level-3-outcome-feedback-bandit-c2775ee853d3">Linear</a><br><span class="meta-text">Jun 12 · S2 gate cleared</span></div>
   </article>
 
   <article class="task p-done done-row">
@@ -1756,7 +1756,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Queued &mdash; On the Radar</span>
-    <span class="cat-count">16 active</span>
+    <span class="cat-count">17 active</span>
   </header>
   <div class="cat-items">
   <article class="task p-next">
@@ -1885,6 +1885,14 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
       <div class="task-desc">Automated reminder loop for unsigned documents (sales contract, start of work, completion of work). Three independent loops, timed escalation.</div>
     </div>
     <div class="task-meta"><a class="linear-link" href="https://linear.app/agmprotools/project/on-the-radar-queued-initiatives-66d386df1a17">Linear: On the Radar — Queued Initiatives</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="1/22 issues done"><span class="ln-bar-fill" style="width:5%"></span></span><span class="ln-count">1/22</span></span><br><span class="meta-text">Designed · Not built</span></div>
+  </article>
+
+  <article class="task p-medium">
+    <div class="task-body">
+      <div class="task-name"><span class="priority medium">Medium</span>Loop Engineering &mdash; Autonomous Build Factory (Spec &rarr; Build &rarr; Review)</div>
+      <div class="task-desc">From the Alex Finn loop-architecture synthesis (2026-06-12): add the build/review middle to the discovery-loop front end. P1 Slack rails (blocked channel, EOD test-and-merge, backlog auditor), P2 /spec intake &rarr; machine-buildable Linear cards, P3 worktree build loop + independent review loop (Circumference Protocol gated). Cards AGM-206..211.</div>
+    </div>
+    <div class="task-meta"><a href="https://linear.app/agmprotools/project/loop-engineering-autonomous-build-factory-spec-build-review-9eb71b9b21f7">Linear project</a><br><span class="meta-text">Jun 12 · Project opened &mdash; board only, no code yet</span></div>
   </article>
   </div>
 </section>
@@ -2266,7 +2274,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
 
 <div class="footer">
   True North &mdash; AGM Pro Tools<br>
-  Updated 2026-06-12 by harlan<br>
+  Updated 2026-06-12 by Harlan (loop engineering project opened)<br>
   Single source of truth for everything in flight.
 </div>
 

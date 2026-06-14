@@ -654,7 +654,7 @@
     <div class="ps-row-main">
       <span class="ps-glyph">✅</span>
       <span class="ln-pill ln-completed">Completed</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/jobber-app-marketplace-path-b-build-sprint-31e2c40987db">Jobber App Marketplace — Path B Build Sprint</a><span class="ps-promo" title="Promoted by leverage — gates: HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;); Launchpad Funnel — Quiz → $97 Starter → Jobber Listing">↑ gates HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;), Launchpad Funnel — Quiz → $97 Starter → Jobber Listing</span>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/jobber-app-marketplace-path-b-build-sprint-31e2c40987db">Jobber App Marketplace — Path B Build Sprint</a><span class="ps-promo" title="Promoted by leverage — gates: Launchpad Funnel — Quiz → $97 Starter → Jobber Listing; HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)">↑ gates Launchpad Funnel — Quiz → $97 Starter → Jobber Listing, HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)</span>
     </div>
     <div class="ps-row-meta"><span class="ln-bar" title="5/12 done"><span class="ln-bar-fill" style="width:42%"></span></span><span class="ln-count">5/12</span></div>
     
@@ -1078,7 +1078,7 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Enforcement Layer &mdash; Hooks Over Prompts</span>
-    <span class="cat-count">3 active &middot; 4 done</span>
+    <span class="cat-count">4 active &middot; 4 done</span>
   </header>
   <div class="cat-items">
   <article class="task p-next">
@@ -1103,6 +1103,14 @@
       <div class="task-desc">Fold monitoring into the Enforcement Layer. WS-6a SHIPPED (audit 41/0). Red-team probes NOW scheduled weekly (com.agm.red-team-probes LaunchAgent, Slack-on-CRITICAL/HIGH, self-test verified) &mdash; closes the &#x27;red-team never took hold&#x27; gap. 🔴 TOP SECURITY FOLLOW-UP: posture audit is operationally dead (0/100, ~109 false new-script findings, 6 un-triaged CRITICAL unauth-endpoint flags = public Starter funnel) &mdash; advance the noise baseline + triage the 6 CRITICALs. Then: meta-monitor the auditor + WS-6b synthetic alarms. Cross-machine: install red-team probes on the Mac Mini (no creds needed) + Andrew&#x27;s Air.</div>
     </div>
     <div class="task-meta"><a href="https://linear.app/agmprotools/issue/AGM-128">AGM-128</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/the-enforcement-layer-0c7e02de7808">Linear: The Enforcement Layer</a><span class="ln-state"><span class="ln-pill ln-started">In Progress</span><span class="ln-bar" title="3/6 issues done"><span class="ln-bar-fill" style="width:50%"></span></span><span class="ln-count">3/6</span></span><br><span class="meta-text">WS-6a + red-team scheduled · audit-noise triage next · AGM-129</span></div>
+  </article>
+
+  <article class="task p-do-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority do-now">Do-now</span>Alerting Coherence Mechanism &mdash; TOMORROW&#x27;S #1</div>
+      <div class="task-desc">Stop the contradictory all-in-one Slack alert (green HEALTHY stacked under 6 CRITICAL + a 401 dashboard; audit posted twice). NOT a format fix &mdash; a prevention mechanism, mirroring how we already gate dashboard PII and send DND: (1) reconciliation chokepoint = one worst-of verdict per status post, green-under-red impossible by construction; (2) Alerting Coherence Contract directive + pre_deploy_check invariant test + quarterly bypass grep; (3) self-consistency canary cron mirroring security_audit_self_report. A/B consolidation depth = Troy&#x27;s clear-eyes call. Post-mortem: docs/post_mortems/2026-06-13_contradictory_alerts_no_coherence_check.md</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Carded 2026-06-13 PM · TOP OF THE HEAP in NEXT_SESSION.md</span></div>
   </article>
   </div>
   <details class="completed-fold">
@@ -2370,7 +2378,7 @@ Target: schedule into a future sprint when laptop builds + CENTAH bombardment fi
 
 <div class="footer">
   True North &mdash; AGM Pro Tools<br>
-  Updated 2026-06-13 by sync_linear_to_true_north.py<br>
+  Updated 2026-06-13 by Harlan (home Mac)<br>
   Single source of truth for everything in flight.
 </div>
 

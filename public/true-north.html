@@ -670,7 +670,7 @@
     <div class="ps-row-main">
       <span class="ps-glyph">✅</span>
       <span class="ln-pill ln-completed">Completed</span><span class="ps-prio ps-prio-high">High</span>
-      <a class="ps-name" href="https://linear.app/agmprotools/project/jobber-app-marketplace-path-b-build-sprint-31e2c40987db">Jobber App Marketplace — Path B Build Sprint</a><span class="ps-promo" title="Promoted by leverage — gates: HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;); Launchpad Funnel — Quiz → $97 Starter → Jobber Listing">↑ gates HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;), Launchpad Funnel — Quiz → $97 Starter → Jobber Listing</span>
+      <a class="ps-name" href="https://linear.app/agmprotools/project/jobber-app-marketplace-path-b-build-sprint-31e2c40987db">Jobber App Marketplace — Path B Build Sprint</a><span class="ps-promo" title="Promoted by leverage — gates: Launchpad Funnel — Quiz → $97 Starter → Jobber Listing; HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)">↑ gates Launchpad Funnel — Quiz → $97 Starter → Jobber Listing, HappyWater USA — Headless Standalone Build (&quot;Outside the System&quot;)</span>
     </div>
     <div class="ps-row-meta"><span class="ln-bar" title="5/12 done"><span class="ln-bar-fill" style="width:42%"></span></span><span class="ln-count">5/12</span></div>
     
@@ -1170,9 +1170,17 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">This Week &mdash; Priority</span>
-    <span class="cat-count">29 active &middot; 6 done</span>
+    <span class="cat-count">30 active &middot; 6 done</span>
   </header>
   <div class="cat-items">
+  <article class="task p-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority now">Now</span>🔧 Decouple ALL work from the Office iMac &mdash; centralize on Mac Mini / Modal</div>
+      <div class="task-desc">Troy ask 2026-06-20: the office iMac being asleep/off must never block work. This morning it was deep-asleep at the remote office (NIC down; SSH/ICMP/tailnet all timed out) and could NOT be woken remotely &mdash; WoL can&#x27;t cross the internet and there is no co-located always-on relay at the office (the Mac Mini is at the home office). Nothing in PROD depends on it (all live systems run on Modal; health green with iMac dark), but 2 things are single-homed there: (1) the uncommitted AGM-&gt;SF writeback source [durability risk, not uptime &mdash; engine runs on Modal + is idempotent], (2) the 05:00 morning-briefing LaunchAgent. PLAN (Harlan owns, execute as iMac comes up today): (1) rescue writeback source into git the moment iMac is reachable -&gt; pre_deploy_check -&gt; verify AGM_Appointment_Id__c upsert idempotency -&gt; commit+gate; (2) migrate the 05:00 briefing onto the always-on Mac Mini (non-credentialed by design, so it can host it); (3) inventory + migrate every iMac-only LaunchAgent/cron to Mini or Modal; (4) Troy call (trust model): route SF-cred work via Modal functions vs stand up a 2nd credentialed operator; (5) iMac end state = pure optional workstation. Wake-catcher armed on the Mini today (caffeinate + briggs_to_harlan marker on wake). Detail: NEXT_SESSION.md &#x27;TODAY 2026-06-20&#x27; section.</div>
+    </div>
+    
+  </article>
+
   <article class="task p-now">
     <div class="task-body">
       <div class="task-name"><span class="priority now">Now</span>FieldRoutes ETL Framework &mdash; V2.1 cutover (AGM-160/161)</div>

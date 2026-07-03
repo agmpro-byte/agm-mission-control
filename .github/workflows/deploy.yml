@@ -35,5 +35,14 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      # Pages backend intermittently returns "Deployment failed, try again later"
+      # (4 transient failures on 2026-07-02 alone, each emailing the org owner).
+      # First attempt is allowed to fail; a 60s backoff + retry absorbs the blip.
       - id: deployment
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+      - if: steps.deployment.outcome == 'failure'
+        run: sleep 60
+      - id: deployment-retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4

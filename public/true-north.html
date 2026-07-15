@@ -1516,9 +1516,25 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Next Up &mdash; This Week / Next Week</span>
-    <span class="cat-count">16 active &middot; 5 done</span>
+    <span class="cat-count">21 active &middot; 5 done</span>
   </header>
   <div class="cat-items">
+  <article class="task p-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority now">Now</span>Metrics layer: Failure Recurrence Rate + Mean Time To Structural Learning</div>
+      <div class="task-desc">Add frontmatter to docs/post_mortems/*.md (incident_date, structural_fix_date, class: new|repeat) + compute script. Born from the 07-15 recursiveness self-assessment (3.5/5) &mdash; Alden&#x27;s FRR metric falsified the &#x27;never fails the same way twice&#x27; claim before it was built. Law: infra failures rarely repeat; behavioral ones repeat until they get hooks.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Jul 15 · Alden loopback</span></div>
+  </article>
+
+  <article class="task p-now">
+    <div class="task-body">
+      <div class="task-name"><span class="priority now">Now</span>Wire heartbeats for 4 registered-but-mute crons (health &#x27;degraded&#x27; since 07-15)</div>
+      <div class="task-desc">collections_ar_snapshot_cron, prep_monthly_newsletter (sertbo-newsletter), aq_push + aq_ack_scan (agm-action-queue) &mdash; in CRON_REGISTRY but writing no heartbeat files. Wire write_heartbeat or deregister.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Jul 15 · live yellow</span></div>
+  </article>
+
   <article class="task p-now">
     <div class="task-body">
       <div class="task-name"><span class="priority now">Now</span>QBO follow-ons: email-record card &rarr; job↔QBO join key &rarr; auto-invoice rail</div>
@@ -1629,6 +1645,30 @@
       <div class="task-desc">As of 2026-07-09: no code yet. Re-scoped 2026-06-08 into Linear project &#x27;HG BarCloud Integration &mdash; Sold-Job &rarr; Installer-Ready Automation&#x27; as HGP-70..79 (commit ee4cb60a); project status Planned (upd 06-11), issues still Todo (e.g. HGP-70 BarCloud API client &mdash; Stock Issue creation + transaction-ID writeback to AGM). Original scope stands: on install stage, AGM webhook &rarr; Modal worker &rarr; BarCloud Stock Issue with turf type + dye lot &rarr; draw record back to AGM + SF. BarCloud API is pull-only (no webhooks). First step remains BOM schema + dye-lot data model &mdash; no canonical bill of materials exists at HG. Exec memo sent Tim + Troy 2026-04-09.</div>
     </div>
     <div class="task-meta"><a href="https://docs.google.com/document/d/10tyXtR-3YMY3xeZnc6YLm-TXr_W3lG5BGkaqZvtBMLE/edit">Exec Memo (Google Doc)</a><br><a class="linear-link" href="https://linear.app/agmprotools/project/client-integrations-pipeline-21e5cf753ce1">Linear: Client Integrations Pipeline</a><span class="ln-state"><span class="ln-pill ln-backlog">Backlog</span><span class="ln-bar" title="0/10 issues done"><span class="ln-bar-fill" style="width:0%"></span></span><span class="ln-count">0/10</span></span><br><span class="meta-text">Linear HGP-70..79, project Planned (upd 06-11) / no code / exec memo Apr 9</span></div>
+  </article>
+
+  <article class="task p-medium">
+    <div class="task-body">
+      <div class="task-name"><span class="priority medium">Medium</span>Organizational Confidence Index &mdash; design pass (NOT code yet)</div>
+      <div class="task-desc">Single computed trust number (outcome verification, drift, failed closures, human discoveries, post-mortem velocity, time since customer-discovered issue). Constraints: routes through alerting_reconciler.py (can never contradict health verdict) + architecturally incapable of resting at a flattering number.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Jul 15 · Alden loopback</span></div>
+  </article>
+
+  <article class="task p-medium">
+    <div class="task-body">
+      <div class="task-name"><span class="priority medium">Medium</span>Right-to-Exist Review &mdash; quarterly zero-based directive pass</div>
+      <div class="task-desc">Every directive answers: what problem does this still solve / what evidence says it matters / what fails if removed / written today, would it differ? Legitimacy, not age &mdash; composes with directive_staleness_monitor. Alden&#x27;s four questions verbatim.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Jul 15 · quarterly</span></div>
+  </article>
+
+  <article class="task p-medium">
+    <div class="task-body">
+      <div class="task-name"><span class="priority medium">Medium</span>De-single-host the alert delivery rail</div>
+      <div class="task-desc">system_health_check.py / client_health_check.py run from the office Mac crontab on system Python 3.9 &mdash; if this machine dies the watchers go mute. Modal-side reconciler post OR Mini as second delivery host (couples w/ Briggs revival AGM-336) + migrate crontab entries to 3.12 LaunchAgents.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Jul 15 · meta-gap</span></div>
   </article>
 
   <article class="task p-later">
@@ -2492,7 +2532,7 @@
 
 <div class="footer">
   True North &mdash; AGM Pro Tools<br>
-  Updated 2026-07-15 by sync_linear_to_true_north.py<br>
+  Updated 2026-07-15 by Harlan — recursiveness assessment + Alden loopback close-out<br>
   Single source of truth for everything in flight.
 </div>
 

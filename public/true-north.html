@@ -296,6 +296,16 @@
   .ln-bar-fill { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg,#34d399,#60a5fa); }
   .ln-count { font-size: 9.5px; color: var(--text-mute); font-weight: 600; }
 
+  /* ── Waiting on You (pinned, live from the Action Queue ledger) ── */
+  .waiting-on-you { background: linear-gradient(180deg, rgba(34,211,238,0.06), rgba(34,211,238,0.01)); border: 1px solid var(--border-strong); border-radius: 14px; padding: 18px 18px 14px; margin: 0 0 28px; }
+  .waity-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .waity-row { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; padding: 8px 10px; border-radius: 8px; background: var(--bg-card); border: 1px solid var(--border); }
+  .waity-row.waity-overdue { border-color: rgba(248,113,113,0.35); background: rgba(248,113,113,0.05); }
+  .waity-id { font-size: 10.5px; font-weight: 800; color: var(--waiting); white-space: nowrap; }
+  .waity-recipient { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
+  .waity-title { font-size: 13px; color: var(--text); flex: 1 1 320px; }
+  .waity-meta { font-size: 10.5px; color: var(--text-dim); white-space: nowrap; }
+
   /* ── Operational Priority Stack (pinned, computed live from Linear) ── */
   .priority-stack { background: linear-gradient(180deg, rgba(96,165,250,0.05), rgba(96,165,250,0.01)); border: 1px solid var(--border-strong); border-radius: 14px; padding: 18px 18px 14px; margin: 0 0 28px; }
   .ps-header { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
@@ -369,7 +379,7 @@
 
 <h1>True North</h1>
 <p class="subtitle">AGM Pro Tools &mdash; everything in flight, prioritized</p>
-<p class="datestamp">Last updated: 2026-07-15</p>
+<p class="datestamp">Last updated: 2026-07-16</p>
 
 <div class="stats">
   <div class="stat"><div class="stat-value">4</div><div class="stat-label">Clients Live</div></div>
@@ -386,6 +396,14 @@
   <button data-filter="queued">Queued</button>
   <button data-filter="promoted">Promoted &uarr;</button>
 </div>
+
+<section class="waiting-on-you">
+  <header class="ps-header">
+    <span class="ps-title">Waiting on You</span>
+    <span class="ps-sub">live from the Action Queue ledger &middot; ack with "ack &lt;id&gt;" or "done &lt;id&gt;"</span>
+  </header>
+  <ul class="waity-list"><li class="waity-row waity-overdue"><span class="waity-id">AQ-3</span><span class="waity-recipient">troy</span><span class="waity-title">HG Nurture Consolidation plan ready for review &mdash; 3 decisions + a live gap to close</span><span class="waity-meta">2.3d &middot; .tmp/handoffs/andrew_to_troy/decision_2026-07-07_152656.json</span></li><li class="waity-row waity-overdue"><span class="waity-id">AQ-4</span><span class="waity-recipient">troy</span><span class="waity-title">Right-sizing AGM customer-support seat (Nichole) &mdash; Paula + light automation absorb; staff-to-demand</span><span class="waity-meta">2.3d &middot; .tmp/handoffs/andrew_to_troy/decision_2026-07-08_185158.json</span></li><li class="waity-row waity-overdue"><span class="waity-id">AQ-5</span><span class="waity-recipient">troy</span><span class="waity-title">Realturf dealer-center snapshot plan ready for review &mdash; going to Layne Mon 1PM PT unless you want to discuss first</span><span class="waity-meta">2.3d &middot; .tmp/handoffs/andrew_to_troy/decision_2026-07-10_142854.json</span></li><li class="waity-row waity-overdue"><span class="waity-id">AQ-6</span><span class="waity-recipient">troy</span><span class="waity-title">Troy (agency owner) must delete 6 orphaned PDFs in Edward Garcia&#x27;s HG Documents panel &mdash; only agency owner can; escalated to GHL</span><span class="waity-meta">2.3d &middot; .tmp/handoffs/andrew_to_troy/escalation_2026-06-24_140532.json</span></li><li class="waity-row waity-overdue"><span class="waity-id">AQ-7</span><span class="waity-recipient">troy</span><span class="waity-title">SERTBO Stripe (Layer B) integration needs Fence-3 Stripe keys &mdash; direct Stripe is the subscription source of truth, GHL sees only 2 of 15 subs</span><span class="waity-meta">2.3d &middot; .tmp/handoffs/andrew_to_troy/escalation_2026-06-29_095414.json</span></li><li class="waity-row waity-overdue"><span class="waity-id">AQ-8</span><span class="waity-recipient">troy</span><span class="waity-title">Docs + credential mislabel: location rSoI…Q4u is the AGM SUB-account, not &#x27;AGM Agency&#x27; &mdash; AGM_AGENCY_API_KEY is a misnomer (Fence-4 reclassify)</span><span class="waity-meta">2.3d &middot; .tmp/handoffs/andrew_to_troy/escalation_2026-07-08_185222.json</span></li><li class="waity-row waity-overdue"><span class="waity-id">AQ-9</span><span class="waity-recipient">troy</span><span class="waity-title">Valley Wide website went FULLY DOWN 07-10 (WP 7.0 major + PHP 8.3 auto-update -&gt; PHP fatal, masked by Cloudflare cache); restored. Cross-client WordPress auto-update risk.</span><span class="waity-meta">2.3d &middot; .tmp/handoffs/andrew_to_troy/escalation_2026-07-10_183725.json</span></li><li class="waity-row"><span class="waity-id">AQ-17</span><span class="waity-recipient">troy</span><span class="waity-title">AGM-132 HappyWater contract engine &mdash; Troy committed to Nathan; build tomorrow AM (07-16)</span><span class="waity-meta">17h &middot; .tmp/handoffs/andrew_to_troy/escalation_2026-07-15_224424.json</span></li><li class="waity-row"><span class="waity-id">AQ-23</span><span class="waity-recipient">troy</span><span class="waity-title">HG: our AGM&rarr;SF poller writes &#x27;HG Lead - &lt;source&gt;&#x27; into Lead.Company -&gt; lands as customer&#x27;s Account+Job name in SF. 306 leads, 24 converted, ~3/day live. AUDIT ONLY, nothing corrected.</span><span class="waity-meta">4h &middot; .tmp/handoffs/andrew_to_troy/escalation_2026-07-16_120301.json</span></li></ul>
+</section>
 
 <section class="priority-stack">
   <header class="ps-header">
@@ -1990,7 +2008,7 @@
 <section class="category">
   <header class="cat-header">
     <span class="cat-title">Queued &mdash; On the Radar</span>
-    <span class="cat-count">16 active &middot; 1 done</span>
+    <span class="cat-count">18 active &middot; 1 done</span>
   </header>
   <div class="cat-items">
   <article class="task p-queued">
@@ -2119,6 +2137,22 @@
       <div class="task-desc">From the Alex Finn loop-architecture synthesis (2026-06-12): add the build/review middle to the discovery-loop front end. P1 Slack rails (blocked channel, EOD test-and-merge, backlog auditor), P2 /spec intake &rarr; machine-buildable Linear cards, P3 worktree build loop + independent review loop (Circumference Protocol gated). Cards AGM-206..211.</div>
     </div>
     <div class="task-meta"><a href="https://linear.app/agmprotools/project/loop-engineering-autonomous-build-factory-spec-build-review-9eb71b9b21f7">Linear project</a><br><span class="meta-text">Jun 12 · Project opened &mdash; board only, no code yet</span></div>
+  </article>
+
+  <article class="task p-low">
+    <div class="task-body">
+      <div class="task-name"><span class="priority low">Low</span>Shareable Automation Score card (network-effect play)</div>
+      <div class="task-desc">Redesign the ContractorAutomationScore.com score output as a screenshot-first card: bold grade, contractor name, URL baked into the image, one-tap share. The shared artifact IS the acquisition channel (Robinhood-screenshot pattern). Network effects = AGM&#x27;s weakest moat leg per the three-moat frame (distribution / network effects / partnerships+data). Source: Alex Finn live-session intel, 07-16.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Jul 16 · Design task on existing asset</span></div>
+  </article>
+
+  <article class="task p-low">
+    <div class="task-body">
+      <div class="task-name"><span class="priority low">Low</span>Testimonial reflex &mdash; customer win &rarr; public post &rarr; screenshot &rarr; site</div>
+      <div class="task-desc">Standing process step, zero build: the moment a reference customer (HG, Amazing Turf, SGDFW, Oasis, Real Turf) reports a win, ask them to post it publicly, screenshot it, capture for the site. Source: Alex Finn live-session intel, 07-16.</div>
+    </div>
+    <div class="task-meta"><span class="meta-text">Jul 16 · Process, zero build</span></div>
   </article>
   </div>
   <details class="completed-fold">
@@ -2532,7 +2566,7 @@
 
 <div class="footer">
   True North &mdash; AGM Pro Tools<br>
-  Updated 2026-07-15 by sync_linear_to_true_north.py<br>
+  Updated 2026-07-16 by Harlan (Finn transcript intel close-out)<br>
   Single source of truth for everything in flight.
 </div>
 

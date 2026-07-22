@@ -23,7 +23,13 @@ h1{font-size:24px;font-weight:800;letter-spacing:-.02em}
 .pulse-score{font-size:52px;font-weight:800;letter-spacing:-.03em}
 .pulse-label{font-size:12px;color:var(--dim);text-transform:uppercase;letter-spacing:.05em}
 .dims{display:flex;gap:8px;flex-wrap:wrap}
-.dim-chip{font-size:12px;border:1px solid var(--border);border-radius:99px;padding:4px 10px;color:var(--c,var(--muted))}
+.dim-chip{font-size:12px;border:1px solid var(--border);border-radius:99px;padding:4px 10px;color:var(--c,var(--muted));cursor:help}
+.pulse-how{font-size:10.5px;color:var(--dim);text-transform:none;letter-spacing:0}
+.drag{flex-basis:100%;margin-top:4px;border-top:1px solid var(--border);padding-top:10px}
+.dragh{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--dim);margin-bottom:4px}
+.drag ul{list-style:none;padding:0}
+.drag li{font-size:12.5px;color:var(--muted);padding:3px 0}
+.dragmore{color:var(--dim)}
 .chips{display:flex;gap:14px;flex-wrap:wrap}
 .chip{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 18px;min-width:120px;transition:border-color .15s}
 .chip:hover{border-color:#60a5fa}
@@ -84,10 +90,10 @@ h1{font-size:24px;font-weight:800;letter-spacing:-.02em}
 footer{margin-top:26px;font-size:11.5px;color:var(--dim)}
 </style></head><body>
 <header><h1>AGM Command Center</h1>
-<span class="stamp">rendered 2026-07-22 17:03 UTC · Linear mirror synced 2026-07-22 16:58 · 4 projects completed</span></header>
+<span class="stamp">rendered 2026-07-22 17:10 UTC · Linear mirror synced 2026-07-22 16:58 · 4 projects completed</span></header>
 <nav class="navpills"><a class="pill" href="/true-north.html" title="full queue + priority board">True North</a><a class="pill" href="https://linear.app/agmprotools" title="the canonical board" target=_blank rel=noopener>Linear</a><a class="pill" href="https://app.slack.com/client/TMFC3EWRX/C0AKM0KTKD2" title="ack / approve here" target=_blank rel=noopener>Slack · alerts</a><a class="pill" href="https://hgcommand.com" title="Heavenly Greens ops" target=_blank rel=noopener>HG Command</a><a class="pill" href="https://app.agmprotools.com" title="subscriber platform" target=_blank rel=noopener>AGM App</a><a class="pill" href="https://contractorautomationscore.com" title="CAS quiz funnel" target=_blank rel=noopener>Automation Score</a></nav>
 <div class="grid">
-  <section class="card"><div class="sect">Pulse</div><div class="pulse"><div class="pulse-score" style="color:#86efac">99</div><div class="pulse-label">system health</div><div class="dims"><span class="dim-chip" style="--c:#86efac">Platform 97</span><span class="dim-chip" style="--c:#86efac">Connections 100</span><span class="dim-chip" style="--c:#86efac">Subscribers 100</span><span class="dim-chip" style="--c:#86efac">Strategy 100</span></div></div></section>
+  <section class="card"><div class="sect">Pulse</div><div class="pulse"><div class="pulse-score" style="color:#86efac">99</div><div class="pulse-label">system health<br><span class="pulse-how">weighted blend · hover a chip for what it measures</span></div><div class="dims"><span class="dim-chip" style="--c:#86efac" title="Modal apps, crons + heartbeats — infra uptime · 30% of the blend">Platform 97</span><span class="dim-chip" style="--c:#86efac" title="Third-party APIs: Google, Jobber, AGM tokens + canaries · 25% of the blend">Connections 100</span><span class="dim-chip" style="--c:#86efac" title="Per-client integration health across live clients · 30% of the blend">Subscribers 100</span><span class="dim-chip" style="--c:#86efac" title="Revenue funnel automations: CAS quiz, Launchpad lifecycle · 15% of the blend">Strategy 100</span></div><div class="drag"><div class="dragh">What's holding it under 100</div><ul><li><b style="color:#fcd34d">Platform 97</b> · 1 transient blip(s) (tt_sales_data_refresh)</li></ul></div></div></section>
   <section class="card"><div class="sect">The Org<span class="sub">chips are clickable</span></div><div class="chips"><a class="chip" href="#rails"><b>4</b><span>clients live</span></a><a class="chip" href="/true-north.html"><b>4</b><span>prospects</span></a><a class="chip" href="#strategy"><b>13</b><span>projects in flight</span></a><a class="chip" href="/true-north.html"><b>108</b><span>open items</span></a></div></section>
 </div>
 <section class="card lev"><div class="sect">⚡ The Leverage Move<span class="sub">as of 2026-07-21 · card IDs open in Linear</span></div><p>Jobber review window is still THE window (listing submitted 07-17): <a class="idlink" href="https://linear.app/agmprotools/issue/AGM-297" target="_blank" rel="noopener noreferrer">AGM-297</a> stranded-signup rescue + <a class="idlink" href="https://linear.app/agmprotools/issue/AGM-122" target="_blank" rel="noopener noreferrer">AGM-122</a> E2E prep + <a class="idlink" href="https://linear.app/agmprotools/issue/AGM-192" target="_blank" rel="noopener noreferrer">AGM-192</a> provisioning verify (just unblocked by <a class="idlink" href="https://linear.app/agmprotools/issue/AGM-41" target="_blank" rel="noopener noreferrer">AGM-41</a> close); respond &lt;24h to reviewer questions. Troy-gated minutes first: 2 flywheel taps + QBO sandbox mint (<a class="idlink" href="https://linear.app/agmprotools/issue/AGM-371" target="_blank" rel="noopener noreferrer">AGM-371</a>).</p></section>

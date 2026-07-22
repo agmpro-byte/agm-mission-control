@@ -26,15 +26,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-      - run: npm ci
-      - run: npx next build
+      # Pure static publish (2026-07-21 retooling): the Next.js app is gone;
+      # public/ IS the site. No node, no npm ci, no build — one less failure
+      # surface for the flaky-Pages-backend windows documented below.
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: out
+          path: public
 
   deploy:
     needs: build

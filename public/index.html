@@ -124,7 +124,7 @@ h1{font-size:24px;font-weight:800;letter-spacing:-.02em}
 footer{margin-top:26px;font-size:11.5px;color:var(--dim)}
 </style></head><body>
 <header><h1>AGM Command Tower</h1>
-<span class="stamp">rendered 2026-07-27 01:53 UTC · Linear mirror synced 2026-07-26 23:42 · 4 projects completed
+<span class="stamp">rendered 2026-07-27 01:54 UTC · Linear mirror synced 2026-07-26 23:42 · 4 projects completed
 <button class="hardref" onclick="hardRefresh()" title="Re-fetch this page from the server, bypassing the browser cache">⟳ Hard refresh</button>
 <span class="age" id="pageage"></span></span></header>
 <nav class="navpills"><a class="pill" href="https://hgcommand.com" title="Heavenly Greens ops" target=_blank rel=noopener>HG Command</a><a class="pill" href="https://app.agmpro.com" title="platform login" target=_blank rel=noopener>AGM App</a><a class="pill" href="https://contractorautomationscore.com" title="CAS quiz funnel" target=_blank rel=noopener>Automation Score</a></nav>
@@ -158,7 +158,7 @@ function hardRefresh() {
   var el = document.getElementById('pageage');
   if (!el) return;
   var m = (document.querySelector('.stamp') || {}).textContent || '';
-  var hit = m.match(/rendered (\d{4}-\d{2}-\d{2} \d{2}:\d{2}) UTC/);
+  var hit = m.match(/rendered ([0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}) UTC/);
   if (!hit) return;
   function tick() {
     var mins = Math.max(0, Math.round((Date.now() - Date.parse(hit[1].replace(' ', 'T') + ':00Z')) / 60000));
